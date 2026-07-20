@@ -1,0 +1,138 @@
+\documentclass[14pt]{extreport}
+\usepackage[a4paper,width=165mm,top=30mm,bottom=30mm]{geometry}
+\usepackage{graphicx,xcolor,enumerate,enumitem}
+\usepackage{amsmath,amsthm,amsfonts,mathtools,amssymb}
+\usepackage{tikz}
+\usepackage[nodisplayskipstretch]{setspace}
+\usepackage{caption}
+\usepackage{tasks}
+\usepackage{hyperref}
+\usetikzlibrary{arrows.meta}
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage[lite, subscriptcorrection, zswash]{mtpro2}
+
+\titleformat{\section}
+  {\normalfont\bfseries}{\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\normalfont\bfseries}{\thesubsection}{1em}{}
+  
+\setlength{\parindent}{0pt}
+\setlength{\headheight}{14.5pt}
+\usepackage[twoside]{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[C]{\thepage}
+\fancyhead[CE]{\nouppercase{\small \leftmark}}
+\fancyhead[CO]{\small Chapter \thechapter}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{#1}}{}}
+
+%\usepackage{polyglossia}
+%\setmainlanguage{english}
+%\setotherlanguage{arabic}
+%\newfontfamily\arabicfont[Script=Arabic,Scale=1.3]{Scheherazade}
+%\newcommand{\en}{\textenglish}
+%\newcommand{\ar}{\textarabic}
+\usepackage{biblatex}
+
+\titleformat{\chapter}[display]
+{\normalfont\centering\Large\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\centering\Large}
+  
+\renewcommand{\baselinestretch}{1.4}
+\setlength{\headheight}{17.0pt}
+
+\hypersetup{
+colorlinks=true,
+linkcolor=black,
+citecolor=black,
+}
+\DeclareMathOperator{\nat}{nat}
+\newcommand{\p}{\mathcal{P}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\comp}[1]{#1^{\prime}}
+\newcommand{\dcomp}[1]{#1^{\prime\prime}}
+
+\newtheoremstyle{mytheoremstyle}
+  {\topsep}
+  {\topsep}
+  {\itshape}
+  {0pt}
+  {\bfseries}
+  {.}
+  {.5em}
+  {#1 #2 \textbf{#3}}
+\theoremstyle{mytheoremstyle}
+\newtheorem{theo}{Theorem}[section]
+\newtheorem{cor}[theo]{Corollary}
+\newtheorem{lemma}[theo]{Lemma}
+
+\newtheoremstyle{mydefstyle}
+  {\topsep}
+  {\topsep}
+  {}
+  {0pt}
+  {\bfseries}
+  {.}
+  {0.4em}
+  {#1 #2 \textbf{#3}}
+\theoremstyle{mydefstyle}
+\newtheorem{mydef}[theo]{Definition}
+\newtheorem{example}[theo]{Example}
+
+\newtheoremstyle{myproofstyle}
+  {\topsep}
+  {\topsep}
+  {}
+  {0pt}
+  {\bfseries}
+  {.}
+  {0.4em}
+  {#1#2\textbf{#3}}
+\theoremstyle{myproofstyle}
+\newtheorem*{myproof}{\textit{\textbf{Proof}}}
+
+\addbibresource{References.bib}
+
+\begin{document}
+
+\abovedisplayskip=5pt
+\belowdisplayskip=5pt
+
+%\include{Title}
+\include{TitleEnglish}
+\thispagestyle{empty}
+\input{Thanks}
+\thispagestyle{empty}
+\newgeometry{a4paper,width=160mm,top=25mm, bottom=25mm}
+\tableofcontents
+\thispagestyle{empty}
+\restoregeometry
+\clearpage
+\setcounter{page}{1}
+\input{Introduction}
+
+\include{Ch1}
+
+\chapter{Boolean Rings and Boolean Algebra}
+\input{Ch2pt1}
+\input{Ch2pt2}
+\input{Ch2pt3}
+\input{Conclusion}
+
+\nocite{*}
+\begin{doublespace}
+\printbibliography[title={References}]
+\end{doublespace}
+\addcontentsline{toc}{chapter}{References}
+\end{document}
+

@@ -1,0 +1,199 @@
+\chapter{مفاهيم أساسية}
+
+\section{العلاقات والدوال}
+
+\begin{definition}
+	العلاقة بين مجموعتين $A, B$ هي مجموعة جزئية $R$ من $A\times B$. ونقرأ $(a, b)\in R$:\\
+	"$a$ مرتبط بالعنصر $b$"
+	ونكتب $aRb$
+\end{definition}
+
+\begin{definition}
+	الدالة $\phi$ من $X$ الى $Y$ هي علاقة بين $X$ و $Y$ مع الخاصية لكل $x\in X$ يظهر كعنصر اول في زو ج مرتب واحد $(x, y)$ في $\phi$ ونكتب $\phi:X\to Y$
+\end{definition}
+
+\section{العملية الثنائية وخصائصها}
+
+\begin{definition}
+	العملية الثنائية $*$ على مجموعة $S$ هي دالة من $S\times S$ الى $S$ لكل $(a,b) \in S\times S$. نرمز الى العنصر $*\big((a, b)\big)$ بالرمز $a*b$
+\end{definition}
+
+\begin{definition}
+	العملية الثنائية * على $S$ تكون ابدالية اذا وفقط اذا $a*b = b*a$ لكل $a, b\in S$.
+\end{definition}
+
+\begin{definition}
+	العملية الثنائية * على $S$ تكون تجميعية اذا كان $(a*b)*c = a*(b*c)$ لكل $a, b, c\in S$.
+\end{definition}
+
+\begin{example}
+	العمليتان $+$ (الجمع) و $\cdot$ (الضرب) ابداليتيين و تجميعتين على مجموعة الاعداد الحقيقية $\R$.
+\end{example}
+
+\section{الزمرة}
+
+\begin{definition}
+	الزمرة $(G, *)$ هي مجموعة $G$ غير خالية تكون مغلقة تحت العملية * مع تحقيق البديهيات التالية
+	\begin{enumerate}
+		\item (التجميعية) لكل $a, b, c\in G$ لدينا
+		\[
+		(a*b) * c = a*(b*c)
+		\]
+		\item (العنصر المحايد) يوجد عنصر $e\in G$ بحيث ان لكل $x\in G$ 
+		\[
+		e * a = a * e = a
+		\]
+		\item (العنصر النظير)  لكل $a\in G$ يوجد عنصر مثل $a' \in G$ بحيث 
+		\[
+		a * a' = a' * a = e
+		\]
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	الزمرة $G$ تكون تبديلية (Abilian) اذا كانت العملية الثنائية تبديلية.
+\end{definition}
+
+\begin{example}
+	المجموعة $\Z^+$ تحت عملية الجمع + لا تشكل زمرة. لعدم وجود عنصر ممحايد.
+\end{example}
+
+\begin{example}
+	المجموعة $M_{m\times n}(\R)$ مجموعة كل المصفوفات مع عملية جمع المصفوفات مع العنصر المحايد (المصفوفة الصفرية) تشكل زمرة ابدالية.
+\end{example}
+
+\section{الزمرة الجزئية}
+
+\begin{definition}
+	اذا كانت $H$ مجموعة جزئية من الزمرة $(G, *)$ ومغلقة تحت العملية الثنائية للزمرة فإذا كانت $(H, *)$ زمرة فإن $H$ زمرة جزئية من $G$ ونكتب $H\leq G$.
+\end{definition}
+
+\begin{definition}
+	لتكن $G$ زمرة و $H$ زمرة جزئية منها. وليكن $x\in G$. المجموعة المصاحبة اليسارية $xH$ تعرف بالشكل
+	\[
+	x*H = \{x*h : h \in H\}
+	\]
+	اما المصاحبة اليمينية $Hx$ تعرف بالشكل
+	\[
+	H*x = \{ h*x : h\in H\} 
+	\]
+\end{definition}
+
+\subsection*{العمليات على المجموعات المصاحبة \cite{abstract_algebra3}}
+لتكن $G$ زمرة. و $H$ زمرة جزئية منها وليكن $x\in G$ سوف نرمز الى مجموعة كل المجموعات المصاحبة اليسارية بالرمز $G/H$ اي ان 
+\[
+G/H = \{x*H : x\in G\}
+\]
+نعرف العملية $\otimes$ على $G/H$ بالشكل
+\[
+(a*H)\otimes(b*H) = (a*b)*H
+\]
+
+\section{الزمر السوية و زمرة القسمة}
+
+\begin{definition}
+	لتكن $G$ زمرة. الزمرة الجزئية $H$ تسمى زمرة جزئية سوية اذا تحقق الشرط $x * H = H * x$ لكل $x\in G$. و نكتب $H \triangleleft G$
+\end{definition}
+
+\begin{definition}
+	لتكن $G$ زمرة و $H \triangleleft G$ فإن $G/H$ تكون زمرة مع العملية $\otimes$ المعرفة بالشكل
+	\[
+	(a*H)\otimes(b*H) = (a*b)*H
+	\]
+	نسمي الزوج $(G/H, \otimes)$ بزمرة القسمة.
+\end{definition}
+
+\section{الحلقة وبعض خصائصها}
+
+\begin{definition}
+	الحلقة $(R, +, \cdot)$ هي مجموعة $R$ مع عمليتان ثنائيتيان. الجمع (+) و الضرب ($\cdot$) مع البديهيات التالية
+	\begin{enumerate}
+		\item $(R, +)$ زمرة ابدالية.
+		\item $a\cdot(b\cdot c) = (a\cdot b)\cdot c$ لكل $a, b, c\in R$.
+		\item $a\cdot(b+c) = (a\cdot b) + (a\cdot c)$ و $(a+b)\cdot c = (a\cdot c) + (a\cdot b)$ لكل $a, b, c\in R$. 
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	لتكن $R$ حلقة. فإن $R$ تكون حلقة ابدالية اذا كان $a\cdot b = b\cdot a$ لكل $a, b\in R$.
+\end{definition} 
+
+\begin{definition}
+	لتكن $R$ حلقة. المحايد هو العنصر $1\in R$ بحيث ان $1\cdot x= x\cdot1=x$ لكل $x\in R$.
+\end{definition}
+
+\begin{example}
+	$(\Z, +, \cdot), (\Q, +, \cdot), (\R, +, \cdot), (\Z_n, +_n, \cdot_n)$ حلقات ابدالية ذات محايد.
+\end{example}
+\newpage
+\begin{example}
+	$(M_{n\times n}(\R), +, \cdot)$ حلقة ذات محايد ولكن غير ابدالية.
+\end{example}
+\noindent
+\textbf{الحل}\\
+\noindent
+نثبت اولا ان 
+$(M_{n\times n}, +)$ زمرة ابدالية:\\
+1. المجموعة $M_{n\times n}$ مغلقة بالنسبة للعملية +\\
+2. لكل $A, B, C\in M_{n\times n}$ 
+\begin{align*}
+	A + (B + C) &= [a_{ij}] + \Big([b_{ij}] + [c_{ij}]\Big)\\
+	&= [a_{ij}] + [b_{ij} + c_{ij}]\\
+	&= [a_{ij} + b_{ij} + c_{ij}]\\
+	&= \Big([a_{ij}] + [b_{ij}]\Big) + [c_{ij}]\\
+	&= (A + B) + C
+\end{align*}
+3. المصفوفة الصفرية تكون العنصر المحايد لأن لكل $A\in M_{n\times n}$ لدينا $A + 0 = 0 + A = A$.\\
+4. لكل $A\in M_{n\times n}$ النظير الجمعي يكون $-A = [-a_{ij}]$.\\
+5. العملية + تكون ابدالية 
+\[
+A + B = [a_{ij}] + [b_{ij}] = [a_{ij} + b_{ij}] = [b_{ij} + a_{ij}] = B + A
+\] 
+اذن $(M_{n\times n}, +)$ زمرة ابدالية.\\
+نلاحظ أن العملية $\cdot$ تكون تجميعية. اي ان
+$
+A\cdot (B\cdot C) = (A\cdot B)\cdot C
+$\\
+ايضا نلاحظ ان العملية $\cdot$ تتوزع على العملية + من اليمين و من اليسار اي ان
+\[
+A\cdot (B+C) = A\cdot B + A\cdot C
+\]
+\[
+(A + B) \cdot C = A\cdot C + B\cdot C
+\]
+والمصفوفة الواحدية (المحايدة) $I$ تمثل العنصر المحايد لعملية الضرب اي ان 
+$A\cdot I = I \cdot A = A$
+اذن $(M_{n\times n}(\R), +, \cdot)$ حلقة ذات محايدة ولكن غير تبديلية لان في 
+$M_{2\times 2}(\R)$
+\[
+\begin{bmatrix}
+	1 & 2\\
+	3 & 4
+\end{bmatrix}\cdot
+\begin{bmatrix}
+	2 & -1\\
+	3 & -5
+\end{bmatrix}
+=
+\begin{bmatrix}
+	8 & -11\\
+	18 & -23
+\end{bmatrix}
+\]
+ولكن
+\[
+\begin{bmatrix}
+	2 & -1\\
+	3 & -5
+\end{bmatrix}\cdot
+\begin{bmatrix}
+	1 & 2\\
+	3 & 4
+\end{bmatrix}=
+\begin{bmatrix}
+	-1 & 0\\
+	-12 & -14
+\end{bmatrix}
+\]
+
+

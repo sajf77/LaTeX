@@ -1,0 +1,58 @@
+\chapter{التڪامل العقدي}
+
+{\noindent
+	\begin{tikzpicture}[scale=2.5, thick]
+		\draw (-0.3, 0) -- (2.5, 0) node[above, pos=0.99]{$x$};
+		\draw (0, -0.3) -- (0, 1.5) node[left, pos=0.96]{$y$};
+		\coordinate (A) at (0, 0);
+		\coordinate (B) at (1, 1);
+		\coordinate (C) at (2, 1);
+		\draw[fill=black] (A) circle (1.25pt) node[below left]{$O$};
+		\draw[fill=black] (B) circle (1.25pt) node[above]{$1+i$};
+		\draw[fill=black] (C) circle (1.25pt) node[above]{$2+i$};
+		\draw[thick] (0, 1) -- (-0.07, 1) node[left]{$1$};
+		\draw (1, 0) -- (1, -.07) node[below]{$1$};
+		\draw (2, 0) -- (2, -.07) node[below]{$2$};
+		\draw[very thick, arrow inside={0.6}{for}] (A) -- (B);
+		\draw[very thick, arrow inside={0.6}{for}] (B) -- (C);
+	\end{tikzpicture}
+\FIGURE{}}
+
+{\noindent
+\begin{tikzpicture}[thick, scale=2.5]
+	\draw (-0.3, 0) -- (2.5, 0) node[above, pos=0.99]{$x$};
+	\draw (0, -0.3) -- (0, 1.5) node[left, pos=0.96]{$y$};
+	\node[below left] at (0, 0) {$O$};
+	
+	\coordinate (z1) at (0.4, 0.4);
+	\coordinate (z2) at (2, 1);
+	
+	\draw[fill=black] (z1) circle (1pt) node[below]{$z_1^{}$};
+	\draw[fill=black] (z2) circle (1pt) node[below]{$z_2^{}$};
+	\draw[very thick,
+	arrow inside={0.25}{rev},
+	arrow inside={0.7}{for}] (z1) to[bend left=20]node[pos=0.7, above]{$C$} node[pos=.25, above, xshift=-8pt]{$-C$} (z2);
+
+\end{tikzpicture}
+\FIGURE{}}
+
+{\noindent
+\begin{tikzpicture}[thick, scale=2]
+	\draw (-0.3, 0) -- (4, 0) node[above, pos=0.99]{$x$};
+	\draw (0, -0.3) -- (0, 2) node[left, pos=0.96]{$y$};
+	\node[below left] at (0, 0) {$O$};
+	
+	\coordinate (z1) at (0.5, 0.5);
+	\coordinate	(z2) at (1, 1.5);
+	\coordinate(z3) at (3, 1);
+	
+	\draw[fill=black] (z1) circle (1.25pt)node[below]{$z_1^{}$};
+	\draw[fill=black] (z2) circle (1.25pt)node[above]{$z_2^{}$};
+	\draw[fill=black] (z3) circle (1.25pt)node[below]{$z_3^{}$};
+	
+	\draw[very thick, arrow inside={0.5}{for}] (z1) to [bend left]node[pos=0.5, above left]{$C_1$} (z2);
+	\draw[very thick, arrow inside={0.5}{for}] (z2) to [bend right]node[pos=0.5, above]{$C_2$} (z3);
+	
+	\node at (1.25, 0.7) {$C$};
+\end{tikzpicture}
+\FIGURE{}}

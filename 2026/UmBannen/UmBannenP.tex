@@ -1,0 +1,418 @@
+% !TeX program = xelatex
+
+\input{arabicBeamer.tex}
+
+\begin{document}
+	\author{\textbf{الطالبة : ام البنين علي جاسب}}
+	\title{\textbf{معادلتي برنولي وريكاتي}}
+	\date{\textbf{اشراف\\
+			 م.م منى عودة مزبان}}
+	
+		
+		\begin{frame}
+			\maketitle
+		\end{frame}
+		
+		\begin{frame}{خلاصة}
+			
+			يهدف هذا البحث إلى دراسة الطرق التحليلية لحل المعادلات التفاضلية من نوع برنولي وريكاتي، وبيان أوجه التشابه والاختلاف بينهما، مع توضيح آليات التحويل إلى معادلات خطية، وعرض أمثلة تطبيقية تبين خطوات الحل بصورة منهجية. كما يسعى البحث إلى إبراز العلاقة بين بعض المعادلات التي يمكن حلها بالمعادلتين معاً، مما يعكس الترابط بين المفاهيم الرياضية ويعزز الفهم العميق لبنية المعادلات التفاضلية غير الخطية.
+		\end{frame}
+		\begin{frame}{المقدمة}
+			
+			تُعدّ المعادلات التفاضلية من الركائز الأساسية في علم الرياضيات، لما لها من دورٍ محوري في تفسير الظواهر الطبيعية ونمذجتها بدقة، فضلاً عن تطبيقاتها الواسعة في مجالات متعددة مثل الفيزياء والهندسة والاقتصاد والعلوم الطبيعية. إذ تُمكّن هذه المعادلات من دراسة العلاقات بين المتغيرات المختلفة ومعدلات تغيرها، وهو ما يجعلها أداةً لا غنى عنها في فهم الأنظمة الديناميكية التي تتغير بمرور الزمن أو تبعًا لمؤثرات خارجية. ومن هذا المنطلق، فقد حظيت المعادلات التفاضلية باهتمامٍ كبير من قبل الباحثين، نظرًا لقدرتها على الربط بين الجانب النظري والتطبيقي في آنٍ واحد.
+		\end{frame}
+		
+		\begin{frame}
+			\begin{center}\Huge
+				\textbf{الفصل الأول}\\
+				\textbf{مفاهيم أساسية}
+			\end{center}
+		\end{frame}
+		
+		\begin{frame}{تعاريف}
+			\begin{definition}[المعادلة التفاضلية]
+				هي علاقة بين المتغير المعتمد والمتغير المستقل تدخل فيها المشتقات أو التفاضلات وتسمى المعادلة التفاضلية اعتيادية إذا كان المتغير المعتمد دالة في متغير مستقل واحد وبالتالي لا تحتوي إلا على مشتقات عادية. حيث الشكل العام لها
+				\[
+				F(x,y',y'',y''',\dots,y^{(n)})=0
+				\]
+				حيث $y^{(n)}=\mfrac{d^ny}{dx^n}$ المشتقة من الرتبة $n$ للمتغير $y$ بالنسبة إلى $x$.
+			\end{definition}
+			
+			\begin{definition}[رتبة المعادلة التفاضلية]
+				إذا كانت المشتقة النونية $y^{(n)}$ هي أعلى مشتقة تظهر في المعادلة التفاضلية الاعتيادية قيل أن هذه المعادلة من الرتبة $n$.
+			\end{definition}
+		\end{frame}
+		
+		\begin{frame}{انواع حلول المعادلة التفاضلية}
+		\begin{definition}[الحل العام]
+						للمعادلة التفاضلية من الرتبة $n$ هو حل يحتوي على $n$ من الثوابت الاختيارية وبالطبع يحقق المعادلة التفاضلية.
+		\end{definition}
+		\begin{definition}[الحل الخاص]
+						هو أي حل يحقق المعادلة التفاضلية لا يشتمل على أي ثوابت اختيارية وقد نحصل عليه احيانا بالتعويض عن الثوابت الاختيارية في الحل العام بقيم محددة.
+		\end{definition}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{center}
+				\Huge
+				\textbf{الفصل الثاني}\\
+				\textbf{حل المعادلات التفاضلية بمعادلتي برنولي وريكاتي}
+			\end{center}
+		\end{frame}
+		
+		\begin{frame}{معادلة برنولي}
+			
+			تعد معادلة برنولي واحدة من اشهر المعادلات المستخدمة لحل نوع خاص من المعادلات التفاضلية غير الخطية ، والتي تسمى بمعادلة برنولي ، تكمن اهمية هذه المعادلة في تحويل المعادلة من شكلها المعقد غير الخطي الى شكل خطي مألوف يمكن حله.
+			\begin{exampleblock}{الصيغة الأساسية}
+				\begin{equation}
+				\label{eq:bernoulli}
+				\frac{dy}{dx} + P(x) y = Q(x) y^n
+			\end{equation}
+			
+			حيث ان:
+			\begin{itemize}
+				\item $P(x)$ و $Q(x)$ دوال في $x$.
+				\item $n$ عدد حقيقي. 
+			\end{itemize}
+			\end{exampleblock}
+		\end{frame}
+		
+		\begin{frame}{اشتقاق المعادلة}
+			\subsection*{اشتقاق معادلة برنولي}
+			لحل المعادلات من نوع برنولي التي تكون من الشكل
+			\[
+			\frac{dy}{dx} + P(x) y = Q(x) y^n \tag{1}
+			\]
+			نتبع الخطوات التالية:
+			\begin{itemize}
+				\item نقسم طرفي المعادلة \eqref{eq:bernoulli} على $y^n$ لتصبح
+				\begin{equation}
+					\label{eq:bernoullidiv}
+					y^{-n} \frac{dy}{dx} + P(x) y^{1-n}= Q(x)
+				\end{equation}
+				
+				\item نفرض ان 
+				\begin{equation}
+					\label{eq:bernoullisub}
+					z=y^{1-n}
+				\end{equation}
+			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{itemize}
+				\item نشتق طرفي الفرضية \eqref{eq:bernoullisub} بالنسبة الى $x$ مع استعمال قاعدة السلسلة لنحصل على 
+			\[
+			\frac{dz}{dx} = (1-n)y^{-n} \frac{dy}{dx}
+			\]
+			\begin{equation}
+				\label{eq:bernoullider}
+				y^{-n}\frac{dy}{dx} = \frac{1}{1-n}\frac{dz}{dx}
+			\end{equation}
+			
+			\item نعوض \eqref{eq:bernoullisub} و \eqref{eq:bernoullider} في \eqref{eq:bernoullidiv} لنحصل على 
+			\begin{equation*}
+				\frac{1}{1-n} \frac{dz}{dx} + P(x) z = Q(x)
+			\end{equation*}
+			
+			\item نضرب طرفي المعادلة بــــ $1-n$
+			\begin{equation}
+				\label{eq:bernoulilinear}
+				\frac{dz}{dx} + (1-n)P(x) \, z = (1-n)Q(x)
+			\end{equation}
+			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{itemize}
+				\item نلاحظ ان المعادلة \eqref{eq:bernoulilinear} خطية في $z$ ، يتم حلها بإيجاد عامل التكامل
+				\[
+				\mu(x) = \exp\left(\int (1-n)\, P(x) \, dx\right)
+				\]
+				\item اذن حل المعادلة \eqref{eq:bernoulilinear} يصبح
+				\[
+				\mu(x) z = \int (1-n)\, \mu(x) Q(x) \, dx
+				\]
+				\item استبدال $z$ بــ $y^{1-n}$ نحصل على حل المعادلة \eqref{eq:bernoulli}
+				\[
+				\mu(x) y^{1-n} = \int \mu(x) Q(x)\, dx
+				\]
+			\end{itemize}
+		\end{frame}
+		\setcounter{equation}{0}
+		\begin{frame}{مثال على معادلة برنولي}
+			\begin{example}
+				اوجد حل المعادلة 
+				$
+				\dfrac{dy}{dx} + \frac{1}{x} y = xy^2
+				$
+				مع الشرط $y(1) = 1 $
+			\end{example}
+			\textbf{الحل}\\
+				هنا المعادلة تمثل معادلة برنولي مع $n=2 $ ، اولاً نقسم طرفي المعادلة على $y^2 $ ، لتصبح
+				\begin{equation}
+					\label{eq:example1div}
+					y^{-2} \frac{dy}{dx} + \frac{1}{x} y^{-1} = x
+				\end{equation}
+				الآن ، نفرض
+				\begin{equation}
+					\label{eq:example1sub}
+					z=y^{-1}
+				\end{equation}
+		\end{frame}
+		\begin{frame}
+			
+			ونشتق هذه الفرضية بالنسبة الى $x$
+			\begin{equation}
+				\label{eq:example1der}
+				\frac{dz}{dx} =  -y^{-2} \frac{dy}{dx}
+			\end{equation}
+			الآن ، نعوض الفرضية \eqref{eq:example1sub} ومشتقتها \eqref{eq:example1der} في المعادلة \eqref{eq:example1div} لنحصل على 
+			\[
+			-\frac{dz}{dx} + \frac{1}{x} z =x
+			\]
+			\begin{equation}
+				\label{eq:example1linear}
+				\frac{dz}{dx} - \frac{1}{x} z = -x
+			\end{equation}
+			وهذه معادلة خطية ، نقوم بإيجاد عامل التكامل لها
+			\[
+			\mu(x) = e^{\int -\frac{1}{x} dx} = e^{-\ln x} = e^{\ln x^{-1}} = x^{-1} = \frac{1}{x}
+			\]
+		\end{frame}
+		
+		\begin{frame}
+						اذن حل المعادلة \eqref{eq:example1linear} يصبح
+			\begin{align*}
+				\mu(x) z = \int -x \cdot \mu(x) dx
+				\Rightarrow \frac{z}{x} = \int -x \cdot \frac{1}{x} dx\\
+				\frac{z}{x} = \int (-1) dx = -x + C
+				\Rightarrow z = -x^2 + Cx
+			\end{align*}
+			نقوم بأرجاع الفرضية \eqref{eq:example1sub} لنحصل على حل المعادلة الاصلية
+			\[
+			y^{-1} = -x^2 + Cx \Rightarrow y = \frac{1}{-x^2 + Cx}
+			\]
+			الآن لكي نحصل على الحل الخاص نستخدم الشرط $y(1) = 1 $ 
+			\[
+			1= \frac{1}{-1^2 + C(1)} \Rightarrow C-1=1\Rightarrow \boxed{C=2} \Rightarrow y = \frac{1}{-x^2 + 2x}
+			\]
+		\end{frame}
+		
+		\begin{frame}{معادلة ريكاتي}
+			تعتبر معادلة ريكاتي حالة خاصة لمعادلة برنولي ، السر في معادلة ريكاتي هو انها لا تحل مباشرة الا اذا عرفنا حلا خاصاً لها. بمجرد الحصول على هذا الحل ، تتحول المعادلة الى معادلة خطية.
+			\setcounter{equation}{0}
+			\begin{exampleblock}{الصيغة الأساسية}
+			تكون الصيغة العامة لمعادلة ريكاتي بالشكل 
+			\begin{equation}
+				\label{eq:recatti}
+				\frac{dy}{dx} = P(x) + Q(x) y + R(x) y^2
+			\end{equation}
+			\end{exampleblock}
+		\end{frame}
+		
+		\begin{frame}{اشتقاق المعادلة}
+			
+			لكي نتمكن من حل معادلة ريكاتي ، يجب ان يكون لدينا حل خاص لها مثل $y_1(x)$ يحقق المعادلة \eqref{eq:recatti} ، الآن نتبع الخطوات التالية
+			\begin{itemize}
+				\item نفرض ان الحل يكون بالشكل 
+				\begin{equation}
+					\label{eq:recattisub}
+					y = y_1 + \frac{1}{u}
+				\end{equation}
+				حيث ان 
+				$u$ دالة جديدة (في $x$) نبحث عنها.
+				\item نقوم بإشتقاق الفرضية \eqref{eq:recattisub}
+				\begin{equation}
+					\label{eq:recattider}
+					\frac{dy}{dx} = \frac{dy_1}{dx} - \frac{1}{u^2} \frac{du}{dx}
+				\end{equation}
+				\item نعوض الفرضية \eqref{eq:recattisub} ومشتقتها \eqref{eq:recattider} في المعادلة \eqref{eq:recatti} لنحصل على
+				\[
+				\frac{dy_1}{dx} - \frac{1}{u^2} \frac{du}{dx} = P(x) + Q(x) \left[y_1 + \frac{1}{u}\right] + R(x) \left[y_1 + \frac{1}{u}\right]^2
+				\]
+			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{itemize}
+				\item
+				نقوم بفتح الاقواس من خلال التوزيع ومفكوك مربع الحدانية :
+				\[
+				\frac{dy_1}{dx} - \frac{1}{u^2} \frac{du}{dx} = P(x) + Q(x) y_1 + \frac{Q(x)}{u} + R(x) \left[y_1^2 + \frac{2y_1}{u} + \frac{1}{u^2}\right]
+				\]
+				نوزع الضرب على الجمع ، نحصل على 
+				\begin{equation}
+					\label{eq:recattiprog}
+					\begin{split}
+						\frac{dy_1}{dx} - \frac{1}{u^2} \frac{du}{dx} = P(x) + Q(x) y_1 + \frac{Q(x)}{u}+ R(x) y_1^2 + R(x)\frac{2y_1}{u} + \frac{R(x)}{u^2}
+					\end{split}
+				\end{equation}
+				الآن ، بما ان $y_1 $ هو حل للمعادلة \eqref{eq:recatti} اذن
+				\[
+				\frac{dy_1}{dx} = P(x) + Q(x) y + R(x) y^2
+				\]
+				اذن يمكننا اختزال المعادلة \eqref{eq:recattiprog} الى
+				\[
+				- \frac{1}{u^2} \frac{du}{dx} =  \frac{Q(x)}{u}  + R(x)\frac{2y_1}{u} + R(x)\frac{1}{u^2}
+				\]
+			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{itemize}
+				\item 
+				بضرب الطرفين بــ $u^2 $ ، نحصل على 
+				\[
+				- \frac{du}{dx} = Q(x) u + 2R(x)y_1 u + R(x)
+				\]
+				\begin{equation}
+					\label{eq:recattilinear}
+					\frac{du}{dx} + [Q(x) + 2R(x)y_1] u = -R(x)
+				\end{equation}
+				
+				\item المعادلة الناتجة \eqref{eq:recattilinear} معادلة خطية يمكن حلها من خلال ايجاد عامل التكامل 
+				\[
+				\mu(x) = \exp \left(\int Q(x) + 2R(x) y_1 \, dx\right)
+				\]
+				اذن الحل للمعادلة \eqref{eq:recattilinear} يصبح
+				\[
+				u\cdot \mu(x) = - \int \mu(x) R(x) \,dx
+				\]
+			\end{itemize}
+		\end{frame}
+
+		\begin{frame}
+			\begin{itemize}
+				
+				\item الآن نرجع الفرضية \eqref{eq:recattisub} ، بما ان
+				\[
+				y = y_1 + \frac{1}{u} \Rightarrow u = \frac{1}{y-y_1}
+				\]
+				\item اذن الحل النهائي لمعادلة ريكاتي ، يصبح
+				\[
+				\frac{\mu(x)}{y-y_1} = - \int \mu(x) R(x) \,dx
+				\]
+			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}
+			\setcounter{equation}{0}
+			\begin{example}
+				حل المعادلة التفاضلية
+				\begin{equation}
+					\label{eq:rec1}
+					\frac{dy}{dx} = -\frac{1}{x^2} - \frac{1}{x} y + y^2
+				\end{equation}
+				مع العلم ان 
+				$y_1=\mfrac{1}{x}$ هو حل لها ، مع الشرط $y(1) = 2 $.
+			\end{example}
+			\textbf{الحل}\\
+				هذه المعادلة تمثل معادلة ريكاتي حيث
+				\[
+				P(x) = -\frac{1}{x^2}, \quad Q(x) =-\frac{1}{x} , \quad R(x) = 1 
+				\]
+				نفرض ان حل المعادلة بالشكل
+				\[
+				y = y_1 + \frac{1}{u}
+				\]
+			\end{frame}
+			
+			\begin{frame}
+				
+				\begin{equation}
+					\label{eq:rec1sub}
+					y = \frac{1}{x} + \frac{1}{u}
+				\end{equation}
+				نشتق هذه الفرضية بالنسبة الى $x$:
+				\begin{equation}
+					\label{eq:rec1der}
+					\frac{dy}{dx} = -\frac{1}{x^2} - \frac{1}{u^2}\frac{du}{dx}
+				\end{equation}
+				نعوض 
+				\eqref{eq:rec1sub} و \eqref{eq:rec1der} في المعادلة \eqref{eq:rec1}
+				\[
+				-\frac{1}{x^2} - \frac{1}{u^2}\frac{du}{dx} = -\frac{1}{x^2} - \frac{1}{x} \left[\frac{1}{x} + \frac{1}{u}\right] + \left[\frac{1}{x} + \frac{1}{u}\right]^2
+				\]
+				نقوم بتوزيع الضرب على الجمع ونفتح مربع الحدانية في الطرف الايمن
+				\[
+				-\frac{1}{x^2} - \frac{1}{u^2}\frac{du}{dx}=
+				-\frac{1}{x^2}-\frac{1}{x^2} -\frac{1}{xu} + \frac{1}{x^2} + \frac{2}{xu} + \frac{1}{u^2}
+				\]
+			\end{frame}
+			
+			\begin{frame}
+				
+				نلاحظ يمكننا ان نجمع الكسور ذات المقامات المتساوية ، نحصل على 
+				\[
+				-\frac{1}{x^2} - \frac{1}{u^2}\frac{du}{dx}=
+				\frac{-1-1+1}{x^2} + \frac{-1+2}{xu} + \frac{1}{u^2} 
+				\]
+				\[
+				\cancel{-\frac{1}{x^2}} - \frac{1}{u^2}\frac{du}{dx}=
+				\cancel{-\frac{1}{x^2}} + \frac{1}{xu} + \frac{1}{u^2}
+				\]
+				\[
+				-\frac{1}{u^2}\frac{du}{dx} = \frac{1}{xu} + \frac{1}{u^2}
+				\]
+				نضرب طرفي المعادلة بــ  $u^2 $ ، نحصل على 
+				\[
+				-\frac{du}{dx} = \frac{1}{x} u + 1
+				\]
+				\begin{equation}
+					\label{eq:rec1linear}
+					\frac{du}{dx} + \frac{1}{x} u = -1
+				\end{equation}
+			\end{frame}
+			
+			\begin{frame}
+				هذه معادلة خطية نحلها من خلال ايجاد عامل التكامل
+				\[
+				\mu(x) = \exp\left(\frac{1}{x} dx\right) = \exp(\ln x) =x
+				\]
+				اذن الحل للمعادلة \eqref{eq:rec1linear} يكون 
+				\[
+				\mu(x)\cdot u = \int (-1) \mu(x) dx
+				\]
+				\[
+				xu = \int -x dx = -\frac{x^2}{2} + C
+				\]
+				\[
+				u = -\frac{x}{2} + \frac{C}{x}
+				\]
+			\end{frame}
+			
+			\begin{frame}
+				
+				من الفرضية \eqref{eq:rec1sub} 
+				\[
+				y = \frac{1}{x} + \frac{1}{u} \Rightarrow u = \frac{1}{y-\mfrac{1}{x}} = \frac{x}{xy-1}
+				\]
+				اذن الحل العام النهائي
+				\[
+				\frac{x}{xy-1} = -\frac{x}{2} + \frac{C}{x}
+				\]
+				الآن نوجد الحل الخاص من استعمال الشرط المعطى 
+				$y(1)=2$ ، اي ان عندما $x=1$ فأن $y=2$
+				\[
+				\frac{1}{(1)(2)-1} = -\frac{1}{2} + \frac{C}{1}
+				\]
+				\[
+				1 = -\frac{1}{2} + C \Rightarrow \boxed{C = \frac{3}{2}} \Rightarrow \frac{x}{xy-1} = -\frac{x}{2} + \frac{3}{2x} 
+				\]
+			\end{frame}
+			
+			\begin{frame}{الاستنتاج}
+				يتضح من خلال هذا البحث أن المعادلات التفاضلية غير الخطية يمكن تبسيطها وحلها باستخدام معادلات مناسبة مثل برنولي وريكاتي. إذ تُظهر معادلة برنولي إمكانية تحويل المعادلة غير الخطية إلى خطية، بينما تعتمد معادلة ريكاتي على معرفة حل خاص لتبسيطها. \\
+				وبذلك تُعد هاتان المعادلتان من المعادلات المهمة التي تساعد في فهم وحل هذا النوع من المعادلات بكفاءة.
+			\end{frame}
+			
+			\begin{frame}
+				\begin{center}
+					\Huge
+					\textbf{شكراً لحسن استماعكم}
+				\end{center}
+			\end{frame}
+			
+			
+\end{document}

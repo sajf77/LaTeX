@@ -1,0 +1,28 @@
+\documentclass[a4paper, 14pt]{extreport}
+
+\usepackage{pgfplots}
+
+\usepackage[T1]{fontenc}
+\usepackage{times}
+
+\usepackage[lite]{mtpro2}
+
+\begin{document}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			tick align=outside,
+			width=15cm,
+			height=15cm,
+			xlabel={$x$},
+			ylabel={$y$},
+			legend style={at={(0.68,0.9)}, font=\footnotesize}
+			]
+			\addplot[blue, mark=*]  table  {DQM0.1N7.txt};
+			\addplot[red, mark=o]  table  {Exact0.1N7.txt};
+			
+			\addlegendentry{DQM 13-point}
+			\addlegendentry{EXACT 13-point}
+		\end{axis}
+	\end{tikzpicture}
+\end{document}

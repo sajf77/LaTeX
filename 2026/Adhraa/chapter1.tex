@@ -1,0 +1,545 @@
+\chapter{مفاهيم أساسية}
+
+%\section{العمليةﻹ الثنائية}
+
+\begin{definition}{العملية الثنائية}{\cite{ref1}}
+	\addcontentsline{toc}{section}{العملية الثنائية}
+	لتكن $S$ مجموعة غير خالية فأن اي تطبيق من 
+	$S \times S$ الى $S$ يسمى عملية ثنائية ويرمز له بإحدى الرموز التالية
+	($*, \#, \$, \circ, + , \div, \cap, \cup, \Delta$) 
+\end{definition}
+
+\begin{note}
+	تكون العملية $*$ مغلقة على المجموعة $S$ اذا تحقق الشرط التالي
+	\[
+	\forall a, b\in S \implies a * b \in S
+	\]
+\end{note}
+
+\begin{example}
+	عملية الجمع $+$ تكون ثنائية على مجموعة الاعداد الطبيعية $\N$ 
+	\[
+	\forall a, b \in \N \implies a + b \in \N
+	\]
+\end{example}
+
+%\section{النظام الرياضي}
+
+\begin{definition}{النظام الرياضي}{\cite{ref1}}
+	النظامُ الرياضي هو زوجٌ مرتب $(S, *)$ حيث إنَّ $S$ مجموعة غير خالية و$*$ عملية ثنائية معرفة على $S$.
+\end{definition}
+
+\begin{definition}{شبه الزمرة}{\cite{ref1}}
+	شبهُ الزمرة هو نظامٌ رياضي $(S, *)$ حيث إنَّ $S$ مجموعة غير خالية و$*$ عملية ثنائية معرفة على $S$ وتحقق خاصية التجميع، أي:
+	\[
+	a * (b * c) = (a * b) * c \quad \forall a, b, c \in S.
+	\]
+\end{definition}
+
+\begin{example}
+	النظام الرياضي $(\N, +)$ يكون شبه زمرة لأن
+	\begin{enumerate}[nosep]
+		\item عملية الجمع $+$ مغلقة على $\N$.
+		\item عملية الجمع تكون تجميعية:
+		\[
+		\forall a, b, c\in \N : a + (b + c) = (a + b) + c 
+		\]
+	\end{enumerate}
+\end{example}
+
+%\section{الزمرة}
+
+\begin{definition}{الزمرة}{\cite{ref2}}
+	\addcontentsline{toc}{section}{الزمرة}
+	يكون النظام الرياضي $(G, *)$ حيث $G$ مجموعة غير خالية و $*$ عملية ثنائية على $G$ زمرة (group) إذا تحقق ما يلي:
+	\begin{enumerate}
+		\item المجموعة $G$ مغلقة تحت العملية $*$، أي أن:
+		\[
+		\forall a, b \in G \Rightarrow a * b \in G
+		\]
+		
+		\item العملية $*$ تحقق خاصية التجميع، أي أن:
+		\[
+		\forall a, b, c \in G \Rightarrow a * (b * c) = (a * b) * c
+		\]
+		
+		\item يوجد عنصر محايد $e \in G$ بحيث:
+		\[
+		a * e = e * a = a \quad \forall a \in G
+		\]
+		
+		\item لكل عنصر $a \in G$ يوجد عنصر معاكس $b \in G$ بحيث:
+		\[
+		a * b = b * a = e
+		\]	
+	\end{enumerate}
+	
+\end{definition}
+
+\begin{note}
+\begin{tasks*}
+	\item 	يسمى العنصر $e$ في التعريف اعلاه بالعنصر المحايد 
+	(identity element).
+	
+	\item يسمى العنصر $b$ في التعريف اعلاه بالعنصر النظير للعنصر $a$ (\en{inverse of $a$}) ويرمز عادة بــــــ $a^{-1}$.
+	
+	\item في العادة اذا كانت $(G, *)$ زمرة فإننا نستخدم عملية الضرب بدلاً من $*$ ونكتب $ab$ بدلاً من $a*b$. كما نكتب أحياناً $G$ بدلاً من 
+	$(G, *)$.
+\end{tasks*}
+\end{note}
+
+\begin{example}
+	لتكن المجموعة \( G = \mathbb{Z} \) مع العملية \( + \). نتحقق من أنها زمرة كما يلي:
+	\begin{enumerate}[label=(\alph*)]
+		\item \textbf{الإغلاق (Closure):}  
+		إذا كان \( a, b \in \mathbb{Z} \) فإن \( a + b \in \mathbb{Z} \)، إذن العملية مغلقة.
+		\item \textbf{التجميعية (Associativity):}  
+		لكل \( a, b, c \in \mathbb{Z} \) لدينا:
+		\[
+		(a + b) + c = a + (b + c)
+		\]
+		إذن العملية تجميعية.
+		\item \textbf{العنصر المحايد (Identity):}  
+		يوجد عنصر \( 0 \in \mathbb{Z} \) بحيث:
+		\[
+		a + 0 = a \quad \forall a \in \mathbb{Z}
+		\]
+		\item \textbf{المعكوس (Inverse):}  
+		لكل \( a \in \mathbb{Z} \) يوجد عنصر \( -a \in \mathbb{Z} \) بحيث:
+		\[
+		a + (-a) = 0
+		\]
+	\end{enumerate}
+	إذن، تحقق جميع الشروط، وبالتالي فإن \( (\mathbb{Z}, +) \) زمرة.
+\end{example}
+
+\begin{theorem}[\cite{ref2}]
+	اذا كانت $(G, *)$ زمرة فإن:
+	\begin{enumerate}[label=(\alph*)]
+		\item العنصر المحايد $e$ يكون وحيد.
+		\item لكل $a\in G$ العنصر النظير $b$ يكون وحيد.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\begin{tasks*}
+		\item لنفرض أن $e_1 \in G$ عنصر محايد آخر يحقق $a * e_1 = e_1 * a = a, \forall a\in G$. عندئذٍ :\linebreak $e_1 = e_1 * e = e*e_1$.
+		\item لنفرض $c\in G$ عنصر نظير آخر للعنصر $a\in G$ اي ان : 
+		$\forall a \in G  : a * c= c*a = e$. عندئذٍ:\linebreak
+		$b = b*e = b*(a*c) = (b*a) * c = e*c = c$.
+	\end{tasks*}
+\end{proof}
+
+\begin{note}
+	تسمى الزمرة $G$ زمرة ابدالية اذا حققت الشرط التالي
+	\[
+	ab = ba \forall a, b\in G
+	\]
+\end{note}
+
+\begin{example}
+	كل من
+	$\Z, \Q, \R, \C$ زمرة ابدالية مع عملية الجمع حيث العنصر $0$ هو العنصر المحايد ونظير\linebreak العنصر $a$ هو $-a$.
+\end{example}
+
+%\section{الزمرة الجزئية}
+\begin{definition}{الزمرة الجزئية}{\cite{ref3}}\\
+	\addcontentsline{toc}{section}{الزمرة الجزئية}
+	لتكن $(G, *)$ زمرة، ولتكن $H$ مجموعة جزئية غير خالية من $G$. تُسمى $H$ زمرةً جزئية من $G$ إذا تحققت الشروط التالية:
+	\begin{enumerate}
+		\item المجموعة $H$ مغلقة تحت العملية $*$، أي أن:
+		\[
+		\forall a, b \in H \Rightarrow a * b \in H
+		\]
+		
+		\item لكل عنصر $a \in H$ يوجد معكوسه في $H$، أي أن:
+		\[
+		\forall a \in H \Rightarrow a^{-1} \in H
+		\]
+	\end{enumerate}
+\end{definition}
+
+\begin{example}
+	لتكن $(\mathbb{Z}, +)$ زمرة الأعداد الصحيحة تحت عملية الجمع، ولتكن
+	\[
+	H = 2\mathbb{Z} = \{ \dots, -4, -2, 0, 2, 4, \dots \}
+	\]
+	نبيّن أن $H$ زمرة جزئية من $\mathbb{Z}$:
+	
+	\begin{enumerate}
+		\item الانغلاق: إذا كان $a, b \in H$ فإن $a = 2m$ و$b = 2n$ لبعض $m, n \in \mathbb{Z}$، وبالتالي:
+		\[
+		a + b = 2m + 2n = 2(m+n) \in H
+		\]
+		
+		\item المعكوس: إذا كان $a \in H$ فإن $a = 2m$ لبعض $m \in \mathbb{Z}$، وبالتالي:
+		\[
+		-a = -2m = 2(-m) \in H
+		\]
+	\end{enumerate}
+	إذن $H$ زمرة جزئية من $(\mathbb{Z}, +)$.
+\end{example}
+
+\begin{definition}{الزمرة الجئية الناظمية}{\cite{ref3}}
+	لتكن $(G, *)$ زمرة و $H$ زمرة جزئية من $G$. تُسمى $H$ زمرةً ناظمية في $G$ إذا تحقق الشرط:
+	\[
+	a * H = H * a \quad \forall a \in G
+	\]
+	حيث:
+	\[
+	a * H = \{a * h \mid h \in H\}, \quad H * a = \{h * a \mid h \in H\}.
+	\]
+	ويرمز لها بـ $H \trianglelefteq G$.
+\end{definition}
+
+\begin{example}
+	كل زمرة جزئية من زمرة تبديلية تكون زمرة ناظمية. مثلاً:
+	\[
+	(\mathbb{Z}, +)
+	\]
+	فكل زمرة جزئية مثل $n\mathbb{Z}$ هي زمرة ناظمية في $\mathbb{Z}$.
+\end{example}
+
+\begin{example}
+	في زمرة التباديل $S_3$، تكون المجموعة:
+	\[
+	A_3 = \{ e, (123), (132) \}
+	\]
+	زمرة ناظمية في $S_3$.
+\end{example}
+
+\begin{example}
+	في الزمرة $S_n$، فإن الزمرة التناوبية $A_n$ هي زمرة ناظمية في $S_n$ لكل $n \ge 2$.
+\end{example}
+
+%\section{التباديل \en{\textit{{S\textsubscript{n}}}}}
+
+\begin{definition}{التباديل}{\cite{ref4}}
+	\addcontentsline{toc}{section}{التباديل}
+	لتكن $A = \{1, 2, \dots, n\}$ مجموعة منتهية. يُسمى كل تقابل (تطبيق تقابلي) من $A$ إلى نفسها تبديلاً. وتُسمى مجموعة جميع التباديل على $A$ بالزمرة المتماثلة من الدرجة $n$، ويرمز لها بـ $S_n$.
+\end{definition}
+
+تكون العملية المعرفة على $S_n$ هي تركيب التباديل، حيث إن تركيب تبديلين يعطي تبديلاً أيضاً، وبالتالي فإن $(S_n, \circ)$ زمرة.
+
+\begin{example}
+	في الحالة $n = 2$، لدينا:
+	\[
+	S_2 = \{ e, (12) \}
+	\]
+	حيث $e$ هو التبديل المحايد و$(12)$ يبدل بين $1$ و$2$.
+\end{example}
+
+\begin{example}
+	في الحالة $n = 3$، لدينا:
+	\[
+	S_3 = \{ e, (12), (13), (23), (123), (132) \}
+	\]
+	حيث:
+	\begin{itemize}
+		\item التباديل $(12), (13), (23)$ تُسمى تبديلات ثنائية.
+		\item التباديل $(123), (132)$ تُسمى دورات ثلاثية.
+	\end{itemize}
+\end{example}
+
+\begin{example}
+	ليكن $\sigma \in S_3$ معرفاً بـ:
+	\[
+	\sigma =
+	\begin{pmatrix}
+		1 & 2 & 3 \\
+		2 & 3 & 1
+	\end{pmatrix}
+	\]
+	فإن هذا التبديل يمكن كتابته على صورة دورة:
+	\[
+	\sigma = (123)
+	\]
+\end{example}
+
+\begin{note}
+	زمرة التباديل $S_n$ تكون غير إبدالية عندما يكون $n \ge 3$، أي أنه يوجد تبديلان $\sigma, \tau \in S_n$ بحيث:
+	\[
+	\sigma \circ \tau \ne \tau \circ \sigma.
+	\]
+	أما في الحالة $n = 1$ أو $n = 2$ فإن الزمرة تكون إبدالية.
+\end{note}
+
+%\section{علاقات التكافؤ}
+
+\begin{definition}{العلاقة}{\cite{ref1}}
+	لتكن $A$ مجموعة غير خالية. تُعرَّف العلاقة على $A$ بأنها أي مجموعة جزئية من $A \times A$.
+\end{definition}
+
+\begin{definition}{علاقة التكافؤ}{\cite{ref1}}
+	تسمى العلاقة $R$ على مجموعة $A$ علاقة تكافؤ إذا حققت الشروط التالية:
+	\begin{enumerate}
+		\item الانعكاسية: $\forall a \in A \Rightarrow aRa$
+		\item التناظر: $\forall a,b \in A \Rightarrow aRb \Rightarrow bRa$
+		\item التعدي: $\forall a,b,c \in A \Rightarrow aRb \wedge bRc \Rightarrow aRc$
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}{صفوف التكافؤ}{\cite{ref1}}
+	لتكن $R$ علاقة تكافؤ على مجموعة $A$. يُسمى صف التكافؤ للعنصر $a \in A$ هو:
+	\[
+	[a] = \{ x \in A \mid xRa \}
+	\]
+	وتسمى مجموعة جميع صفوف التكافؤ بـ مجموعة القسمة، وترمز:
+	\[
+	A / R = \{ [a] \mid a \in A \}.
+	\]
+\end{definition}
+
+\begin{example}
+	لتكن $A = \mathbb{Z}$ ونعرّف العلاقة $R$ كما يلي:
+	\[
+	aRb \iff 3 \mid (a - b)
+	\]
+	أي أن $a-b$ يقبل القسمة على $3$.
+	
+	نثبت أن $R$ علاقة تكافؤ:
+	
+	\begin{enumerate}
+		\item الانعكاسية: لكل $a \in \mathbb{Z}$ لدينا
+		\[
+		a-a = 0 \Rightarrow 3 \mid 0 \Rightarrow aRa
+		\]
+		
+		\item التناظر: إذا كان $aRb$ فإن
+		\[
+		3 \mid (a-b) \Rightarrow 3 \mid -(a-b) = (b-a) \Rightarrow bRa
+		\]
+		
+		\item التعدي: إذا كان $aRb$ و $bRc$ فإن
+		\[
+		3 \mid (a-b), \quad 3 \mid (b-c)
+		\]
+		وبالتالي:
+		\[
+		(a-c) = (a-b) + (b-c) \Rightarrow 3 \mid (a-c) \Rightarrow aRc
+		\]
+	\end{enumerate}
+	إذن $R$ علاقة تكافؤ على $\mathbb{Z}$.
+	
+	نحسب صفوف التكافؤ:
+	
+	\begin{enumerate}
+		\item صف العدد $0$:
+		\[
+		[0] = \{ \dots, -6, -3, 0, 3, 6, \dots \}
+		\]
+		
+		\item صف العدد $1$:
+		\[
+		[1] = \{ \dots, -5, -2, 1, 4, 7, \dots \}
+		\]
+		
+		\item صف العدد $2$:
+		\[
+		[2] = \{ \dots, -4, -1, 2, 5, 8, \dots \}
+		\]
+	\end{enumerate}
+	وبالتالي:
+	\[
+	\mathbb{Z}/R = \{ [0], [1], [2] \}.
+	\]
+\end{example}
+
+%\section{التشاكل الزمري}
+
+\begin{definition}{التشاكل الزمري}{\cite{ref3}}
+	\addcontentsline{toc}{section}{التشاكل الزمري}
+	لتكن $(G, *)$ و $(H, \circ)$ زمرتين. نقول إن الدالة $\varphi : G \to H$ هي تشاكل زُمَري إذا حققت الشرط
+	 \linebreak$\varphi(a * b) = \varphi(a) \circ \varphi(b)$ لكل $a, b \in G$.
+\end{definition}
+
+
+\begin{example}
+	لتكن الدالة $f : (\mathbb{Z}, +) \to (\mathbb{R}^*, \cdot)$ معرفة بـ $f(x) = e^x$. عندئذٍ تكون $f$ تماثلًا زمريًا لأن
+	\linebreak $f(x+y) = e^{x+y} = e^x \cdot e^y = f(x)f(y)$ لكل $x,y \in \mathbb{Z}$.
+\end{example}
+
+\begin{definition}{زمرة الاعداد الصحيحة معيار \en{\textit{n}}}{\cite{ref3}}
+	لتكن $n \in \mathbb{N}$ حيث $n \ge 1$. نعرّف $\mathbb{Z}_n = \{ [0], [1], \dots, [n-1] \}$ حيث \linebreak$[a] = \{ b \in \mathbb{Z} : a \equiv b \pmod{n} \}$، وتُعرَّف العمليات بـ $[a] + [b] = [a+b]$ و$[a][b] = [ab]$.
+\end{definition}
+\noindent\textbf{مثال}
+\[
+\Z_6 = \{[0], [1], [2], [3], [4], [5]\}
+\]
+
+\begin{definition}{نواة التشاكل}{\cite{ref6}}
+	لتكن $\varphi : G \to H$ تشاكلًا زُمريًا بين الزمرتين $(G, *)$ و $(H, \circ)$.
+	نُعرّف نواة التشاكل بأنها المجموعة
+	\[
+	\ker(\varphi) = \{\, a \in G \mid \varphi(a) = e_H \,\}
+	\]
+	حيث $e_H$ هو العنصر المحايد في الزمرة $H$.
+\end{definition}
+
+
+\begin{example}
+	لتكن الدالة $f : (\mathbb{R}^+, \cdot) \to (\mathbb{R}, +)$ معرفة بـ
+	\[
+	f(x) = \ln(x).
+	\]
+	عندئذٍ تكون $f$ تماثلًا زُمريًا لأن
+	\[
+	f(xy) = \ln(xy) = \ln(x) + \ln(y) = f(x) + f(y)
+	\]
+	لكل $x,y \in \mathbb{R}^+$.
+	وبالتالي فإن نواة هذا التشاكل هي:
+	\[
+	\ker(f) = \{x \in \mathbb{R}^+ \mid \ln(x) = 0\} = \{1\}.
+	\]
+\end{example}
+
+
+
+\begin{definition}{المجال المقابل}{}
+	لتكن $f: A \to B$ دالة. المجموعة $B$ تُسمّى المجال المقابل (Codomain) للدالة $f$.
+\end{definition}
+
+\begin{definition}{المدى}{}
+	لتكن $f: A \to B$ دالة. يُعرّف مدى الدالة $f$ بأنه مجموعة صور عناصر $A$، أي:
+	\[
+	\operatorname{Im}(f) = \{ f(x) \mid x \in A \}.
+	\]
+\end{definition}
+
+\begin{definition}{الدالة المتباينة}{}
+	لتكن $f: A \to B$ دالة. نقول إن $f$ دالة متباينة إذا كان
+	\[
+	f(x_1) = f(x_2) \Rightarrow x_1 = x_2
+	\]
+	لكل $x_1, x_2 \in A$.
+\end{definition}
+
+\begin{definition}{الدالة الشاملة}{}
+	لتكن $f: A \to B$ دالة. نقول إن $f$ دالة شاملة إذا كان لكل عنصر $y \in B$ يوجد عنصر $x \in A$ بحيث
+	\[
+	f(x) = y.
+	\]
+\end{definition}
+
+\begin{definition}{الدالة التقابل}{}
+	لتكن $f: A \to B$ دالة. نقول إن $f$ دالة تقابل إذا كانت متباينة وشاملة في آنٍ واحد.
+\end{definition}
+
+\begin{definition}{زمرة التماثل}{}
+	\addcontentsline{toc}{section}{زمرة التماثل}
+عناصرها تكون عبارة عن دوال وخواص هذه الدوال (دالة متقابلة) من المجموعة $A$ الى نفسها ونرمز لها بالرمز 
+$\operatorname{symm}(A)$
+
+العمليات التي سوف نستخدمها في زمرة التماثل هي عملية تركيب الدوال
+\end{definition} 
+
+\begin{example}
+	لتكن $A = \{a, b, c\}$. نريد إيجاد زمرة التماثل $\operatorname{symm}(A)$.
+	
+	زمرة التماثل هي مجموعة جميع التبديلات (الدوال التقابلية من $A$ إلى نفسها)، وهي:
+	\[
+	\operatorname{symm}(A) =
+	\{ 
+	f_1, f_2, f_3, f_4, f_5, f_6
+	\}
+	\]
+	حيث:
+	\begin{align*}
+		f_1 =
+		\begin{pmatrix}
+			a & b & c \\
+			a & b & c
+		\end{pmatrix} ,
+		f_2 =
+		\begin{pmatrix}
+			a & b & c \\
+			b & a & c
+		\end{pmatrix} ,
+		f_3 =
+		\begin{pmatrix}
+			a & b & c \\
+			c & b & a
+		\end{pmatrix} 
+	\end{align*}
+	\[
+	f_4 =
+	\begin{pmatrix}
+		a & b & c \\
+		a & c & b
+	\end{pmatrix} ,
+	f_5 =
+	\begin{pmatrix}
+		a & b & c \\
+		b & c & a
+	\end{pmatrix} ,
+	f_6 =
+	\begin{pmatrix}
+		a & b & c \\
+		c & a & b
+	\end{pmatrix}
+	\]
+	الآن نجري عملية التركيب بين عنصرين، لنأخذ:
+	\[
+	f_2 =
+	\begin{pmatrix}
+		a & b & c \\
+		b & a & c
+	\end{pmatrix},
+	\quad
+	f_4 =
+	\begin{pmatrix}
+		a & b & c \\
+		a & c & b
+	\end{pmatrix}
+	\]
+	نحسب $f_2 \circ f_4$ (نطبق $f_4$ أولاً ثم $f_2$):
+	\[
+	f_2 \circ f_4 =
+	\begin{pmatrix}
+		a & b & c \\
+		f_2(f_4(a)) & f_2(f_4(b)) & f_2(f_4(c))
+	\end{pmatrix}
+	\]
+	نحسب الصور:
+	\[
+	f_4(a)=a \Rightarrow f_2(a)=b,\quad
+	f_4(b)=c \Rightarrow f_2(c)=c,\quad
+	f_4(c)=b \Rightarrow f_2(b)=a
+	\]
+	
+	إذن:
+	\[
+	f_2 \circ f_4 =
+	\begin{pmatrix}
+		a & b & c \\
+		b & c & a
+	\end{pmatrix}
+	= f_5
+	\]
+	لنجد معكوس $f_5$:
+	\[
+	f_5 =
+	\begin{pmatrix}
+		a & b & c \\
+		b & c & a
+	\end{pmatrix}
+	\]
+	نعكس الأسهم:
+	\[
+	a \mapsto b,\; b \mapsto c,\; c \mapsto a
+	\Rightarrow
+	b \mapsto a,\; c \mapsto b,\; a \mapsto c
+	\]
+	إذن:
+	\[
+	f_5^{-1} =
+	\begin{pmatrix}
+		a & b & c \\
+		c & a & b
+	\end{pmatrix}
+	= f_6
+	\]
+\end{example}
+
+\begin{theorem}[(مبرهنة كيلي) \cite{ref3}]
+	اذا كانت $G$ زمرة فأن $G$ تماثل زمرة جزئية من $S_G$.
+\end{theorem}

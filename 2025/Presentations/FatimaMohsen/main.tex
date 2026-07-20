@@ -1,0 +1,238 @@
+\input{/home/sajad/Programming/LaTeX/Presentations/arabicBeamer.tex}
+
+\title{\textbf{دراسة الدوال غير المستمرة}}
+\author{\textbf{الطالبة : فاطمة محسن}}
+\date{\textbf{اشراف : ا.د. هاشم عبدالخالق كشكول}}
+
+\begin{document}
+	\abovedisplayskip=7pt
+	\belowdisplayskip=7pt
+	\maketitle
+	
+	\timesfont
+	
+	\begin{frame}{مقدمة}
+		
+		تعد الدوال من أهم المفاهيم الرياضية التي تعبر عن العلاقة بين المتغيرات، حيث تربط كل عنصر في مجموعة معينة بعنصر وحيد في مجموعة أخرى. تلعب الدوال دورًا أساسيًا في مختلف فروع الرياضيات، مثل التحليل والجبر والإحصاء، كما تمتد تطبيقاتها إلى العلوم الطبيعية والهندسية والاقتصادية. فهي تساعد في فهم التغيرات، التنبؤ بالاتجاهات، وحل المشكلات المعقدة في مجالات متعددة.\\[10pt]
+		
+		\pause
+		من بين الخصائص المهمة للدوال خاصية الاستمرارية، التي تحدد مدى سلاسة تغير القيم دون انقطاعات. ومع ذلك، هناك العديد من الظواهر التي لا يمكن تمثيلها بدوال مستمرة، مما يجعل دراسة \textbf{الدوال غير المستمرة} ضرورية. هذه الدوال هي التي تحتوي على نقاط يحدث فيها تغير مفاجئ في القيم، مما يعني أنها لا تأخذ مسارًا سلسًا كما هو الحال في الدوال المستمرة.
+	\end{frame}
+	
+	\begin{frame}
+		\begin{center}
+			\Huge
+			\textbf{الدوال المستمرة}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{الغاية}
+		\begin{exampleblock}{تعريف}
+				لتكن $f$ دالة معرفة على الفترة $(a, b)$. نفرض ان $c\in (a,b)$ اذا كان
+			$f(x) \to A$ عندما $x\to c$ من خلال قيم اكبر من $c$ نقول ان $A$ هي غاية اليمين للدالة $f$ عند $c$ ونكتب
+			\[
+			\lim\limits_{x \to c^+} f(x) = A
+			\]
+			نرمز لغاية اليمين بالرمز $f(c^+)$ . بشكل ادق لكل $\epsilon>0$ يوجد $\delta>0$ بحيث
+			\[
+			|f(x) - f(c^+)| < \epsilon, \quad \text{if}\,\, c<x<c+\delta<b
+			\]
+			غاية اليسار تعرف بشكل مشابه اذا كانت $c\in (a, b)$ فإن غاية اليسار تعرف بالشكل 
+			\[
+			f(c^-) = \lim\limits_{x \to c^-} f(x) = B
+			\]
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}{الاستمرارية}
+		\begin{exampleblock}{تعريف}
+				اذا كانت الدالة $f$ معرفة عند $c$ وكان $f(c^+) = f(c)$ نقول ان $f$ مستمرة من اليمين عند $c$. و اذا كانت الدالة $f$ معرفة عند $c$ وكان $f(c^-) = f(c)$ نقول ان $f$ مستمرة من اليسار عند $c$
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{تعريف}
+				اذا كانت $a<c<b$. فإننا نقول ان $f$ دالة مستمرة عند $x=c$ اذا وقثط اذا  كان
+			\[
+			f(c) = f(c^+) = f(c^-)
+			\]
+			اي تكون للدالة غاية من اليمين واليسار عند $c$ وكذلك تكون الدالة معرفة عند $c$.
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{مبرهنة}
+				افرض ان $g(x)$ دالة مستمرة عند $x_0 $ و $f(x)$ مستمرة عند $g(x_0)$  ، فأن $f\circ g$ مستمرة عند $x_0$.
+		\end{exampleblock}
+	\end{frame}
+
+	
+	\begin{frame}
+		\Huge
+		\begin{center}
+			\textbf{الدوال غير المستمرة}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{exampleblock}{تعريف}
+				نقول  ان $x=c$ هي نقطة عدم استمرارية اذا كانت $f$ غير مستمرة عند $c$
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{ملاحظة}
+			في هذه الحالة واحدة من الحالات الاتية متحقق
+			\begin{enumerate}
+				\item اما $f(c^+)$ او $f(c^-)$ غير موجودة.
+				\item كلا $f(c^+)$ و $f(c^-)$ موجود ولكن لهما قيم مختلفة اي ان $f(c^+) \neq f(c^-)$
+				\item كلا $f(c^+)$ و $f(c^-)$ موجودة ولكن $f(c^+) = f(c^-) \neq f(c)$.
+			\end{enumerate}
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{تعريف}
+				لتكن $f$ دالة معرفة على الفترة $[a, b]$ و $c\in [a, b]$ فإن $c$ تكون نقطة عدم استمرارية قابلة للحذف اذا كان $f(c^+) = f(c^-) \neq f(c)$. ويتم حذف عدم الاستمرارية بإعادة تعريف الدالة $f$ عند $c$ حيث يكون  $f(c^+) = f(c^-) = f(c)$.
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{exampleblock}{تعريف}
+				لتكن $f$ دالة معرفة على الفترة $[a, b]$ فإن $c$ تكون نقطة عدم استمرارية غير قابلة للحذف اذا كانت $f(c^+)$ غير موجودة او $f(c^-)$ غير موجودة او $f(c^+) \neq f(c^-)$
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{تعريف}
+				لتكن $f$ دالة معرفة على الفترة المغلقة $[a, b]$ اذا كانت كلا $f(c^+)$ و $f(c^-)$ موجودة على نقطة داخلية مثل $c$ فإن:
+			\begin{enumerate}
+				\item $f(c) - f(c^-)$ تسمى بالقفزة من اليسار 
+				\item  $f(c^+) - f(c)$ تسمى بالقفزة من اليمين
+				\item $f(c^+) - f(c^-)$ تسمى بالقفزة
+			\end{enumerate}
+			اذا كانت واحدة من القيم الثلاثة اعلاه لاتساوي صفراً. فإن $c$ تسمى نقطة عدم استمرارية قفزية
+			
+			\pause
+		\end{exampleblock}
+		
+		\begin{exampleblock}{تعريف}
+			 	تكون الدالة $f(x)$ تمتلك عدم استمرارية اساسية \LR{essential discontinuty}
+			عند $x=c$ اذا كانت الغاية 
+			$\lim\limits_{x\to c} f(x)$ غير موجودة. وعلى الاقل واحدة من الغايات اليمينية او اليسارية ايضاً غير موجودة (ربما كليهما).
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}{أمثلة}
+		\begin{exampleblock}{مثال}
+				الدالة $f(x) = x/|x|$ تمتلك عدم استمرارية قفزية عند $x=0$ لان 
+			\[
+			f(0^+) = 1,\quad f(0^-) = -1
+			\]
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{مثال}
+				الدالة
+			\[
+			f(x) =
+			\begin{cases}
+				1 & x\neq0 \\
+				0 & x=0
+			\end{cases}
+			\]
+			تمتلك عدم استمرارية قابلة للحذف عند $x=0$ لان 
+			\begin{align*}
+				& f(0) = 0\\
+				& f(0^+) = f(0^-) = 1
+			\end{align*}
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{exampleblock}{مثال}
+				الدالة
+			\[
+			f(x) =
+			\begin{cases}
+				\dfrac{1}{x}& x\neq0 \\
+				A & x=0
+			\end{cases}
+			\]
+			تمتلك عدم استمرارية غير قابلة للحذف عند $x=0$ لان $f(c^-), f(c^+)$ غير موجودة
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{مثال}
+				الدالة $f(x) = \exp\left(\dfrac{1}{x}\right)$ تمتلك عدم استمرارية اساسية عند $x=0$ لأن الغايات
+			\[
+			\lim\limits_{x\to 0} \exp\left(\frac{1}{x}\right), \quad 	\lim\limits_{x\to 0^+} \exp\left(\frac{1}{x}\right), 
+			\]
+			غير موجودة ولكن 
+			\[
+			\lim\limits_{x\to 0^-} \exp\left(\frac{1}{x}\right) = 0
+			\]
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}{المشتقة عند الدوال غير المستمرة}
+		لدراسة الدوال غير المستمرة في الاشتقاق. نقدم مفهوم المشتقة من اتجاه واحد والمشتقة اللا نهائية.
+		\begin{exampleblock}{تعريف}
+				لتكن $f$ دالة معرفة على الفترة المغلقة $[a, b]$ نقول ان $f$ تمتلك مشتقة يمينية عند $c$ اذا كانت الغاية 
+			\[
+			\lim\limits_{x\to c^+} \frac{f(x) - f(c)}{x-c}
+			\]
+			موجودة كقيمة نهائية او ان الغاية هي $+\infty$ او $-\infty$ و نرمز لها بالرمز $f_+'(x)$. المشتقة اليسارية تعرف بنفس الاسلوب
+			\[
+			f_-'(c):=	\lim\limits_{x\to c^-} \frac{f(x) - f(c)}{x-c}
+			\]
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}{التقارب}
+		\begin{exampleblock}{مثال}
+			لتكن لدينا المتتابعة من الدوال المستمرة $f_n(x) = x^n$. نلاحظ اذا كان $x=1$ فإن
+			\[
+			\lim\limits_{n\to \infty} f_n(1) = \lim\limits_{n\to \infty} 1 =1
+			\]
+			بينما اذا كان $0<x<1$ فإن 
+			\[
+			\lim\limits_{n\to \infty} x^n = 0
+			\]
+		اي ان 
+		\[
+		\lim\limits_{n\to \infty} f_n(x) = 
+		\begin{cases}
+			0 & 0 <x< 1  \\
+			1 & x=1
+		\end{cases}
+		\]
+		وهذه الدالة غير مستمرة عند $x=1$.
+		
+\end{exampleblock} 
+	\end{frame}
+	
+	\begin{frame}
+		\begin{exampleblock}{مثال}
+			لنأخذ المتتابعة من الدوال غير المستمرة 
+			\[
+			f_n(x) = 
+			\begin{cases}
+				\dfrac{1}{n} & x\notin \Q \\[10pt]
+				0 & x\in \Q
+			\end{cases}
+			\]
+			هذه الدالة غير مستمرة لكل $x\in\R$ ولكن نلاحظ ان اذا كان $x\in\Q$ فإن 
+			$f_n(x) = 0 \to 0$
+			و اذا كان $x\notin \Q$ فإن 
+			\begin{english}
+				\[
+				f_n(x) = \frac{1}{n} \to 0 \quad \text{as $x\to \infty$}
+				\]
+			\end{english}
+			اي ان المتتابعة تتقارب بشكل نقطي الى الدالة $f(x) = 0 $ بشكل نقطي. وهي دالة مستمرة.
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+		\Huge
+		\begin{center}
+\textbf{شكراً لحسن استماعكم}
+		\end{center}
+	\end{frame}
+\end{document}

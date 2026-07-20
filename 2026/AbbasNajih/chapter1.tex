@@ -1,0 +1,282 @@
+\chapter{تحويل لابلاس وخواصه}
+
+\section*{المقدمة [1]}
+في هذا الفصل تقدم طريقة أخرى لحل المعادلات التفاضلية الخطية ذات المعاملات الثابتة وأنظمة هذه المعادلات. تسعى هذه الطريقة بطريقة تحويل لايلاس. يهذه الطريقة، يتم تحويل مسألة القيمة الأولية إلى معادلة جبرية أو نظام معادلات يمكن حله باستخدام الطرق الجبرية وجدول تحويلات لايلاس. تشبه هذه الطريقة في بعض النواحي استخدام اللوغاريتمات لحل المعادلات الأسبة.
+
+\section[تحويل لابلاس]{ تحويل لايلاس [3]}
+تحويل لايلاس هو عملية أخرى على الدول الرياضية لتحويلها من مجال إلى آخر، عادة التحويل من مجال الزمن إلى مجال التردد. يستخدم أيضاً لحل المعادلات التفاضلية لأنه يحولها إلى معادلات جبرية. شمي هذا التحويل نسبة إلى العالم الفرنسي لايلاس الذي عاش في القرن التاسع عشر.
+
+\section[التعريف]{التعريف [3]}
+افترض أن الدالة \( f \) معرفة للقيم \( t \geq 0 \)، فإن تحويل التكامل:
+\begin{equation}
+	F(s) = \mathcal{L}[f(t)] = \int_{0}^{\infty} e^{-st}f(t) \, dt
+\end{equation}
+يُسمى تحويل لايلاس للدالة \( f \).
+
+\begin{example}
+احسب تحويل لايلاس للدالة \( f(t) = 1 \).
+\end{example}
+\noindent
+\textbf{الحل}
+\begin{align*}
+\mathcal{L}[f(t)] &= \int_{0}^{\infty} e^{-st}f(t) \, dt
+\\
+&= \int_{0}^{\infty} e^{-st}(1) \, dt
+\\
+&= \int_{0}^{\infty} e^{-st} \, dt
+\\
+&= \lim_{t \to \infty} \int_0^\infty e^{-st} \, dt
+\\
+&= \lim_{t \to \infty} - \left[ \frac{e^{-st}}{s} \right]_0^\infty
+\\
+&= \lim_{t \to \infty} \frac{-1}{s} \left[ e^{-st} \right]_0^\infty
+\\
+&= \lim_{t \to \infty} \frac{-1}{s} \left[ e^{-\infty} - e^0 \right]
+\\
+&= \frac{-1}{s} \left[ 0 - 1 \right]
+\\
+&= \frac{-1}{s} (-1) = \frac{1}{s}
+\end{align*}
+\[
+\Rightarrow\int_0^\infty e^{-st} f(t) \, dt = \frac{1}{s}
+\]
+\noindent
+إذا كان \( s > 0 \)، فإن التكامل أعلاه موجود ونحصل على
+\section[تحويل لابلاس لبعض الدوال]{تحويل لابلاس لبعض الدوال [3]}
+\begin{align}
+	\mathcal{L}\{1\}         &= \frac{1}{s}      \\
+	\mathcal{L}\{t^n\}       &= \frac{n!}{s^{n+1}}   \quad (n = 1, 2, 3, \dots) \\
+	\mathcal{L}\{e^{kt}\}    &= \frac{1}{s-k}        \\
+	\mathcal{L}\{\sin(kt)\}  &= \frac{k}{s^2+k^2} \\
+	\mathcal{L}\{\cos(kt)\} &= \frac{s}{s^2+k^2}   \\
+	\mathcal{L}\{\sinh(kt)\} &= \frac{k}{s^2-k^2}   \\
+	\mathcal{L}\{\cosh(kt)\} &= \frac{s}{s^2-k^2}    \
+\end{align}
+
+\begin{example}
+	احسب تحويل لابلاس للدالة $f(t) = e^{kt}$
+\end{example}
+\noindent
+\textbf{الحل}\\
+\noindent
+باستخدام تعريف تحويل لابلاس
+\begin{align*}
+	F(s) &= \LL[f(t)] = \int_{0}^{\infty} e^{-st} f(t) dt\\
+	&= \int_{0}^{\infty} e^{-st} e^{kt} dt\\
+	&= \int_{0}^{\infty} e^{-(s-k)t}dt
+\end{align*}
+بالتكامل نحصل على
+\begin{align*}
+	&= \frac{1}{s-k} e^{-(s-k)t}\Big|^\infty_0\\
+	&= \frac{-1}{s-k} [e^{-\infty} -1]
+\end{align*}
+وبالتالي
+\[
+\LL[e^{kt}] = \frac{1}{s-k}, \quad s < k
+\]
+
+\begin{example}
+	احسب تحويل لابلاس للدالة $f(t) = \cosh(kt)$
+\end{example}
+\noindent
+\textbf{الحل}\\
+\noindent
+لنعبر عن الدالة $f(t)$ في شكلها الأسي ونأخذ تحويل لابلاس
+\begin{align*}
+	\LL[f(t)] &= \frac{1}{2}\LL[e^{kt} + e^{-kt}]\\
+	&= \frac{1}{2} [\LL[e^{kt}] + \LL[e^{-kt}]]\\
+	&= \frac{1}{2} \left[\frac{1}{s-k} + \frac{1}{s+k}\right]\\
+	&= \frac{1}{2}\left[\frac{s+k+s-k}{s^2-k^2}\right]
+\end{align*}
+وبالتالي
+\[
+\LL[\cosh(kt)] = \frac{s}{s^2-k^2}
+\]
+
+\begin{example}
+	اوجد تحويل لابلاس للدالة الممثلة بالشكل
+	\[
+	f(t) = 
+	\begin{cases}
+		t & 0 \leq t \leq t_0 \\
+		2t_0 - t & t_0 \leq t \leq 2t_0\\
+		0 & t > 2t_0
+	\end{cases} 
+	\]
+\end{example}
+\noindent
+\textbf{الحل}
+\begin{align*}
+	\LL[f(t)] &= \int_{0}^{\infty} e^{-st} f(t)dt\\
+	&= \int_{0}^{t_0} te^{-st}dt + \int_{t_0}^{2t_0} (2t_0 - t)e^{-st}dt\\
+	&= \Big[-\frac{1}{s} te^{-st} - \frac{1}{s^2} e^{-st}\Big]^{t_0}_0  + \Big[- \frac{1}{s}(2t_0 - t)e^{-st} + \frac{1}{s^2} \Big]^{2t_0}_{t_0}\\
+	&= \frac{1}{s^2}[e^{-st_0} -1] + \frac{1}{s^2} [e^{-2st_0} - e^{-st_0}]\\
+	&= \frac{1}{s^2} [ 1-2e^{-st_0} + e^{-2st_0}]\\
+	&= \frac{1}{s^2} [1-e^{-st_0}]^2 
+\end{align*}
+
+\newpage
+\section[الخاصية الخطية]{الخاصية الخطية [4]}
+لمجموعة خطية من الدوال ، يمكن كتابة 
+\begin{equation}
+\int_{0}^{\infty} [\alpha f(t) + \beta g(t)] e^{-st} dt = \alpha \int_{0}^{\infty}  f(t)e^{-st} dt + \beta \int_{0}^{\infty} g(t) e^{-st} dt
+ \end{equation}
+ اذن
+ \begin{equation}
+ 	\LL[\alpha f(t) + \beta g(t)] = \alpha \LL[f(t)] + \beta \LL[g(t)]
+ \end{equation}
+ وبالتالي يمكن القول ان تحويل لابلاس هو تحويل خطي.
+ 
+ \section[تحويل لابلاس العكسي]{تحويل لابلاس العكسي [5]} 
+ اذا كانت $F(s)$ هي تحويل لابلاس للدالة $f(t)$ حيث $\LL[f(t)] = F(s)$ ، فأنه يمكن القول ان $f(t)$ هي تحويل لابلاس العكسي لـــ $F(s)$ ونكتب 
+\begin{equation}
+	 \LL^{-1} [F(s)] = f(t)
+\end{equation}
+ فيما يلي ، سنعرض بعض تحويلات لابلاس العكسية لبعض الدوال المعروفة
+ \begin{gather}
+ 	\LL^{-1} \left\{\frac{1}{s}\right\} = 1\\
+ 	\LL^{-1}\left\{ \frac{n!}{s^{n+1}}\right\} = t^n , \quad n=1,2,3,\dots\\
+ 	\LL^{-1}\left\{\frac{1}{s-k}\right\} = e^{kt}\\
+ 	\LL^{-1}\left\{\frac{k}{s^2 + k^2}\right\} = \sin kt\\
+ 	\LL^{-1}\left\{\frac{s}{s^2 + k^2}\right\} = \cos kt\\
+ 	\LL^{-1}\left\{\frac{k}{s^2 - k^2}\right\} = \sinh kt\\
+ 	\LL^{-1}\left\{\frac{s}{s^2 - k^2}\right\} = \cosh kt
+ \end{gather}
+ 
+ \section[الخاصية الخطية لتحويل لابلاس العكسي]{الخاصية الخطية لتحويل لابلاس العكسي [1]}
+  تحويل لابلاس العكسي هو أيضاً تحويل خطي، حيث يمكن كتابة الثوابت $\alpha, \beta$ على  النحو التالي
+  \begin{equation}
+  	\LL^{-1} \{\alpha F(s) + \beta G(s)\} = \alpha \LL^{-1} \{F(s)\} + \beta \LL^{-1} \{G(s)\}
+  \end{equation}
+  
+  \section[الكسور الجزئية]{الكسور الجزئية [1]}
+ تلعب الكسور الجزئية دوراً هاماً في تحويل لابلاس ، فهي تسهل عملية ايجاد تحويل لابلاس العكسي للكسور المركبة عن طريق تحويلها الى مجموعة من الكسور الجزئية المعروفة بتحويل لابلاس ، سنتعلم كيفية تطبيق الكسور الجزئية في تحويل لابلاس العكسي
+ 
+ \begin{example}
+ 	احسب تحويل لابلاس العكسي
+ 	\[
+ 	\LL^{-1} \left[\frac{s^2 + 6s + 9}{(s-1)(s-2)(s+4)}\right]
+ 	\]
+ \end{example}
+ \noindent
+ \textbf{الحل}\\
+ \noindent
+ يمكن تحويل هذه الكسور الى مجموعة من الكسور الجزئية 
+ \[
+ \frac{s^2 + 6s + 9}{(s-1)(s-2)(s+4)} = \frac{-\frac{16}{5}}{s-1} + \frac{\frac{25}{6}}{s-2} + \frac{\frac{1}{30}}{s+4}
+ \]
+ باستخدام الخاصية الخطية لــ $\LL^{-1}$ نجد ان 
+ \begin{align*}
+ 	&\LL^{-1} \left[\frac{s^2 + 6s + 9}{(s-1)(s-2)(s+4)}\right]\\
+ 	 &= \frac{-16}{5}\LL^{-1}\left[\frac{1}{s-1}\right] + \frac{25}{6} \LL^{-10}\left[\frac{1}{s-2}\right] + \frac{1}{30} \LL^{-1}\left[\frac{1}{s+4}\right]\\
+ 	 &=-\frac{16}{5}e^{t} + \frac{25}{6} e^{2t} + \frac{1}{30 } e^{-4t}
+  \end{align*}
+  
+  \section[نظرية الاشتقاق]{نظرية الاشتقاق [2]}
+  \begin{theorem}
+  	اذا كان $\LL\{f(t)\} = F(s)$ فأن
+  	\[
+  	\LL\{t^n f(t)\} = (-1)^n \frac{d^n}{ds^n} F(s), \quad n=1,2,3,\dots
+   	\]
+  \end{theorem}
+  
+  \begin{example}
+  	احسب تحويل لابلاس $\LL\{t\sin 2t\}$
+  \end{example}
+  \noindent
+  \textbf{الحل}\\
+  \noindent
+  باستخدام قوانين تحويل لابلاس
+  \[
+  \LL\{\sin kt\} = \frac{k}{s^2 + k^2}
+   \]
+   وحيث ان $k=2$ و $n=1$ نجد ان
+   \[
+   \LL\{t\sin 2t\} = -\frac{d}{ds}\left[\frac{k}{s^2 + k^2}\right] = \frac{4s}{(s^2 + 4)}
+   \]
+   \section[تطبيق تحويل لابلاس على المعادلات التفاضلية والانظمة]{ تطبيق تحويل لابلاس على المعادلات التفاضلية والأنظمة [4]}
+   في بداية هذا الفصل أكدنا ان تحويلات لابلاس توفر لنا أداة مفيدة لحل انواع معينة من المعادلات التفاضلية ، نظريات القسم 1 - 9 - 1 تساعدنا في معالجة التحويلات. لتطبيق تحويلات لابلاس على المعادلات التفاضلية ، نحتاج الى معرفة تحويل لابلاس للمشتقة (او المشتقة الثانية أو اعلى) للدالة. النظريتان التاليتان توفر لنا المعلومات ، في كلتا النظريتين نفترض ان جميع دوال $t$ التي تظهر تحقق فرضيات النظرية 1 من القسم 1 - 9 ، بحيث يكون تحويل لابلاس الخاص بها موجوداً.
+   
+   \begin{theorem}[{[7]}]
+   	$\LL\{f'(t)\} = sF(s) - f(0)$
+   \end{theorem}
+   \noindent
+   \textbf{البرهان}
+   \[
+   \LL\{f'(t)\} = \int_{0}^{\infty} e^{-st} f'(t)dt
+   \]
+   باستخدام طريقة التكامل بالتجزئة $u=e^{-st} , dv = f'(t)dt$ وبالتالي
+   $v=f(t), du = -se^{-st}$ اذن
+   \begin{align*}
+   	\LL\{f'(t)\} &= e^{-st} f(t)\Big|^\infty_0 + \int_{0}^{\infty} f(t) (-se^{-st}) dt\\
+   	&= -f(0) + s \int_{0}^{\infty} e^{-st} f(t) dt\\
+   	&= sF(s) - f(0)
+   \end{align*}
+   في الحد 
+   $e^{-st} f(t)\Big|^\infty_0 $
+   نعلم ان 
+   $\lim\limits_{t\to \infty} f(t) e^{-st} = 0$ لان $f$ من رتبة اسية.
+   
+   \begin{theorem}[{[7]}]
+   	$\LL\{f''(t)\} = s^2F(s) - sf(0) - f'(0)$ 
+   \end{theorem}
+   \noindent
+   \textbf{البرهان}
+   \[
+   \LL\{f''(t)\} = \int_{0}^{\infty} e^{-st} f''(t) dt
+   \]
+   باستخدام طريقة التكامل بالتجزئة 
+   $u=e^{-st} , dv = f''(t) dt$ اذن
+   \[
+   du = -se^{-st}, \quad v= f'(t)
+   \]
+   بالتالي
+   \begin{align*}
+   	\LL\{f''(t)\} &= e^{-st} f'(t) - \int_{0}^{\infty} f'(t) (-se^{-st} ) dt\\
+   	&= -f'(0) + s \int_{0}^{\infty} e^{-st} f'(t)dt\\
+   	&= -f'(0) + s\LL\{f'(t)\}\\
+   	&= -f'(0) + s \left[sF(s) - f(0)\right]\\
+   	&= s^2F(s) - sf(0) - f'(0)
+    \end{align*}
+    
+    \begin{example}
+    	حل مسألة القيمة الأولية التالية
+    	\[
+    	y' + 3y = 0,\quad y(0) = 1
+    	\]
+    \end{example}
+ 
+\noindent
+\textbf{الحل}\\
+\noindent
+    	 نطبق تحويل لابلاس على المعادلة
+    	\[
+    	\mathcal{L}\{y'(t)\} + 3\mathcal{L}\{y(t)\} = \mathcal{L}\{0\}
+    	\]
+    	وبما أن
+    	\[
+    	\mathcal{L}\{y'(t)\} = sY(s) - y(0),
+    	\]
+    	نعوض قيمة \(y(0)=1\) فيصبح:
+    	\[
+    	sY(s) - 1 + 3Y(s) = 0.
+    	\]
+    	نحل المعادلة الجبرية بالنسبة لـ \(Y(s)\)
+    	\[
+    	(s + 3)Y(s) = 1 \quad \Rightarrow \quad Y(s) = \frac{1}{s+3}.
+    	\]
+    	
+     نأخذ تحويل لابلاس العكسي
+    	نعلم أن:
+    	\[
+    	\mathcal{L}^{-1}\left\{\frac{1}{s+3}\right\} = e^{-3t}.
+    	\]
+    	إذن
+    	\[
+    	y(t) = e^{-3t}.
+    	\]
+    	إذن، حل مسألة القيمة الأولية هو
+    	\[
+    	y(t) = e^{-3t}.
+    	\]
+    

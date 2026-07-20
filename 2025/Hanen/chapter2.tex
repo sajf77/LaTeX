@@ -1,0 +1,437 @@
+\chapter{التشاكل الزمري والتشاكل الحلقي}
+
+\begin{definition}[\cite{groups1}]
+	لتكن $A$ و $B$ مجموعتين. الدالة هي علاقة تربط كل عنصر $a \in A$ بعنصر وحيد $f(a) \in B$، ويُرمز لها بـ:
+	\[
+	f : A \to B \quad \text{حيث} \quad a \mapsto f(a)
+	\]
+	وتُسمى $A$ مجال الدالة و$B$ المجال المقابل أو المدى.
+\end{definition}
+
+\subsection*{انواع الدوال}
+	\begin{itemize}
+		\item \textbf{دالة شاملة (Surjective):} تُسمى $f : A \to B$ شاملة إذا:
+		\[
+		\forall b \in B, \exists a \in A : f(a) = b
+		\]
+		أي أن صورة $f$ تغطي كامل المجموعة $B$.
+		
+		\item \textbf{دالة متباينة (Injective):} تُسمى $f : A \to B$ متباينة إذا:
+		\[
+		f(a_1) = f(a_2) \Rightarrow a_1 = a_2
+		\]
+		أو مكافئًا:
+		\[
+		a_1 \neq a_2 \Rightarrow f(a_1) \neq f(a_2)
+		\]
+		أي أن كل عنصر في $B$ له أصل واحد على الأكثر.
+		
+		\item \textbf{دالة تقابلية (Bijective):} تُسمى $f : A \to B$ تقابلية إذا كانت شاملة ومتباينة معًا، أي أن:
+		\[
+		\forall b \in B, \exists! a \in A : f(a) = b
+		\]
+		وفي هذه الحالة تكون $f$ قابلة للعكس ويكون لها معكوس $f^{-1} : B \to A$.
+	\end{itemize}
+
+
+
+\begin{definition}[\cite{groups2}]
+	\addcontentsline{toc}{section}{تعريف التشاكل الزمري}
+	لتكن كل من $(G_1, *)$ و $(G_2, \circ)$ زمرة ، تسمى الدالة $f : G_1\to G_2 $ انها تشاكل زمري اذا حققت الشرط  $f(a * b) = f(a) \circ f(b)$ لكل $a, b \in G_1 $ 
+\end{definition}
+
+\begin{example}
+	لتكن كل من $(G_1, *)$ و $(G_2, \circ)$ زمرة بعنصر محايد $e_1 $ و $e_2$ على التوالي ولتكن الدالة $f : G_1\to G_2 $ معرفة بالشكل 
+	\[
+	f(a) = e_2, \forall a\in G_1
+	\]
+	الدالة $f$ تحقق شرط التشاكل ويسمى هذا التشاكل بالتشاكل التافه.
+\end{example}
+\noindent
+\textbf{الحل}\\
+$
+\forall a, b\in G_1 , \quad f(a * b) = e_2 = e_2 \circ e_2 = f(a) \circ f(b)
+$\\
+بالتالي $f$ دالة تشاكل.
+
+\begin{example}
+	لتكن 
+	$f : (\Z, +) \to (\Z_n, +_n)$ دالة معرفة بالشكل التالي $f(a) = [a], \forall a\in \Z$. بين هل ان $f$ تمثل تشاكل
+\end{example}
+\noindent
+\textbf{الحل}\\
+\noindent
+لكل $a, b\in \Z$
+\[
+f(a + b) = [a + b] = [a] +_n [b] = f(a) +_n f(b)
+\]
+بالتالي $f$ دالة تشاكل.
+
+\begin{definition}[\cite{groups2}]
+	ليكن 
+	$f : (G_1, *) \to (G_2, \circ)$ تشاكل زمري ، فإن
+	\begin{enumerate}
+		\item اذا كانت $f$ دالة شاملة فإن التشاكل يسمى تشاكل شامل.
+		\item اذا كانت $f$ دالة متباينة فإن التشاكل يسمى تشاكل متباين.
+		\item اذا كانت $f$ دالة تقابل فإن التشاكل يسمى تشاكل تقابلي.
+	\end{enumerate}
+\end{definition}
+\newpage
+\begin{theorem}[\cite{groups2}]
+	ليكن 	$f : (G_1, *) \to (G_2, \circ)$ تشاكل زمري ، فإن
+	\begin{enumerate}[leftmargin=*]
+		\item $f(e_1) = e_2$.
+		\item  $f(a^{-1}) = [f(a)]^{-1}$.
+	\end{enumerate}
+\end{theorem}
+\noindent
+\textbf{البرهان}\\
+\noindent
+1. $f(e_1)  \circ e_2= f(e_1 * e_1) = f(e_1) \circ f(e_1)$ وبقانون الاختصار نحصل على $f(e_1) = e_2$
+2. $f(e_1) = f(a * a^{-1}) = f(a) \circ f(a^{-1})$\\
+\hspace*{9pt} $f(e_1) = f(a^{-1} * a) = f(a^{-1}) \circ f(a)$\\
+\hspace*{9pt} بالتالي $f(a^{-1}) = [f(a)]^{-1}$
+
+\begin{definition}[\cite{groups2}]
+	\addcontentsline{toc}{section}{نواة التشاكل الزمري}
+		ليكن 	$f : (G_1, *) \to (G_2, \circ)$ تشاكل زمري ، فإن مجموعة كل عناصر المجموعة $G_1$ التي تكون صورتها عنصر المحايد للزمرة $G_2$ تسمى نواة التشاكل ويرمز لها بالرمز $\ker f$ اي
+		\[
+		\ker f = \{a\in G : f(a) = e_2\}
+		\]
+\end{definition}
+
+\begin{example}
+	لتكن
+	$f : (\R, +) \to (\R-\{0\}, \cdot)$
+	دالة معرفة بالشكل 
+	$f(a) = 2^a, \forall a\in \R$
+	جد نواة التشاكل
+\end{example}
+\noindent
+\textbf{الحل}
+\begin{align*}
+	\ker f &= \{a \in \R  : f(a) = 1\}\\
+&= \{a\in \R : 2^a = 1\}\\
+&= \{a\in \R : a =0 \}\\
+&= \{0\}
+\end{align*}
+	\begin{example}
+		لتكن 
+		$f : (\Z, +) \to (\Z_n, +_n)$ دالة معرفة بالشكل التالي $f(a) = [a], \forall a\in \Z$. جد نواة التشاكل؟
+	\end{example}
+	\noindent
+	\textbf{الحل}
+	\begin{align*}
+		 \ker f &= \{a \in \Z: f(a) = [0]\}\\
+		 &= \{a\in \Z: [a] = [0]\}\\
+&= (n)
+	\end{align*}
+	
+	\begin{theorem}[\cite{groups1}]
+			ليكن 	$f : (G_1, *) \to (G_2, \circ)$ تشاكل زمري ، فإن $\ker f\leq G_1$.
+	\end{theorem}
+	\noindent
+	\textbf{البرهان}\\
+	\noindent
+	بما ان $f(e_1) = e_2$ اذن $e_1\in \ker f$ وبالتالي $\ker f\neq \varnothing$ وبواسطة التعريف $\ker f \subseteq G_1$ \\
+	الآن نفرض $a, b\in \ker f$ اذن $f(a) = f(b) = e_2$ اذن
+	\begin{align*}
+		f(a * b^{-1}) &= f(a) \circ f(b^{-1})\\
+		&= f(a) \circ  [f(b)]^{-1}\\
+		&= e_2 \circ  e_2^{-1}\\
+		&= e_2
+	\end{align*}
+	بالتالي $a * b^{-1} \in \ker f$. اذن $\ker f\leq G_1$.\qed
+	
+	\begin{theorem}[\cite{groups2}]
+					ليكن 	$f : (G_1, *) \to (G_2, \circ)$ تشاكل زمري ، فإن $\ker f=\{e_1\}$ اذا وفقط اذا كانت $f$ دالة متباينة.
+	\end{theorem}
+	\noindent
+	\textbf{البرهان}\\
+	\noindent
+	($\Leftarrow$) لنفرض ان $a, b\in G_1$ بحيث $f(a) = f(b)$ اذن $f(a) \circ [f(b)]^{-1} = e_2$ وبالتالــــي $f(a * b^{-1}) = f(a) \circ f(b^{-1}) = e_2$ ولكن $\ker f = \{e_1\}$ اذن $a*b^{-1} = e_1$ اي ان $a = b$. اذن $f$ دالة متباينة.\\
+	($\Rightarrow$) لنفرض ان $a \in \ker f$ بحيث $a\neq e_1$ وبما ان $f(e_1) = e_2$ اذن $f(a) = f(e_1) = e_2$ ولكن $f$ دالة متباينة اذن $a = e_1$ وهذا تناقض اذن $\ker f = \{e_1\}$.\qed
+	\newpage
+	\begin{theorem}[\cite{groups1}]
+	ليكن 	$f : (G_1, *) \to (G_2, \circ)$ تشاكل زمري ، ولتكن $(H, *)$ زمرة جزئية من 
+	$(G_1, *)$ فأن $(f(H), \circ )$ زمرة جزئية من $(G_2, \circ)$.
+	\end{theorem}
+	\noindent
+	\textbf{البرهان}\\
+	\noindent
+	بما ان
+	$f(H) = \{ f(h) : h\in H\}$ اذن $f(H) \subseteq G_2$ و $f(H) \neq \varnothing$ لأن $f(e_1) = e_2$ حيث $e_1 \in H$. الآن نفرض $f(h_1) , f(h_2) \in f(H)$ فإن 
+	\[
+	f(h_1) \circ f(h_2)^{-1} = f(h_1) \circ f(h_2^{-1}) = f(h_1 * h_2^{-1} )  = f(e_1)\in f(H). 
+ 	\]
+ 	اذن $(f(H), \circ )$ زمرة جزئية من $(G_2, \circ)$.\qed
+ 	
+ 	\begin{theorem}[\cite{groups2}]
+ ليكن $f : (G_1, *) \to (G_2, \circ)$ تشـــــــــــاكل زمـــــــري شـــامل وأن 
+ $(H, *) \trianglelefteq (G_1, *)$ ، فأن\\
+ $(f(H), \circ) \trianglelefteq (G_2, \circ)$
+ ، هذا يعني الصورة التشاكلية الشاملة لأي زمرة جزئية سوية تكون أيضاً زمرة جزئية سوية.
+ 	\end{theorem}
+\noindent
+\textbf{البرهان}\\
+\noindent
+ $(f(H), \circ) \leq (G_2, \circ)$ من المبرهنة السابقة ، الآن نفرض ان $f(h) \in f(H)$ و $a\in G_2$. وليكن $a\circ f(h) \circ a^{-1} \in a \circ f(H) \circ a^{-1}$، وبما أن $a\in G_2$ و $f$ دالة شاملة اذن يوجد $b\in G_1$ بحيث ان $a = f(b)$.  اذن
+ $
+ a\circ f(h) \circ a^{-1}= f(b) \circ f(h) \circ f(b)^{-1} = f(b*h*b^{-1})
+ $
+ وبما أن
+ $b * h * b^{-1} \in H$ بالتالي $(f(H), \circ) \trianglelefteq (G_2, \circ)$.\qed
+ 
+ \begin{theorem}[\cite{groups1}]
+ ليكن $f : (G_1, *) \to (G_2, \circ)$ تشاكل زمري ولتكن 
+ $(H, \circ) \trianglelefteq (G_2, \circ)$
+ فأن 
+ $(f^{-1}(H), *) \trianglelefteq (G_1, *)$
+ \end{theorem}
+\noindent
+\textbf{البرهان}\\
+\noindent
+لنفرض ان $x \in f^{-1}(H)$ و $a\in G_1$ وليكن 
+$a * x * a^{-1} \in a * f^{-1}(H) *a^{-1}$ بالتالــي
+$f(a * x * a^{-1}) = f(a) * f(x) * [f(a)]^{-1} \in H$ اذن $(f^{-1}(H), *) \trianglelefteq (G_1, *)$.\qed
+\newpage
+\begin{corollary}[\cite{groups2}]
+ليكن $f : (G_1, *) \to (G_2, \circ)$ تشاكل زمري فأن 
+$(\ker f, *) \leq (G_1, *)$ 
+هذا يعني ان نواة اي تشاكل زمري يكون زمرة جزئية.
+\end{corollary}
+\noindent
+\textbf{البرهان}\\
+\noindent
+بما ان
+$\ker f = f^{-1}(\{e\})$
+اذن بواسطة المبرهنة السابقة نستنتج ان 
+$(\ker f, *) \leq (G_1, *)$. \qed 
+
+\begin{definition}[\cite{groups1}]
+	ليكن 
+	$(G_1, *) , (G_2, \circ)$ زمرتان ، يقال انهما متشاكلتان اذا وجدت دالة بينهما تشاكل تقابلي و نكتب $(G_1, *) \cong (G_2, \circ)$.
+\end{definition}
+
+\begin{example}
+	ببين أن 
+	$(\Z_2, +_2) \cong (\{1,-1\}, \cdot)$.
+\end{example}
+\begin{solution}
+	لتكن 
+	$f  : (\Z_2, +_2) \to (\{1,-1\}, \cdot)$  دالة معرفة بالشكل
+	\[
+	f(0) = 1, \quad f(1) = -1
+	\]
+	اذن نلاحظ
+	$
+	\begin{gathered}[t]
+		f(0 +_2 0) = f(0) = 1 = f(0)\cdot f(0)\\
+		f(1+_2 0) = f(1) = -1 = f(1) \cdot f(0)\\
+		f(1 +_2 1) = f(0) = 1 = f(1) \cdot f(1)
+	\end{gathered}
+	$\\
+	اذن $f$ دالة تشاكل ، ايضاً $f(\Z_2) = \{1,-1\}$ اذن الدالة شاملة وواضح انها متباينة لذلك هي تقابل. اذن 	$(\Z_2, +_2) \cong (\{1,-1\}, \cdot)$.\qed
+\end{solution}
+
+\newpage
+
+\begin{theorem}[\cite{groups1}]
+	\addcontentsline{toc}{section}{مبرهنة التشاكل الاساسية في الزمر}
+	لتكن 
+	$f : (G_1, *) \to (G_2, \circ)$ تشاكل شامل فإن 
+	$(G/\ker f, \otimes) \cong (G_2, \circ)$
+\end{theorem}
+\noindent
+\textbf{البرهان}\\
+\noindent
+ليكن $H = \ker f$ بما ان
+ $(\ker f, *) \leq (G_1, *)$ و 
+ $(G_1/H, \otimes)$ 
+زمرة\\
+ لنفرض ان $\phi : G_1/H\to G_2$ دالة معرفة بالشكل الآتي $\phi(a*H) = f(a)$ لبرهان انها معرفة تعريفاً حسناً ليكن $a * H = b * H$ حيث 
+ $a*H, b*H \in G_1/H$ اذن $a^{-1} * b\in H$ اذن $f(a^{-1}*b) = e_2$ لذلك $[f(a)]^{-1} \circ f(b) = e_2$ اذن $f(a) = f(b)$  وهذا يعني ان الدالة $\phi $ دالة حسنة التعريف.
+ لبرهان ان $\phi$ تشاكل
+ \begin{align*}
+ 	 \phi(a * H \otimes b*H) &= \phi[(a*b)*H]\\
+ 	  &= f(a*b)\\
+ 	   &= f(a)\circ f(b)\\
+ 	    &= \phi(a*H)\circ \phi(b*H) 
+ \end{align*}
+ لبرهان ان $\phi$ متباينة
+ \begin{align*}
+ 	\ker f &= \{a*H \in G_1/H : \phi(a*H) = e_2\}\\
+ 	&= \{a*H \in G_1/H : a\in H\}\\
+ 	&= H
+ \end{align*}
+ وليكن $f(a) \in G_2$ حيث ان $a\in G_1$ يؤدي الى $a*H\in G_1/H$ اذن $\phi(a*H) = f(a)$
+اذن $\phi$ تشاكل متقابل لذلك $(G/\ker f, \otimes) \cong (G_2, \circ)$
+\newpage
+\begin{definition}[\cite{rings}]
+	\addcontentsline{toc}{section}{تعريف التشاكل الحلقي}
+	لنفترض ان $R$ و $S$ حلقتان ، تسمى الدالة $f:R\to S$ تشاكل حلقي اذا وفقط اذا كان
+	\setLR
+	\begin{enumerate}[label=(\arabic*)]
+		\item $f(a + b) = f(a) + f(b)$.
+		\item $f(a\cdot b) = f(a) \cdot f(b)$.
+	\end{enumerate}
+\end{definition}
+\setRL
+\noindent
+\textbf{ملاحظة}
+	\begin{enumerate}
+	\item اذا كانت $f$ دالة شاملة فإن التشاكل يسمى تشاكل شامل.
+	\item اذا كانت $f$ دالة متباينة فإن التشاكل يسمى تشاكل متباين.
+	\item اذا كانت $f$ دالة تقابل فإن التشاكل يسمى تشاكل تقابلي.
+\end{enumerate}
+
+\begin{example}
+		لنفترض ان $R$ و $S$ حلقتان ، نعرف الدالة $f:R\to S$ على انها  $f(a) = 0, \forall a\in R$ هي تشاكل وتسمى بالتشاكل التافه.
+\end{example}
+\noindent
+\textbf{الحل}\\
+\noindent
+1. $f(a + b) = 0 = 0 + 0 = f(a) + f(b)$.\\
+2. $f(a\cdot b) = 0 = 0\cdot 0 = f(a ) \cdot f(b)$.\\
+اذن $f$ تشاكل.
+
+\begin{example}
+	افترض ان $R$ حلقة ، نعرف الدالة $f : R\to R$ بالشكل 
+	$f(a) = a, \forall a\in R$
+	تكون تشاكل تقابلي.
+\end{example}
+\noindent
+\textbf{الحل}\\
+\noindent
+1. $f(a + b) = a + b = f(a) + f(b)$.\\
+2. $f(a\cdot b) = a\cdot b = f(a) \cdot f(b)$. \\
+اذا كان 
+$f(x) = f(y)$ لبعض $x,y \in R$ فأن $x=y$. اذن $f$ تباين.\\
+الآن لكل $y\in R$ فأن $ f(y) = y$ اذن $f$ شاملة. بالتالي $f$ تشاكل تقابلي.
+
+\begin{definition}[\cite{rings}]
+	\addcontentsline{toc}{section}{نواة التشاكل الحلقي}
+	لتكن $f$ تشاكل من الحلقة $R$ الى الحلقة $S$. فإن المجموعة 
+	\[
+	\ker f = \{a\in R : f(a) = 0\}
+	\]
+	تسمى بنواة التشاكل $f$.
+\end{definition} 
+
+\begin{theorem}[\cite{rings}]
+		لتكن $f$ تشاكل من الحلقة $R$ الى الحلقة $S$. فإن $\ker f$ هي مثالية في $R$.
+\end{theorem}
+\noindent
+\textbf{البرهان}
+
+\begin{english}
+	\begin{enumerate}
+		\item  $f(0) = 0 \Rightarrow 0 \in \ker f \Rightarrow \ker f \neq \varnothing$.
+	\item  $\forall x, y\in \ker f \Rightarrow f(x) = f(y) = 0\Rightarrow f(x-y) = f(x) - f(y) = 0-0 =0 \Rightarrow x-y \in \ker f$.
+	\item  $\forall x\in \ker f, \forall r\in R \Rightarrow f(x) = 0 \Rightarrow f(rx) = f(r)\cdot f(x) = f(r) \cdot 0 = 0 \Rightarrow rx \in \ker f.$
+	\end{enumerate}
+	\end{english}
+	
+	\noindent اذن $\ker f$ مثالية في $R$.
+	
+\begin{definition}[\cite{rings}]
+	نفرض ان $R, S$ حلقتان بحيث $f:R\to S$ تشاكل تقابلي ، نقول ان $R$ تماثل $S$ ونكتب $R\simeq S$.
+\end{definition}
+
+\begin{example}
+لنعرف الدالة 
+$f : \Z_6\to \Z_2\times \Z_3$ بالشكل 
+$f([a]_6) = ([a]_2, [a]_3)$ ، $f$ تكون دالة تشاكل تقابلي وبالتالي $\Z_6 \simeq\Z_2\times \Z_3$.
+\end{example}
+
+\begin{definition}
+	ليكن $I$ مثاليًا (ideal) في الحلقة $(R, +, \cdot)$، نُعرِّف التشاكل الطبيعي 
+	$\pi : R \to R/I$ بالشكل التالي:
+	\[
+	\pi(r) = r + I
+	\]
+	ويسمى هذا التشاكل {بالتشاكل الطبيعي}.
+\end{definition}
+\begin{theorem}[\cite{rings}]
+	ليكن $I$ مثاليًا (ideal) في الحلقة $(R, +, \cdot)$، فإن التطبيق الطبيعي 
+$\pi : R \to R/I$ 
+يكون تشاكل و 
+$\ker(\pi) = I$
+\end{theorem}
+\noindent
+\textbf{البرهان}\\
+\noindent
+نلاحظ أن:
+\begin{align*}
+	\pi(r + s) &= (r + s) + I = (r + I) + (s + I) = \pi(r) + \pi(s)\\
+	\pi(r \cdot s) &= (rs) + I = (r + I)(s + I) = \pi(r) \cdot \pi(s)
+\end{align*}
+
+إذن $\pi$ يحفظ الجمع والضرب، وبالتالي هو تشاكل حلقات.
+
+\bigskip
+
+\noindent
+\textbf{برهان أن نواة $\pi$ هي $I$}\\
+\noindent
+نحسب:
+\begin{align*}
+	\ker \pi &= \{r \in R : \pi(r) = 0 + I\}\\
+	&= \{r \in R : r + I = I\}\\
+	&= \{r \in R : r \in I\}\\
+	&= I
+\end{align*}
+
+وبالتالي:
+\[
+\ker \pi = I
+\]
+
+
+\begin{theorem}[\cite{rings}]
+	\addcontentsline{toc}{section}{مبرهنة التشاكل الأساسية في الحلقات}
+	لتكن 
+	$f : (R, +, \cdot) \to (S, +, \cdot)$ تشاكل شامل بين حلقتين، فإن 
+	$(R/\ker f, +, \cdot) \cong (S, +, \cdot)$.
+\end{theorem}
+\noindent
+\textbf{البرهان}\\
+\noindent
+ليكن $K = \ker f$ بما أن 
+$K$ مثالي من الحلقة $(R, +, \cdot)$ فإن 
+$(R/K, +, \cdot)$ حلقة.\\
+لنفرض أن $\phi : R/K \to S$ دالة معرفة بالشكل الآتي: 
+$\phi(r + K) = f(r)$\\
+لبرهان أنها معرفة تعريفاً حسناً، لنأخذ $r + K = s + K$ حيث 
+$r + K, s + K \in R/K$، إذن $r - s \in K$، إذن 
+$f(r - s) = 0$، وبالتالي 
+$f(r) - f(s) = 0$ أي أن $f(r) = f(s)$، وهذا يعني أن الدالة $\phi$ معرفة تعريفاً حسناً.
+
+لبرهان أن $\phi$ تشاكل:
+\begin{align*}
+	\phi((r + K) + (s + K)) &= \phi((r + s) + K)\\
+	&= f(r + s)\\
+	&= f(r) + f(s)\\
+	&= \phi(r + K) + \phi(s + K)\\
+   &= \phi(rs + K)\\
+	&= f(rs)\\
+	&= f(r) \cdot f(s)\\
+	&= \phi(r + K) \cdot \phi(s + K)
+\end{align*}
+
+لبرهان أن $\phi$ متباينة:
+\begin{align*}
+	\ker \phi &= \{r + K \in R/K : \phi(r + K) = 0_S\}\\
+	&= \{r + K \in R/K : f(r) = 0_S\}\\
+	&= \{r + K : r \in K\}\\
+	&= K
+\end{align*}
+
+وليكن $f(r) \in S$ حيث أن $r \in R$ يؤدي إلى $r + K \in R/K$ إذن 
+$\phi(r + K) = f(r)$،\\
+إذن $\phi$ تشاكل متقابل، وبالتالي:
+\[
+(R/\ker f, +, \cdot) \cong (S, +, \cdot)
+\]
+
+

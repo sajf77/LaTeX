@@ -1,0 +1,27 @@
+\documentclass{arabicClass}
+
+\DeclareMathOperator{\TLP}{TLP}
+
+\addbibresource{references.bib}
+
+\begin{document}
+	\belowdisplayskip=7pt
+	\abovedisplayskip=7pt
+	
+	\input{Title Page/titlepage}
+	\pagenumbering{roman}
+	\input{ayah}
+	\input{gift}
+	\input{thanks}
+    \tableofcontents
+	\clearpage
+	\pagenumbering{arabic}
+	\input{intro}
+
+	\input{chapter1}
+	\input{chapter2}
+	
+	%\chapter*{المراجع}
+	%\addcontentsline{toc}{chapter*}{المراجع}
+	
+\end{document}

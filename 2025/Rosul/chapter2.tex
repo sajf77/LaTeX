@@ -1,0 +1,323 @@
+\chapter{بعض طرق حل الانظمة الخطية}
+
+سنتعرف في هذا الفصل على بعض طرق حل الانظمة الخطية وهنالك طرق عديدة. سنقتصر على بعض انواع الطرق وهي طريقة كرامر وطريقة معكوس المصفوفة ثم طريقة كاوس جوردان للحذف.
+
+\section[طريقة كرامر]{طريقة كرامر}
+لحل النظام $AX=b$ فإن 
+\[
+x_i = \frac{|A_i|}{|A|}, \quad i = 1,2,\dots,n
+\]
+حيث $A_i$ هي المصفوفة $A$ مع استبدال العمود $i$ مع المتجه $b$.
+
+\noindent
+\textbf{مثال:}\\ \noindent
+ اوجد حل النظام الخطي التالي بإستخدام طريقة كرامر
+\begin{align*}
+	2X_1 - 3X_2 =8\\
+	3X_1 + X_2 =1
+\end{align*}
+\noindent
+\textbf{الحل:}\\ \noindent
+نكتب النظام بالشكل
+\[
+\underbrace{
+\begin{pmatrix}
+	2&-3\\
+	3&1
+\end{pmatrix}}_{A}
+\underbrace{
+\begin{pmatrix}
+	X_1\\X_2
+\end{pmatrix}}_{X}
+=
+\underbrace{
+\begin{pmatrix}
+	8\\1
+\end{pmatrix}}_{b}
+\]
+\[
+\Rightarrow |A| = 2+9=11
+\]
+\[
+A_1 =
+\begin{pmatrix}
+	8&-3\\
+	1&1
+\end{pmatrix}
+\Rightarrow |A_1| = 8+3=11
+\]
+\[
+\Rightarrow X_1 = \frac{|A_1|}{|A|} = \frac{11}{11}=1
+\]
+\[
+A_1 =
+\begin{pmatrix}
+	2&8\\
+	3&1
+\end{pmatrix}
+\Rightarrow |A_2| = 2-24=-22
+\]
+\[
+\Rightarrow X_2 = \frac{|A_2|}{|A|} = \frac{-22}{11} = -2
+\]
+
+\section[طريقة معكوس المصفوفة]{طريقة معكوس المصفوفة}
+ليكن $AX=b$ منظومة المعادلات الخطية مكونة من $n$ من المعادلات والمتغيرات. في حال عدد المعادلات يساوي عدد المجاهيل نستخدم القانون التالي لحل النظام
+\[
+X = A^{-1}b
+\]
+حيث $X$ قيم المتغيرات و $A$ مصفوفة المعاملات وهي قابلة للانعكاس و $b$ متجه القيم المطلقة.\\
+\noindent\textbf{مثال:}\\ \noindent
+بإستخدام معكوس المصفوفة جد حل النظام الخطي التالي
+\begin{align*}
+	4X_1 - 2X_2 = 10\\
+	3X_1 - 5X_2 = 11
+\end{align*}
+\noindent\textbf{الحل:}\\ \noindent
+\[
+A = 
+\begin{pmatrix}
+	4&-2\\
+	3&-5
+\end{pmatrix}
+\Rightarrow |A| = -20+6=-14
+\]
+\[
+A^{-1} = \frac{1}{|A|}\cdot \text{adj}(A)
+\]
+\begin{align*}
+	C_{11} = (-1)^{1+1} |M_{11}| = -5\\
+	C_{12} = (-1)^{1+2} |M_{12}| = -3\\
+	C_{21} = (-1)^{2+1} |M_{21}| = 2\\
+	C_{22} = (-1)^{2+2} |M_{22}| = 4
+\end{align*}
+\[
+\Rightarrow C =
+\begin{pmatrix}
+	-5& -3\\
+	2&4
+\end{pmatrix}
+\Rightarrow C^T
+=\begin{pmatrix}
+	-5&2\\
+	-3&4
+\end{pmatrix}
+\]
+\begin{align*}
+	A^{-1} &= \frac{1}{|A|}C^T\\
+	&=\frac{1}{-14} 
+	\begin{pmatrix}
+		-5&2\\
+		-3&4
+	\end{pmatrix}\\
+	&=
+	\begin{pmatrix}
+		5/14 & -1/7\\
+		3/14 & -2/7
+	\end{pmatrix}
+\end{align*}
+نحسب قيم المتغيرات $X_1, X_2 $ باستخدام القانون $X=A^{-1}b$
+\[
+X = 
+\begin{pmatrix}
+	5/14 & -1/7\\
+	3/14 & -2/7
+\end{pmatrix} \cdot
+\begin{pmatrix}
+	10\\11
+\end{pmatrix}=
+\begin{pmatrix}
+	50/14 - 11/7\\
+	30/14 - 22/7
+\end{pmatrix}
+\]
+\[
+X_1 = \frac{50}{14} - \frac{11}{7} = 2
+\]
+\[
+X_2 = \frac{30}{14} - \frac{22}{7} = -1
+\]
+
+\section[طريقة كاوس - جوردان للحذف]{طريقة كاوس - جوردان للحذف}
+
+لحل النظام $AX=B$ بطريقة كاوس - جوردان للحذف نتبع الخطوات التالية:
+\begin{enumerate}[leftmargin=*]
+	\item نحول النظام الخطي الى المصفوفة الممتدة.
+	\item نحول المصفوفة الممتدة الى المصفوفة المحايدة.
+	\item عند تحويل المصفوفة الى مصفوفة محايدة نستخدم العمليات الصفية الاولية.
+	\item نصفر العناصر الواقعة تحت القطر الرئيسي.
+	\item نصفر العناصر الواقعة فوق القطر الرئيسي.
+	\item نجعل عناصر القطر الرئيسي تساوي 1.
+\end{enumerate}
+
+\noindent
+\textbf{مثال}\\ \noindent
+جد حل النظام الخطي التالي
+\begin{align*}
+	X-6Y = -11\\
+	5X - Y = 3
+\end{align*}
+\textbf{الحل}
+\[
+(A\mid b) =
+\left(
+\begin{array}{cc|c}
+	1&-6&-11\\
+	5&-1&3
+\end{array}
+\right)
+\]
+نصفر العناصر الواقعة تحت القطر الرئيسي. حيث نضرب الصف الاول بــ $-5$ ونضيفه الى الصف الثاني
+\[
+R_2\to-5R_1 + R_2  \quad 
+\left(
+\begin{array}{cc|c}
+	1&-6&-11\\
+	0&29&58
+\end{array}
+\right)
+\]
+الآن نضرب الصف الثاني بــ $6$ ونضرب الصف الاول بــ $29$ ونجمع
+\[
+R_1 \to 6R_2 + 29R_1 \quad
+\left(
+\begin{array}{cc|c}
+	29&0&29\\
+	0&29&58
+\end{array}
+\right) 
+\]
+نجعل عناصر القطر الرئيسي يسواي 1.
+\[
+\begin{array}{c}
+	R_1 \to \dfrac{1}{29}R_1\\[10pt]
+	R_2 \to \dfrac{1}{29}R_2
+\end{array}\quad
+\left(
+\begin{array}{cc|c}
+	1&0&1\\
+	0&1&2
+\end{array}
+\right)
+\Rightarrow 
+\begin{array}
+	X = 1\\
+	Y = 2
+\end{array} 
+\]
+نستخرج قيم $X, Y$ 
+\[
+X=1, \quad Y=2 
+\]
+\newpage
+\section{طريقة تجزئة \textit{LU}}
+لدينا النظام الخطي $AX=b$ ، حيث $A$ مصفوفة المعاملات و $X$ قيم المتغيرات و $b$ متجه القيم المطلقة ، لحل هذا النظام بطريقة تجزئة $LU$  نقوم أولاً بكتابة المصفوفة $A$ بالشكل 
+\begin{equation*}
+	A = LU
+\end{equation*}
+حيث $L$ مصفوفة مثلثية سفلى ، و $U$ مصفوفة مثلثية عليا. بعد ذلك نعوض هذا التحليل في النظام الاصلي ليصبح لدينا 
+\[
+(LU)X = b
+\]
+ومن ثم بأستخدام خواص فضاء المتجهات نحصل على $L(UX) = b$ ، لنفرض ان $UX = Y$ فنختزل النظام الى $L Y = b$ الذي يمكن حله بطريقة التعويض الامامي للحصول على المتجه $Y$ فيصبح متجه معلوم ، ونحل النظام $UX = Y$ بالتعويض الخلفي للحصول على المتجه $X$.\\
+\noindent
+\textbf{مثال:}\\
+\noindent
+حل النظام الخطي التالي بطريقة تجزئة $LU$
+\begin{align*}
+	2X_1+ 3X_2 &= 8\\
+	4X_1 + 7X_2 &= 18
+\end{align*}
+\noindent
+\textbf{الحل}\\
+\noindent
+مصفوفة النظام هي 
+\[
+A = 
+\begin{bmatrix}
+	2&3\\
+	4&7
+\end{bmatrix}
+\]
+نحلل المصفوفة بالشكل $A = LU$ حيث
+\[
+L = 
+\begin{bmatrix}
+	1 & 0\\
+	a & 1
+\end{bmatrix},\quad
+U = 
+\begin{bmatrix}
+	b & c\\
+	0 & d
+\end{bmatrix}
+\]
+\newpage\noindent
+بالتالي
+\begin{align*}
+	\begin{bmatrix}
+		2&3\\
+		4&7
+	\end{bmatrix} =
+	\begin{bmatrix}
+		1 & 0\\
+		a & 1
+	\end{bmatrix}\cdot
+	\begin{bmatrix}
+		b & c\\
+		0 & d
+	\end{bmatrix}
+	= 
+	\begin{bmatrix}
+		b & c\\
+		ab & ac + d
+	\end{bmatrix}
+\end{align*}
+اذن 
+\begin{align*}
+	b = 2,\quad
+	c&= 3\\
+	ab = 4,\quad
+	ac + d &= 7 
+\end{align*}
+وبالتالي
+\[
+a=2, \quad b=2, \quad c=3, \quad d=1
+\]
+\[
+\Rightarrow 
+L = 
+\begin{bmatrix}
+	1&0\\
+	2&1
+\end{bmatrix},
+\quad
+U=
+\begin{bmatrix}
+	2&3\\
+	0&1
+\end{bmatrix}
+\]
+نفرض ان $ UX = Y$ حيث 
+\[
+Y = 
+\begin{bmatrix}
+	Y_1\\
+	Y_2
+\end{bmatrix}
+\]
+اذن يصبح لدينا النظام $LY= b$ اي ان 
+\begin{align*}
+	Y_1 &= 8\\
+	2Y_1 + Y_2 &= 18
+\end{align*}
+اذن $Y_1=8, Y_2=2 $ وبالتعويض في $UX = Y$ يصبح لدينا
+\begin{align*}
+	2X_1 + 3X_2 &= 8\\
+	X_2 &= 2
+\end{align*}
+اذن $2X_1+3(2) = 8 $ وبالتالي $X_1=1 $ ، اذن الحل النهائي
+\[
+X_1 = 1, \quad X_2 = 2
+\]
+

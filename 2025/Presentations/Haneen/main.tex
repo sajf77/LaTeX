@@ -1,0 +1,260 @@
+\input{/home/sajad/Programming/LaTeX/Presentations/arabicBeamer.tex}
+
+\title{\textbf{التشاكل في الزمر والحلقات}}
+\author{\textbf{الطالبة : حنين عدنان اسماعيل}}
+\date{\textbf{اشراف : م. جاسم محمد جواد}}
+
+\begin{document}
+	\abovedisplayskip=0pt
+	\belowdisplayskip=0pt
+	\maketitle
+	
+	\timesfont
+	
+	\begin{frame}{الملخص}
+		قدمنا في هذا البحث نبذة عن نظرية الزمر ونظرية الحلقات حيث درسنا في الفصل الاول مفاهيم أولية في نظرية الزمر وكذلك في نظرية الحلقات ، اما في الفصل الثاني درسنا مفهوم التشاكل الزمري والتشاكل الحلقي وأهم المبرهنات النتائج التي تخصهما. 
+	\end{frame}
+	
+	\begin{frame}
+		\Huge
+		\begin{center}
+			\textbf{الفصل الاول}\\
+			\textbf{مفاهيم اولية في الزمر والحلقات}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{exampleblock}{تعريف الزمرة}
+				لتكن $(G, *)$ شبه زمرة بعنصر محايد فأن $G$ تسمى زمرة Group اذا كان كل عنصر فيها له معكوس بالنسبة للعملية الثنائية $*$. او نقول ان $(G, *)$ زمرة اذا تحققت الشروط التالية
+			\begin{enumerate}
+				\item مغلقة بالنسبة للعملية $*$ اي : $a*b \in G , \forall a, b\in G$.
+				\item العملية $*$ تجميعية : $a*(b*c) = (a*b)*c , \forall a, b,c\in G$.
+				\item $G$ تمتلك عنصر محايد مثل $e$ : $a*e =e*a=a, \forall a\in G$.
+				\item كل عنصر $a\in G$ يمتلك معكوس : $\forall a\in G, \exists a^{-1}\in G : a*a^{-1}=a^{-1}*a=e$.
+			\end{enumerate}
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{تعريف}
+				الزمرة $(G, *)$ تسمى زمرة ابدالية اذا كانت العملية $*$ عملية ثنائية ابدالية.
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{تعريف}
+				لتكن $(G, *)$ زمرة و $H$ مجموعة غير خالية جزئية من $G$ فإن $(H, *)$ تسمى زمرة جزئية من الزمرة $(G, *)$ اذا كانت $H$ هي زمرة كذلك ونكتب $(H, *)\leq (G, *)$
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{exampleblock}{مبرهنة}
+				لتكن $(G, *)$ زمرة و $\varnothing\neq H\subseteq G$ اذن $(H, *)$ تكون زمرة جزئية من $(G, *)$ اذا وفقط اذا حققت الشرط 
+			\[
+			a * b^{-1} \in H, \forall a, b\in H
+			\]
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{تعريف}
+			
+			لتكن $(H, *)$ زمرة جزئية من الزمرة $(G, *)$ وأن $a\in G$ ،تسمى  المجموعة المعرفة بالشكل التالي 
+			$a* H = \{a * h : h\in G\}$
+			بالمجموعة المشاركة (المصاحبة)  اليسارية لــ $H$ في $G$  ، وتسمى $H*a = \{h*a:h\in G\}$ بالمجموعة المشاركة (المصاحبة) اليمينية. 
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{تعريف}
+			 	لتكن $(H, *)$ زمرة جزئية من $(G, *)$ فإن $(H, *)$ تسمى زمرة جزئية ناظمية (سوية) اذا وفقط اذا كان $a*H = H*a$ لكل $a\in G$ ونكتب $ H \trianglelefteq G$.
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{exampleblock}{تعريف}
+			  	لتكن $(H, *)$ زمرة جزئية من $(G , *)$ ، نعرف العملية الثنائية $\circledast$ على $G/H$ بالشكل التالي\\
+			$
+			(a*H)\circledast (b*H) = (a*b) *H, \forall a, b\in G
+			$
+			ويسمى الزوج المرتب $(G/H, \circledast)$ بزمرة القسمة.
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{تعريف الحلقة}
+			 	الحلقة هي ثلاثي مرتب $(R, +, \cdot)$ مكون من مجموعة غير خالية $R$ وعمليتي الجمع والضرب بحيث 
+			\begin{enumerate}
+				\item $(R, +)$ زمرة ابدالية.
+				\item  $(R, \cdot) $ شبه زمرة.
+				\item العملية $\cdot$ تتوزع على العملية + ، أي أن:
+				\begin{gather*}
+					a\cdot (b+c) = a\cdot b + a\cdot c \tag{التوزيع من اليسار}\\
+					(b + c) \cdot a = b\cdot a + c\cdot a \tag{التوزيع من اليمين}
+				\end{gather*}
+				لكل $a ,b,c\in R$
+			\end{enumerate}
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{exampleblock}{تعريف}
+			 	لتكن $(R, +, \cdot)$ حلقة مع عنصر محايد لعملية الضرب ، نقول ان $(R, +, \cdot)$ ساحة تامة اذا لم تحوي على قواسم الصفر وكانت ابدالية بالنسبة لعملية الضرب.
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{تعريف}
+			لتكن $(R, +, \cdot)$ حلقة و أن $\varnothing\neq S\subseteq R$ ، اذا كانت $(S, +, \cdot)$ حلقة بحد ذاتها نقول بأنها حلقة جزئية من $(R, +, \cdot)$ و اختصاراً نقول $S$ حلقة جزئية من $R$.
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{تعريف}
+			 	لتكن $R$ حلقة و $I$ مجموعة جزئية من $R$ ، نقول ان $I$ هي مثالية في $R$ اذا تحققت الشروط
+			\begin{enumerate}
+				\item $a-b\in I, \forall a, b\in I$.
+				\item $r\cdot a \in I$ و $a\cdot r\in I$ لكل $r\in R, a\in I$.
+			\end{enumerate}
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+		\Huge
+		\begin{center}
+			\textbf{الفصل الثاني}\\
+			\textbf{التشاكل الزمري والتشاكل الحلقي}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{exampleblock}{تعريف}
+				لتكن كل من $(G_1, *)$ و $(G_2, \circ)$ زمرة ، تسمى الدالة $f : G_1\to G_2 $ انها تشاكل زمري اذا حققت الشرط  $f(a * b) = f(a) \circ f(b)$ لكل $a, b \in G_1 $ 
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{مثال}
+			لتكن 
+			$f : (\Z, +) \to (\Z_n, +_n)$ دالة معرفة بالشكل التالي $f(a) = [a], \forall a\in \Z$. بين هل ان $f$ تمثل تشاكل
+		\noindent
+		\textbf{الحل}\\
+		\noindent
+		لكل $a, b\in \Z$
+		\[
+		f(a + b) = [a + b] = [a] +_n [b] = f(a) +_n f(b)
+		\]
+		بالتالي $f$ دالة تشاكل.
+		\end{exampleblock}
+	\end{frame}
+			
+		\begin{frame}
+			\begin{exampleblock}{مبرهنة}
+				ليكن 	$f : (G_1, *) \to (G_2, \circ)$ تشاكل زمري ، فإن
+			\begin{enumerate}
+				\item $f(e_1) = e_2$.
+				\item  $f(a^{-1}) = [f(a)]^{-1}$.
+			\end{enumerate}
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{تعريف}
+					ليكن 	$f : (G_1, *) \to (G_2, \circ)$ تشاكل زمري ، فإن مجموعة كل عناصر المجموعة $G_1$ التي تكون صورتها عنصر المحايد للزمرة $G_2$ تسمى نواة التشاكل ويرمز لها بالرمز $\ker f$ اي
+			\[
+			\ker f = \{a\in G : f(a) = e_2\}
+			\]
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{مبرهنة}
+						ليكن 	$f : (G_1, *) \to (G_2, \circ)$ تشاكل زمري ، فإن $\ker f\leq G_1$.
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{مبرهنة}
+								ليكن 	$f : (G_1, *) \to (G_2, \circ)$ تشاكل زمري ، فإن $\ker f=\{e_1\}$ اذا وفقط اذا كانت $f$ دالة متباينة.
+		\end{exampleblock}
+		\end{frame}
+		
+		\begin{frame}
+		   \begin{exampleblock}{مبرهنة التشاكل الاساسية في الزمر}
+		   	لتكن 
+		   	$f : (G_1, *) \to (G_2, \circ)$ تشاكل شامل فإن 
+		   	$(G/\ker f, \otimes) \cong (G_2, \circ)$
+		   \end{exampleblock}
+		   
+		   \pause
+		   \begin{exampleblock}{تعريف التشاكل الحلقي}
+		   		لنفترض ان $R$ و $S$ حلقتان ، تسمى الدالة $f:R\to S$ تشاكل حلقي اذا وفقط اذا كان
+		   	\setLR
+		   	\begin{enumerate}
+		   		\item $f(a + b) = f(a) + f(b)$.
+		   		\item $f(a\cdot b) = f(a) \cdot f(b)$.
+		   	\end{enumerate}
+		   	\setRL
+		   \end{exampleblock}
+		   
+		   \pause
+		   \begin{exampleblock}{ملاحظة}
+		   	\begin{enumerate}
+		   		\item اذا كانت $f$ دالة شاملة فإن التشاكل يسمى تشاكل شامل.
+		   		\item اذا كانت $f$ دالة متباينة فإن التشاكل يسمى تشاكل متباين.
+		   		\item اذا كانت $f$ دالة تقابل فإن التشاكل يسمى تشاكل تقابلي.
+		   	\end{enumerate}
+		   \end{exampleblock}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{exampleblock}{مثال}
+				
+				افترض ان $R$ حلقة ، نعرف الدالة $f : R\to R$ بالشكل 
+				$f(a) = a, \forall a\in R$
+				تكون تشاكل تقابلي.\\
+				\noindent
+				\textbf{الحل}\\
+				\noindent
+				(1) $f(a + b) = a + b = f(a) + f(b)$.\\
+				(2) $f(a\cdot b) = a\cdot b = f(a) \cdot f(b)$. \\
+				اذا كان 
+				$f(x) = f(y)$ لبعض $x,y \in R$ فأن $x=y$. اذن $f$ تباين.\\
+				الآن لكل $y\in R$ فأن $ f(y) = y$ اذن $f$ شاملة. بالتالي $f$ تشاكل تقابلي.
+			\end{exampleblock}
+			
+			\pause
+			\begin{exampleblock}{تعريف}
+					لتكن $f$ تشاكل من الحلقة $R$ الى الحلقة $S$. فإن المجموعة 
+				\[
+				\ker f = \{a\in R : f(a) = 0\}
+				\]
+				تسمى بنواة التشاكل $f$.
+			\end{exampleblock}
+		\end{frame}
+
+\begin{frame}
+	\begin{exampleblock}{مبرهنة}
+				لتكن $f$ تشاكل من الحلقة $R$ الى الحلقة $S$. فإن $\ker f$ هي مثالية في $R$.
+	\end{exampleblock}
+	
+	\pause
+	\begin{exampleblock}{تعريف}
+		نفرض ان $R, S$ حلقتان بحيث $f:R\to S$ تشاكل تقابلي ، نقول ان $R$ تماثل $S$ ونكتب $R\simeq S$.
+	\end{exampleblock}
+	
+	\pause
+	\begin{exampleblock}{تعريف}
+		ليكن $I$ مثاليًا (ideal) في الحلقة $(R, +, \cdot)$، نُعرِّف التشاكل الطبيعي 
+		$\pi : R \to R/I$ بالشكل التالي:
+		\[
+		\pi(r) = r + I
+		\]
+		ويسمى هذا التشاكل {بالتشاكل الطبيعي}.
+	\end{exampleblock}
+	
+	\pause
+	\begin{exampleblock}{مبرهنة التشاكل الاساسية في الحلقات} 
+		لتكن 
+		$f : (R, +, \cdot) \to (S, +, \cdot)$ تشاكل شامل بين حلقتين، فإن 
+		$(R/\ker f, +, \cdot) \cong (S, +, \cdot)$.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\Huge
+	\begin{center}
+		\textbf{شكراً لحسن استماعكم}
+	\end{center}
+\end{frame}
+	
+\end{document}

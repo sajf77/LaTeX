@@ -1,0 +1,52 @@
+\documentclass{arabicClass}
+
+\begin{document}
+	\abovedisplayskip=7pt
+	\belowdisplayskip=7pt
+	
+	\input{Title Page/titlepage.tex}
+	\pagenumbering{roman}
+	\amiri
+	\input{ayah}
+	\input{gift}
+	\input{thanks}
+	\arabicfont
+	\tableofcontents
+	\clearpage
+	\pagenumbering{arabic}
+	\input{abstract}
+	\input{intro}
+	\input{chapter1}
+	\input{chapter2}
+	\input{chapter3}	
+	
+	\input{conc}
+	\begin{thebibliography}{99}
+	\addcontentsline{toc}{chapter*}{المراجع}
+
+	
+	\begin{english}
+		\bibitem{elemrealanal}
+		Brain S. Thomson, Judith B. Bruckner, and Andrew M. Bruckner, \emph{Elementary Real Analysis}, Prentice-Hall, 2008.
+		
+		\bibitem{ode2}
+		Gabriel Nagy, \emph{Ordinary Differential Equations}, Michigan State University, 2021.
+
+       \bibitem{realanal}
+        Robert G. Bartle and Donald R. Sherbert, \emph{Introduction to Real Analysis}, Wiley, 2000.		
+		
+		\bibitem{mathanalysis}
+		Tom M. Apostol, \emph{Mathemtical Analysis}, Addison-Wesley Publishing Company, 1981.
+		
+		\bibitem{ode1}
+		William A. Adkins and Mark G. Davidson, \emph{Ordinary Differential Equations}, Springer New York Heidelberg Dordrecht London, 2012.
+		
+		\bibitem{introrealanal}
+		William F. Trench, \emph{Introduction to Real Analysis}, Pearson Eduction, 2009.
+		
+		
+		
+			\end{english}
+	\end{thebibliography}
+
+\end{document}

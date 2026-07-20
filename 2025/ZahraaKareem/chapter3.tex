@@ -1,0 +1,102 @@
+\chapter{النتائج العددية}
+
+\section*{1. مقدمة}
+	\addcontentsline{toc}{section}{ مقدمة}
+في هذا الفصل نظهر كفاءة وقوة اداء الطريقة التكرارية الجديدة (ZKM) من خلال بعض الامثلة العددية مقارنة بالطرق المعطاة على النحو التالي\\ \\
+\textbf{طريقة نيوتن (NM) [1]}
+\[
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+\]
+\textbf{طريقة هالي الكلاسيكية (HM) [3]}
+\[
+x_{n+1} = x_n - \frac{2f(x_n) f'(x_n)}{2[f'(x_n)]^2 - f(x_n )f''(x_n)}
+\]
+كل الحسابات نفذت بصيغة الدقة المضاعفة عند $\epsilon = 0.5$ باستخدام برنامج Maple. ولتحقيق التقارب في الخوارزمية اعتمدنا شرطي التوقف
+\begin{enumerate}
+	\item $|x_{n+1}-x_n|<\epsilon$
+	\item $|f(x_{n+1})|<\epsilon$
+\end{enumerate}
+\newpage
+
+		\renewcommand{\arraystretch}{2}
+
+\begin{table}[H]
+		\caption{}
+		\centering
+		\begin{english}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		\multicolumn{5}{|c|}{$f(x) = 2x^3 - 5x - 2, \quad x_0 = 1$}\\
+		\hline
+		\textbf{Method} & \textbf{IT} & $x_n$ & $|x_{n+1}-x_n|$& $|f(x_{n+1})|$ \\
+		\hline
+		NM & 8 & 2.85078 & $9.97220\times 10^{-13}$ & $1.98810\times 10^{-34}$\\
+		HM & 6 & 2.85078 & $1.86308\times 10^{-33}$ & $4.03983\times 10^{-99}$\\
+		ZKM & 4 & 0.35078 & $5.15939\times10^{-40}$ & $4.67777 \times10^{-239}$\\
+		\hline
+	\end{tabular}
+\end{english}
+\end{table}
+\vspace{1cm}
+\begin{table}[H]
+	\caption{}
+		\renewcommand{\arraystretch}{2}
+	\centering
+	\begin{english}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			\multicolumn{5}{|c|}{$f(x) = x^2 - e^x + 3x +2, \quad x_0 = 2.0$}\\
+			\hline
+			\textbf{Method} & \textbf{IT} & $x_n$ & $|x_{n+1}-x_n|$& $|f(x_{n+1})|$ \\
+			\hline
+			NM & 19 & 2.99223 & $2.94158\times 10^{-26}$ & $7.75741\times 10^{-51}$\\
+			HM & 7 & 2.99223 & $1.81427\times 10^{-35}$ & $2.40134\times 10^{-104}$\\
+			ZKM & 4 & $-0.60899$ & $2.37478\times10^{-45}$ & $1.21578\times10^{-224}$\\
+			\hline
+		\end{tabular}
+	\end{english}
+\end{table}
+\newpage
+\begin{table}[H]
+	\caption{}
+		\renewcommand{\arraystretch}{2}
+	\centering
+	\begin{english}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			\multicolumn{5}{|c|}{$f(x) = \cos(x) - x, \quad x_0 = 1.7$}\\
+			\hline
+			\textbf{Method} & \textbf{IT} & $x_n$ & $|x_{n+1}-x_n|$& $|f(x_{n+1})|$ \\
+			\hline
+			NM & 5 & 0.73909 & $2.34491\times 10^{-10}$ & $2.031971\times 10^{-112}$\\
+			HM & 5 & 0.73909 & $2.25412\times 10^{-44}$ & $2.22041\times 10^{-132}$\\
+			ZKM & 4 & 0.73909 & $5.67243\times10^{-56}$ & $5.13844 \times10^{-278}$\\
+			\hline
+		\end{tabular}
+	\end{english}
+\end{table}
+\vspace{1cm}
+\begin{table}[H]
+	\caption{}
+		\renewcommand{\arraystretch}{2}
+	\centering
+	\begin{english}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			\multicolumn{5}{|c|}{$f(x) = x^3 - e^{-x}, \quad x_0 = 3.5$}\\
+			\hline
+			\textbf{Method} & \textbf{IT} & $x_n$ & $|x_{n+1}-x_n|$& $|f(x_{n+1})|$ \\
+			\hline
+			NM & 9 & 0.77288 & $6.54706\times 10^{-20}$ & $8.94918\times 10^{-39}$\\
+			HM & 6 & 0.77288 & $4.43261\times 10^{-26}$ & $7.46517\times 10^{-77}$\\
+			ZKM & 5 & 0.77288 & $5.95606\times10^{-45}$ & $2.46351 \times10^{-221}$\\
+			\hline
+		\end{tabular}
+	\end{english}
+\end{table}
+
+\section*{2. الاستنتاجات}
+\addcontentsline{toc}{section}{ الاستنتاجات}
+في هذا لبحث تم تطوير عائلة تكرارية جديدة ذات الخطوتين من الرتبة الخامسة لحل المعادلات غير الخطية التربيعية بالاعتماد على مفكوك تايلر وبعض التقنيات العددية. نلاحظ من خلال النتائج العددية في الجداول اعلاه ان الطريقة التكرارية الجديدة (ZKM) ذات المعلمة الواحدة اعطت نتائج جيدة من حيث عدد التكرارات وسرعة التقارب مقارنة بطريقة نيوتن - رافسون (NM) وطريقة هالي (HM) حيث اعطت الطريقة التكرارية الجديدة ZKM افضل النتائج بإختيار قيمة المعلمة ($0.5$).
+
+

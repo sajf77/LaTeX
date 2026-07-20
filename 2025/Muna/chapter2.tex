@@ -1,0 +1,231 @@
+\chapter{طريقة متسلسلات القوى لحل المعادلات التفاضلية}
+
+\section{مقدمة}
+سوف نقدم في هذا الفصل طريقة لحل المعادلات التفاضلية الاعتيادية الخطية  بطريقة متسلسلات القوى. حيث يمكن حل المعادلات التفاضلية الخطية ذات المعاملات المتغيرة بطريقة عامة. وذلك بفرض الحل هو متسلسلة قوى $x$ ، ثم نعوض عن $y$ ومشتقاتها بالمعادلة المعلومة ونجد معاملات قوى $x$. وسنوضح ذلك بالامثلة التالية
+\section[بعض الامثلة التطبيقية]{بعض الامثلة التطبيقية \cite{diff_eqs_methods}}
+
+\begin{example}
+	جد الحل المتسلسل للمعادلة التفاضلية $y' = y$
+\end{example}
+\begin{solution}
+	نفرض ان حل المعادلة التفاضلية هي متسلسلة القوى التالية
+	\[
+	y = c_0 + c_1 x + c_2 x^2 + \cdots = \sum_{n=0}^{\infty} c_n x^n
+	\]
+	ولأجل تحديد المعاملات $c_1,c_2,\dots$ نجد
+	\[
+	y' = c_1 + 2c_2x + 3c_3 x^2 + \cdots = \sum_{n=0}^{\infty} (n+1)c_{n+1} x^n 
+	\]
+	بالتعويض عن $y,y'$ في المعادلة الاصلية نحصل على
+	\[
+	\sum_{n=0}^{\infty} (n+1)c_{n+1} x^n  = \sum_{n=0}^{\infty} c_n x^n
+	\]
+	وبتساوي المعاملات المتشابهة نحصل على 
+	\[
+	(n+1)c_{n+1} = c_n , \quad n =0,1,2,\dots 
+	\]
+	عندما $n=0$ 
+	\[
+	c_1 = c_0
+	\]
+	عندما $n=1$ 
+	\[
+	2c_2 = c_1 \Rightarrow c_2 = \frac{c_1}{2}\Rightarrow c_2 = \frac{c_0}{2}
+	\] 
+	عندما $n=3$ 
+	\[
+	3c_3 = c_2 \Rightarrow c_3 = \frac{c_2}{3} \Rightarrow c_3 = \frac{c_0}{6}
+	\]
+	ان حل المعادلة التفاضلية هو
+\begin{align*}
+	y &= c_0 + c_0 x + \frac{c_0}{2!} x^2 + \frac{c_0}{3!} x^3 + \cdots\\
+	& = c_0 \left(1+x+\frac{x^2}{2!} + \frac{x^3}{3!} + \cdots\right) \\
+	&= c_0 e^x
+\end{align*}
+حيث $c_0$ من الممكن ان يأخذ اي قيمة حقيقية
+\end{solution}
+
+\begin{example}
+	جد الحل المتسلسل للمعادلة التفاضلية $y'' + y$
+\end{example}
+\begin{solution}
+	نفرض ان الحل هو متسلسلة بالشكل التالي
+	\begin{align*}
+		& y = c_0 + c_1 x + c_2 x^2 + \cdots = \sum_{n=0}^{\infty} c_n x^n \\[10pt]
+	    & y' = c_1 + 2c_2x + 3c_3 x^2 + \cdots = \sum_{n=0}^{\infty} (n+1)c_{n+1} x^n \\[10pt]
+	    & y'' = 1\cdot2 c_2 + 2\cdot3 c_3x + 3\cdot4 c_4 x^2 + \cdots = \sum_{n=0}^{\infty} (n+1)(n+2)c_{n+2}x^n 
+	\end{align*}
+	بالتعويض عن $y, y''$ في المعادلة الاصلية وبجمع الحدود المشابهة
+	\[
+	\sum_{n=0}^{\infty} (n+1)(n+2)c_{n+2}x^n  + \sum_{n=0}^{\infty} c_n x^n =0
+	\]
+	\[
+	\sum_{n=0}^{\infty} \big[(n+1)(n+2)c_{n+2} + c_n\big]x^n  = 0
+	\]
+	اذن نحصل على العلاقة التكرارية
+	\[
+	c_{n+2} = \frac{-c_n}{(n+1)(n+2)}, \quad n=0,1,2,\dots
+	\]
+	عندما $c=0$ 
+	\[
+	c_2 = \frac{-c_0}{2}
+	\]
+	عندما $n=1$ 
+	\[
+	c_3 = \frac{-c_1}{6}
+	\]
+	عندما $n=2$ 
+	\[
+	c_4 = \frac{-c_2}{12} \Rightarrow c_4 = \frac{c_0}{24}
+	\]
+	عندما $n=3$ 
+	\[
+	c_5 = \frac{-c_3}{20} \Rightarrow c_5 = \frac{c_1}{120}
+	\]
+	وعلى هذا فإن حل المعادلة التفاضلية هو
+\begin{align*}
+	y &= c_0 + c_1 x - \frac{c_0}{2} x^2 - \frac{c_1}{6} x^3 + \frac{c_0}{24}x^4 + \frac{c_1}{120} x^5 + \cdots\\[7pt]
+	 &= c_0 \left(1-\frac{x^2}{2!} + \frac{x^4}{4!}+\cdots\right) + c_1 \left(x - \frac{x^3}{3!} + \frac{x^5}{5!} + \cdots\right)\\
+	&= c_0 \cos x + c_1 \sin x
+\end{align*}	
+حيث $c_0,c_1 $ ثوابت اختيارية
+\end{solution}
+
+\begin{example}
+	جد الحل العام للمعادلة التفاضلية
+	\[
+	(1-x^2) y'' - 2xy' + 6y =0
+	\]
+\end{example}
+\begin{solution}
+	نفرض ان الحل هو متسلسلة بالشكل التالي
+	\begin{align*}
+		& y = c_0 + c_1 x + c_2 x^2 + \cdots = \sum_{n=0}^{\infty} c_n x^n \\[10pt]
+		& y' = c_1 + 2c_2x + 3c_3 x^2 + \cdots = \sum_{n=0}^{\infty} (n+1)c_{n+1} x^n \\[10pt]
+		& y'' = 1\cdot2 c_2 + 2\cdot3 c_3x + 3\cdot4 c_4 x^2 + \cdots = \sum_{n=0}^{\infty} (n+1)(n+2)c_{n+2}x^n 
+	\end{align*}
+	نعوض عن $y,y',y''$ في المعادلة الاصلية نحصل على 
+	\[
+	(1-x^2) \sum_{n=0}^{\infty} (n+1)(n+2)c_{n+2}x^n - 2x \sum_{n=0}^{\infty} (n+1)c_{n+1} x^n + 6\sum_{n=0}^{\infty} c_n x^n =0
+	\]
+	\begin{multline*}
+		\sum_{n=0}^{\infty} (n+1)(n+2)c_{n+2}x^n - \sum_{n=0}^{\infty} (n+1)(n+2)c_{n+2}x^{n+2}   \\ -\sum_{n=0}^{\infty} 2(n+1)c_{n+1} x^{n+1} + \sum_{n=0}^{\infty} 6c_n x^n =0
+	\end{multline*}
+	\[
+		\sum_{n=0}^{\infty} (n+1)(n+2)c_{n+2}x^n - \sum_{n=2}^{\infty} n(n-1)c_{n}x^{n}    -\sum_{n=1}^{\infty} 2nc_{n} x^{n} + \sum_{n=0}^{\infty} 6c_n x^n =0
+\]
+\[
+2c_2 + 6c_3 x - 2c_1x + 6c_0 + 6c_1 x + \sum_{n=2}^{\infty} \big[(n+1)(n+2)c_{n+2} - (n(n-1) +2n -6)c_n\big] x^n = 0
+\]
+\[
+(2c_2 +6c_0) + (6c_3 +4c_1)x  + \sum_{n=2}^{\infty} \big[(n+1)(n+2)c_{n+2} - (n^2+n -6)c_n\big] x^n = 0
+\]
+\[
+(2c_2 +6c_0) + (6c_3 +4c_1)x  + \sum_{n=2}^{\infty} \big[(n+1)(n+2)c_{n+2} - (n+3)(n-2)c_n\big] x^n = 0
+\]
+بالمساواة مع الطرف الآخر نحصل على
+\[
+\left\{
+\begin{array}{l}
+	c_2 = -3c_0\\
+	c_3 = \dfrac{-2c_1}{3}\\
+	c_{n+2} = \dfrac{(n+3)(n-2)}{(n+1)(n+2)} c_n , \quad n=2,3,4,\dots
+\end{array}
+\right.
+\]
+عندما $n=2 $ 
+\[
+c_4 = 0
+\]
+عندما $n=3 $
+\[
+c_5 = \frac{6}{(4)(5)} c_3 =- \frac{c_1}{5}
+\]
+عندما $n=4 $ 
+\[
+c_6 = \frac{(7)(2)}{(5)(2)} c_4 = 0
+\]
+اذن الحل النهائي 
+\begin{align*}
+	y &= c_0 + c_1 x - 3c_0 x^2 + \frac{2}{3}c_1 x^3 +  \frac{1}{5}c_1 x^5 + 0 + \cdots\\
+	& = c_0 (1-3x^2) + c_1 \left(x - \frac{2}{3}x^2 - \frac{1}{5}x^5 + \cdots\right)
+\end{align*}
+حيث $c_0, c_1 $ ثوابت اختيارية.
+\end{solution}
+
+\begin{example}
+	جد الحل العام للمعادلة التفاضلية
+	\[
+	y'' - \frac{y}{1+x^2} = 0
+	\]
+\end{example}
+\begin{solution}
+		نفرض ان الحل هو متسلسلة بالشكل التالي
+	\begin{align*}
+		& y = c_0 + c_1 x + c_2 x^2 + \cdots = \sum_{n=0}^{\infty} c_n x^n \\[10pt]
+		& y' = c_1 + 2c_2x + 3c_3 x^2 + \cdots = \sum_{n=0}^{\infty} (n+1)c_{n+1} x^n \\[10pt]
+		& y'' = 1\cdot2 c_2 + 2\cdot3 c_3x + 3\cdot4 c_4 x^2 + \cdots = \sum_{n=0}^{\infty} (n+1)(n+2)c_{n+2}x^n 
+	\end{align*}
+يمكن كتابة المعادلة الاصلية بالشكل 
+	\[
+	(1+x^2)y'' - y=0
+	\]
+	حيث ان $1+x^2\neq 0 $ الان بتعويض عن $y'', y$ في المعادلة، نحصل على
+	\[
+	(1+x^2) \sum_{n=0}^{\infty} (n+1)(n+2)c_{n+2}x^n - \sum_{n=0}^{\infty}c_n x^n=0
+	\]
+	\[
+	\sum_{n=0}^{\infty} (n+1)(n+2)c_{n+2}x^n + \sum_{n=0}^{\infty} (n+1)(n+2)c_{n+2}x^{n+2} - \sum_{n=0}^{\infty}c_n x^n=0
+	\]
+	\newpage
+	\noindent
+	\begin{multline*}
+			2c_2 + 6c_3 x - c_0 - c_1 x + 	\sum_{n=2}^{\infty} (n+1)(n+2)c_{n+2}x^n \\ +\sum_{n=0}^{\infty} (n+1)(n+2)c_{n+2}x^{n+2} - \sum_{n=2}^{\infty}c_n x^n=0
+	\end{multline*}
+\begin{multline*}
+	(2c_2 - c_0) + (6c_3 - c_1)x + \sum_{n=2}^{\infty} (n+1)(n+2)c_{n+2}x^n \\ +\sum_{n=2}^{\infty} n(n-1)c_{n}x^{n} - \sum_{n=2}^{\infty}c_n x^n=0		
+\end{multline*}
+\[
+	(2c_2 - c_0) + (6c_3 - c_1)x + \sum_{n=2}^{\infty} \big[(n+1)(n+2)c_{n+2} + (n(n-1)-1)c_n\big]x^n =0
+\]
+\[
+	(2c_2 - c_0) + (6c_3 - c_1)x + \sum_{n=2}^{\infty} \big[(n+1)(n+2)c_{n+2} + (n^2-n-1)c_n\big]x^n =0
+\]
+بمساواة المعاملات ، نحصل على
+\[
+2c_2 - c_0 = 0\Rightarrow c_2 = \frac{c_0}{2}, \quad 6c_3 - c_1 = 0 \Rightarrow c_3=\frac{c_1}{6}
+\]
+\[
+(n+1)(n+2)c_{n+2} + (n^2-n-1)c_n = 0
+\]
+\[
+c_{n+2} = \frac{1+n-n^2}{(n+1)(n+2)} \, c_n, \quad n=2,3,4,\dots
+\]
+عندما $n=2$ 
+\[
+c_4 = \frac{-1}{12}c_2 = \frac{-1}{12}\frac{1}{2}c_0 = \frac{-1}{24}c_0
+\]
+عندما $n=3 $
+\[
+c_5 = \frac{-5}{20} c_3 = \frac{-5}{20}\frac{1}{6}c_1 = \frac{-5}{120}c_1 
+\]
+عندما $n=4 $ 
+\[
+c_6 = \frac{-11}{30}c_4 = \frac{-11}{30} \frac{-1}{24}c_0 = \frac{11}{720} c_0
+\]
+عندما $n=5 $ 
+\[
+c_7 = \frac{-19}{42}c_5 = \frac{-19}{42}\frac{-5}{120} c_1 = \frac{95}{2880} c_1
+\]
+اذن الحل العام يكون
+\[
+y = c_0 + c_1 x + c_2 x^2 + c_3x^3  + c_4 x^4 + c_5 x^5 + c_6 x^6 + c_7 x^7 + \cdots 
+\]
+\[
+y = c_0 + c_1 x + \frac{1}{2}c_0 x^2 + \frac{1}{6}c_1 x^3 - \frac{1}{24}c_0 x^4 - \frac{5}{120} c_1 x^5 + \frac{11}{720} c_0 x^6 + \frac{95}{2880} c_1 x^7 + \cdots
+\]
+\begin{multline*}
+	y = c_0 \left[1 + \frac{1}{2} x^2 - \frac{1}{24}x^4 + \frac{11}{720} x^6 + \cdots\right] \\+ c_1 \left[x + \frac{1}{6}x^3 - \frac{5}{120} x^5 + \frac{95}{2880} x^7+ \cdots\right]
+\end{multline*}
+حيث $c_0, c_1 $ ثوابت اختيارية.
+\end{solution}

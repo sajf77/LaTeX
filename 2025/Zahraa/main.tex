@@ -1,0 +1,45 @@
+\documentclass{arabicClass}
+
+\begin{document}
+%	\abovedisplayskip=7pt
+%	\belowdisplayskip=7pt
+	\renewcommand{\jot}{10pt}
+	\input{Title Page/titlepage}
+	\pagenumbering{roman}
+	\amiri
+	\input{ayah}
+	\input{gift}
+	\input{thanks}
+	\clearpage
+	\arabicfont
+	\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+\input{abstract}
+\input{intro}
+\clearpage
+\pagenumbering{arabic}
+\input{chapter1}
+
+\input{chapter2}
+
+%\input{chapter3}
+
+\input{conc}
+
+\begin{thebibliography}{9}
+	\addcontentsline{toc}{chapter*}{المصادر}
+	\begin{english}
+		\bibitem{key1}
+		Martin, A. Snyder: Chebyshev Methods In Numerical Approximations, Prentic -Hall, IncEnglewood Cliffs, N.J, 1996.
+		
+		\bibitem{key2}
+		J.C Mason, D.C.Handscomb: Chebyshev polynomials, Baco Ruton, London New York Washington, D.C, 2003.
+	\end{english}
+\bibitem{key3}
+منال طاهر الزيدي وحنان صالح ابو شحمة: التقريب بكثيرات الحدود ، المجلة العلمية لكلية التربية 
+جامعة مصراته ، ليبيا ، المجلد الاول - العدد الثاني عشر ، مارس 2019.
+\bibitem{key4}
+شكر الله، اميل: الرياضيات الهندسية المتطورة ، مؤسسة بيتر للطباعة ، 2002.
+\end{thebibliography}
+\end{document}

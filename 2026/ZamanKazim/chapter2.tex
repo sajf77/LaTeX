@@ -1,0 +1,434 @@
+\chapter{نظرية الزمر}
+
+\section*{مقدمة}
+تعد نظرية الزمر من اهم الامثلة في الرياضيات على استخدام التجريد في دراسة انظمة رياضية تبدو مختلفة ولكن تجمعها خصائص مشتركة تكون الاساس لبناء انظمة رياضية وثيقة بحد ذاتها، لقد نشأت نظرية الزمر قبل اكثر من مائتي عام وبتأثير من ثلاث فروع في الرياضيات وهي: الهندسة - نظرية الاعداد - نظرية المعادلات الجبرية.
+
+\vfill
+\newpage
+
+\section{تعاريف وأمثلة}
+
+\begin{definition}
+	اذا اعطيت مجموعة غير خالية $S$ فأن اي دالة من الجداء الديكارتي 
+	$* : S\times S\to S$ تدعى عملية ثنائية على $S$ وبهذا فأن اي عملية ثنائية على $S$ تعين لكل زوج مرتب من عناصر $S$. 
+	\[
+	a*b\in S, \forall a, b\in S
+	\]
+\end{definition}
+
+\begin{definition}
+	شبه الزمرة semi group هي الزوج المرتب $(S, *)$ المتكون من مجموعة غير خالية $S$ وعملية ثنائية $*$ معرفة على $S$. تحقق الشرط
+	$(a * b) * c = a * (b * c)$ لكل $a,b,c \in S$ اي ان العملية * تجميعية.
+\end{definition}
+
+\begin{example}
+	الانظمة 
+	$(\Z_+, +)$ و $(\Z_+, \cdot)$ تشكل شبه زمر. وكذلك بالنسبة للمجموعات $\Z, \Q, \R$.
+\end{example}
+
+\begin{definition}
+	يقال لشبه الزمرة $(S, *)$ انها شبه زمرة بعنصر محايد اذا وجد عنصر محايد وحيد لــ $(S, *)$.
+\end{definition}
+
+\begin{example}
+	شبه الزمرة $(\Z_+, \cdot)$ تمتلك عنصر محايد هو العدد الصحيح الموجب 1، من جهة اخرى شبه الزمرة $(\Z_+, +)$ ليس لها عنصر محايد لأن $0\notin \Z_+$.
+\end{example}
+
+
+\begin{definition}
+	لتكن $S$ مجموعة غير خالية و $*:S\times S\to S$ عملية ثنائية، تسمى $(S, *)$ زمرة إذا تحقق ما يلي:
+	\begin{enumerate}
+		\item الانغلاق: لأي عنصرين $a, b\in S$ فإن $a*b\in S$.
+		\item العملية التجميعية: $\forall a, b, c\in S: a*(b*c) = (a*b)*c$.
+		\item العنصر المحايد: $\exists e\in S, \forall a\in S: a*e = e*a = a$.
+		\item العنصر النظير: $\forall a\in S, \exists b\in S: a*b = b*a = e$.
+	\end{enumerate}
+	
+	\begin{note}
+		عادة نكتب $S$ بدلاً من $(S, *)$ وأيضًا نكتب $ab$ بدلاً من $a*b$.
+	\end{note}
+\end{definition}
+
+\begin{definition}
+	اذا كانت $S$ زمرة تحقق $ab=ba$ لكل $a,b\in S$ فأننا نقول ان $S$ زمرة ابدالية.
+\end{definition}
+
+\begin{example}
+	$(\Z_n, +_n)$ زمرة ابدالية حيث ان العنصر المحايد هو $[0]$ ونظير العنصر $[a]$ هو العنصر $[n-a]$.
+\end{example}
+
+\section{الزمرة الجزئية}
+\begin{definition}
+	لتكن $G$ زمرة ولتكن $H$ مجموعة جزئية (غير خالية) من $G$ يقال ان $H$ زمرة جزئية من $G$ اذا تحقق ما يلي:
+	\begin{enumerate}
+		\item لكل $a,b\in H$ فأن $ab\in H$.
+		\item المجموعة $H$ مع الربط المستحدث
+		$
+		\begin{array}{c}
+			H\times H \to H\\
+			(a, b) \mapsto ab
+		\end{array}
+		$
+		يكون زمرة.
+	\end{enumerate}
+	
+	\noindent 
+	يلاحظ ان كل زمرة $G$ تحتوي على زمرتين جزئيتين تافهتين هما $G, \{e\}$ حيث $e$ العنصر المحايد. 
+\end{definition}
+
+\begin{example}
+	اذا كانت $\Z_o, \Z_e$ تمثلان مجموعتي الاعداد الصحيحة الزوجية والفردية على الترتيب فأن $(\Z_e, +)$ هي زمرة جزئية من الزمرة $(\Z_,+)$ في حين ان $(\Z_o, +)$ هي ليست كذلك.
+\end{example}
+
+\section{الحلقات}
+\begin{definition}
+	الحلقة هي نظام رياضي $(R, +, \cdot)$ تتكون من مجموعة غير خالية $R$ وعمليتين ثنائيتين $+, \cdot$ معرّفتين على $R$ بحيث ان:
+	\begin{enumerate}
+		\item $(R, +)$ زمرة ابدالية.
+		\item $(R, \cdot)$ شبه زمرة.
+		\item العملية $\cdot$ توزيعية على العملية $+$، اي ان
+		\[\left.
+		\begin{array}{c}
+			a\cdot(b+c) = (a\cdot b) + (a\cdot c)\\
+			(b+c)\cdot a=(b\cdot a)+(c\cdot a)
+		\end{array}\right\} \forall a,b,c\in R
+		\] 
+	\end{enumerate}
+\end{definition}
+
+\section{زمرة المصفوفات}
+%\subsection*{مقدمة}
+تُعد الزُمَر من أهم المفاهيم الأساسية في الجبر التجريدي، إذ تُوفر إطارًا رياضيًا لدراسة البُنى والعلاقات بين العناصر تحت عمليات معينة. ومن أبرز الأمثلة العملية على الزُمَر هي زمرة المصفوفات، التي تتكون من جميع المصفوفات القابلة للعكس مع عملية الضرب. هذه الزمرة لا تقتصر أهميتها على الجانب النظري فحسب، بل تمتد لتشمل تطبيقات واسعة في مجالات متعددة مثل الفيزياء، علوم الحاسوب، والهندسة، حيث تُستخدم في تمثيل التحويلات الخطية، الدورانات، وحل الأنظمة الرياضية. إن دراسة زمرة المصفوفات تُعد مدخلاً لفهم أعمق للبُنى الرياضية المعقدة، وتُبرز كيف يمكن للرياضيات أن تكون أداة فعالة في تفسير الظواهر الطبيعية والأنظمة التقنية.
+
+
+
+\begin{theorem}
+	اذا كانت \(A, B, C\) مصفوفات متناظرة ، زمرة ابدالية
+\[
+A =
+\begin{bmatrix}
+	a_{11} & a_{12} & a_{13} & \cdots & a_{1n}\\
+	a_{21} & a_{22} & a_{23} & \cdots & a_{2n}\\
+	\vdots & \vdots & \vdots & \ddots & \vdots\\
+	a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}\\
+\end{bmatrix}
+\]
+\[
+A = \{a_{ij} = a_{ji}, \forall a_{ij}\in A \mid i = j\}
+\]
+\[
+B = \{b_{ij} = b_{ji}, \forall b_{ij}\in B \mid i = j\}
+\]
+\[
+C = \{c_{ij} = c_{ji}, \forall c_{ij}\in C \mid i = j\}
+\]
+\[
+G = \{A \in M_{m\times n}(\R)  : A^T = A\}
+\]
+هل ان $(G, +)$ زمرة ابدالية 
+\end{theorem}
+\begin{proof}
+	نطبق شروط الزمرة الابدالية
+	\begin{enumerate}[label=\textbf{\xslalph*)}, leftmargin=*]
+		\item $[0]=[0]^T \leftarrow A\in G \leftarrow G\neq \varnothing$.
+		
+		\item لتكن $A, B\in G$ ، اذن $A^T = A, B^T = B$ بالتالي
+		\[
+		A + B= A^T + B^T = (A+B)^T
+		\]
+		\[
+		\therefore A+B\in G
+		\]
+		\item عملية جمع المصفوفات عملية تجميعية ، اي ان
+		\[
+		\forall A, B, C \in G : A+(B+C) = A^T+(B^T+C^T) = (A^T+B^T)+C^T = (A+B)+C
+		\]
+		\item المحايد : 
+		$[0]=[0]^T \leftarrow 0 \in G$
+		\[
+		A + 0 = A + [0] = A + [0]^T = [0]^T + A = [0] + A = 0  +A = A
+		\] 
+		\item النظير : اذا كانت $A\in G$ فأن 
+		\[
+		(-A)^T = -A^T = -A 
+		\]
+		\[
+		\rightarrow -A \in G : -A + A = A+(-A) = 0
+		\]
+		\item الابدال : عملية جمع المصفوفات تكون ابدالية ، اي ان
+		\[
+		\forall A, B \in G : A + B = (A + B)^T = A^T + B^T = B^T + A^T = (B+A)^T = B+A
+		\]
+	\end{enumerate} 
+	وبالتالي $(G, +)$ زمرة ابدالية.
+\end{proof}
+
+
+\begin{example}
+	لتكن 
+	\[
+	A = 
+	\begin{bmatrix}
+		0&1&2\\
+		1&3&4\\
+		2&4&3
+	\end{bmatrix},
+	B = 
+	\begin{bmatrix}
+		1&2&3\\
+		2&5&7\\
+		3&7&5
+	\end{bmatrix},
+	C = 
+	\begin{bmatrix}
+		2&1&3\\
+		1&3&2\\
+		3&2&1
+	\end{bmatrix}
+	\]
+	نبرهن بأنها تحقق شروط الزمرة الابدالية ، هل ان $(G, +)$ زمرة ابدالية.
+	\begin{enumerate}[label=\textbf{\xslalph*)}, leftmargin=*]
+		\item $G\neq \varnothing \leftarrow \forall A, B\in G$  
+		\item لكل $A, B\in G$
+		\[
+		A + B = 
+		\begin{bmatrix}
+			0&1&2\\
+			1&3&4\\
+			2&4&3
+		\end{bmatrix} + 
+		\begin{bmatrix}
+			1&2&3\\
+			2&5&7\\
+			3&7&5
+		\end{bmatrix}= 
+		\begin{bmatrix}
+			1&3&5\\
+			3&8&11\\
+			5&11&8
+		\end{bmatrix}
+		\]
+		تحقق شرط المغلقة وهي مصفوفة متناظرة.
+		
+		\item لكل $A, B, C\in G$
+		\begin{align*}
+			(A + B) + C &= 
+			\left(
+			\begin{bmatrix}
+				0&1&2\\
+				1&3&4\\
+				2&4&3
+			\end{bmatrix} + 
+			\begin{bmatrix}
+				1&2&3\\
+				2&5&7\\
+				3&7&5
+			\end{bmatrix}
+			\right) + 
+			\begin{bmatrix}
+				2&1&3\\
+				1&3&2\\
+				3&2&1
+			\end{bmatrix}\\
+			&= 
+			\begin{bmatrix}
+				1&3&5\\
+				3&8&11\\
+				5&11&8
+			\end{bmatrix} + 
+			\begin{bmatrix}
+				2&1&3\\
+				1&3&2\\
+				3&2&1
+			\end{bmatrix}=
+			\begin{bmatrix}
+				3&4&8\\
+				4&11&13\\
+				8&13&9
+			\end{bmatrix}
+		\end{align*}
+		
+		\begin{align*}
+			A + (B + C) &=
+			\begin{bmatrix}
+				0&1&2\\
+				1&3&4\\
+				2&4&3
+			\end{bmatrix}
+			+
+			\left(
+			\begin{bmatrix}
+				1&2&3\\
+				2&5&7\\
+				3&7&5
+			\end{bmatrix}
+			+
+			\begin{bmatrix}
+				2&1&3\\
+				1&3&2\\
+				3&2&1
+			\end{bmatrix}
+			\right) \\
+			&=
+			\begin{bmatrix}
+				0&1&2\\
+				1&3&4\\
+				2&4&3
+			\end{bmatrix}
+			+
+			\begin{bmatrix}
+				3&3&6\\
+				3&8&9\\
+				6&9&6
+			\end{bmatrix} \\
+			&=
+			\begin{bmatrix}
+				3&4&8\\
+				4&11&13\\
+				8&13&9
+			\end{bmatrix}
+		\end{align*}
+		اذن تحقق شرط التجميعية.
+		
+		\item $0 \in G$
+		\[
+		A + 
+		\begin{bmatrix}
+			0&0&0\\
+			0&0&0\\
+			0&0&0
+		\end{bmatrix} = 
+		\begin{bmatrix}
+			0&1&2\\
+			1&3&4\\
+			2&4&3
+		\end{bmatrix} + 
+		\begin{bmatrix}
+			0&0&0\\
+			0&0&0\\
+			0&0&0
+		\end{bmatrix}
+		= 
+		\begin{bmatrix}
+			0&1&2\\
+			1&3&4\\
+			2&4&3
+		\end{bmatrix}
+		\]
+		اذن تحقق شرط المحايد.
+		
+		\item $A\in G$
+		\[
+		-A + A = A + (-A) = 
+		\begin{bmatrix}
+			0&1&2\\
+			1&3&4\\
+			2&4&3
+		\end{bmatrix} + 
+		\begin{bmatrix}
+			0&-1&-2\\
+			-1&-3&-4\\
+			-2&-4&-3
+		\end{bmatrix} = 
+		\begin{bmatrix}
+			0&0&0\\
+			0&0&0\\
+			0&0&0
+		\end{bmatrix}
+		\]
+		اذن تحقق شرط النظير
+		\item لكل $A, B \in G$
+		\[
+		A+B = B+A
+		\]
+		\[
+		A + B = 
+		\begin{bmatrix}
+			0&1&2\\
+			1&3&4\\
+			2&4&3
+		\end{bmatrix} + 
+		\begin{bmatrix}
+			1&2&3\\
+			2&5&7\\
+			3&7&5
+		\end{bmatrix}= 
+		\begin{bmatrix}
+			1&3&5\\
+			3&8&11\\
+			5&11&8
+		\end{bmatrix}
+		\]
+		\[
+		B+A = 
+		\begin{bmatrix}
+			1&2&3\\
+			2&5&7\\
+			3&7&5
+		\end{bmatrix} +
+		\begin{bmatrix}
+			0&1&2\\
+			1&3&4\\
+			2&4&3
+		\end{bmatrix}= 
+		\begin{bmatrix}
+			1&3&5\\
+			3&8&11\\
+			5&11&8
+		\end{bmatrix}
+		\]
+		\end{enumerate}
+		اذن تحقق شرط الابدالية ، بالتالي المصفوفات متناظرة تحقق شروط الزمرة الابدالية.
+\end{example}
+
+
+\newpage
+
+\begin{theorem}
+	لتكن $(S, +)$ مجموعة جزئية من زمرة المصفوفات المتناظرة $(G, +)$ فأنه
+	\[
+	\forall A, B\in S \to A + (-B) \in S
+	\]
+\end{theorem}
+\begin{proof}
+	لتكن $A, B\in S$
+	\[
+	\to A = A^T, B= B^T
+	\]
+	\[
+	A + (- B) = A^T + (-B^T) = A^T - B^T = (A - B)^T
+	\]
+	$\therefore A + (-B) \in S$
+\end{proof}
+
+\begin{example}
+	نفرض
+	\[
+	S = \{A_{3\times 3}(X) ; A = A^T : A_{ij} = a_{ji} \forall i=j\}
+	\]
+	\[
+	A = \begin{bmatrix}
+		1 & 2 & 5 \\
+		2 & 1 & 3 \\
+		5 & 3 & 1
+	\end{bmatrix} ; B = \begin{bmatrix}
+		4 & -2 & 1/2 \\
+		-2 & 4 & 0 \\
+		1/2 & 0 & 4
+	\end{bmatrix}\]
+	\[
+	A - B = \begin{bmatrix}
+		1 & 2 & 5 \\
+		2 & 1 & 3 \\
+		5 & 3 & 1
+	\end{bmatrix} - \begin{bmatrix}
+		4 & -2 & 1/2 \\
+		-2 & 4 & 0 \\
+		1/2 & 0 & 4
+	\end{bmatrix} = \begin{bmatrix}
+		-3 & 0 & \frac{9}{2} \\
+		0 & -3 & 3 \\
+		\frac{9}{2} & 3 & -3
+	\end{bmatrix} \to A - B \in S
+	\]
+\end{example}

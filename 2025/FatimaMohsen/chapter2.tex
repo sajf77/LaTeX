@@ -1,0 +1,271 @@
+\chapter{الدوال المستمرة وخصائصها}
+
+\section{تركيب الدوال المستمرة}
+
+\begin{definition}[( التركيب ) \cite{introrealanal}]
+	لتكن $f$ و $g$ دوال معرفة على المجالات $D_f$ و $D_g$ على التوالي. اذا كانت $D_g$ تمتلك مجموعة جزئية غير خالية $T$ بحيث $g(x) \in D_f$ لكل $x\in T$ ، فأن تركيب الدالتين $f\circ g$ يعرف بالشكل
+	\[
+	(f \circ g)(x) = f(g(x)), \quad \forall x\in T.
+	\]
+\end{definition}
+
+\begin{theorem}
+	افرض ان $g(x)$ دالة مستمرة عند $x_0 $ و $f(x)$ مستمرة عند $g(x_0)$  ، فأن $f\circ g$ مستمرة عند $x_0$.
+\end{theorem}
+\noindent
+\textbf{البرهان}\\
+\noindent
+نفرض ان $\epsilon > 0 $ ، بما ان $f$ مستمرة عند $g(x_0)$ ، اذن يوجد $\delta_1> 0 $ بحيث
+\begin{equation}
+	| f(t)  - f(g(x_0))| < \epsilon \quad\text{if}\quad |t - g(x_0)| < \delta_1
+\end{equation}
+وبما ان $g$ مستمرة عند $x_0 $ اذن يوجد $\delta > 0 $ بحيث
+\begin{equation}
+	|g(x) - g(x_0) | < \delta_1 \quad\text{if}\quad |x-x_0| < \delta
+\end{equation}
+اذن من المعادلتين (1) و (2) نحصل على 
+\[
+|f(g(x)) - f(g(x_0)) | < \epsilon \quad\text{if}\quad |x-x_0| < \delta.
+\] 
+بالتالي $f\circ g$ دالة مستمرة عند $x_0$.\qed
+
+\begin{example}
+	الدالة $f(x) = \sqrt{x}$ مستمرة لكل $x> 0 $ ، والدالة
+	\[
+	g(x) = \frac{9 - x^2}{x + 1} 
+	\]
+	مستمرة لكل $x \neq -1 $ وبالتالي فأن دالة التركيب 
+	\[
+	(f\circ g)(x) = \SQRT{\frac{9-x^2}{x+1}}
+	\]
+	مستمرة لكل نقاط مجالها  
+	$(-\infty, -3) \cup (1,3)$
+\end{example}
+
+\section[الاستمرارية المنتظمة]{الاستمرارية المنتظمة \cite{introrealanal}}
+
+\begin{definition}
+	يقال ان $f$ دالة مستمرة بإنتظام على المجموعة $S$ ، اذا كان لكل  $\epsilon > 0 $ يوجد $\delta$ بحيث
+	\[
+	|f(x) - f(y) | < \epsilon \quad\text{whenever}\quad |x-y| < \delta \,\, \text{and}\,\, x,y\in S
+	\] 
+\end{definition}
+
+\begin{example}
+	الدالة $ f(x) = 2x$ مستمرة بإنتظام على 
+	$(-\infty, \infty)$
+	لأن
+	\[
+	|f(x) - f(y)| < \epsilon \quad\text{if}\quad |x-y| < \frac{\epsilon}{2} 
+	\]
+\end{example}
+
+\begin{example}
+	اذا كان $r> 0 $ فإن الدالة $g(x) = x^2 $ مستمرة بإنتظام على الفترة $[-r,r]$ ، لرؤية ذلك ، نلاحظ
+	\[
+	|g(x) - g(y) | = |x^2 - y^2| = |x-y| |x+y| \leq 2r |x-y|
+	\]
+	لذا
+	\[
+    |f(x) - f(y)| < \epsilon \quad\text{if}\quad |x-y| < \delta = \frac{\epsilon}{2r} \quad\text{and}\quad -r < x,y < r
+ 	\]
+\end{example}
+
+\begin{example}
+	الدالة
+	\[
+	f(x) = \cos \frac{1}{x}
+	\]
+	مستمرة على الفترة
+	$(0,1]$
+	ولكن غير مستمرة بأنتظام على نفس الفترة ، لأن
+	\[
+	\left|f\left(\frac{1}{n\pi} \right) - f\left(\frac{1}{(n+1)\pi}\right)\right| =2 , \quad n=1,2,\dots
+	\]
+\end{example}
+
+\newpage
+
+\begin{theorem}
+	اذا كانت $f$ دالة مستمرة على الفترة المغلقة  $[a, b]$ ، فإن $f$ دالة مستمرة بأنتظام على الفترة $[a, b]$.
+\end{theorem}
+\noindent
+\textbf{البرهان}\\
+\noindent
+لنفرض ان $\epsilon > 0 $ ، بما أن $f$ دالة مستمرة على $[a, b]$ ، لذا فأن لكل $t\in [a, b]$ يوجد عدد موجب $\delta_t > 0 $ بحيث
+\begin{equation}
+	|f(x) - f(t) | < \frac{\epsilon}{2}  \quad\text{if}\quad |x-t| < 2\delta_t \quad\text{and}\quad x \in [a, b]
+ \end{equation}
+ اذا كانت $I_t = (t-\delta_t, t+\delta_t)$ ، فأن التجميعة
+ \[
+ H = \{I_t : t\in [a, b]\}
+ \]
+ تمثل غطاء مفتوح للفترة المغلقة $[a, b]$ ، وبما أن $[a, b]$ متراصة ، بأستخدام مبرهنة هاين - بورل يوجد عدد منته من النقاط $t_1, t_2,\dots, t_n$ في $[a, b]$ بحيث $I_{t_1}, I_{t_2}, \dots, I_{t_n} $ تغطي $[a, b]$ ، الآن نعرف 
+\begin{equation}
+	 \delta = \min \{\delta_1, \delta_2, \dots, \delta_n\}
+\end{equation}
+ الآن سوف نثبت اذا كان 
+ \begin{equation}
+ 	| x - y| < \delta \quad\text{and}\quad  x, y\in [a, b]
+ \end{equation}
+ فأن $|f(x) - f(y)| < \epsilon$. من المتراجحة المثلثية
+ \begin{equation}
+ 	\begin{aligned}
+ 		|f(x) - f(y)| &= |f(x) - f(t_r) + f(t_r) - f(y)|\\
+ 		&\leq |f(x) - f(t_r) | + |f(t_r) - f(y).|
+ 	\end{aligned}
+ \end{equation}
+ بما ان  $I_{t_1}, I_{t_2}, \dots, I_{t_n} $ تغطي $[a, b]$ ، العنصر $x$ يجب ان ينتمي الى واحدة من هذه الفترات ، نفرض ان $x\in I_r$ ، أي أن
+ \begin{equation}
+ 	|x-t_r| < \delta_{t_r}
+ \end{equation}
+من (3) مع $t=t_r$ 
+\begin{equation}
+	|f(x) - f(t_r)| < \frac{\epsilon}{2}
+\end{equation}
+من (5) و (7) و المتراجحة المثلثية
+\[
+|y-t_r| = |y-x + x -t_r| \leq |y-x| + |x-t_r| < \delta + \delta_{t_r} \leq 2\delta_{t_r}
+\]
+وبالتالي من (3) مع $t=t_r$ و استبدال $x$ بـــ $y$ نحصل على 
+\[
+|f(y) - f(t_r)| < \frac{\epsilon}{2}
+\]
+(6) و (8) تؤدي الى 
+$$|f(x) - f(y)| < \epsilon$$
+وبالتالي الدالة $f$ مستمرة بأنتظام على الفترة $[a, b]$.\qed
+
+\begin{corollary}
+	لتكن $f$ دالة مستمرة على مجموعة $T$ ، فأن $f$ مستمرة بأنتظام على اي فترة مغلقة محتواة في $T$.
+\end{corollary}
+
+
+\section[الاستمرارية وقابلية الاشتقاق]{الاستمرارية وقابلية الاشتقاق \cite{introrealanal}}
+
+في هذا البند سوف نناقش علاقة قابلية الاشتقاق لدالة معينة مع استمراريتها عند نقطة معينة
+\begin{theorem}
+	اذا كانت $f$ دالة قابلة للاشتقاق عند النقطة $x_0 $ ، فأنها مستمرة عند نفس النقطة.
+\end{theorem} 
+\noindent
+\textbf{البرهان}\\
+\noindent
+من تعريف المشتقة عند النقطة $x_0 $ فأن 
+\[
+f'(x_0) = \lim\limits_{x\to x_0} \frac{f(x) - f(x_0 )}{x-x_0}
+\]
+هذه الغاية موجودة و منتهية ، نريد اثبات ان $f$ دالة مستمرة عند $x_0 $ اي بمعنى 
+\[
+\lim\limits_{x\to x_0} f(x) = f(x)
+\]
+الآن 
+\[
+f(x) = f(x_0) + \left[\frac{f(x) - f(x_0)}{x-x_0}\right] (x-x_0)
+\]
+الآن، نأخذ الغاية للطرفين عندما $x\to x_0 $.
+\begin{align*}
+\lim\limits_{x\to  x_0}f(x) &= f(x_0) + \lim\limits_{x\to x_0}
+\left\{
+\left[\frac{f(x) - f(x_0)}{x-x_0}\right] (x-x_0)
+\right\}\\
+&= f(x_0 ) + f'(x_0) \cdot 0\\
+&= f(x_0)
+\end{align*}
+بالتالي $f$ دالة مستمرة عند $x_0$.\qed
+
+\begin{note}
+	عكس المبرهنة السابقة ليس دائماً صحيح. ويمكن رؤية ذلك من خلال المثال القادم
+\end{note}
+
+\begin{example}
+	الدالة $f(x) = |x|$ مستمرة لكل $x\in\R$ ولكنها غير قابلة للاشتقاق عند 0. لأن 
+	\[
+	\lim\limits_{x\to 0^+} \frac{f(x) - f(0)}{x-0} = \lim\limits_{x\to 0^+} \frac{|x|}{x} = 1
+	\]  
+	\[
+		\lim\limits_{x\to 0^-} \frac{f(x) - f(0)}{x-0} = \lim\limits_{x\to 0^-} \frac{|x|}{x} = -1
+	\]
+	بالتالي فأن الغاية للمشتقة غير موجودة ، اذن الدالة غير قابلة للاشتقاق عند 0.
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				axis lines = middle,
+				xlabel = $x$,
+				ylabel = {$f(x)$},
+				xmin = -5, xmax = 5,
+				ymin = -2, ymax = 10,
+				samples = 100
+				]
+				\addplot[domain=-5:0,blue,thick] {-x};
+				\addplot[domain=0:5,red,thick] {x};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{\en{Plot of \(f(x) = |x|\)}}
+	\end{figure}
+\end{example}
+
+\section[الاستمرارية وقابلية التكامل]{الاستمرارية وقابلية التكامل \cite{introrealanal}}
+
+\begin{theorem}
+	اذا كانت $f$ دالة مستمرة على الفترة $[a, b]$ فأنها دالة قابلة للتكامل على الفترة $[a, b]$.
+\end{theorem}
+\noindent
+\textbf{البرهان}\\
+\noindent
+لتكن $P = \{ x_0 , x_1, \dots, x_n\}$ تجزئة للفترة $[a, b]$ ، بما ان الدالة $f$ مستمرة على $[a, b]$ ، توجد نقاط $c_j, c_j'$ بحيث
+\[
+f(c_j) = M_j = \sup_{x_{j-1}\leq x\leq x_j} f(x)
+\]
+و 
+\[
+f(c_j') = m_j = \inf_{x_{j-1}\leq x\leq x_j} f(x)
+\]
+وبالتالي
+
+\begin{equation}
+	S(P) - s(P) = \sum_{j=1}^{n} \left[f(c_j) - f(c_j')\right](x_j - x_{j-1})
+\end{equation}
+
+بما ان الدالة مستمرة بأنتظام على الفترة $[a, b]$ (مبرهنة 2 - 2 -1) ، اذن لكل $\epsilon > 0 $ يوجد $\delta > 0 $ بحيث
+\[
+|f(x') - f(x)| < \frac{\epsilon}{b-a}
+\]
+اذا كانت $x, x'\in [a, b]$ و $|x-x'| > \delta$ ، اذا كان $||P|| > \delta$ فأن $|c_j - c_j'| > \delta$ ، ومن (9) 
+\[
+S(P) - s(P) < \frac{\epsilon}{b-a} \sum_{j=1}^{n} (x_j - x_{j-1} ) =\epsilon.
+\]
+وبالتالي $f$ دالة قابلة للتكامل على الفترة $[a, b]$.
+
+\begin{note}
+	عكس المبرهنة السابقة ليس صحيح دائماً. سنوضح ذلك في المثال القادم
+\end{note}
+
+\begin{example}
+	لنأخذ الدالة 
+	\[
+	f(x) = \begin{cases}
+		1 & x=1/2 \\
+		0 & x\in [0,1] ,x \neq 1/2
+	\end{cases}
+	\]
+	هذه الدالة قابلة للتكامل ، لاثبات ذلك ، نفرض $\epsilon > 0 $ ونكون التجزئة $P$ حيث
+	\[
+	P = \left[0, \frac{1}{2} - \frac{\delta}{2} \right] \cup \left[\frac{1}{2} - \frac{\delta}{2}, \frac{1}{2} + \frac{\delta}{2}\right]  \cup \left[\frac{1}{2} + \frac{\delta}{2}, 1\right]
+	\]
+	الآن
+	\[
+	S(P ) = 1\cdot \delta
+	\]
+	\[
+	s(P) = 0
+	\]
+	وبالتالي
+	\[
+	|S(P) - s(P)| = \delta
+	\]
+	بأخذ $\delta < \epsilon$ نثبت قابلية التكامل. ولكن الدالة غير مستمرة عند $1/2$ لأن	
+\[
+\lim\limits_{x\to 1/2} f(x) = 0 \neq 1 = f(1/2). 
+\] 
+\end{example}

@@ -1,0 +1,371 @@
+\input{/home/sajad/Programming/LaTeX/Presentations/arabicBeamer.tex}
+
+\begin{document}
+	\title{الرياضيات المتقطعة}
+	\author{\textbf{فاطمة كفاء}}
+	\date{\textbf{
+اشراف \\
+د. مضر عباس مجيد}}
+
+\begin{frame}
+	\maketitle
+\end{frame}
+\timesfont
+
+\begin{frame}{مقدمة}
+	\pause
+	الرياضيات المتقطعة هي فرع من فروع الرياضيات التي تهتم بدراسة الكيانات المنفصلة والمحدودة، مثل الأعداد الصحيحة والمجموعات والمنطق. تختلف الرياضيات المتقطعة عن الرياضيات التحليلية التي تركز على الكيانات المستمرة كالزمن أو المسافة. وتعتبر الرياضيات المتقطعة حجر الزاوية في العديد من التطبيقات العملية في علوم الكمبيوتر، نظرية المعلومات، والذكاء الصناعي، حيث تُستخدم في معالجة البيانات واتخاذ القرارات وتنظيم المعلومات.\\
+	\noindent
+	
+	\pause
+	من بين المواضيع الأساسية في الرياضيات المتقطعة، نجد نظرية البيان و الجبر البولياني، اللتين تلعبان دورًا محوريًا في بناء أساسيات العديد من التطبيقات الحديثة.\\
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\Huge
+		\textbf{الفصل الاول}\\[10pt]
+		\textbf{الجبر البولياني}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{exampleblock}{تعريف}
+		نفرض $B$ مجموعة غير خالية معرف عليها عمليتان ثنائيتان (+) و (.) و عملية أحادية يرمز لها بالرمز 
+		\en{( $\bar{}$ )} و معها عنصران مختلفان هما 0 و 1.\\
+		عندئذ نسمي $B$ جبراً بوليانياً اذا تحققت المسلمات التالية حيث $x,y,z$ عناصر من $B$
+\begin{enumerate}
+	\item[(1)] قوانين التبديل
+	\[
+	\forall x, y \in B \Rightarrow \begin{cases}
+		x + y = y + x\\
+		x\cdot y = y \cdot x
+	\end{cases}
+	\]
+	\item[(2)] قوانين التوزيع
+	\[
+	\forall x,y,z \in B \Rightarrow \begin{cases}
+		x + (y\cdot z) = (x+y)\cdot(x+z) \\
+		x \cdot(y+z) = (x\cdot y) + (x\cdot z)
+	\end{cases}
+	\]
+		\end{enumerate}
+	\end{exampleblock}
+\end{frame}
+\begin{frame}
+
+\begin{exampleblock}{}
+		\begin{enumerate}
+	\item[(3)] قوانين الاتمام 
+	\[
+	\forall x \in B \exists \bar{x}: \begin{cases}
+		x + \bar{x} = \bar{x} + x = 1\\
+		x \cdot\bar{x} = \bar{x} \cdot x = 0\\
+	\end{cases}
+	\]
+		\item[(4)] قوانين التطابق (العنصر المحايد)
+	\[
+	\forall x \in B \Rightarrow x + 0 = 0 + x = x
+	\]
+	نقول أن العنصر (0) هو عنصر محايد بالنسبة للعملية (+).
+	\[
+	\forall x \in B \Rightarrow x \cdot 1= 1\cdot  x = x
+	\]
+		نقول أن العنصر (1) هو عنصر محايد بالنسبة للعملية \en{($\cdot$)}.
+\end{enumerate}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{الجبر البولياني بقيمتين}
+	\begin{exampleblock}{تعريف}
+		
+		يعرف الجبر البولياني بقيمتين على مجموعة من عنصرين $B = \{0, 1\}$ حيث العمليتان الثنائيتان (+) و 
+		\en{($\cdot$)} و عملية الاتمام معطاة كما يلي:
+		
+		\pause
+		\begin{english}
+			\begin{table}[H]
+				\centering
+				\begin{minipage}{0.3\textwidth}
+					\centering
+					\begin{tabular}{|c|c|c|}
+						\hline
+						$x$ & $y$ & $x\cdot y$ \\
+						\hline
+						0 & 0 & 0 \\
+						0 & 1 & 0 \\
+						1 & 0 & 0 \\
+						1 & 1 & 1 \\
+						\hline
+					\end{tabular}
+				\end{minipage}
+				\begin{minipage}{0.3\textwidth}
+					\centering
+					\begin{tabular}{|c|c|c|}
+						\hline
+						$x$ & $y$ & $x + y$ \\
+						\hline
+						0 & 0 & 0 \\
+						0 & 1 & 1 \\
+						1 & 0 & 1 \\
+						1 & 1 & 1 \\
+						\hline
+					\end{tabular}
+				\end{minipage}
+				\begin{minipage}{0.3\textwidth}
+					\centering
+					\begin{tabular}{|c|c|}
+						\hline
+						$x$ & $\bar{x}$\\
+						\hline
+						0 & 1\\
+						1 & 0\\
+						\hline
+					\end{tabular}
+				\end{minipage}
+			\end{table}
+		\end{english}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{المتغير البولياني}
+	\begin{exampleblock}{تعريف}
+		نقول أن المتغير $x$ انه متغير بولياني اذا كان يأخذ قيمة من المجموعة $B=\{0,1\}$ فقط. أي أن اذا كانت قيمته 0 أو 1.\\
+		من  التعريف السابق يكون قد تحدد لدينا المجال المقابل. الآن نحدد المجال\\
+		نأخذ الضرب الديكارتي للمجموعة $B$ بنفسها $n$ من المرات أي 
+		$\underbrace{B\times B \times \cdots \times B}_{\text{$n$ من المرات}}$\\
+		نحصل على $B^n$ حيث 
+		\[
+		B^n = \{(x_1, x_2, \dots, x_n) \mid x_i \in B ; 1 \leq i\leq n\}
+		\]
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{الدالة البولياني}
+	\begin{exampleblock}{تعريف}
+		هي تعبير جبري يتألف من المتغيرات الثنائية و الثوابت 0 و 1 و العمليات المنطقية، مجاله المجموعة $B^n$ و مجاله المقابل $B$. و نحدد درجة الدالة حسب قيمة $n$.
+	\end{exampleblock}
+	
+	\pause
+	\begin{exampleblock}{مثال}
+			الدالة
+		$F_1 = x + \bar{y} + \bar{x}\cdot y$
+		هي دالة بوليانية من الدرجة الثانية لأنها يقرن كل زوج $(x,y)$ من $B^2$ بـــ $x + \bar{y} + \bar{x}\cdot y$\\
+		أما الدالة
+		$F_2 = x + \bar{y}\cdot z$
+		هي دالة من الدرجة الثالثة لأنها تقرن كل ثلاثي $(x,y,z)$ من $B^3$ بــ $x + \bar{y}\cdot z$
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\Huge
+		\textbf{الفصل الثاني}\\[10pt]
+		\textbf{نظرية البيان}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{exampleblock}{تعريف}
+	البيان $G$ عبارة عن ثنائي مرتب $(V,E)$ حيث $V$ هي مجموعة غير خالية منتهية من العقد \en{Vertcies} و $E$ هي مجموعة الاسهم \en{Edges}.
+\end{exampleblock}
+
+\pause
+\noindent
+\textbf{ملاحظات}
+\begin{enumerate}
+	
+		\pause
+	\item كل سهم له عقدة او عقدتين مرتبطتين تسمى أطراف السهم \en{Endpoints}.
+	
+	\pause
+	\item يسمى السهم الذي له عقدة واحدة مرتبطة به بالحلقة \en{Loop}.
+	
+		\pause
+	\item تسمى الاسهم التي تتشارك بنفس النهايات بالاسهم المتوازية \en{Parallel}.
+	
+		\pause
+	\item تسمى العقدتين المرتبطتين بالسهم على انهما متجاورتين \en{Adjacent}.
+	
+		\pause
+	\item  تسمى العقدة التي ليس لها اسهم واردة بالمعزولة \en{Isolated}.
+\end{enumerate}
+\end{frame}
+\begin{frame}
+
+\textbf{مثال}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[->, thick]
+		\node[fill=black, circle, draw, inner sep=2pt, label={left: $v_1$}] (v1) at (0,0) {};
+		\node[fill=black, circle, draw, inner sep=2pt, label={left: $v_2$}] (v2) at (0,3) {};
+		\node[fill=black, circle, draw, inner sep=2pt, label={right: $v_3$}] (v3) at (3,3) {};
+		\node[fill=black, circle, draw, inner sep=2pt, label={right: $v_4$}] (v4) at (3,0) {};
+		\node[fill=black, circle, draw, inner sep=2pt, label={right: $v_5$}] (v5) at (5,2) {};
+		\node[fill=black, circle, draw, inner sep=2pt, label={right: $v_6$}] (v6) at (7,0) {};
+		\node[fill=black, circle, draw, inner sep=2pt, label={right: $v_7$}] (v7) at (10,2) {};
+		
+		
+		\path (v1) edge node[midway, above] {$e_1$} (v4);
+		\path (v4) edge [loop below] node[midway, below] {$e_5$} (v4);
+		\path (v3) edge node[midway, right] {$e_4$} (v4);
+		\draw[->, thick] (v2) .. controls (2,2) .. (v3) node[midway, below]{$e_2$};
+		\draw[->, thick] (v3) .. controls (2,4) .. (v2) node[midway, above]{$e_3$};
+		\path (v6) edge node[midway,above, sloped] {$e_6$} (v7);
+	\end{tikzpicture}
+\end{figure}
+
+\pause
+في الشكل اعلاه السهم $e_5$ مثال على الحلقة و $e_2,e_3$ أسهم متوازية و العقدة $v_5$ مثال على العقدة المعزولة و العقدتان $v_6,v_7$ مثال على العقد المتجاورة.
+\end{frame}
+
+\begin{frame}{خواص البيانات}
+\begin{exampleblock}{البيان البسيط}
+ليكن $G$ بيان، يسمى $G$ بيان بسيط اذا كان لا يحتوي أية حلقات أو أسهماً متوازية. في البيان البسيط نرمز للسهم المحدد بالطرفين $v,w$ بــــــ $\{v,w\}$
+\end{exampleblock}
+
+\pause
+\begin{exampleblock}{مثال}
+		لتكن $V=\{u,v,wx\}$ مجموعة عقد و لدينا سهمان احدهما $\{u,v\}$، عدد الاسهم الممكنة من اربعة عقد هي 6 اسهم كما يلي
+	\[
+	\{u,v\}, \{u,w\}, \{u,x\}, \{v,w\}, \{v,x\}, \{w,x\}
+	\]
+	واحد منها هو $\{u,v\}$ بالتالي السهم الثاني يمكن ان يكون واحد من الاسهم  الخمسة المتبقية
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}{خواص البيان}
+	وهي كالآتي 
+	
+	\pause
+	\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\begin{tikzpicture}[->, thick]
+			\node[fill=black, circle, draw, inner sep=2pt, label={left: $u$}] (u) at (0,0) {};
+			\node[fill=black, circle, draw, inner sep=2pt, label={right: $v$}] (v) at (2,0) {};
+			\node[fill=black, circle, draw, inner sep=2pt, label={left: $w$}] (w) at (0,-2) {};
+			\node[fill=black, circle, draw, inner sep=2pt, label={right: $x$}] (x) at (2,-2) {};
+			
+			
+			\path (u) edge (v);
+			\path (u) edge (w);
+		\end{tikzpicture}
+	\end{subfigure}
+	\begin{subfigure}{0.29\textwidth}
+		\centering
+		\begin{tikzpicture}[->, thick]
+			\node[fill=black, circle, draw, inner sep=2pt, label={left: $u$}] (u) at (0,0) {};
+			\node[fill=black, circle, draw, inner sep=2pt, label={right: $v$}] (v) at (2,0) {};
+			\node[fill=black, circle, draw, inner sep=2pt, label={left: $w$}] (w) at (0,-2) {};
+			\node[fill=black, circle, draw, inner sep=2pt, label={right: $x$}] (x) at (2,-2) {};
+			
+			
+			\path (u) edge (v);
+			\path (u) edge (x);
+		\end{tikzpicture}
+	\end{subfigure}
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\begin{tikzpicture}[->, thick]
+			\node[fill=black, circle, draw, inner sep=2pt, label={left: $u$}] (u) at (0,0) {};
+			\node[fill=black, circle, draw, inner sep=2pt, label={right: $v$}] (v) at (2,0) {};
+			\node[fill=black, circle, draw, inner sep=2pt, label={left: $w$}] (w) at (0,-2) {};
+			\node[fill=black, circle, draw, inner sep=2pt, label={right: $x$}] (x) at (2,-2) {};
+			
+			
+			\path (u) edge (v);
+			\path (w) edge (v);
+		\end{tikzpicture}
+	\end{subfigure}
+	\end{figure}
+	
+	\begin{figure}[H]	
+		\centering
+		\begin{subfigure}{0.3\textwidth}
+			\centering
+			\begin{tikzpicture}[->, thick]
+				\node[fill=black, circle, draw, inner sep=2pt, label={left: $u$}] (u) at (0,0) {};
+				\node[fill=black, circle, draw, inner sep=2pt, label={right: $v$}] (v) at (2,0) {};
+				\node[fill=black, circle, draw, inner sep=2pt, label={left: $w$}] (w) at (0,-2) {};
+				\node[fill=black, circle, draw, inner sep=2pt, label={right: $x$}] (x) at (2,-2) {};
+				
+				
+				\path (u) edge (v);
+				\path (x) edge (v);
+			\end{tikzpicture}
+		\end{subfigure}
+		\begin{subfigure}{0.3\textwidth}
+			\centering
+			\begin{tikzpicture}[->, thick]
+				\node[fill=black, circle, draw, inner sep=2pt, label={left: $u$}] (u) at (0,0) {};
+				\node[fill=black, circle, draw, inner sep=2pt, label={right: $v$}] (v) at (2,0) {};
+				\node[fill=black, circle, draw, inner sep=2pt, label={left: $w$}] (w) at (0,-2) {};
+				\node[fill=black, circle, draw, inner sep=2pt, label={right: $x$}] (x) at (2,-2) {};
+				
+				
+				\path (u) edge (v);
+				\path (w) edge (x);
+			\end{tikzpicture}
+		\end{subfigure}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{خواص البيان }
+	\begin{exampleblock}{البيان الموجه}
+		البيان $G=(V,E)$ حيث $V$ مجموعة غير خالية من العقد و $E$ هي مجموعة الاسهم الموجهة، حيث كل سهم يرتبط بزوج مرتب من العقد ندعوها طرفي السهم .Endpoints
+	\end{exampleblock}
+	
+	\pause
+	\begin{exampleblock}{مثال}
+			في البيان الموجه اذا وجد سهم من $v$ الى $w$ فليس من الضروري ان يوجد سهم من $w$ الى $v$ اي لدينا زوج مرتب $\{v,w\}$ بمعنى 
+		$\{v,w\} \neq \{w,v\}$
+		نسمي العقدة $v$ بالذيل tail و $w$ بالرأس head
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{تمثيل البيانات}
+	\begin{exampleblock}{مصفوفة الجوار}
+		 ليكن لدينا البيان غير الموجه $G= (G, V)$ المكون من مجموعة العقد 
+		$V = \{v_1, \dots, v_n\}$
+		نعرف مصفوفة الجوار للبيان $G$ على انها المصفوفة المربعة $A = [a_{ij}]$ ذات البعد $n\times n$ المعرفة على النحو التالي
+		$a_{ij}$ يساوي عدد الاسهم التي تربط العقدة $v_i$ بالعقدة $v_j$.
+	\end{exampleblock}
+	
+	\pause
+	\begin{exampleblock}{مثال}
+		اوجد مصفوفة الجوار للبيان التالي
+		\begin{figure}[H]
+			\centering
+			\begin{tikzpicture}[thick]
+				\node[fill=black, circle, draw, inner sep=2pt, label={below: $v_1$}] (v1) at (0,0) {};
+				\node[fill=black, circle, draw, inner sep=2pt, label={below: $v_2$}] (v2) at (1,0) {};
+				\node[fill=black, circle, draw, inner sep=2pt, label={above: $v_3$}] (v3) at (0,1) {};
+				\node[fill=black, circle, draw, inner sep=2pt, label={above: $v_4$}] (v4) at (1,1) {};
+				
+				\draw (v1) -- (v2);
+				\draw (v1) -- (v4);
+				\draw (v3) -- (v2);
+				\draw (v3) -- (v4);
+			\end{tikzpicture}
+		\end{figure}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\begin{exampleblock}{الحل}
+		\begin{english}
+			\[
+			\begin{bNiceMatrix}[first-row,first-col]
+				&v_1&v_2&v_3&v_4\\
+				v_1 & 0 & 1 & 1 & 0\\
+				v_2 & 1 & 0 & 0 & 1\\
+				v_3& 1 & 0 & 0 & 1\\
+				v_4& 0 & 1 & 1 & 0
+			\end{bNiceMatrix}
+			\]
+		\end{english}
+	\end{exampleblock}
+\end{frame}
+\end{document}

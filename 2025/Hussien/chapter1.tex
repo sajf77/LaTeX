@@ -1,0 +1,453 @@
+\chapter{المعادلات التفاضلية}
+
+\section{المعادلات التفاضلية الاعتيادية و الجزئية}
+تسمى المعادلات التي تحتوي على مشتقات لمتغير معتمد او اكثر بالنسبة الى متغير مستقل او اكثر بالمعادلة التفاضلية 
+
+\begin{itemize}
+\item	يكون الهدف هو ايجاد حل المعادلة التفاضلية الذي يتمثل بايجاد الدالة المجهولة (المتغير المعتمد) الذي يحقق المعادلة التفاضلية
+
+\item  نسمي المعادلة التفاضلية بالاعتيادية اذا كان هناك متغير مستقل واحد وتكون جزئية اذا كان هناك اكثر من متغير مستقل.
+\end{itemize}
+
+\begin{example}
+	لدينا المعادلات التفاضلية
+	\begin{align}
+		&k \frac{d^2 y}{dx^2} = \left[1 + \left(\frac{dy}{dx}\right)^2\right]^{3/2}\\
+		&\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} = 0
+	\end{align}
+	المعادلة (1) تكون اعتيادية لان فيها متغير مستقل واحد اما المعادلة (2) هي جزئية لان فيها ثلاث متغيرات مستقلة.
+\end{example}
+
+في هذا البحث سوف نركز فقط على المعادلات التفاضلية الاعتيادية.
+
+\section{رتبة المعادلة التفاضلية}
+رتبة المعادلة التفاضلية هي اعلى رتبة لمشتقة تظهر في المعادلة التفاضلية.
+
+\begin{example}
+	لدينا المعادلات التفاضلية
+	\begin{align}
+		& \frac{dy}{dx} = x^2 -1\\
+		& m \frac{d^2 y}{dx^2} = F
+	\end{align}
+	المعادلة (3) من الرتبة الاولى. اما المعادلة (4) من الرتبة الثانية.
+\end{example} 
+\noindent
+$\bullet$ الشكل العام للمعادلة التفاضلية من الرتبة $n$ يكون
+\[
+F\left(\frac{d^n y}{dx^n}, \frac{d^{n-1} y}{dx^{n-1}}, \dots, \frac{dy}{dx}, y, t\right) = 0
+\]
+
+\section{المعادلات التفاضلية الخطية واللا خطية}
+المعادلة التفاضلية من الرتبة $n$ يقال بأنها خطية اذا كانت تأخذ الشكل
+\[
+a_n(t) \frac{d^n y}{dx^n } + a_{n-1}(t) \frac{d^{n-1}y}{dx^{n-1}} + \cdots + a_1(t) \frac{dy}{dt} + a_0 y = f(t)
+\]
+اذا كانت $f(t) = 0$ فإن المعادلة تسمى متجانسة وتكون غير متجانسة اذا كانت $f(t) \neq 0$.
+
+\section{المعادلات التفاضلية الخطية المتجانسة من الرتبة الثانية ذات المعاملات الثابتة}
+في هذا البند سوف نجد الحل العام للمعادلة التفاضلية التي تكون على الشكل
+\begin{equation}
+	\label{eq:homlinearconstcoeff}
+	a \frac{d^2 x}{dt^2} + b \frac{dx}{dt} + cx = 0
+\end{equation}
+عند تعويض $x(t) = e^{kt}$ في \eqref{eq:homlinearconstcoeff} نحصل على
+\begin{gather*}
+	a \frac{d^2}{dt^2} (e^{kt}) + b \frac{d}{dt} (e^{kt}) + c  e^{kt} =0 \\
+	ak^2 e^{kt} + bk e^{kt} + cr^{kt} = 0\\
+	e^{kt} (ak^2 + bk + c) = 0
+ \end{gather*}
+ بما ان $e^{kt} \neq 0$ فإن
+ \begin{equation}
+ 	\label{eq:char}
+ 	ak^2 + bk + c = 0
+ \end{equation}
+تسمى المعادلة \eqref{eq:char} بالمعادلة المميزة للمعادلة التفاضلية المتجانسة \eqref{eq:homlinearconstcoeff}. وهي معادلة جبرية من الدرجة الثانية في $k$ يكون لها جذران في ثلاث حالات كالآتي:
+
+\subsection*{أ - جذران حقيقيان مختلفان}
+لنفرض $k_1, k_2$ جذرا المعادلة \eqref{eq:char} حيث $k_1, k_2\in \R$ و $k_1\neq  k_2$. اذن الحل العام للمعادلة \eqref{eq:homlinearconstcoeff} هو
+\[
+x(t) = A e^{k_1 t} + B e^{k_2 t}
+\]
+
+\begin{example}
+	جد الحل العام للمعادلة التفاضلية 
+	\begin{equation}
+		\label{eq:distnictexample}
+		x '' - 2x ' = 0
+	\end{equation}
+\end{example}
+\begin{solution}
+	عند تعويض $x(t) = e^{kt}$ في \eqref{eq:distnictexample} نحصل على المعادلة المميزة
+	\[
+	k^2 - 2k =0 
+	\]
+	وبحل هذه المعادلة 
+	\[
+	k(k-2) = 0 \Rightarrow k_1 = 0, k_2= 2
+	\]
+	اي ان $k_1,k_2$ حقيقيان مختلفان بالتالي الحل العام يكون
+	\[
+	x(t) = Ae^{0t} + Be^{2t} = A + B e^{2t}
+	\]
+\end{solution}
+
+\subsection*{ب - جذران حقيقيان متساويان}
+نفرض $k_1=k_2\in\R$ جذرا المعادلة \eqref{eq:char} فإن الحل العام للمعادلة التفاضلية \eqref{eq:homlinearconstcoeff} يكون
+\[
+x(t) = (A + Bt) e^{kt}
+\]
+حيث $k=k_1=k_2$.
+
+\begin{example}
+	جد الحل العام للمعادلة التفاضلية
+	\begin{equation}
+		\label{eq:repeatedexample}
+		x'' + 2x' + x = 0
+	\end{equation}
+	التي تمتلك الشروط الابتدائية
+	\[
+	x(0) = 0,\quad x'(0) = 1
+	\]
+\end{example}
+\begin{solution}
+	نعوض $x(t) = e^{kt}$ في المعادلة التفاضلية \eqref{eq:repeatedexample} نحصل على المعادلة المميزة
+	\[
+	k^2 + 2k + 1
+	\]
+	بحل هذه المعادلة 
+	\[
+	(k+1)^2 = 0\Rightarrow k_1 = k_2 = -1
+	\]
+	اذن الجذور حقيقية متكررة لذا الحل العام يكون
+	\[
+	x(t) = (A + Bt) e^{-t}
+	\]
+	الآن بما ان $x(0) = 0$ اذن
+	\[
+	0 = (A + 0) e^0 \Rightarrow A=0
+	\]
+	بالتالي
+	\[
+	x(t) = Bt^{-t} \Rightarrow x'(t) = B(e^{-t} - te^{-t})
+	\]
+	وبما ان $ x'(0) = 1 $ فإن 
+	\[
+	1 = B(e^0  -0 ) \Rightarrow B = 1
+	\]
+	وبالتالي فإن الحل النهائي يكون
+	\[
+	x(t) = t e^{-t}
+	\]
+\end{solution}
+
+\subsection*{جـ - جذران عقديان}
+عندما يكون جذرا المعادلة \eqref{eq:char} غير حقيقيين، أي ان $k_1,k_2\in \C$ فإنهما يكونا على الشكل
+\[
+k_1, k_2 = p \pm iw
+\]
+فحل المعادلة التفاضلية \eqref{eq:homlinearconstcoeff} يكون
+\[
+x(t) = e^{pt} [A \cos(wt) + B \sin(wt)]
+\]
+حيث $A, B$ ثوابت اختيارية
+\newpage
+\begin{example}
+	جد حل المعادلة التفاضلية
+	\begin{equation}
+		\label{eq:complexexample}
+		x'' + 2x' + 5x = 0, \quad x(0) = 1, x'(0) = 0
+	\end{equation}
+\end{example}
+\begin{solution}
+	نفرض $x(t) = e^{kt}$ ونعوض في المعادلة \eqref{eq:complexexample} ، نحصل على
+	\[
+	k^2 + 2k + 5= 0
+	\]
+	وبحل هذه المعادلة المميزة نحصل على
+	\begin{align*}
+		k_{1,2} &= \frac{-2 \pm \sqrt{2^2 - 4(5)}}{2}\\
+		&= \frac{-2\pm \sqrt{-16}}{2}\\
+		&= \frac{-2 \pm 4i}{2}\\
+		&= -1 \pm 2i
+	\end{align*}
+\end{solution}
+اذن $p=-1,w=2$ وبالتالي ان الحل العام للمعادلة \eqref{eq:complexexample} يكون
+\[
+x(t) = e^{-t} [A \cos(2t) + B \sin(2t)]
+\]
+\[
+x'(t) = e^{-t} [(2B-A)\cos 2t - (2A + B)\sin 2t]
+\]
+باستخدام الشروط $x(0) = 1, x'(0) =0$ نجد
+\[
+A =1,\quad 2B - A = 0 
+\]
+\[
+\Rightarrow B = \frac{1}{2}
+\]
+اذن الحل النهائي
+\[
+x(t) = e^{-t} [\cos 2t + \frac{1}{2} \sin 2t]
+\]
+
+\section{المعادلات التفاضلية الخطية غير المتجانسة ذات المعاملات الثابتة}
+في هذا البند نناقش الحصول على الحل العام للمعادلات التفاضلية التي تكون على الشكل
+\begin{equation}
+	\label{eq:nonhomlinearconst}
+	a \frac{d^2 x}{dx^2} + b \frac{dx}{dt} + cx = f(t)
+\end{equation}
+حيث  $f(t) \neq 0$، يكون الحل العام للمعادلة التفاضلية \eqref{eq:nonhomlinearconst} على الشكل
+\[
+x(t) = A y_1(t) + B y_2(t) + x_p(t)
+\]
+حيث $A y_1(t) + By_2(t)$ هو حل المعادلة التفاضلية المتجانسة
+\[
+	a \frac{d^2 x}{dx^2} + b \frac{dx}{dt} + cx = 0
+\]
+ونرمز له $x_c(t)$ ويسمى بالحل التام. اما $x_p(t)$ هو الحل الخاص والذي يعتمد على شكل الدالة $f(t)$. الآن نناقش بعض الحالات الخاصة للدالة $f(t)$ وكيفية الحصول على الحل الخاص.
+
+\subsection*{أ - عندما تكون \en{\textit{f}(\textit{t})} تكون كثيرة حدود}
+
+اذا كانت $f(t)$ كثيرة حدود من الدرجة $n$ فإننا نخمن الحل الخاص
+\[
+x_p(t) = c_n t^n + c_{n-1} t^{n-1} + \cdots + c_1 t + c_0
+\]
+ونعوض في \eqref{eq:nonhomlinearconst} لايجاد المجاهيل $c_0,\dots,c_n$
+
+\begin{example}
+	جد الحل العام للمعادلة التفاضلية
+	\begin{equation}
+		\label{eq:polyexample1}
+		x'' + x' - 6x = 12 
+	\end{equation}
+\end{example}
+\begin{solution}
+	نجد اولاً الحل التام $x_c(t)$ الذي يحقق المعادلة التفاضلية المتجانسة
+	\[
+		x'' + x' - 6x =0
+	\]
+	التي تمتلك المعادلة المميزة
+	\[
+	k^2 + k - 6 =0
+	\]
+	بحل هذه المعادلة نجد $k_1=-3,k_2=2 $ اذن
+	\[
+	x_c(t) = A e^{-3t} + B e^{2t}
+	\]
+	الان لأن الطرف الايمن من المعادلة \eqref{eq:polyexample1} هو كثيرة حدود من الدرجة 0 فإننا نفرض $x_p(t) = c$ اذن $x_p'(t) = x_p''(t) = 0$ نعوض في المعادلة \eqref{eq:polyexample1} نجد
+	\[
+	0 + 0 -6c = 12 \Rightarrow c = -2
+	\]
+	اذن الحل العام
+	\[
+	x(t) = x_c(t) + x_p(t) = A e^{-3t} + B e^{2t} -2
+	\]
+\end{solution}
+
+\begin{example}
+	جد الحل العام للمعادلة التفاضلية
+	\begin{equation}
+		\label{eq:polyexample2}
+		x'' + x' - 6x = 216 t^3
+	\end{equation}
+\end{example}
+\begin{solution}
+	الحل التام من المثال السابق يكون
+	\[
+	x_c(t) = A e^{-3t} + B e^{2t}
+	\]
+	اما الحل الخاص. نفرض 
+	\[
+	x_p(t) = C t^3 + D t^2 + E t + F
+	\]
+	لأن الطرف الايمن من المعادلة \eqref{eq:polyexample2} كثيرة حدود من الدرجة الثالثة. الآن
+	\begin{gather*}
+		x_p'(t) = 3C t^2 + 2Dt + E\\
+		x_p''(t) = 6Ct + 2D
+	\end{gather*}
+	نعوض في المعادلة التفاضلية الاصلية \eqref{eq:polyexample2} نجد
+	\[
+	(6Ct + 2D) + (3C t^2 + 2Dt + E) - 6(C t^3 + D t^2 + E t + F) = 216t^3
+	\]
+	ومنه
+	\[
+	-6C t^3 +(3C - 6D)t^2 + (6C + 2D - 6E) t + (2D + E -6F) = 216t^3
+	\]
+	اذن
+	\[
+	\left.
+	\begin{array}{r}
+		-6C = 216\\
+		3C - 6D = 0\\
+		6C + 2D - 6E =0\\
+		2D + E - 6F = 0 
+	\end{array}
+	\right\} \Rightarrow 
+	\begin{array}{c}
+		C= -36\\
+		D = -18\\
+		E = -42\\
+		F = -13
+	\end{array}
+	\]
+	بالتالي الحل الخاص يكون
+	\[
+	x_p(t) = -36t^3 -18t^2 -42t - 13
+	\]
+	اذن الحل العام يكون
+	\[
+	x(t) = A e^{-3t} + B e^{2t} -36t^3 -18t^2 -42t - 13
+	\]
+\end{solution}
+
+
+\subsection*{ب - عندما تكون \en{\textit{f}(\textit{t})} تكون دالة أُسية}
+لو كانت $f(t) = ae^{kt}$ فإننا نفرض الحل الخاص $x_p(t) = ce^{kt}$ والهدف ايجاد المجهول $c$ من خلال تعويض في المعادلة \eqref{eq:nonhomlinearconst}. ولكن ننوه ان هذه الفرضية تكون في حالة كون الدالة $f(t)$ ليست حلاً للجزء المتجانس
+\[
+a \frac{d^2 x}{dx^2} + b \frac{dx}{dt} + cx = 0
+\]
+اما اذا كانت الدالة $e^{kt}$ حلاً للمعادلة التفاضلية المتجانسة، فإنه لا يمكن ان يكون حلاً خاصاًونأخذ الحالات التالية
+\begin{enumerate}
+	\item اذا كانت المعادلة التفاضلية المتجانسة تمتلك جذور غير متكررة فإننا  نفرض الحل الخاص
+	\[
+	x_p(t) = c t e^{kt}
+	\]
+	
+	\item اذا كانت المعادلة التفاضلية المتجانسة تمتلك جذور متكررة فإننا  نفرض الحل الخاص
+	\[
+	x_p(t) = c t^2 e^{kt}
+	\]
+\end{enumerate}
+
+\begin{example}
+	جد الحل العام للمعادلة التفاضلية
+	\begin{equation}
+		\label{eq:expexample1}
+		x'' + x' - 6x = 4 e^{-2t}
+	\end{equation}
+\end{example}
+\newpage
+\begin{solution}
+	الحل التام من الامثلة السابقة
+	\[
+	x_c(t) = A e^{-3t} + B e^{2t}
+	\]
+	نرى ان $e^{-2t}$ ليست حلاً للجزء المتجانس، اذن نفرض الحل الخاص
+	\[
+	x_p(t) = C e^{-2t}
+	\]
+	بالتالي
+	\[
+	x_p'(t) = -2C e^{-2t}
+	\]
+	\[
+	x_p''(t) = 4C e^{-2t}
+	\]
+	نعوض في المعادلة الاصلية \eqref{eq:expexample1} نحصل على 
+	\[
+	4 C e^{-2t} -2  C e^{-2t} -6 C e^{-2t} =  4e^{-2t}
+	\]
+	\[
+	(4C -2C - 6C)  e^{-2t} = 4 e^{-2t}
+	\]
+	اذن
+	\[
+	-4C = 4 \Rightarrow C =- 1
+	\]
+	منه
+	\[
+	x_p(t) =  -e^{-2t}
+	\]
+	بالتالي
+	\[
+	x(t) = A e^{-3t} + B e^{2t} -e^{-2t}
+	\]
+\end{solution}
+
+\begin{example}
+	جد الحل العام للمعادلة التفاضلية
+	\begin{equation}
+		\label{eq:expexample2}
+		x'' + x' - 6x = 5 e^{-3t}
+	\end{equation}
+\end{example}
+
+\begin{solution}
+	الحل التام من الامثلة السابقة
+	\[
+	x_c(t) = A e^{-3t} + B e^{2t}
+	\]
+	نرى ان $e^{-3t}$ حلاً للجزء من المتجانس الذي يمتلك جذور غير متكررة ، اذن نفرض الحل الخاص
+	\[
+	x_p(t) = C t e^{-3t}
+	\]
+	\[
+	x_p'(t) = C e^{-3t} - 3C t e^{-3t}
+	\]
+	\[
+	x_p''(t) = -6C e^{-3t} + 9C te^-{3t}
+	\]
+	نعوض في المعادلة التفاضلية الاصلية \eqref{eq:expexample2} نحصل على
+\[
+	(-6C e^{-3t} + 9C te^-{3t}) + (C e^{-3t} - 3C t e^{-3t}) 
+-6(C t e^{-3t}) = 5 e^{-3t}
+\]
+اذن
+\[
+(-6C + C)e^{-3t} + (9C - 3C - 6C) te^{-3t} = 5 e^{-3t}
+\]
+\[
+\Rightarrow -6C + C = 5 \Rightarrow C =-1
+\]
+اذن الحل الخاص
+\[
+x_p(t) = -t e^{-3t}
+\]
+الحل العام يكون
+\[
+x(t) = A e^{-3t} + B e^{2t} - t e^{-3t}
+\]
+\end{solution}
+
+\begin{example}
+	جد الحل العام للمعادلة التفاضلية
+	\begin{equation}
+		\label{eq:expexample3}
+		x'' + 2x' + x = 6e^{-t}
+	\end{equation}
+\end{example}
+\begin{solution}
+	من خلال الامثلة السابقة ، رأينا ان الحل التام
+	\[
+	x_c(t) = (A + Bt) e^{-t}
+	\]
+	اذن $e^{-t}$ هو حل المعادلة التفاضلية المتجانسة التي تمتلك جذور متكررة. بالتالي نفرض الحل الخاص
+	\[
+	x_p(t) = C t^2 e^{-t}
+	\]
+	اذن
+	\begin{gather*}
+		x_p'(t) = 2C te^{-t} - Ct^2 e^{-t}\\
+		x_p''(t) = 2C e^{-t} - 4C t e^{-t} + C t^2 e^{-t}
+	\end{gather*}
+	الآن نعوض في \eqref{eq:expexample3} نحصل على 
+	\[
+	(2C e^{-t} - 4C t e^{-t} + C t^2 e^{-t}) + 2(2C te^{-t} - Ct^2 e^{-t}) + (C t^2 e^{-t}) = 6 e^{-t}
+	\]
+	بجمع الحدود المتشابهة
+	\[
+	(C-2C+C)t^2 e^{-t} + (-4C + 4C)te^{-t} + 2C e^{-t}  = 6 e^{-t}
+	\]
+	ومنه
+	\[
+	2C = 6 \Rightarrow C= 3
+	\]
+	اذن الحل الخاص
+	\[
+	x_p(t) = 3t^2 e^{-t}
+	\]
+	وبالتالي فإن الحل العام يكون
+	\[
+	x(t) =  (A + Bt) e^{-t} + 3t^2 e^{-t}
+	\]
+\end{solution}

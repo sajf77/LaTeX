@@ -1,0 +1,150 @@
+\section{Finite Boolean Algebra}
+In this section we will classify all the finite Boolean algebras up to isomorphism
+
+\begin{mydef}[\cite{abstract_algbera_thomas}]
+    A Boolean algebra \((B,\vee,\wedge)\) is a finite Boolean algebra if \(B\) contains a finite number of elements.
+\end{mydef}
+
+\begin{mydef}[\cite{abstract_algbera_thomas}]
+    In a Boolean algebra \((B,\vee,\wedge)\). An element \(a\in B\) called an \textit{atom} if \(a\neq0\) and there is no nonzero element \(b\in B\) distinct from \(a\) such that \(b\leq a\).
+\end{mydef}
+
+\noindent
+\textbf{Note : }If \(a\) is atom and since \(a\wedge b\leq a\) then it follows that \(a\wedge b=0\) or \(a\wedge b=a\), so the definition of the atom is equivalent to say \(a\leq b\) or \(a\wedge b=0\).
+
+\begin{lemma}[\cite{abstract_algbera_thomas}]
+\label{my_atom}
+    In a Boolean algebra \((B,\vee,\wedge)\). If \(a\in B\) is an atom, then for all \(b,c\in B\) 
+    \begin{enumerate}
+        \item[\normalfont{1.}] If \(a\leq b\wedge c\Longrightarrow a\leq b\text{ and } a\leq c\)
+
+        \item[\normalfont{2.}] If \(a\leq b\vee c\Longrightarrow a\leq b\text{ or } a\leq c\)
+    \end{enumerate}
+\end{lemma}
+
+\begin{myproof}
+\noindent
+    \begin{enumerate}
+        \item Let \(a\leq b\wedge c\), then, \(a\wedge(b\wedge c)=a\), so
+        \begin{align*}
+            a\wedge b&=[a\wedge(b\wedge c)]\wedge b\\
+            &=a\wedge[(b\wedge c)\wedge b]\\
+            &=a\wedge(b\wedge c)\\
+            &=a
+        \end{align*}
+        Hence \(a\leq b\), similarly we can show that \(a\leq c\).
+
+        \item Let \(a\leq b\vee c\), then, \(a\wedge(b\vee c)=a\). Suppose that \(a\nleq b\) and \(a\nleq c\), and since \(a\) is atom we get \(a\wedge b=0\) and \(a\wedge c=0\)
+        \begin{gather*}
+        (a\wedge b)\vee(a\wedge c)=0\\
+        a\wedge(b\vee c)=0
+        \end{gather*}
+        Which is contradiction. Hence \(a\leq b\) or \(a\leq c\)\qed
+    \end{enumerate}
+\end{myproof}
+
+\begin{lemma}[\cite{abstract_algbera_thomas}]
+    Let \((B,\vee,\wedge)\) be a Boolean algebra and \(a_1,a_2\in B\) be atoms. Then either \(a_1=a_2\) or \(a_1\wedge a_2=0\).
+\end{lemma}
+
+\begin{myproof}
+    Since \(a_1\) is an atom in \(B\). Then either \(a_1\leq a_2\) or \(a_1\wedge a_2=0\), therefore either \(a_1\wedge a_2=a_1\) or \(a_1\wedge a_2\) similarly for \(a_2\), that is, \(a_2\wedge a_1=a_2\) or \(a_1\wedge a_2=0\). In conclusion using \(\mathrm{P_1}\) we have either \(a_1=a_2\) or \(a_1\wedge a_2=0\).\qed
+\end{myproof}
+
+
+\begin{lemma}[\cite{abstract_algbera_thomas}]
+\label{atom_1}
+    Let \((B,\vee,\wedge)\) be a finite Boolean algebra. If \(b\) is a nonzero element of B, then there is an atom \(a\) in B such that \(a\leq b\).
+\end{lemma}
+
+\begin{myproof}
+    If \(b\) is an atom, let \(a=b\). Otherwise, choose an element \(b_1\), not equal to \(0\) or \(b\), such that \(b_1\leq b\) . We are guaranteed that this is possible since \(b\) is not an atom. If \(b_1\) is an atom, then we are done. If not, choose \(b_2\) , not equal to \(0\) or \(b_1\) , such that \(b_2\leq b_1\) . Again, if \(b_2\) is an atom, let \(a=b_2\). Continuing this process, we can obtain a chain
+    \[
+    0\leq\dots\leq b_3\leq b_2\leq b_1\leq b
+    \]
+    Since \(B\) is a finite Boolean algebra, this chain must be finite. That is, for some \(k\), \(b_k\) is an atom. Let \(a=b_k\)\qed
+\end{myproof}
+
+\begin{lemma}[\cite{abstract_algbera_thomas}]
+\label{atom_2}
+    Let \((B,\vee,\wedge)\) be a Boolean algebra and \(b,c\in B\) such that \(b\nleq c\). Then there exists an atom \(a\in B\) such that \(a\leq b\) and \(a\nleq b\).
+\end{lemma}
+
+\begin{myproof}
+    By Theorem \ref{thm_2.8} we have \(b\wedge\comp{c}\neq0\). Hence by Lemma \ref{atom_1} there exists an atom \(a\) such that \(a\leq b\wedge\comp{b}\), therefore by Lemma \ref{my_atom}, \(a\leq b\) and \(a\leq\comp{c}\). Hence \(a\wedge c=0\). Then \(a\nleq c\).\qed
+\end{myproof}
+
+\begin{lemma}[\cite{abstract_algbera_thomas}]
+\label{arom_present}
+   Let \((B,\vee,\wedge)\) be a finite Boolean algebra and let \(b\in B\) not equal to \(0\). Let \(a_1,a_2,\dots,a_n\) be the atoms of \(B\) such that \(a_i\leq b\). Then \(b=a_1\vee a_2\vee\dots\vee a_n\).
+\end{lemma}
+
+\begin{myproof}
+    Let \(b_1=a_1\vee a_2\vee\dots\vee a_n\). Since \(a_i\leq b\) for each \(i\), then, \(a_i\wedge b=a_i\). So
+    \begin{align*}
+        b_1\wedge b&=(a_1\vee\dots\vee a_n)\wedge b\\
+        &=(a_1\wedge b)\vee\dots\vee(a_n\wedge b)\\
+        &=a_1\vee\dots\vee a_n\\
+        &=b_1
+    \end{align*}
+    Hence \(b_1\leq b\). Assume \(b\nleq b_1\). Then there exists an atom \(a\in B\) such that \(a\leq b\) and \(a\nleq b_1\). Since \(a\) is an atom and \(a\leq b\), it follows that, \(a=a_k\) for some \(k\). So
+    \begin{align*}
+        a\wedge b_1&=a_k\wedge(a_1\vee\dots\vee a_k\vee\dots\vee a_n)\\
+        &=(a_k\wedge a_1)\vee\dots\vee(a_k\vee a_k)\vee\dots\vee(a_k\wedge a_n)\\
+        &=0\vee0\vee\dots\vee a_k\vee\dots\vee 0\\
+        &=a_k\\
+        &=a
+    \end{align*}
+    Therefore \(a\leq b_1\). This is a contradiction. Hence \(b\leq b_1\), we conclude
+    \[
+    b=b\wedge b_1=b_1\wedge b=b_1
+    \]\qed
+\end{myproof}
+
+\begin{theo}[(Representation Theorem)\cite{applied_algebra}]
+    Let \((B,\vee,\wedge)\) be a finite Boolean algebra and let \(A\) denote the set of all atoms in \(B\). Then \(B\) is isomorphic to \(\p(A)\).
+\end{theo}
+
+\begin{myproof}
+    Let \(v\in B\) be an arbitrary element and let \(A(v):=\{a\in A\mid a\leq v\}\). Now define the function
+    \[
+    h:B\longrightarrow \p(A)\,;\quad h(v)=A(v)
+    \]
+    We show \(h\) is Boolean homomorphism. For an atom \(a\in B\) and for \(v,w\in B\) we have
+    \begin{align*}
+        a\in A(v\wedge w)&\Longleftrightarrow a\leq v\wedge w\\
+        &\Longleftrightarrow a\leq v\quad\text{and}\quad a\leq w\\
+        &\Longleftrightarrow a\in A(v)\quad\text{and}\quad a\in A(w)\\
+        &\Longleftrightarrow a\in A(v)\cap A(w)
+    \end{align*}
+    This shows \(h(v\wedge w)=h(v)\cap h(w)\). Similarly
+    \begin{align*}
+        a\in A(v\vee w)&\Longleftrightarrow a\leq v\vee w\\
+        &\Longleftrightarrow a\leq v\quad\text{or}\quad a\leq w\\
+        &\Longleftrightarrow a\in A(v)\quad\text{or}\quad a\in A(w)\\
+        &\Longleftrightarrow a\in A(v)\cup A(w)
+    \end{align*}
+    This shows \(h(v\vee w)=h(v)\cup h(w)\). Finally
+    \begin{align*}
+        a\in A(\comp{v})\Longleftrightarrow a\leq\comp{v}&\Longleftrightarrow a\wedge v=0\\
+        &\Longleftrightarrow a\nleq v\\
+        &\Longleftrightarrow a\in A-A(v)
+    \end{align*}
+    Hence \(h(\comp{v})=A(\comp{v})=A-A(v)=A-h(v)=\comp{[h(v)]}\). Since \(B\) is finite we know \(A(v)\) will be also finite say \(A(v)=\{a_1,a_2,\dots,a_n\}\). Now by Lemma \ref{arom_present} we can write \(v\) as \(v=a_1\vee a_2\vee\dots\vee a_n\), Let \(A(v)=A(w)\), then \(a_i\leq w\) for each \(i\), so
+    \begin{align*}
+        v\wedge w&=(a_1\vee\dots\vee a_n)\wedge w\\
+        &=(a_1\wedge w)\vee\dots\vee(a_n\wedge w)\\
+        &=a_1\vee\dots\vee a_n\\
+        &=v
+    \end{align*}
+    Similarly we can show \(w\wedge v=w\). Hence \(v=w\). Therefore \(h\) is one to one map. To show \(h\) is onto let \(C\subseteq A\) say \(C=\{c_1,c_2,\dots,c_k\}\). Let \(x=c_1\vee\dots\vee c_k\), we need to show \(A(x)=C\). If \(a\in B\) an atom, then,
+    \begin{align*}
+        a\in A(x)&\Longleftrightarrow a\leq x\\
+        &\Longleftrightarrow a\wedge x=a\\
+        &\Longleftrightarrow a\wedge(c_1\vee\dots\vee c_k)=a\\
+        &\Longleftrightarrow(a\wedge c_1)\vee\dots\vee(a\wedge c_k)=a\\
+        &\Longleftrightarrow a=c_j,\quad\text{for some }j\\
+        &\Longleftrightarrow a\in C
+    \end{align*}
+    So \(A(x)=C\). Hence \(h\) is onto so it is isomorphism, i.e \(B\simeq_b P(A)\).\qed
+\end{myproof}

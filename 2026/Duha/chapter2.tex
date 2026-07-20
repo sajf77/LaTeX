@@ -1,0 +1,311 @@
+\chapter{تطبيق نموذج الفريسة والمفترس على طريقة التغاير التكراري}
+
+\section*{مقدمة}
+
+تعد النماذج الرياضية وسياة اساسية لفهم الظواهر البيئية المعقدة ، حيث يمثل نظام الفريسة والمفترس مثالاً كلاسيكياً على التوازن الطبيعي بين الكائنات الحية. هذا النموذج يظهر ديناميكيات غير خطية يصعب حلها تحليلياً. مما يستدعي استخدام طرق تقريبية حديثة. ومن ابرز هذه الطرق هي طريقة التغاير التكراري \linebreak
+(Variational Iteration Method - VIM)
+، التي توفر حلولاً تقريبية متدرجة عبر التكرار. يهدف هذا البحث الى تطبيق VIM على نظام الفريسة والمفترس ، وذلك للحصول على حلول تقريبية تساعد على فهم ديناميكيات التفاعل بين الفريسة والمفترس بشكل أدق.
+
+\section{النموذج الرياضي}
+النظام الرياضي للفريسة والمفترس بصيغة التفاعل-الانتشار يعطى بالمعادلات التفاضلية التالية
+\[
+\left.\begin{array}{c}
+	\dfrac{\partial \phi}{\partial t} = d_1  \dfrac{\partial^2\phi}{\partial x^2} + \alpha\phi - \beta\phi\varphi\\[20pt]
+	\dfrac{\partial \varphi}{\partial t} = d_2  \dfrac{\partial^2\varphi}{\partial x^2} -  \gamma\varphi + \epsilon\phi\varphi
+\end{array}\right\}
+\]
+مع الشروط الحدودية
+\[
+\left.\frac{\partial \phi}{\partial x}\right|_{x=0} = 0,\,\,
+\left.\frac{\partial \phi}{\partial x}\right|_{x=1} = 0,\,
+\left.\frac{\partial \varphi}{\partial x}\right|_{x=0} = 0,\,
+\left.\frac{\partial \varphi}{\partial x}\right|_{x=1} = 0
+\]
+والشروط الحدودية
+\[
+\phi(x, 0) = \phi_0(x) = 70x^2(x-1)^2 e^{-3.5 x}
+\]
+\[
+\varphi(x, 0) = \varphi_0(x) = 70x^2(x-1)^2 e^{3.5 (x-1)}
+\]
+
+\section{حل النموذج بطريقة التغاير التكراري}
+نطبق طريقة التغاير التكراري (VIM) لحل نظام الفريسة والمفترس
+\[
+\left.\begin{array}{c}
+	\dfrac{\partial \phi}{\partial t} = d_1  \dfrac{\partial^2\phi}{\partial x^2} + \alpha\phi - \beta\phi\varphi\\[12pt]
+	\dfrac{\partial \varphi}{\partial t} = d_2  \dfrac{\partial^2\varphi}{\partial x^2} -  \gamma\varphi + \epsilon\phi\varphi
+\end{array}\right\}
+\]
+حيث يتم بناء دالة التصحيح بالشكل
+\[
+\phi_{n+1}(x,t)=\phi_n(x,t)+
+\int_0^t \lambda_1(\tau)
+\left[
+\frac{\partial \phi_n}{\partial \tau}
+- d_1 \frac{\partial^2 \phi_n}{\partial x^2}
+- \alpha \phi_n
++ \beta \phi_n \varphi_n
+\right] d\tau
+\]
+\[
+\varphi_{n+1}(x,t)=\varphi_n(x,t)+
+\int_0^t \lambda_2(\tau)
+\left[
+\frac{\partial \varphi_n}{\partial \tau}
+- d_2 \frac{\partial^2 \varphi_n}{\partial x^2}
++ \gamma \varphi_n
+- \epsilon \phi_n \varphi_n
+\right] d\tau
+\]
+حيث $\lambda_1,\lambda_2$ هي مضروبات لاغرانج التي يتم تحديدها باستخدام مبدأ التغاير.
+\subsection*{إيجاد مضروب لاغرانج للمعادلة الأولى}
+نأخذ التغاير للمعادلة
+\[
+\delta \phi_{n+1}(x,t)
+=
+\delta \phi_n(x,t)
++
+\delta
+\int_0^t
+\lambda_1(\tau)
+\left(
+\frac{\partial \phi_n}{\partial \tau}
+- d_1 \frac{\partial^2 \phi_n}{\partial x^2}
+- \alpha \phi_n
++ \beta \phi_n \varphi_n
+\right)d\tau
+\]
+مع اعتبار
+\[
+\delta \tilde{\phi}_n = 0 , \qquad
+\delta \tilde{\varphi}_n =0
+\]
+وبالتالي نحصل على
+\[
+\delta \phi_{n+1}
+=
+\delta \phi_n
++
+\int_0^t
+\lambda_1(\tau)
+\frac{\partial}{\partial \tau}
+(\delta \phi_n)
+\, d\tau
+\]
+بإجراء التكامل بالأجزاء نحصل على
+
+\[
+\delta \phi_{n+1}
+=
+\delta \phi_n
++
+\lambda_1(t)\delta\phi_n
+-
+\int_0^t
+\frac{d\lambda_1}{d\tau}
+\delta\phi_n
+\,d\tau
+\]
+بفرض شرط السكون
+\[
+\delta\phi_{n+1}=0
+\]
+نحصل على المعادلات
+\[
+\frac{d\lambda_1}{d\tau}=0
+\]
+و
+\[
+1+\lambda_1(t)=0
+\]
+إذن
+\[
+\lambda_1=-1
+\]
+\subsection*{إيجاد مضروب لاغرانج للمعادلة الثانية}
+بنفس الطريقة نحصل على دالة التصحيح
+\[
+\varphi_{n+1}(x,t)=\varphi_n(x,t)+
+\int_0^t \lambda_2(\tau)
+\left[
+\frac{\partial \varphi_n}{\partial \tau}
+- d_2 \frac{\partial^2 \varphi_n}{\partial x^2}
++ \gamma \varphi_n
+- \epsilon \phi_n \varphi_n
+\right] d\tau
+\]
+وبأخذ التغاير نحصل على
+\[
+\lambda_2=-1
+\]
+\subsection*{الصيغة التكرارية النهائية}
+تصبح المعادلات التكرارية
+\[
+\phi_{n+1} =
+\phi_n -
+\int_0^t
+\left[
+\frac{\partial \phi_n}{\partial \tau}
+- d_1 \frac{\partial^2 \phi_n}{\partial x^2}
+- \alpha \phi_n
++ \beta \phi_n \varphi_n
+\right] d\tau
+\]
+\[
+\varphi_{n+1} =
+\varphi_n -
+\int_0^t
+\left[
+\frac{\partial \varphi_n}{\partial \tau}
+- d_2 \frac{\partial^2 \varphi_n}{\partial x^2}
++ \gamma \varphi_n
+- \epsilon \phi_n \varphi_n
+\right] d\tau
+\]
+نأخذ التقريب الابتدائي من الشروط الابتدائية
+\[
+\phi_0(x,t)=70x^2(x-1)^2 e^{-3.5 x} = 70 (x^4 - 2x^3 + x^2)e^{-3.5x} 
+\]
+\[
+\varphi_0(x,t)=70x^2(x-1)^2 e^{3.5 (x-1)} = 70(x^4 - 2x^3 + x^2)e^{3.5(x-1)}
+\]
+\subsection*{التكرار الأول}
+نحسب
+\[
+\phi_1=
+\phi_0
+-
+\int_0^t
+\left[
+- d_1 \frac{\partial^2 \phi_0}{\partial x^2}
+- \alpha \phi_0
++ \beta \phi_0 \varphi_0
+\right] d\tau
+\]
+
+\[
+\varphi_{1} =
+\varphi_0 -
+\int_0^t
+\left[
+0- d_2 \frac{\partial^2 \varphi_n}{\partial x^2}
++ \gamma \varphi_n
+- \epsilon \phi_n \varphi_n
+\right] d\tau
+\]
+وبما أن $\phi_0$ لا يعتمد على الزمن نحصل على
+\[
+\phi_1=
+\phi_0
++
+t
+\left[
+d_1 \frac{\partial^2 \phi_0}{\partial x^2}
++
+\alpha \phi_0
+-
+\beta \phi_0 \varphi_0
+\right]
+\]
+وبالمثل
+\[
+\varphi_1=
+\varphi_0
++
+t
+\left[
+d_2 \frac{\partial^2 \varphi_0}{\partial x^2}
+-
+\gamma \varphi_0
++
+\epsilon \phi_0 \varphi_0
+\right]
+\]
+وهذا يمثل التقريب الأول للحل باستخدام طريقة التغاير التكراري.
+\begin{align*}
+	\phi_0 \cdot \varphi_0 &= \Big[70 (x^4 - 2x^3 + x^2)e^{-3.5x}\Big]\cdot\Big[70(x^4 - 2x^3 + x^2)e^{3.5(x-1)}\Big]\\
+	& = 4900 (x^4 - 2x^3 + x^2) e^{-3.5}\\
+	\frac{\partial^2 \phi_0}{\partial x^2} &= 70e^{-3.5x} (12.25x^4 - 52.5x^3 + 66.25x^2 - 26x + 2)
+\end{align*}
+
+\[
+\begin{split}
+	\phi_1 = 70(x^4-2x^3+x^2)&e^{-3.5x} - t\Big[70d_1 e^{-3.5x} (12.25x^4 - 52.5x^3 + 66.25x^2 - 26x + 2)\\
+	 &+70\alpha(x^4-2x^3+x^2)e^{-3.5x} - 4900\beta(x^4 - 2x^3 + x^2) e^{-3.5}\Big]
+\end{split}
+\]
+\[
+\begin{split}
+	\varphi_{1} = 70(x^4 - 2x^3 + x^2)&e^{3.5(x-1)}- t\Big[70d_2 e^{3.5(x-1)} (12.25x^4 + 3.5x^3 - 17.75x^2+2x+2)\\
+	& - 70\gamma(x^4-2x^3+x^2)e^{3.5(x-1)} + 4900\epsilon(x^4 - 2x^3 + x^2) e^{-3.5}
+	\Big]
+\end{split}
+\]
+\subsection*{التكرار الثاني}
+\[
+\begin{split}
+	\phi_2 = \phi_0& - t\Big[70d_1 e^{-3.5x} (12.25x^4 - 52.5x^3 + 66.25x^2 - 26x + 2)\\
+&\phantom{===}+70\alpha(x^4-2x^3+x^2)e^{-3.5x} - 4900\beta(x^4 - 2x^3 + x^2) e^{-3.5}\Big]\\
+&- \frac{t^2}{2}\Big[-70d_1 e^{-3.5x} (12.25x^4 - 52.5x^3 + 66.25x^2 - 26x + 2)\\
+&\phantom{===}-70\gamma(x^4-2x^3+x^2)e^{3.5(x-1)} - 4900\epsilon(x^4 - 2x^3 + x^2) e^{-3.5}
+\Big]
+\end{split}
+\]
+\[
+\begin{split}
+	\varphi_2 = \varphi_0&- t\Big[70d_2 e^{3.5(x-1)} (12.25x^4 + 3.5x^3 - 17.75x^2+2x+2)\\
+	&\phantom{===} - 70\gamma(x^4-2x^3+x^2)e^{3.5(x-1)} + 4900\epsilon(x^4 - 2x^3 + x^2) e^{-3.5}\Big]\\
+	&- \frac{t^2}{2} \Big[-70d_2 e^{3.5(x-1)} (12.25x^4 + 3.5x^3 - 17.75x^2+2x+2)\\
+	&\phantom{===}70\gamma(x^4-2x^3+x^2)e^{3.5(x-1)} - 4900\epsilon(x^4 - 2x^3 + x^2) e^{-3.5}
+	\Big] 
+\end{split}
+\]
+\newpage
+لو فرضنا
+\begin{align*}
+	& A(x) = 70d_1 e^{-3.5x} (12.25x^4 - 52.5x^3 + 66.25x^2 - 26x + 2)\\
+	&B(x) = 70\alpha(x^4-2x^3+x^2)e^{-3.5x}\\
+	&C(x) = 4900\beta(x^4 - 2x^3 + x^2) e^{-3.5}\\[10pt]
+	&D(x) = 70d_2 e^{3.5(x-1)} (12.25x^4 + 3.5x^3 - 17.75x^2+2x+2)\\
+	& E(x) = 70\gamma(x^4-2x^3+x^2)e^{3.5(x-1)}\\
+	& F(x) = 4900\epsilon(x^4 - 2x^3 + x^2) e^{-3.5}
+\end{align*}
+اذن
+
+\[
+\phi_1 = \phi_0 - t\Big[A(x) + B(x) - C(x)\Big]
+\]
+\[
+\varphi_{1} = \varphi_0 - t\Big[D(x)- E(x) + F(x)\Big]
+\]
+\[
+\phi_2 = \phi_0 - t\Big[A(x) + B(x) - C(x)\Big] - \frac{t^2}{2} \Big[-A(x) - B(x) + C(x)\Big]
+\]
+\[
+\varphi_2 = \varphi_0 - t\Big[D(x)- E(x) + F(x)\Big] - \frac{t^2}{2}\Big[-D(x) + E(x) - F(x)\Big]
+\]
+\[
+\phi_3 = \phi_0 - t\Big[A(x) + B(x) - C(x)\Big] - \frac{t^2}{2} \Big[-A(x) - B(x) + C(x)\Big] - \frac{t^3}{6}\Big[A(x) + B(x) - C(x)\Big]
+\]
+\[
+\varphi_3 = \varphi_0 - t\Big[D(x)- E(x) + F(x)\Big] - \frac{t^2}{2}\Big[-D(x) + E(x) - F(x)\Big] - \frac{t^3}{6}\Big[D(x) - E(x) + F(x)\Big]
+\]
+\[
+\begin{split}
+	\phi_4 = \phi_0 
+	- t\Big[A(x) + B(x) - C(x)\Big] 
+	- \frac{t^2}{2} \Big[-A(x) - B(x) + C(x)\Big] \\
+	- \frac{t^3}{6}\Big[A(x) + B(x) - C(x)\Big]
+	- \frac{t^4}{24}\Big[-A(x) - B(x) + C(x)\Big]
+\end{split}
+\] 
+\[
+\begin{split}
+	\varphi_4 = \varphi_0 
+	- t\Big[D(x)- E(x) + F(x)\Big] 
+	- \frac{t^2}{2}\Big[-D(x) + E(x) - F(x)\Big]\\ 
+	- \frac{t^3}{6}\Big[D(x) - E(x) + F(x)\Big]
+	- \frac{t^4}{24}\Big[-D(x) + E(x) - F(x)\Big]
+\end{split}
+\]

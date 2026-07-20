@@ -1,0 +1,71 @@
+\documentclass{arabicClass}
+
+%\addbibresource{references.bib}
+
+\begin{document}
+	\renewcommand{\jot}{15pt}
+	\abovedisplayskip=7pt
+	\belowdisplayskip=7pt
+	\input{Title Page/titlepage}
+		\pagenumbering{roman}
+	\input{gift}
+	\input{thanks}
+	\tableofcontents
+	    \pagenumbering{arabic}
+	\input{intro}
+	\input{abstract}
+
+
+	
+	\input{chapter1}
+	
+	\input{chapter2}
+	
+	\input{conclusion}
+	
+
+
+
+\begin{thebibliography}{9}
+	\addcontentsline{toc}{chapter*}{المصادر}
+	
+	\bibitem{ode}
+	اسماعيل بوقفة و عايش المناودة,
+	المعادلات التفاضلية العادية حلول وتطبيقات,
+	Unknown publisher, Unknown year.
+	
+	\bibitem{pde1}
+	عطالله ثامر االعاني,
+	مقدمة الى المعادلات التفاضلية الجزئية,
+	جامعة بغداد, 1990.
+	
+\begin{english}
+	\bibitem{pde3}
+	E.C. Zachmanoglou and Dale W. Thoe,
+	Introduction to Partial Differential Equations with Applications,
+	Dover Publications, Inc., New York, 1986.
+	
+	\bibitem{jhhe1}
+	J.H. He,
+	A new approach to nonlinear partial differential equations,
+	Comm. in Nonlinear Sci. and Nummer. Simul.2, 1997.
+	
+	\bibitem{jhhe2}
+	J.H. He,
+	Approximate analytical solution for seepage flow with fractional derivatives,
+	Comp. Methods Appl. Merch. Engg, 1998.
+	
+	\bibitem{jhhe3}
+	J.H. He,
+	Approximate solution for non linear differential equations with convolution product non-linearities,
+	Comp. Methods Appl. Merch. Engg, 1998.
+
+		\bibitem{pde2}
+Victor Ivrii,
+Partial Differential Equations,
+University of Toronto, 2022.
+\end{english}
+	
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,136 @@
+\chapter{Bernstein Sequence}
+
+
+\section{Bernstein Sequence}
+
+\begin{definition}
+	Suppose that \(f(t) \in C[0,1]\). The $n$-th order Bernstein operators are defined as
+	\[
+	B_n(f(t);x) = \sum_{k=0}^{n} \binom{n}{k} x^k (1-x)^{n-k} f\left(\frac{k}{n}\right) 
+	\]
+\end{definition}
+
+\begin{theorem}
+	The functions \(b_{n,k}(x)\) have the following properties
+	\begin{enumerate}[label=\textbf{\arabic*.}]
+		\item \(\sum_{k=0}^{n} b_{n,k}(x) = 1\)
+		\item \(\sum_{k=0}^{n} kb_{n,k}(x) = nx\)
+		\item \(\sum_{k=0}^{n} k^2 b_{n,k}(x) = n(n-1)x^2 + nx\)
+		\item \(\sum_{k=0}^{n} k^3 b_{n,k}(x) = n(n-1)(n-2)x^3 + 3n(n-1)x^2 + nx\)
+	\end{enumerate}
+\end{theorem}
+\noindent
+\textbf{\textit{Proof}:}\\
+\noindent
+We have
+\begin{enumerate}
+	\item 
+	\begin{align*}
+		\sum_{k=0}^{n} b_{n,k}(x) = \sum_{k=0}^{n} x^k (1-x)^{n-k} = (x+1-x)^n = 1
+	\end{align*}
+	\item 
+	\begin{align*}
+		\sum_{k=0}^{n} k b_{n,k}(x) &= \sum_{k=0}^{n} k \frac{n!}{k!(n-k)!} x^k (1-x)^{n-k}\\
+		&= 0 + \sum_{k=1}^{n} k \frac{n!}{k!(n-k)!} x^k (1-x)^{n-k}\\
+		&= \sum_{k=1}^{n} \frac{n!}{(k-1)!(n-k)!} x^k (1-x)^{n-k}\\
+		&= \sum_{k=0}^{n-1} \frac{n (n-1)!}{k! (n-1-k)!} x^{k+1} (1-x)^{n-1-k} \\
+		&= nx \sum_{k=0}^{n-1} b_{n-1,k}(x) = nx
+	\end{align*}
+	\item 
+	\begin{align*}
+		\sum_{k=0}^{n} k^2 b_{n,k}(x) &= \sum_{k=0}^{n} k^2 \frac{n!}{k!(n-k)!} x^k(1-x)^{n-k}\\
+		&= 0 + \sum_{k=1}^{n}  k^2 \frac{n!}{k!(n-k)!} x^k(1-x)^{n-k}\\
+		&= \sum_{k=1}^{n} k \frac{n!}{(k-1)!(n-k)!} x^k (1-x)^{n-k}\\
+		&= \sum_{k=0}^{n-1} (k+1) \frac{n(n-1)!}{k!(n-1-k)!} x^{k+1} (1-x)^{n-1-k}\\
+		&= nx \sum_{k=0}^{n-1} (k+1) b_{n-1,k}(x)\\
+		&= nx \left\{\sum_{k=0}^{n-1}kb_{n-1,k}(x) + \sum_{k=0}^{n-1} b_{n-1,k}(x)\right\}\\
+		&= nx \Big\{(n-1)x+1\Big\}\\
+	&= n(n-1)x^2 + nx
+	\end{align*}
+		\item 
+	\begin{align*}
+		\sum_{k=0}^{n} k^3 b_{n,k}(x) 	 &= \sum_{k=0}^{n}k^3 \frac{n!}{k!(n-k)!} x^k (1-x)^{n-k}\\
+		&= 0 + \sum_{k=1}^{n}k^3 \frac{n!}{k!(n-k)!} x^k (1-x)^{n-k}\\
+		&= \sum_{k=1}^{n}k^2 \frac{n!}{(k-1)!(n-k)!} x^k (1-x)^{n-k}\\
+		&= \sum_{k=0}^{n-1}(k+1)^2 \frac{n(n-1)!}{k!(n-1-k)!} x^{k+1} (1-x)^{n-1-k}\\
+		&= nx \sum_{k=0}^{n-1} (k+1)^2 b_{n-1,k}(x)\\
+		&= nx \sum_{k=0}^{n-1} (k^2+2k+1) b_{n-1,k}(x)\\
+		&= nx \Big[(n-1)(n-2)x^2 + (n-1)x + 2\big[(n-1)x\big] + 1\Big]\\
+		&= n(n-1)(n-2)x^3 + (1+2)n(n-1)x^2 + nx\\
+		&= n(n-1)(n-2)x^3 + 3n(n-1)x^2 + nx\\
+	\end{align*}
+\end{enumerate}
+
+\begin{theorem}[{[Korovkin's Theorem]}]
+	Suppose that \(f(t)\) is continuous function on \([a,b]\) or on \([0, \infty)\) and \(B_n(f;x)\) satisfying the conditions
+	\begin{enumerate}
+		\item \(B_n(1;x) \to 1\) as \(n \to \infty\)
+		\item \(B_n(t;x) \to x\) as \(n \to \infty\)
+		\item \(B_n(t^2;x) \to x^2\) as \(n \to \infty\)
+	\end{enumerate}
+	Then \(B_n(f;x) \to f(x)\) as \(n \to \infty\)
+\end{theorem}
+\noindent
+\textbf{\textit{Proof}:}\\
+\noindent
+We have
+\begin{enumerate}
+	\item \(B_n(1;x) = \sum_{k=0}^{n} b_{n,k}(x)\cdot1 = 1 \to 1\) as \(n\to \infty\).
+	\item \(B_n(t;x) = \sum_{k=0}^{n} b_{n,k}(x) \cdot \left(\dfrac{k}{n}\right)= \dfrac{1}{n}\cdot nx = x \to x\) as \(n \to \infty\). 
+	\item \(B_n(t^2;x) = \sum_{k=0}^{n} b_{n,k}(x) \cdot \left(\dfrac{k^2}{n^2}\right)= \dfrac{1}{n^2}\cdot[n(n-1)x^2+nx] \to x^2\) as \(n \to \infty\).
+\end{enumerate}
+Therefore \(B_n(f;x) \to f(x)\) as \(n\to \infty\). \qedsymbol
+
+
+\newpage
+\begin{example}
+	Find an approximation polynomial of degree 3 for the function \(\sin t \in C[0,1]\). 
+\end{example}
+\noindent
+\textbf{Solution:}\\
+\noindent
+The approximation by Bernstein sequence gives an approximation polynomial of degree \(n\), so we use Bernstein polynomials for this.
+\begin{align*}
+	B_3(\sin t; x) &= \sum_{k=0}^{3} b_{3,k}(x) \sin\left(\frac{k}{3}\right)\\
+	&= b_{3,0}(x) \sin\left(\frac{0}{3}\right) + b_{3,1}(x) \sin\left(\frac{1}{3}\right) + b_{3,2}(x) \sin\left(\frac{2}{3}\right) + b_{3,3}(x) \sin\left(\frac{3}{3}\right)
+\end{align*}
+\section{The \textit{m}-th Order Moment}
+%\newpage
+\begin{definition}
+		We define the \(m\)-th order moment for Bernstein sequence \(B_n(f;x)\) as follows
+	\[
+	T_{n,m}(x) = B_n((t-x)^m;x) = \sum_{k=0}^{n}b_{n,k}(x) \left(\frac{k}{n}-x\right)^m
+	\]
+\end{definition}
+
+\begin{theorem}
+	We have
+	\begin{enumerate}
+		\item \(T_{n,0}(x)=1\)
+		\item \(T_{n,1}(x)=0\)
+		\item \(T_{n,2}(x)=\dfrac{x(1-x)}{n}\)
+	\end{enumerate}
+\end{theorem}
+\noindent
+\textbf{\textit{Proof}:}
+\begin{enumerate}
+	\item 
+    \[
+	T_{n,0}(x)  = B_n((t-x)^0;x) = B_n(1;x) = 1
+	\]
+	\item 
+	\begin{align*}
+		T_{n,1}(x) &= B_n((t-x)^1;x)\\
+		&= B_n(t-x;x)\\
+		&= B_n(t;x) - B_n(x;x)\\
+		&= x - x B_n(1;x) = x - x = 0
+	\end{align*}
+	\item 
+	\begin{align*}
+		T_{n,2}(x) &= B_n((t-x)^2;x)\\
+		&= B_n(t^2-2xt+x^2;x)\\
+		&= B_n((t^2;x) - 2x B_n(t;x) + x^2B_n(1;x)\\
+		&= \frac{1}{n^2}\Big[n(n-1)x^2+nx\Big] - 2x\cdot x + x^2\\
+		&= \frac{x(1-x)}{n}
+	\end{align*}
+\end{enumerate}

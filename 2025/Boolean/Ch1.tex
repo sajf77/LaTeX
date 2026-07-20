@@ -1,0 +1,323 @@
+\chapter{Basic Concepts}
+
+\section{Relations}
+\begin{mydef}[\cite{fisrt_course_1}]
+    A \textbf{\textit{relation}} between sets \(A\) and \(B\) is a subset R of \(A\times B\). We read \((a,b)\in\) R as "a is related to b" and write \(a\) R \(b\).
+\end{mydef}
+
+We will refer to any relation between a set \(S\) and itself, as in the next example, as a relation on \(S\).
+
+\begin{example}
+Consider the set of all integers \(\Z\). Define a relation \(\sim\) on \(\Z\) (i.e. \(\sim\ \subseteq \Z\times \Z\)) such that for all \(a,b \in \Z\) we have \(a \sim b \) if and only if \(a+b\) even, we see that \(3 \sim 1\) and \(2 \sim 4 \) because \(3+1\) and \(2+4\) are both even.
+\end{example}
+
+\begin{mydef}[\cite{fisrt_course_1}]
+    A \textit{\textbf{function}} \(\phi\) mapping \(X\) into \(Y\) is a relation between \(X\) and \(Y\) with the property that each \(x\in X\) appears as the first member of exactly one ordered pair \((x,y)\in \phi\). Such a function is also called map or mapping of \(X\) into \(Y\). We write \(\phi:X\longrightarrow Y\) and express \((x,y)\in \phi\) by \(\phi(x)=y\). The domain of \(\phi\) is the set \(X\) and the set \(Y\) is the codomain of \(\phi\). The range of \(\phi\) is \(\phi(X)=\{\phi(x) \mid x\in X\}\).
+\end{mydef}
+
+\begin{example}
+    We can view the addition of real numbers as a function \(+:(\R\times \R)\longrightarrow \R\), that is, as a mapping of \(\R\times \R\) into \(\R\). For instant, the action of \(+\) on \((2,3) \in \R\times \R\) is given in function notation by \(+\bigl((2,3)\bigr)=5\). In set notation we write \(\bigl((2,3),5\bigr) \in +\). Of course our familiar notation is \(2+3=5\).
+    \end{example}
+
+\section{Binary Operations}
+\begin{mydef}[\cite{fisrt_course_1}]
+    A \textbf{\textit{binary operation}} \(*\) on a set \(S\) is a function mapping \(S\times S\) into \(S\). For each \((a,b) \in S\times S\), we will denote the element \(*\bigl((a,b)\bigr)\) of \(S\) by \(a*b\).
+\end{mydef}
+
+\begin{example}
+    The  usual addition \(+\) and the usual multiplication \(\cdot\) are both binary operations on the set \(\R\).
+\end{example}
+
+\begin{mydef}[\cite{fisrt_course_1}]
+    Let \(*\) be a binary operation \(S\) and let \(H\) be a subset of \(S\). The subset \(H\) is closed under \(*\) if for all \(a,b \in H\) we also have \(a*b \in H\).
+\end{mydef}
+
+By our very definition of a binary operation \(*\) on \(S\), the set \(S\) is closed under \(*\), but a subset may not be, as the following example shows.
+
+\begin{example}
+    Our usual addition \(+\) on the set \(\R\) does not induce a binary operation on the set \(\R^*\) of nonzero real numbers because \(2 \in \R^*\) and \(-2 \in \R^*\), but \(2+(-2)=0\) and \(0 \notin \R^*\). Thus \(\R^*\) is not closed under \(+\).
+\end{example}
+
+\begin{mydef}[\cite{fisrt_course_1}]
+    A binary operation \(*\) on a set \(S\) is \textit{commutative} if (and only if) \(a*b=b*a\) , for all \(a,b \in S\).
+\end{mydef}
+
+\begin{mydef}[\cite{fisrt_course_1}]
+    A binary operation \(*\) on a set \(S\) is \textit{associative} if \((a*b)*c=a*(b*c)\) for all \(a,b,c \in S\).
+\end{mydef}
+
+
+\begin{example}
+    The usual addition \(+\) and the usual multiplication \(\cdot\) are both commutative and associative binary operations on the set \(\R\).
+\end{example}
+
+\section{Groups}
+\begin{mydef}[\cite{fisrt_course_1}]
+    A \textbf{\textit{Group}} \((G,*)\) is a set \(G\), closed under a binary operation \(*\), such that the following axioms are satisfied 
+    \begin{enumerate}
+    \item For all \(a,b,c \in G\), we have
+    \[(a*b)*c=a*(b*c),\quad \text{\textbf{associativity} of } *\]
+    
+    \item  There is an element \(e \in G\) such that for all \(x \in G\),
+    \[e*x=x*e,\quad \text{\textbf{identity} element\(e\) of \(*\)}\]
+    
+    \item  Corresponding to each element \(a \in G\), there is an element \(a^{\prime} \in G\) such that,
+    \[a*a^{\prime}=a^{\prime}*a=e,\quad \text{\textbf{inverse} \(a^{\prime}\) of \(a\)}\]
+    \end{enumerate}
+\end{mydef}
+
+\begin{mydef}[\cite{fisrt_course_1}]
+    A Group \((G,*)\) is \textit{\textbf{abelian}} if its binary operation \(*\) is commutative.
+\end{mydef}
+
+\begin{example}
+    \((\Z,+)\), the group of integers with the regular addition \(+\) and the identity \(0\) and for each \(n\in \Z\) we know \(n+(-n)=0\) so the inverse of \(n\) is \(-n\). Since the addition is commutative then \((\Z,+)\) is abelian group.
+\end{example}
+
+\section{Rings}
+
+\begin{mydef}[\cite{first_course_2}]
+    Let \(R\) be a nonempty set and let \(+\) and \(\cdot\) denote two binary operations on \(R\), which we refer to as "addition" and "multiplication," respectively. Then \((R,+,\cdot)\) is called a \textbf{\textit{ring}} if the following conditions hold 
+    \begin{enumerate}
+    \item  \((R,+)\) is a commutative (abelian) group.
+    
+    \item  \(\cdot\) is associative. That is, \((a\cdot b)\cdot c=a\cdot (b\cdot c)\) for all \(a,b,c \in R\).
+    
+    \item  \(\cdot\) is distributive over \(+\)
+    . That is,
+    \begin{align*}
+        a\cdot(b+c)&=(a\cdot b)+(a\cdot c),\\
+        (a+b)\cdot c &=(a\cdot c)+(b\cdot c) \qquad \text{for all }a,b,c \in R.
+    \end{align*}
+    \end{enumerate}
+\end{mydef}
+
+\noindent
+\textbf{Notation}
+\begin{enumerate}
+    \item When no ambiguity exists we shall refer to the ring \((R,+,\cdot)\) simply as \(R\).
+
+    \item The identity of \((R,+)\) is denoted by \(0\) and if there exists element \(e \in R\) such that for all \(x \in R\), \(e\cdot x=x\cdot e=x\). We usually write \(1\) instead of \(e\).
+    
+    \item For all \(x \in R\), the additive inverse of \(x\) is denoted by \(-x\).
+
+    \item For all \(x \in R\), the multiplicative inverse (if exist) is denoted by \(x^{-1}\).
+
+    \item For all \(x \in R\) the repeated addition \(n\) times is denoted by \(n x\). That is
+    \[
+    n x =\underbrace{x+x+\dots +x}_{n-\text{times}}
+    \]
+    and we use the power to denote the repeated multiplication \(n\) times ,
+    \[
+    x^n=\underbrace{x\cdot x\cdot...\cdot x}_{n-\text{times}}
+    \]
+\end{enumerate}
+
+\begin{example}
+\label{ex7}
+    \((\Z,+,\cdot)\), the ring of integers with usual operations \(+\) and \(\cdot\) , where the additive identity is \(0\) and the multiplicative identity is \(1\).
+\end{example}
+
+\begin{example}
+\label{ex8}
+    Let \(\Z_n\) be the set of all residue classes modulo \(n\) positive integer. That is for each integer \(m\),
+    \[
+    [m]=\{k \in \Z \mid k=m+r\cdot n\text{ for some integer } r\}
+    \]
+    
+    then \(\Z_n =\{[1],[2],\dots,[n-1]\}\). For any \([a],[b]\in\Z_n\) define the two operations \(+_n\) and \(\cdot_n\) as follows :
+    \begin{gather*}
+        [a]+_n[b]=[a+b],\\
+        [a]\cdot_n[b]=[a\cdot b].
+    \end{gather*}
+    
+    Then \((\Z_n,+_n,\cdot_n\)) is a ring with the additive identity \([0] \in \Z_n\) and the multiplicative identity \([1] \in \Z_n\). For a simpler notation we will drop the brackets from the elements in \(\Z_n\). Hence we have \(\Z_n=\{1,2,\dots,n-1\}\).
+\end{example}
+
+\begin{example}
+\label{ex9}
+    Let \(X\) he a set and let \(\p(X)\)  be the collection of all subsets of \(X\). For any \(A,B \in \p(X)\) we define \(+\) and \(\cdot\) as follows :
+    \begin{gather*}
+    A+B = A\:\Delta\:B =(A-B)\cup (B-A),\\
+    A\cdot B= A\cap B.
+    \end{gather*}
+    
+    Then \((\p(X),\Delta,\cap)\) is a ring with the set \(\varnothing\)  serving as the identity of \((\p(X),\Delta)\). The set \(X\) is the multiplication of the ring \(\p(X)\).
+\end{example}
+
+\section{Some Special Types of Rings}
+%\addcontentsline{toc}{subsection}{Some Special Types of Rings}
+
+\begin{mydef}[\cite{first_course_2}]
+    Let \((R,+,\cdot)\) be a ring. \(R\) is called a \textit{\textbf{commutative ring}} if \(x\cdot y=y\cdot x\) for all \(x,y \in R\). Otherwise \(R\) is called noncommutative ring.
+\end{mydef}
+
+\begin{mydef}[\cite{first_course_2}]
+    Let \((R,+,\cdot)\) be a ring. \(R\) is called a \textit{\textbf{ring with identity}} if there exists an element \(1 \in R\) such that \(1\cdot x=x\cdot 1=x\) for all \(x\in R\).
+\end{mydef}
+
+Examples \ref{ex7}, \ref{ex8} and \ref{ex9} are commutative rings with identity.
+
+\begin{mydef}[\cite{first_course_2}]
+    Let \((R,+,\cdot)\) be a ring and let \(R^*=R-\{0\}\). Then \(R\) is called a \textit{\textbf{Division ring}} if \((R^*,\cdot)\) is a group. If in addition, \(R\) is commutative, that is, \((R^*,\cdot)\) is an abelian group, then \(R\) is called a \textit{field}.
+\end{mydef}
+
+In other words, a ring \((R,+,\cdot)\) be a field if every nonzero element in \(R\) has multiplicative inverse. In this case 
+
+\begin{example}
+    The real number system, the rational number system and the complex number system are examples of fields.
+\end{example}
+
+\begin{example}
+    Let \(p\) be a prime. Then \((\Z_p,+_p,\cdot_p)\) is a field.
+\end{example}
+
+\section{Homomorphisms, Kernels, and Ideals}
+%\addcontentsline{toc}{subsection}{Homomorphisms, Kernels, and Ideals}
+
+\begin{mydef}[\cite{first_course_2}]
+    Let \((R,+,\cdot)\) be a ring. Let \(S\) be a nonempty subset of \(R\). Then \(S\) is a \textit{\textbf{subring}} of \(R\) if \((S,+,\cdot)\) is also a ring.
+\end{mydef}
+
+\begin{example}
+    Since \(\Z \subseteq \R\) and \((\Z,+,\cdot)\) is ring. Then \(\Z\) is a subring of \(\R\).
+\end{example}
+
+\begin{mydef}[\cite{first_course_2}]
+    Let \((R,+,\cdot)\) be a ring. A nonempty subset \(I\) of \(R\) is an \textit{\textbf{ideal}} of \(R\) if
+    \begin{enumerate}
+    \item \(I\) is a subring of \(R\),
+    
+    \item  Whenever \(i \in I\) and \(r \in R\), then \(i\cdot r \in I\) and \(r\cdot i \in I\).
+    \end{enumerate}
+\end{mydef}
+
+\begin{example}
+    Let \(R\) be a ring. then the set \(\{0\}\) is an ideal in \(R\). Also \(R\) is an ideal in \(R\).
+\end{example}
+
+\begin{example}
+    Not every subring of a ring is an ideal. For example, let \(R\) be the ring of rational numbers. \(\Z\) is a subring of \(R\), but not an ideal in \(R\), since \(\frac{1}{2}\in R,1\in \Z\) but \(\frac{1}{2}\cdot 1 \notin \Z\).
+\end{example}
+
+\begin{mydef}[\cite{first_course_2}]
+    Let \((R,+,\cdot)\) and \((T,\oplus,\odot)\) be rings. Let \(f:R \longrightarrow T\) satisfy
+    \begin{tasks}(2)
+    \task \(f(x+y)=f(x)\oplus f(y)\)
+    \task \(f(x\cdot y)=f(x)\odot f(y)\)
+    \end{tasks}
+    for all \(x,y \in R\). Then \(f\) is called a (ring) 
+    \textit{\textbf{homomorphism}} from \(R\) to \(T\).
+\end{mydef}
+
+\noindent
+\textbf{Note :} If the function \(f\) in the definition above is one-to-one and onto, then it is called \textbf{\textit{isomorphism}} and we say \(R\) is isomorphic to \(T\) and we write \(R\simeq T\)
+
+
+\begin{mydef}[\cite{first_course_2}]
+    Let \(f:R\to T\) be a homomorphism from the ring \(R\) to the ring \(T\). We call the set \(K=\{x\in R\mid f(x)=0\}\) the kernel of \(f\), denoted by \(\ker{f}\)
+\end{mydef}
+
+\begin{theo}[\cite{first_course_2}]
+    Let \(f:R\to T\) be a homomorphism from the ring \(R\) to the ring \(T\). Let \(K=\ker{f}\). Then \((K,+,\cdot)\) is an ideal of \((R,+,\cdot)\)
+\end{theo}
+\begin{myproof}
+    Let \(a,b\in K\) arbitrary elements. Then
+\begin{align*}
+    f(a-b)=f(a)-f(b)=0-0=0
+\end{align*}
+so \(a-b\in K\). Hence \(K\) is an subring of \(R\). Now let \(r\in R\) and \(k\in K\) be arbitrary elements. Then
+\[
+f(r\cdot k)=f(r)\cdot f(k)=f(r)\cdot0=0
+\]
+Similarly we can show \(f(k\cdot r)=0\). Thus \(r\cdot k\in K\), therefore \(K\) is an ideal in \(R\).\qed
+\end{myproof}
+
+\begin{mydef}[\cite{first_course_2}]
+    Let \((R,+,\cdot)\) be a ring and \((I,+,\cdot)\) be an ideal of the ring \(R\), for each \(a\in R\) define the left coset \(a+I=\{a+i\mid i\in I\}\). Let \(R/I\) be the set of all cosets. Define the two operations on \(R/I\) as follows
+    \begin{gather*}
+        (a+I)+(b+I)=(a+b)+I\\
+        (a+I)\cdot(b+I)=(a\cdot b)+I
+    \end{gather*}
+    Then \((R/I,+,\cdot)\) is called the quotient ring of \(R\) modulo the ideal \(I\).
+\end{mydef}
+
+\begin{theo}[\cite{first_course_2}]
+   Let \(R\) and \(T\) be two ring. Let \(f:R\to T\) be ring homomorphism. Then \(R/\ker{f}\simeq f(R)\), where \(f(R)=\{f(r)\mid r\in R\}\).
+\end{theo}
+
+\begin{theo}[\cite{first_course_2}]
+    Let \(R\) be a ring, \(I\) an ideal in \(R\). Then there exists an onto homomorphism \(f:R\to R/I\) defined by \(f(r)=r+I\) such that \(\ker{f}=I\). We call \(f\) the \textbf{\textit{natural homomorphism}} from \(R\) to \(R/I\). and denoted by \(\nat_I\).
+\end{theo}
+\begin{myproof}
+    For all \(a,b\in R\), we have
+\[
+\nat_I(a+b)=(a+b)+I=(a+I)+(b+I)=\nat_I(a)+\nat_I(b)
+\]
+similarly
+\[
+\nat_I(a\cdot b)=(a\cdot b)+I=(a+I)\cdot(b+I)=\nat_I(a)\cdot\nat_I(b)
+\]
+and clearly \(\nat_I\) is onto mapping. Hence \(\nat_I:R\to R/I\) is a onto homomorphism.
+\end{myproof}
+
+\begin{theo}[\cite{first_course_2}]
+    Let \(R_1\) and \(R_2\) be two rings and let \(f\) be a homomorphism from \(R_1\) onto \(R_2\). Then \(f\) is an isomorphism if and only if \(\ker{f}=\{0\}\).
+\end{theo}
+\begin{myproof}
+    Let \(f\) be is isomorphism, then \(f\) is one to one mapping. Now let \(a\in\ker{f}\) such that \(a\neq 0\). We have
+    \[
+    f(a)=0=f(0)
+    \]
+    we conclude that \(a=0\) and this is a contradiction. Thus \(\ker{f}=\{0\}\).\\
+    Now let \(\ker{f}=\{0\}\) we prove \(f\) is one to one. Let \(f(a)=f(b)\), we have
+\[
+f(a)-f(b)=0\Longrightarrow f(a-b)=0
+\]
+Thus \(a-b\in \ker{f}\), so \(a-b=0\), then, \(a=b\), and therefore \(f\) is one to one. Hence it is isomorphism.\qed
+\end{myproof}
+
+\begin{mydef}[\cite{theory_of_rings}]
+    An ideal in \(R\) generated by one element of \(R\) is capped the \textbf{\textit{principle ideal}}. The ideal generated by the element \(a\) is denoted by \((a)\) and given by
+    \[
+    (a)=\{r\cdot a\mid r\in R\}
+    \]
+\end{mydef}
+
+\begin{mydef}[\cite{survey}]
+    A \textbf{\textit{field}} is a commutative ring which contains for each element \(a\neq0\) an "inverse" element \(a^{-1}\) satisfying the equation \(a\cdot a^{-1}=1\).
+\end{mydef}
+
+\begin{mydef}[\cite{theory_of_rings}]
+    An ideal \(I\) in a ring \(R\) is called a \textbf{\textit{maximal ideal}} if \(I\neq R\) and there exists no ideal \(J\) in \(R\) such that \(I\subset J\subset R\).
+\end{mydef}
+
+\begin{mydef}[\cite{fisrt_course_1}]
+    An ideal \(I\neq R\) in a commutative ring \(R\) is a \textbf{\textit{prime ideal}} if \(a\cdot b\in I\) implies either \(a\in I\) or \(b\in I\) for \(a,b\in R\).
+\end{mydef}
+
+\begin{theo}[\cite{fisrt_course_1}]
+    If \(R\) is a ring with identity, and \(I\) is an ideal of \(R\) containing the identity. Then \(I=R\).
+\end{theo}
+\begin{myproof}
+    Let \(a\in R\) be arbitrary element, note that
+\[
+a=\underbrace{a}_{\in R}\cdot\underbrace{1}_{\in I}
+\]
+since \(I\) an ideal in \(R\) we conclude \(a\in I\), then \(I\subseteq R\). Consequently \(I=R\).\qed
+\end{myproof}
+
+\begin{theo}[\cite{fisrt_course_1}]
+    \label{max_prime_theorem}
+    Every maximal ideal in a commutative ring \(R\) with identity is a prime ideal.
+\end{theo}
+
+\begin{theo}[(Krull-Zorn) \cite{modern_algebra}]
+    \label{krull_zorn}
+    In a commutative ring with identity, each proper ideal is contained in a maximal ideal.
+\end{theo}
+
+\begin{theo}[\cite{fisrt_course_1}]
+    \label{max_field_theorem}
+    Let \(R\) be a commutative ring with identity. Then \(M\) is a maximal ideal of \(R\) if and only if \(R/M\) is a field.
+\end{theo}

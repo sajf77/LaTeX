@@ -1,0 +1,46 @@
+\documentclass{arabicClass}
+
+\begin{document}
+	\renewcommand{\jot}{7pt}
+	\abovedisplayskip=7pt
+	\belowdisplayskip=7pt
+	
+	\renewcommand{\theequation}{\arabic{equation}.\arabic{chapter}}
+	
+	\input{Title Page/titlepage}
+	\pagenumbering{roman}
+	\amirifont
+	\input{ayah}
+	\input{gift}
+	\input{thanks}
+   \arabicfont
+	\tableofcontents
+   \clearpage
+   \pagenumbering{arabic}	
+	\input{abstract}
+	\input{intro}
+	
+	\input{chapter1}
+	\input{chapter2}
+	\input{chapter3}
+	
+	\input{conclusion}
+	
+	\begin{thebibliography}{9}
+		\addcontentsline{toc}{chapter*}{المصادر}
+		\bibitem{key1}
+		\begin{english}
+		James C. Robinson, \textit{An Introduction to Ordinary Differential Equations}, Cambridge University Press, New York, 2004.
+		
+		\bibitem{key2}
+		M. Tenenbaum, H. Pollard, \textit{Ordinary Differential Equations}, Dover Publications, 1985.
+		
+		\bibitem{key3}
+		S. N. Elaydi, \textit{An Introduction to Difference Equations}, 3rd ed., Springer, 2005.
+		
+		\bibitem{key4}
+		E. A. Coddington, N. Levinson, \textit{Theory of Differential Equations}, McGraw-Hill, 1955.
+		\end{english}
+	\end{thebibliography}
+
+\end{document}

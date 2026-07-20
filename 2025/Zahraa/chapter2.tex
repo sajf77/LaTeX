@@ -1,0 +1,206 @@
+\chapter{كثيرات حدود شيبشيف من النوع الثاني مع بعض خواصها}
+\section{المقدمة}
+كثيرة حدود شيبشيف هي عبارة عن متتالية من كثيرات حدود متعامدة وهي اربعة انواع كثيرة حدود من النوع الاول و يرمز لها $T_n(x)$ و كثيرات حدود من النوع الثاني و يرمز لها بالرمز $U_n(x)$ وكثيرة حدود من النوع الثالث  ويرمزلها $V_n(x)$ و كثيرة حدود من النوع الرابع و يرمز لها $W_n(x)$. حيث النوع الاول والنوع الثاني هما حلول المعادلة التفاضلية
+\begin{equation}
+	(1-x^2)y'' - xy' + n^2 y = 0
+\end{equation}
+$n$ عدد صحيح أكبر من الصفر. و هذه المعادلة لها حلان مستقلان هما
+\begin{align}
+	&\text{النوع الاول}\quad T_n(x) = \cos (n \cos^{-1} x) & -1\leq x \leq 1, &\quad n\geq 0 \\
+	&\text{النوع الثاني} \quad U_n(x) = \sin (n \cos^{-1} x) & -1\leq x \leq 1, &\quad n\geq 0 
+\end{align}
+و هنا سوف نهتم بدراسة النوع الثاني فقط
+
+\section{التعريف و العلاقة التكرارية}
+\begin{definition}
+	كثيرات حدود شيبشيف من النوع الثاني $U_n(x)$ تعرف كالاتي
+	\[
+	U_n(x) = \frac{\sin(n+1)\theta}{\sin\theta},\quad n\geq 0 \quad -1 \leq x \leq 1
+	\]
+	حيث $x=\cos\theta \iff \theta = \cos^{-1}(x)$ ، حيث أن 
+\[
+U_0(x) = 1, \quad U_1(x) = \frac{\sin2\theta}{\sin\theta} = \frac{2\sin \theta\cos\theta}{\sin\theta}= 2\cos\theta=2x
+\]
+\end{definition}
+\noindent
+الآن لايجاد الصيغة التكرارية لكثيرة حدود شيبشيف نضع
+\begin{align}
+U_{n+1} (x) &= \frac{\sin(n+2)\theta}{\sin\theta}\notag\\[5pt]
+&= \frac{\sin[(n+1)\theta + \theta]}{\sin \theta}\notag\\[5pt]
+&= \frac{\sin(n+1)\theta\cos\theta + \sin\theta\cos(n+1)\theta}{\sin\theta}
+\end{align}
+حيث استخدمنا قانون جمع الزاويتين لدالة $\sin$
+\begin{align}
+	U_{n-1} (x) &= \frac{\sin n\theta}{\sin\theta}\notag\\[5pt]
+&= \frac{\sin[(n+1)\theta -\theta]}{\sin \theta}\notag\\[5pt]
+ &= \frac{\sin(n+1)\theta\cos\theta - \sin\theta\cos(n+1)\theta}{\sin\theta}
+\end{align}
+حيث استخدمنا قانون طرح الزاويتين لدالة $\sin$\\
+الآن  بجمع المعادلتين (4) و (5) نحصل على
+\begin{align*}
+	U_{n+1}(x) + U_{n-1}(x) &= \frac{2\sin(n+1)\theta\cos\theta}{\sin\theta}\\
+   &= 2\cos\theta \cdot \frac{\sin(n+1)\theta}{\sin \theta}\\
+   &= 2x U_n(x)
+\end{align*}
+بالتالي
+\begin{equation}
+	\boxed{U_{n+1}(x) = 2x U_n(x) - U_{n-1}(x), \quad n = 1,2,3,\dots}
+\end{equation}
+و هذه اول سبع حدود لكثيرات حدود شيبشيف بأستخدام العلاقة التكرارية (6)
+\begin{align*}
+	U_2(x) &= 2x U_1(x) - U_0(x) = 2x(2x) - 1 = 4x^2 - 1\\
+	U_3(x) &= 2x U_2(x) - U_1(x) = 2x(4x^2 - 1) - 2x =8x^3 - 4x\\
+	U_4(x) &= 2x U_3(x) - U_2(x) = 2x(8x^3 - 4x) - (4x^2 - 1) = 16x^4 - 12x^2 + 1\\
+		U_5(x) &= 2xU_4(x) - U_3(x) \\ 
+		&= 2x(16x^4 - 12x^2 + 1) - (8x^3 - 4x)\\
+		&= 32 x^5 - 32x^3 + 6x\\
+		U_6(x) &= 2x U_5(x) - U_4(x) \\
+		&= 2x(32 x^5 - 32x^3 + 6x) - (16x^4 - 12x^2 + 1)\\
+		&= 64 x^6 - 80x^4 + 24x^2 - 1\\
+		U_7(x) &= 2x U_6(x) - U_5(x) \\
+		&= 2x(64 x^6 - 80x^4 + 24x^2 - 1) - (32 x^5 - 32x^3 + 6x)\\
+		&= 128 x^7 - 192x^5 + 80 x^3 - 80 x
+\end{align*}
+
+\section{التعبير عن الدوال \LR{\textit{x}\,\textsuperscript{\textit{n}}} بكثيرات حدود شيبشيف من النوع الثاني}  
+يمكن التعبير عن أي دالة أسية $x^n$ لأي متعددة حدود بإستخدام كثيرات حدود شيبشيف بالشكل التالي
+\begin{align*}
+	&1 = U_0(x)\\
+	&x = \frac{1}{2}U_1(x)\\
+	&x^2 = \frac{1}{4} [U_0(x) + U_2(x)]\\
+	&x^3 = \frac{1}{8} [U_3(x) + 2U_1(x)]\\
+	&x^4 = \frac{1}{16}[U_4(x) + 3U_2(x) + 2U_0(x)]\\
+	&x^5 = \frac{1}{32} [U_5(x) + 4U_3(x) + 5U_1(x) ]
+\end{align*}
+
+\begin{example}
+	عبر عن الدالة $f(x) = x^4 - x^3 + 3x+2$ باستخدام كثيرات حدود شيبشيف من النوع الثاني
+\end{example}
+\noindent
+\textbf{الحل}\\
+\noindent
+بإستخدام كثيرات حدود شيبشيف من النوع الثاني نستطيع التعبير عنها
+\begin{align*}
+	f(x) &= \frac{1}{16}[U_4(x) + 3U_2(x) + 2U_0(x)] - \frac{1}{8} [U_3(x) + 2U_1(x)] \\
+	&\qquad + \frac{3}{2}U_1(x) + 2U_0(x) \\[5pt]
+	&= \frac{1}{16}U_4(x) + \frac{3}{16}U_2(x) - \frac{1}{8}U_3(x)\\
+	&\qquad + \left[\frac{-2}{8}+\frac{3}{2}\right]U_1(x) + \left[\frac{2}{16}+2\right]U_0(x)\\[5pt]
+	&= \frac{1}{16}U_4(x) - \frac{1}{8}U_3(x) + \frac{3}{16}U_2(x) + \frac{5}{4}U_1(x) + \frac{17}{8}U_0(x)
+\end{align*}
+
+\begin{example}
+	عبر عن الدالة $e^x$ للحد من الدرجة الثالثة بإستخدام متسلسلة تايلور و كثيرات حدود شيبشيف من النوع الثاني
+\end{example}
+\noindent
+\textbf{الحل}\\
+\noindent
+الحدود لغاية الدرجة الثالثة بإستخدام متسلسلة تايلور 
+\[
+e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!}
+\]
+بإستخدام كثيرات حدود شيبشيف من النوع الثاني نستطيع التعبير عنها
+\begin{align*}
+	e^x &= U_0(x) + \frac{1}{2}U_1(x) + \frac{1}{2}\cdot\frac{1}{4}[U_0(x) + U_2(x)] + \frac{1}{6}\cdot\frac{1}{8}[2U_1(x) + U_3(x)]\\
+	&= U_0(x) + \frac{1}{2}U_1(x) + \frac{1}{8}U_0(x) + \frac{1}{8}U_2(x) + \frac{1}{24}U_1(x) + \frac{1}{48}U_3(x)\\
+	&= \frac{9}{8}U_0(x) + \frac{13}{24}U_1(x) + \frac{1}{8}U_2(x) + \frac{1}{48}U_3(x)
+\end{align*}
+
+\begin{example}
+	عبر عن الدالة $\sin x$ للحد من الدرجة الخامسة بإستخدام متسلسلة تايلور و كثيرات حدود شيبشيف من النوع الثاني
+\end{example}
+\noindent
+\textbf{الحل}\\
+\noindent
+الحدود لغاية الدرجة الخامسة بإستخدام متسلسلة تايلور 
+\[
+\sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!}
+\]
+بإستخدام كثيرات حدود شيبشيف من النوع الثاني نستطيع التعبير عنها
+\begin{align*}
+	\sin x &= \frac{1}{2} U_1(x) - \frac{1}{6}\cdot\frac{1}{8}[2U_1(x) + U_3(x)] + \frac{1}{120}\cdot\frac{1}{32}[U_5(x) + 5U_1(x) + 4U_3(x)]\\
+	&= \frac{1}{2}U_1(x) - \frac{1}{24}U_1(x) - \frac{1}{48}U_3(x) + \frac{1}{3840}U_5(x)  + \frac{1}{768} U_1(x) + \frac{1}{960} U_3(x)\\
+	&= \frac{353}{768} U_1(x) - \frac{19}{960}U_3(x) + \frac{1}{3840} U_5(x)
+\end{align*}
+
+\subsection*{بعض خواص كيثرة شيبشيف من النوع الثاني}
+\begin{enumerate}
+	\item $U_n(-x) = (-1)^{n+1} U_n(x)$
+	\item جذور كثيرة شيبشيف من النوع الثاني هي \quad $x_r = \cos\left(\dfrac{r}{n+1}\pi\right), r=1,2,\dots,n$
+	\item كثيرة حدود شيبشيف من النوع الثاني متعامدة في المجال $[-1,1]$ بالنسبة لدالة الوزن \\$w = \sqrt{1-x^2}$ حيث
+	\[
+	\int_{-1}^{1} \sqrt{1-x^2} U_n(x) U_m(x)\, dx = \begin{cases}
+		0 & ;n\neq m \\
+		\dfrac{\pi}{2} & ; n = m
+	\end{cases}
+	\]
+\end{enumerate}
+\textbf{برهان خاصية (1)}
+\begin{align*}
+	U_n(-x) &  = \frac{\sin[(n+1)\cos^{-1}(-x)]}{\sin(\cos^{-1}(-x))}\\[5pt]
+	&= \frac{\sin[(n+1)(\pi-\cos^{-1}x)]}{\sin(\pi-\cos^{-1}x)}\\[5pt]
+	&= \frac{-\sin[(n+1)\cos^{-1}x]\cos(n+1)\pi}{-\sin(\cos^{-1}x)}\\[5pt]
+	&= (-1)^{n+1}U_n(x)
+\end{align*}
+\textbf{برهان خاصية (2)}
+\begin{align*}
+	U_n\left(\frac{r}{n+1}\pi\right) &= \frac{\sin\left[(n+1)\dfrac{r}{n+1}\pi\right]}{\sin\left(\dfrac{r}{n+1}\pi\right)}\\[5pt]
+	&= \frac{\sin(r\pi)}{\sin\left(\dfrac{r}{n+1}\pi\right)}\\[5pt]
+	&= 0
+\end{align*}
+
+\noindent
+\textbf{برهان خاصية (3)}\\
+\noindent
+نفرض 
+\[
+x = \cos \theta \Rightarrow dx = -\sin \theta d\theta
+\]
+\[
+x=-1 \Rightarrow \theta = \pi , \quad x=1 \Rightarrow \theta = 0
+\]
+\begin{align*}
+	I &= \int_{-1}^{1} \sqrt{1-x^2} U_n(x) U_m(x) \, dx \\
+	   &= \int_{\pi}^{0} \sin \theta U_n(\cos \theta) U_m(\cos \theta)  (-\sin\theta) \, d\theta\\
+	   &= \int_{0}^{\pi} \cos(n\theta) \cos(m\theta) \, d\theta\\
+	   &= \frac{1}{2}\int_{0}^{\pi} \cos(n-m)\theta - \cos(n+m+2)\theta \,d \theta\\
+	   &= \frac{1}{2} \left[\frac{\sin(n-m)\theta}{n-m} - \frac{\sin(n+m+2)\theta}{n+m+2}\right]_0^{\pi}\\
+	   &= \begin{cases}
+	   	0 & ;n \neq m \\
+	   	\dfrac{\pi}{2} & ; n = m
+	   \end{cases}
+\end{align*}
+
+
+\section{العلاقة بين النوع الاول و النوع الثاني}
+هناك علاقة وثيقة بين متعددات حدود شيبشيف من النوع الاول  $T_n(x)$ والنوع الثاني $U_n(x)$ حيث ان كلاهما مشتقة من الدوال المثلثية ولهما خصائص متشابهة و بما أن   
+\[
+T_n(x) = \cos(n \theta), \quad U_n(x) = \frac{\sin(n+1)\theta}{\sin\theta}
+\]
+فإن
+\[
+T_{n+1}(x) = \cos(n+1)\theta = \cos(n\theta)\cos\theta - \sin(n\theta)\sin\theta 
+\]
+\[
+T_{n-1}(x) = \cos(n-1)\theta = \cos(n\theta)\cos\theta + \sin(n\theta)\sin\theta 
+\]
+و بالتالي
+\[
+T_{n-1}(x) - T_{n+1}(x) = 2 \sin(n\theta) \sin\theta = 2 \sin^2\theta \frac{\sin(n\theta)}{\sin\theta} = 2(1-\cos^2 \theta)\cdot\frac{\sin(n\theta)}{\sin \theta}
+\]
+إذن 
+\begin{equation}
+	T_{n-1}(x) - T_{n+1}(x) = 2 (1-x^2) U_{n-1}(x) 
+\end{equation}
+ويمكن الحصول على علاقة اخرى من خلال طرح المعادلتين (4) و (5) ، حيث
+\[
+U_{n+1}(x) - U_{n-1}(x) = \frac{2\sin\theta\cos(n+1)\theta}{\sin\theta} = 2 \cos(n+1)\theta
+\]
+إذن 
+\begin{equation}
+	U_{n+1}(x) - U_{n-1}(x)  = 2T_{n+1}(x)
+\end{equation}
+
+
+\section{استخدامات كلا النوعين}
+يستخدم النوع الاول بشكل اساسي في التقريب متعددات الحدود وتقليل الاخطاء اما النوع الثاني يستخدم في تحليل الدوال وخصائصها علماً ان كلا النوعين يكملان بعضهما البعض في العديد من التطبيقات الرياضية والتحليلية. 
+

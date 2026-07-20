@@ -1,0 +1,31 @@
+% !TeX program = lualatex
+\input{arabicTemplate}
+\definecolor{MyPink}{RGB}{255, 105, 180}
+\AddToShipoutPicture{
+	\begin{tikzpicture}[remember picture, overlay]
+		\def\margin{15pt}
+		\draw[line width=3pt, MyPink, decorate, decoration={snake}]
+		($(current page.north west) + (\margin,-\margin)$)
+		rectangle
+		($(current page.south east) + (-\margin,\margin)$);
+	\end{tikzpicture}
+}
+
+\begin{document}
+	\pagenumbering{roman}
+	\input{Title Page/titlepage}
+	\input{ayah}
+	\input{thanks}
+	\input{gift}	
+	\clearpage
+	\pagenumbering{arabic}
+	\newpage
+	\tableofcontents
+	
+	\input{intro}
+	
+	\input{chapter1}
+	\input{chapter2}
+	
+	\input{references}
+\end{document}

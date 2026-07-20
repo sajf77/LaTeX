@@ -1,0 +1,39 @@
+\documentclass{arabicClass}
+
+
+\begin{document}
+	\renewcommand{\theequation}{\arabic{equation}.\arabic{chapter}}
+
+	\input{Title Page/titlepage}
+    \pagenumbering{roman}
+    \amirifont
+    \input{ayah}
+    \input{gift}
+    \input{thanks}	
+    \arabicfont
+	\tableofcontents
+	\clearpage
+	\pagenumbering{arabic}
+	\input{abstract}
+	\input{chapter1}
+	\input{chapter2}
+	\input{chapter3}
+	
+\begin{thebibliography}{9}
+	\addcontentsline{toc}{section}{المصادر}
+	\begin{english}
+		\bibitem{key1} 
+		Chun, C. A new iterative method for solving nonlinear equations, Appl. Math. Comput. 2006, 178, 415-422.
+		
+		\bibitem{key2}
+		T.G.I Fernando and S. Weerakoon, Improved Newton's method for finding roots of a nonlinear equation, proceedings of the 53\textsuperscript{rd} Annal sessions of srilnoka Association for the advancement of science (SL.A.A.S), El. 22, 309 (1997).
+		
+		\bibitem{key3}
+		K. Inayat Noor, M, Aslam Noor, Predictor-correcter Halley method for nonlinear equations, Appl. Math. Comput. - (2006).
+		
+		\bibitem{key4}
+		Ali, A.H. Pales, Z. Taylor-type expansion in terms of exponential polynomials , Math-Inequalities Appl. 2022, 25, 1123-1141.
+	\end{english}
+\end{thebibliography}
+	
+\end{document}

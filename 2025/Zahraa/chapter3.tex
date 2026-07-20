@@ -1,0 +1,29 @@
+\chapter{test}
+\section{العلاقة بين النوع الاول و النوع الثاني}
+بما أن 
+\[
+T_n(x) = \cos(n \theta), \quad U_n(x) = \frac{\sin(n+1)\theta}{\sin\theta}
+\]
+فإن
+\[
+T_{n+1}(x) = \cos(n+1)\theta = \cos(n\theta)\cos\theta - \sin(n\theta)\sin\theta 
+\]
+\[
+T_{n-1}(x) = \cos(n-1)\theta = \cos(n\theta)\cos\theta + \sin(n\theta)\sin\theta 
+\]
+و بالتالي
+\[
+T_{n-1}(x) - T_{n+1}(x) = 2 \sin(n\theta) \sin\theta = 2 \sin^2\theta \frac{\sin(n\theta)}{\sin\theta} 
+\]
+إذن 
+\begin{equation}
+	T_{n-1}(x) - T_{n+1}(x) = 2 (1-x^2) U_{n-1}(x) 
+\end{equation}
+بطرح المعادلتين (4) و (5) 
+\[
+U_{n+1}(x) - U_{n-1}(x) = \frac{2\sin\theta\cos(n+1)\theta}{\sin\theta} = 2 \cos(n+1)\theta
+\]
+إذن 
+\begin{equation}
+	U_{n+1}(x) - U_{n-1}(x)  = 2T_{n+1}(x)
+\end{equation}

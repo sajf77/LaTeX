@@ -1,0 +1,41 @@
+\documentclass{arabicClass}
+
+\begin{document}
+	
+	\abovedisplayskip=7pt
+	\belowdisplayskip=7pt
+	
+	\input{Title Page/titlepage}
+	\pagenumbering{roman}
+	\amirifont
+	\input{ayah}
+	\input{gift}
+	\input{thanks}
+\arabicfont
+	\tableofcontents
+	\clearpage
+	\pagenumbering{arabic}
+	\input{abstract}
+	\input{intro}
+	
+	\input{chapter1}
+	\input{chapter2}
+	\input{chapter3}
+	
+	\input{conclusion}
+	
+	\begin{thebibliography}{9}
+		\addcontentsline{toc}{chapter*}{المصادر}
+		\bibitem{groups1}
+علي حسن التميمي ، مقدمة في نظرية الزمر ، دار المسيرة للطباعة والنشر ، 2012.
+
+\bibitem{groups2}
+معروف عبدالرحمن سمحان و فوزي بن احمد صالح الذكير ، نظرية الزمر ، دار الخليجي ، 2007.
+
+\bibitem{rings}
+ديفيد م. بيرتون ، مقدمة في الجبر الحديث ، دار الكتب للطباعة والنشر ; بغداد ، 1982.
+	\end{thebibliography}
+	
+	
+
+\end{document}

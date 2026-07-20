@@ -1,0 +1,159 @@
+\documentclass{report}
+\usepackage[fontsize=13pt]{scrextend}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{setspaceenhanced}
+\setstretch{1.5}
+
+
+\usepackage{fmtcount, graphicx}
+
+\usepackage{ifthen}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{hobby, bending}
+\tikzset{
+	mydash/.style={dashed, dash pattern=on 6pt off 2pt},
+	arrow inside/.style 2 args = {
+		postaction={
+			decorate,
+			decoration={
+				markings,
+				mark=at position {#1*\pgfdecoratedpathlength-0.15cm} with {\coordinate (bent arrow 1);},
+				mark=at position {#1*\pgfdecoratedpathlength-0.05cm} with {\coordinate (bent arrow 2);},
+				mark=at position {#1*\pgfdecoratedpathlength+0.05cm} with {\coordinate (bent arrow 3);},
+				mark=at position {#1*\pgfdecoratedpathlength+0.15cm} with {
+					\coordinate (bent arrow 4);
+					\ifthenelse{\equal{#2}{for}}
+					{\draw[-{Triangle[length=3mm, width=1.6mm, bend]}] 
+						(bent arrow 1) to[curve through={(bent arrow 2) .. (bent arrow 3)}] (bent arrow 4);
+					}
+					{
+						\draw[-{Triangle[length=3mm, width=1.6mm, bend]}] 
+						(bent arrow 4) to[curve through={(bent arrow 3) .. (bent arrow 2)}] (bent arrow 1);
+					}
+				}
+			}
+		}
+	}
+}
+
+\usepackage{amsmath, amssymb, amsthm, nccmath}
+
+
+
+\AtBeginDocument{
+	\allowdisplaybreaks
+	\renewcommand{\jot}{10pt}
+	\abovedisplayskip=7pt
+	\belowdisplayskip=7pt
+}
+
+\usepackage{enumitem}
+\setlist{nosep}
+
+\usepackage{polyglossia}
+
+\setdefaultlanguage{english}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+
+\setotherlanguage{arabic}
+\newfontfamily{\arabicfont}{Amiri}[Script=Arabic]
+%\newfontfamily{\titletitlefont}{Times New Roman}[Script=Arabic]
+\newcommand{\ar}[1]{\textarabic{#1}}
+\newcommand{\en}[1]{\textenglish{#1}}
+
+\usepackage[lite, subscriptcorrection, zswash]{mtpro2}
+\straightbraces
+
+\DeclareMathSymbol{0}{\mathalpha}{operators}{`0}
+\DeclareMathSymbol{1}{\mathalpha}{operators}{`1}
+\DeclareMathSymbol{2}{\mathalpha}{operators}{`2}
+\DeclareMathSymbol{3}{\mathalpha}{operators}{`3}
+\DeclareMathSymbol{4}{\mathalpha}{operators}{`4}
+\DeclareMathSymbol{5}{\mathalpha}{operators}{`5}
+\DeclareMathSymbol{6}{\mathalpha}{operators}{`6}
+\DeclareMathSymbol{7}{\mathalpha}{operators}{`7}
+\DeclareMathSymbol{8}{\mathalpha}{operators}{`8}
+\DeclareMathSymbol{9}{\mathalpha}{operators}{`9}
+
+% Change the chapter header format
+%\renewcommand{\thechapter}{\Numberstring{chapter}}
+\makeatletter
+\def\@makechapterhead#1{%
+	\thispagestyle{empty}
+	\begin{center}
+		\vspace*{190pt}
+		\Huge\bfseries
+		\fbox{\parbox{1\textwidth}{\centering Chapter \thechapter\\[25pt]#1}} 
+		\vspace{20pt}
+	\end{center}
+	\newpage
+}
+
+\def\@makeschapterhead#1{%
+	\vspace*{0cm}
+	{\centering\Large\bfseries #1\par}
+	\vspace{1cm}	
+}
+\makeatother
+
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}
+
+\newtheoremstyle{mystyle}
+{\topsep}
+{\topsep}
+{}
+{}
+{\bfseries}
+{:\vspace{5pt}\\}
+{.5ex}  
+{#1 #2 \textbf{#3}}
+
+\theoremstyle{mystyle}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}
+\renewcommand{\thedefinition}{\arabic{chapter}.\arabic{section}.\arabic{definition}}
+\renewcommand{\thetheorem}{\arabic{chapter}.\arabic{section}.\arabic{theorem}}
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+
+
+\renewenvironment{proof}[1]{
+	\par\noindent
+	\textbf{\textit{Proof}}\\
+	\noindent#1}{\hfill$\blacksquare$\par}
+
+\makeatother
+
+\newenvironment{solution}[1]{
+	\par\noindent
+	\textbf{Solution}\\
+	\noindent#1}{$\blacktriangle$\par}
+
+\newenvironment{note}[1]{
+	\par\noindent
+	\textbf{Note}\\[5pt]
+	\noindent#1}{\par}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\LL}{\mathcal{L}}
+
+% Define new math operators
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\arcsec}{arcsin}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arccot}{arccot}
+
+\renewcommand{\mathbf}[1]{\textbf{\en{#1}}}

@@ -1,0 +1,208 @@
+% !TeX program = xelatex
+
+\input{arabicBeamer.tex}
+
+\begin{document}
+	\author{\textbf{الطالبة : عذراء عذاب عدنان}}
+	\title{\textbf{تأثير الزمر على المجموعات}}
+	\date{\textbf{اشراف\\
+			 م. صفاء عبد الشهيد}}
+	
+		
+		\begin{frame}
+			\maketitle
+		\end{frame}
+		
+		\begin{frame}{الخلاصة}
+			\begin{itemize}
+				\item \textbf{الفصل الأول:} في هذا الفصل تتطرقنا الى اهم المفاهيم في نظرية الزمر منها مفهوم الزمرة الزمرة الجزئية والتشاكل الزمري ، ....\\
+				\item \textbf{الفصل الثاني:} في هذا الفصل عرّفنا مفهوم تأثير الزمر على المجموعات وأخذنا بعض الأمثلة وكذلك تعرّفنا على بعض النتائج المهمة\\
+				\item \textbf{الفصل الثالث:} في هذا الفصل وسّعنا مفهوم نظرية كيلي في الزمر وطبقّنا النظرية بمثال.
+			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{center}
+				\Huge
+				\textbf{الفصل الأول}\\
+				\textbf{مفاهيم أساسية}
+			\end{center}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{definition}[الزمرة]
+				يكون النظام الرياضي $(G, *)$ حيث $G$ مجموعة غير خالية و $*$ عملية ثنائية على $G$ زمرة (group) إذا تحقق ما يلي:
+				\begin{enumerate}
+					\item المجموعة $G$ مغلقة تحت العملية $*$، أي أن:
+					\[
+					\forall a, b \in G \Rightarrow a * b \in G
+					\]
+					
+					\item العملية $*$ تحقق خاصية التجميع، أي أن:
+					\[
+					\forall a, b, c \in G \Rightarrow a * (b * c) = (a * b) * c
+					\]
+					
+					\item يوجد عنصر محايد $e \in G$ بحيث:
+					\[
+					a * e = e * a = a \quad \forall a \in G
+					\]
+					
+					\item لكل عنصر $a \in G$ يوجد عنصر معاكس $b \in G$ بحيث:
+					\[
+					a * b = b * a = e
+					\]	
+				\end{enumerate}
+			\end{definition}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{definition}[{الزمرة الجزئية}]
+				لتكن $(G, *)$ زمرة، ولتكن $H$ مجموعة جزئية غير خالية من $G$. تُسمى $H$ زمرةً جزئية من $G$ إذا تحققت الشروط التالية:
+				\begin{enumerate}
+					\item المجموعة $H$ مغلقة تحت العملية $*$، أي أن:
+					\[
+					\forall a, b \in H \Rightarrow a * b \in H
+					\]
+					
+					\item لكل عنصر $a \in H$ يوجد معكوسه في $H$، أي أن:
+					\[
+					\forall a \in H \Rightarrow a^{-1} \in H
+					\]
+				\end{enumerate}
+			\end{definition}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{definition}[{الزمرة الجئية الناظمية}]
+				لتكن $(G, *)$ زمرة و $H$ زمرة جزئية من $G$. تُسمى $H$ زمرةً ناظمية في $G$ إذا تحقق الشرط:
+				\[
+				a * H = H * a \quad \forall a \in G
+				\]
+				حيث:
+				\[
+				a * H = \{a * h \mid h \in H\}, \quad H * a = \{h * a \mid h \in H\}.
+				\]
+				ويرمز لها بـ $H \trianglelefteq G$.
+			\end{definition}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{center}
+				\Huge
+				\textbf{الفصل الثاني}\\
+				\textbf{تأثير الزمر على المجموعات}
+			\end{center}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{definition}[{تأثير الزمر على المجموعات}]
+				لتكن $G$ زمرة ولتكن $A$ مجموعة غير خالية ، يعرف تأثير الزمرة $G$ على المجموعة $A$
+				\linebreak(\en{action of group on a set})
+				بأنه تطبيق 
+				$* : G \times A \to A$ ( في العادة نكتب $g*a$ بدلاً من $*(g, a)$ ) الذي يحقق ما يلي:
+				\begin{enumerate}
+					\item $e * a = a$ لكل $a\in A$.
+					\item $(g_1g_2)*a = g_1 * (g_2 * a)$ لكل $a\in A$ ولكل $g_1,g_2 \in G$.
+				\end{enumerate} 
+			\end{definition}
+			
+			\begin{example}
+				اذا كان $*:G\times A \to A$ معرفاً بالقاعدة 
+				$g*a = a$ لكل $g\in G$ وكل $a\in A$ فيمكن اعتبار ان $G$ تؤثر على $A$ لأن:
+				\begin{enumerate}
+					\item $e*a=a$ لكل $a\in A$.
+					\item $(g_1g_2)*a=a=g_2*a=g_1*(g_2*a)$. لكل $g_1g_2\in G$ ولكل $a\in A$.
+				\end{enumerate}	
+				يسمى هذا التأثير بالتأثير التافه.
+			\end{example}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{example}
+				اذا كانت $G$ هي زمرة التبديلات على المجموعة $A$ فأن 
+				$*:G\times A \to A$ بالقاعدة
+				$\sigma * a = \sigma(a)$ لكل $\sigma\in G$ ولكل $a\in A$ تأثيراً للزمرة $G$ على $A$ لأن
+				\begin{enumerate}
+					\item $e * a = e(a) = a$ لكل $a \in A$.
+					\item $(\sigma_1 \circ \sigma_2)*a = (\sigma_1\circ\sigma_2)(a) = \sigma_1(\sigma_2(a)) = \sigma_1*(\sigma_2(a)) = \sigma_1 * (\sigma_2 * a)$. لكل 
+					$\sigma_1, \sigma_2 \in G$ ولكل $a\in A$.
+				\end{enumerate}
+			\end{example}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{theorem}\label{thm:actionrelation}
+				لنفرض ان الزمرة $G$ تؤثر على المجموعة $A$ ، اذا كانت $\approx$ علاقة معرفة على $A$ كالتالي:\linebreak
+				$a\approx b \iff \exists g\in G(ga= b)$ لكل $a, b\in A$ فأن $\approx$ علاقة تكافؤ على $A$.
+			\end{theorem}
+			\begin{definition}[{المدارات}]
+				لتكن الزمرة $G$ تؤثر على المجموعة غير الخالية $A$.
+				\begin{enumerate}
+					\item تسمى صفوف تكافؤ العلاقة $\approx$ في المبرهنة \ref{thm:actionrelation} ، مدارات (\textbf{orbits}) $G$ على $A$.
+					\linebreak لاحظ أن صف التكافؤ الذي يحتوي $a\in A$ هو:
+					\[
+					[a] = \{ b\in A : \exists g\in G \,\,( ga = b)\} = \{ga : g\in G\}
+					\]
+					\item يكون تأثير $G$ على $A$ متعدياً (transitive) اذا كان هناك مدار واحد فقط اي انه لكل $a, b\in A$ يوجد $g\in G$ حيث 
+					$ga=b$.
+				\end{enumerate}
+			\end{definition}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{center}
+				\Huge
+				\textbf{الفصل الثالث}\\
+				\textbf{تعميم مبرهنة كيلي}
+			\end{center}
+		\end{frame}
+		
+		\begin{frame}
+			في هذا الفصل سوف نناقش تطبيق مهم لتأثير الزمرة على المجموعة وهو تعميم لمبرهنة كيلي وكذلك بعض النتائج على هذه المبرهنة منها مبرهنة الدليل.
+			
+			\begin{theorem}
+				لتكن $G$ زمرة وليكن $a\in G$
+				\begin{enumerate}[label=(\alph*)]
+					\item التطبيق $\lambda_a : G \to G$ المعرف بالقاعدة $\lambda_a(x) = ax$ لكل $x\in G$ تبديلاً.
+					
+					\item $H = \{\lambda_a : a\in G\} \le S_G$.
+					
+					\item $G \simeq H$.  
+				\end{enumerate}
+			\end{theorem}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{theorem}
+				اذا اثرت الزمرة $G$ على المجموعة $A$ بالضرب من اليسار (اي ان
+				$g*a=ga$) فأن:
+				\begin{enumerate}[label=(\alph*)]
+					\item لكل $g\in G$ يكون التطبيق $\tau_g : A \to A$ المعرف بالقاعدة $\tau_g(a)= ga$ تبديلاً.
+					\item $\tau_{g_1g_2} = \tau_{g_1} \circ \tau_{g_2}$ لكل $g_1, g_2\in G$.
+					\item يكون التطبيق $\psi : G \to S_A$ المعرف بالقاعدة $\psi(g) = \tau_g$.
+				\end{enumerate}
+			\end{theorem}
+			
+			\begin{theorem}[مبرهنة كيلي المعممة]
+				\label{thm:general}
+				\addcontentsline{toc}{section}{مبرهنة (3-3)}
+				اذا كانت $H\le G$ وكانت $A = \{aH : a\in G\}$ فأنه يوجد تشاكل $\psi : G\to S_A$ يحقق
+				$\ker\psi \subseteq H$
+			\end{theorem}
+			
+			\begin{theorem}[مبرهنة الدليل]
+				\addcontentsline{toc}{section}{مبرهنة (3-4)}
+				اذا كانت $H$ زمرة جزئية من الزمرة المنتهية $G$ حيث
+				$[G : H] =n$ ، واذا كان $|G|$ لا يقسم $n!$
+				\linebreak فإن $G$ تحتوي على زمرة جزئية ناظمية غير تافهة.
+			\end{theorem}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{center}
+				\Huge
+				\textbf{شكراً لحسن استماعكم}
+			\end{center}
+		\end{frame}
+\end{document}

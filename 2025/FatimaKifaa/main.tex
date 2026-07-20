@@ -1,0 +1,27 @@
+\documentclass{arabicClass}
+
+\addbibresource{references.bib}  
+
+\begin{document}
+	\abovedisplayskip=7pt
+	\belowdisplayskip=7pt
+	
+	\input{Title Page/titlepage}
+	\pagenumbering{roman}
+	\input{gift}
+	\input{thanks}
+
+	\tableofcontents
+    \pagenumbering{arabic}
+    \input{intro}
+    \input{Abstract}
+    \input{chapter2}
+	\input{chapter1}
+
+	\input{conclusion}
+	\chapter*{المراجع}
+	
+	\addcontentsline{toc}{chapter*}{المراجع}
+	\nocite{*}
+	\printbibliography[heading=none]
+\end{document}

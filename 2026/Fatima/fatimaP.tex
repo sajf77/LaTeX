@@ -1,0 +1,404 @@
+% !TeX program = xelatex
+
+\input{arabicBeamer.tex}
+
+\begin{document}
+	\author{\textbf{الطالبة : فاطمة كاظم عودة}}
+	\title{\textbf{مقارنة بين الهندسة الهذلولية والهندسة الإهليليجية}}
+	\date{\textbf{اشراف\\
+			 م. صفاء عبدالشهيد عبدالحميد}}
+	
+		
+		\begin{frame}
+			\maketitle
+		\end{frame}
+		
+		\begin{frame}
+			\begin{center}
+				\Huge
+				\textbf{الفصل الأول}\\
+				\textbf{الهندسة الإقليدية}
+			\end{center}
+		\end{frame}
+		
+		\begin{frame}{مقدمة}
+			بدأ كل شيء في القرن الثالث قبل الميلاد، عندما قام العالم اليوناني إقليدس في كتابه "الأصول" بصياغة نظام رياضي متكامل يعتمد على مجموعة من البديهيات والمسلمات التي تبدو بديهية للعقل البشري. اعتمدت هذه الهندسة على فكرة "المستوي" المسطح، حيث الخط المستقيم هو أقصر مسافة بين نقطتين، ومجموع زوايا المثلث يساوي دائماً 180°.
+			كان النظام الإقليدي يُعتبر الحقيقة الوحيدة الممكنة لوصف الكون، حتى جاءت المسلمة الخامسة (مسلمة التوازي) لتثير تساؤلات العلماء. تنص هذه المسلمة على أنه من نقطة خارج خط مستقيم، لا يمكن رسم إلا خط واحد فقط يوازي الخط الأصلي.
+		\end{frame}
+		
+		\begin{frame}{المسافة بين نقطتين في الهندسة الإقليدية}
+			في الهندسة الإقليدية، تُعرف المسافة بأنها طول القطعة المستقيمة الواصلة بين نقطتين. ويتم اشتقاق قانون المسافة مباشرة من نظرية فيثاغورس.\\
+			\textbf{الاشتقاق الرياضي:}\\
+			إذا كان لدينا نقطتان في المستوى الإحداثي $A(x_1, y_1)$ و $B(x_2, y_2)$، فإننا نتخيل مثلثاً قائم الزاوية يكون فيه الفرق في السينات $(\Delta x)$ هو القاعدة، والفرق في الصادات $(\Delta y)$ هو الارتفاع.\\
+			\textbf{القانون:}\\
+			تُحسب المسافة $d$ باستخدام الصيغة التالية:
+			\[
+			d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+			\]
+		\end{frame}
+		\begin{frame}
+			\begin{exampleblock}{مثال}
+				جد المسافة بين النقطتين
+				$A(1, 2)$ و $B(4, 6)$
+			\end{exampleblock}
+				المسافة الإقليدية بين النقطتين $A(1,2)$ و $B(4,6)$ تُعطى بالعلاقة:
+				\[
+				d(A,B)=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}
+				\]
+				بالتعويض:
+				\[
+				d(A,B)=\sqrt{(4-1)^2+(6-2)^2}
+				\]
+				\[
+				d(A,B)=\sqrt{3^2+4^2}
+				\]
+				\[
+				d(A,B)=\sqrt{9+16}
+				\]
+				\[
+				d(A,B)=\sqrt{25}
+				\]
+				\[
+				d(A,B)=5
+				\]
+		\end{frame}
+		
+		\begin{frame}
+			\begin{center}
+				\Huge
+				\textbf{الفصل الثاني}\\
+				\textbf{الهندسة الهذلولية (الزائدية)}
+			\end{center}
+		\end{frame}
+		
+		\begin{frame}{مقدمة}
+			\doublespacing
+			الهندسة الهذلولية (الزائدية) هي إحدى الهندسات اللاإقليدية، وقد قام بتأسيسها وتطويرها كلٌّ من العالمين János Bolyai الهنغاري و Nikolai Lobachevsky الروسي في الفترة ما بين (1820--1830م). وقد تم ذلك عبر أخذ نقيض بديهية بليفير (وهي إحدى المكافئات لبديهية التوازي عند إقليدس)، والتي تنص على ما يلي:
+			
+			من نقطة لا تقع على مستقيم معلوم يمكن رسم أكثر من مستقيم موازٍ لذلك المستقيم.
+		\end{frame}
+		
+		
+		\begin{frame}{بديهية التوازي الهذلولية (HPP)}
+				إذا كان $m$ مستقيمًا و $P$ نقطة خارجه، فإنه يوجد على الأقل شعاعان $\overrightarrow{PR}$ و $\overrightarrow{PS}$ بحيث:
+				\begin{enumerate}
+					\item الشعاعان $\overrightarrow{PR}$ و $\overrightarrow{PS}$ غير متعاكسين.
+					\item الشعاعان $\overrightarrow{PR}$ و $\overrightarrow{PS}$ لا يشتركان مع المستقيم $m$.
+					\item الشعاع $\overrightarrow{PQ}$ يقطع المستقيم $m$ إذا وفقط إذا كان يقع بين الشعاعين $\overrightarrow{PR}$ و $\overrightarrow{PS}$.
+				\end{enumerate}
+			
+			\begin{tikzpicture}[ultra thick]
+				
+				\coordinate (P) at (0, 2);
+				\coordinate (R) at (-2.3, 1);
+				\coordinate (S) at (2.3, 1);
+				\coordinate (M_start) at (-2.3, 0);
+				\coordinate (M_end) at (2.3, 0);
+				
+				% Triangle sides in blue
+				\draw[blue] (R) -- (P) -- (S);
+				
+				% Base line in red
+				\draw[red] (M_start) -- (M_end);
+				
+				% Arrows in green
+				\foreach \angle/\len in {210/2, 230/2, 255/2, 285/2, 310/2, 330/2} {
+					\draw[->, green!70!black] (P) -- ++(\angle:\len);
+				}
+				
+				% Labels in black (or customize individually)
+				\node[above=3pt, black] at (P) {P};
+				\node[left=3pt, black] at (R) {R};
+				\node[right=3pt, black] at (S) {S};
+				\node[left=3pt, black] at (M_start) {m};
+				
+				% Highlight Q in purple
+				\node[purple] at (-0.6, 0.8) {Q};
+				
+			\end{tikzpicture}
+		\end{frame}
+		
+		
+		
+		\begin{frame}{مبرهنات مهمة}
+			\begin{exampleblock}{مبرهنة}
+				إذا كان شعاع يقع بين شعاع موازٍ لمستقيم معلوم وشعاع يقطع ذلك المستقيم، فإن هذا الشعاع يقطع المستقيم المعلوم.
+			\end{exampleblock}
+			\begin{exampleblock}{مبرهنة}
+				إذا كان $\overrightarrow{PQ}$ لا يقطع المستقيم $m$، ولكن كل شعاع يقع بين $\overrightarrow{PQ}$ و $\overrightarrow{PB}$ (حيث $B$ نقطة على $m$) يقطع المستقيم $m$، فإن $\overrightarrow{PQ}$ يوازي المستقيم $m$.
+			\end{exampleblock}
+		\begin{exampleblock}{مبرهنة}
+			إذا كانت النقطة $Q$ هي قدم العمود النازل من النقطة $P$ على المستقيم $m$، وكان $\overrightarrow{PR}$ و $\overrightarrow{PS}$ هما الشعاعان الموازيان للمستقيم $m$ من النقطة $P$، فإن الزاويتين $\angle SPQ$ و $\angle RPQ$ زاويتان حادتان.
+		\end{exampleblock}		
+		\end{frame}
+		
+		\begin{frame}{المثلث الهذلولي}
+\begin{columns}
+				
+\begin{column}{0.5\textwidth}
+	\doublespacing
+				إذا كان الشعاعان $\overrightarrow{XP}$ و $\overrightarrow{YS}$ شعاعين متوازيين، وكان المستقيم $m$ يقطعهما في النقطتين $A$ و $B$ بحيث تقع النقاط على الترتيب $X-A-P$ و $Y-B-S$، فإن اتحاد الشعاعين $\overrightarrow{AP}$ و $\overrightarrow{BS}$ مع القطعة المستقيمة $AB$ يُسمى \textbf{المثلث الهذلولي} أو \textbf{المثلث ذو الرأسين \en{(Two-Vertices Triangle, T.V.T)}}، ويرمز له بـ $PABS$.
+\end{column}
+			\begin{column}{0.5\textwidth}
+				
+			\begin{tikzpicture}[ultra thick]
+				
+				\coordinate (X) at (1,3);
+				\coordinate (P) at (7,2.3);
+				\coordinate (Y) at (0.3,1);
+				\coordinate (S) at (7,1);
+				\coordinate (topM) at (3.5,4.3);
+				\coordinate (botM) at (2.8,-1);
+				
+				% Lines
+				\draw[blue!70] (X) -- (P);
+				\draw[red!70] (Y) -- (S);
+				\draw[green!60!black] (botM) -- (topM);
+				
+				% Intersections
+				\coordinate (A) at (intersection of X--P and botM--topM);
+				\coordinate (B) at (intersection of Y--S and botM--topM);
+				
+				% Labels
+				\node[above left, blue!70] at (A) {A};
+				\node[below left, red!70] at (B) {B};
+				
+				\node[above=3pt, left, blue!70] at (X) {X};
+				\node[above=3pt, right, blue!70] at (P) {P};
+				
+				\node[above=3pt, left, red!70] at (Y) {Y};
+				\node[above=3pt, right, red!70] at (S) {S};
+				
+				\node[above=3pt, green!60!black] at (topM) {m};
+				
+				% Angles (colored to match lines)
+				\pic[draw=blue!70, angle radius=6mm] {angle = X--A--botM};
+				\pic[draw=blue!70, angle radius=4mm] {angle = B--A--P};
+				
+				\pic[draw=red!70, angle radius=4mm]  {angle = A--B--Y};
+				\pic[draw=red!70, angle radius=6mm] {angle = S--B--A};
+				
+			\end{tikzpicture}
+			\end{column}
+\end{columns}
+		\end{frame}
+		
+		\begin{frame}{المسافة الهذلولية بين نقطتين}
+			\begin{columns}
+				\begin{column}{0.5\textwidth}
+				تعرف المسافة الزائدية بين نقطتين $A$ و$B$ بأنها طول القوس من الدائرة التي تمر بالنقطتين ومركزها على المحور $X$، وتُعطى بالعلاقة:
+				\[
+				h(AB) = \frac{1}{2} \log \left( \frac{A'U \cdot B'V}{B'U \cdot A'V} \right)
+				\]
+				
+				حيث تعتمد على النسبة التبادلية لأربع نقاط على المحور.
+				
+				\textbf{ملاحظة:} إذا كان المستقيم عموديًا على المحور $X$ فإن المسافة تُعطى بـ:
+				\[
+				h(AB) = \log \left( \frac{UB}{UA} \right) = \log \left( \frac{b}{a} \right)
+				\]
+			\end{column}
+			\begin{column}{0.5\textwidth}
+				
+				\begin{tikzpicture}[>=stealth, ultra thick]
+					
+					% Axes
+					\draw[black] (0,0) -- (7,0) node[right] {X};
+					\draw[black] (0,0) -- (0,4) node[left] {Y};
+					
+					% Vertical segment
+					\coordinate (U) at (2.5,0);
+					\draw[blue!70] (U) -- (2.5,3.5);
+					\node[below, blue!70] at (U) {U};
+					
+					% Points
+					\coordinate (A) at (2.5,2.5);
+					\coordinate (B) at (2.5,1.2);
+					
+					\node[left, red!70] at (A) {A};
+					\node[left, red!70] at (B) {B};
+					
+					% Small dashed marker
+					\draw[dash pattern=on 3pt off 2pt on 1pt off 2pt, green!60!black] 
+					(3.1,2.5) -- (2.5,2.5);
+					
+					% Braces (dimension indicators)
+					\draw[decorate, decoration={brace, amplitude=10pt, mirror}, purple!70]
+					(3.1,0) -- (3.1,2.5)
+					node[midway, right, xshift=10pt, purple!70] {a};
+					
+					\draw[decorate, decoration={brace, amplitude=5pt, mirror}, orange!80!black]
+					(2.6,0) -- (2.6,1.2)
+					node[midway, right, orange!80!black] {b};
+					
+				\end{tikzpicture}
+			\end{column}
+			\end{columns}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{exampleblock}{مثال}
+				جد المسافة الهذلولية بين النقطتين 
+				$A\left(\dfrac{1}{2}, \dfrac{\sqrt{3}}{2}\right), B(0,1)$
+			\end{exampleblock}
+				نريد حساب المسافة الهذلولية بين النقطتين:
+				\[
+				A\left(\frac{1}{2}, \frac{\sqrt{3}}{2}\right), \quad B(0,1)
+				\]
+				\[
+				h(AB) = \frac{1}{2}\log (A'B', UV) 
+				\]
+				حيث $U$ و $V$ نقطتا تقاطع الدائرة المارة بالنقطتين مع المحور $X$.
+				
+				لتكن معادلة الدائرة:
+				\[
+				(X - h)^2 + Y^2 = r^2
+				\]
+		\end{frame}
+		\begin{frame}
+				
+			بالتعويض عن $A$:
+			\[
+			\left(\frac{1}{2} - h\right)^2 + \frac{3}{4} = r^2
+			\]
+			وبالتعويض عن $B$:
+			\[
+			h^2 + 1 = r^2
+			\]
+			بمساواة الطرفين:
+			\[
+			\left(\frac{1}{2} - h\right)^2 + \frac{3}{4} = h^2 + 1 \to \frac{1}{4} - h + h^2 + \frac{3}{4} = h^2 + 1 \to h = 0
+			\]
+			وبالتالي معادلة الدائرة:
+			\[
+			X^2 + Y^2 = 1
+			\]
+		\end{frame}
+		
+		\begin{frame}
+			
+			اذن
+			\begin{align*}
+				h(AB) &= \frac{1}{2} \log\left[\frac{A'U\cdot B'V}{A'V\cdot B'U} \right]\\
+				&= \frac{1}{2}\log\left[\frac{(-1-1/2)(1-0)}{(1 + 1/2)(-1-0)}\right]\\
+				&=\frac{1}{2} \log \frac{1}{3}\\
+				&= -\frac{1}{2} \log 3
+			\end{align*}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{center}
+				\Huge
+				\textbf{الفصل الثالث}\\
+				\textbf{الهندسة الإهليجية}
+			\end{center}
+		\end{frame}
+		
+		\begin{frame}{مقدمة}
+			\doublespacing
+			
+			ان اول من اشار الى هذه الهندسة هو العالم الالماني ريمان في عام ١٨٥٤ في رسالة الدكتوراه حيث اخذ نقيض بديهية بليفر " وهي احدى مكافئات البديهية الخامسة لاقليدس " وكما يلي :
+			البديهية المميزة للهندسة الاهليجية:
+			" لا يمكن رسم أي مواز لخط معلوم من نقطة خارجة عنه".
+			وفي هذه الهندسة ميز ريمان بين فكرة المستقيم الغير منتهي وفكرة المستقيم الغير محدود .
+			(حيث سابقا لا يوجد فرق) وبذلك اخذ الخطوط اقواس لدوائر عظيمة على سطح كرة نصف قطرها الثابت a . فان الخط منتهي بالطول ، حيث له محيط معلوم ولكن غير محدود في المفهوم الذي نستمر فيه حول الكرة دون توقف.
+		\end{frame}
+		
+		\begin{frame}
+			
+			\begin{enumerate}
+				\item  الهندسة الإهليليجية الاحادية (Single E.G) والتي يكون فيها أي مستقيمين يتقاطعان في نقطة واحدة فقط. وان المستوى الإهليليجي يتميز بان سطحه له جهة واحدة . وكمثال بسيط على ذلك ورقة موفيس، ونموذج اخر عليها هو نصف كرة فقط .
+				
+				\item  الهندسة الإهليليجية الثنائية (Double E.G) والتي يكون فيها أي مستقيمين يتقاطعان في نقطتين . وان المستوى الإهليليجي يتميز بان سطحه له جهتين . مثلا الكرة التي فيها جهتين
+			\end{enumerate}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{exampleblock}{مبرهنة}
+				أي مستقيمين في الهندسة الإهليليجية المزدوجة يتقاطعان في نقطتين ويحيطان منطقة لمساحة منتهية A حيث ان $A \neq 0$ . او الخط المار بنقطتين متقابلتين ليس وحيد .
+			\end{exampleblock}
+			
+			\begin{exampleblock}{مبرهنة}
+				العمودان على نفس المستقيم يتقاطعان في نقطة . مثلا تقاطع خطوط الطول والعرض على سطح الكرة الارضية.
+				نستنتج هذه المبرهنة من البديهية المميزة لهذه الهندسة ، حيث ان الخطين في المستوي يتقاطعان دائما.
+			\end{exampleblock}
+			
+			\begin{exampleblock}{مبرهنة}
+				في أي مثلث ABC , الذي فيه $\angle A = \angle B = \angle C = 90$ تكون اصغر من، تساوي او اكبر من 90 نسبة الى ان القطعة BC اصغر من ، تساوي او اكبر من المسافة القطبية q .
+			\end{exampleblock}
+			
+			\begin{exampleblock}{مبرهنة}
+				مجموع زوايا المثلث هو اكبر من 180 .
+			\end{exampleblock}
+		\end{frame}
+		
+		\begin{frame}{خواص الاسقاط الجسماني}
+				\begin{enumerate}
+					\item النقاط الواقعة على خط الاستواء \((z = 0)\) يكون إسقاطها على نفسها.
+					\item النقاط الواقعة أعلى المستوى \(XY\) \((z > 0)\) من سطح الكرة تسقط خارج دائرة الاستواء.
+					\item النقاط الواقعة أسفل المستوى \(XY\) \((z < 0)\) من سطح الكرة تسقط على نقاط داخل دائرة الاستواء.
+				\end{enumerate}
+				
+				\textbf{ملاحظة:}
+				\begin{enumerate}
+					\item إذا كانت النقطة \(Q(s,t)\) في المستوى \(XY\) هي مسقط النقطة \(P(x,y,z)\) الواقعة على سطح الكرة، فإنه يمكن إيجاد إحدى النقطتين بدلالة الأخرى.
+					\item إذا عُلمت النقطة \(Q(s,t)\) فإن النقطة \(P(x,y,z)\) تُحسب بالعلاقات التالية:
+					\begin{align*}
+						x &= \frac{2s}{s^2 + t^2 + 1},\\
+						y &= \frac{2t}{s^2 + t^2 + 1},\\
+						z &= \frac{s^2 + t^2 - 1}{s^2 + t^2 + 1}.
+					\end{align*}
+				\end{enumerate}
+			\end{frame}
+			
+			\begin{frame}
+				\begin{exampleblock}{مثال}
+					جد النقطة التي يكون مسقطها على $XY$ هو 
+					$َQ(4, 6)$ على الكرة 
+					$x^2 + y^2 + z^2 = 1$.
+				\end{exampleblock}
+				\textbf{الحل}\\
+					من العلاقات:
+					\[
+					x = \frac{2s}{s^2 + t^2 + 1}, \quad
+					y = \frac{2t}{s^2 + t^2 + 1}, \quad
+					z = \frac{s^2 + t^2 - 1}{s^2 + t^2 + 1}
+					\]
+					نحسب الإحداثيات:
+				
+					\[
+					x = \frac{2 \cdot 4}{53} = \frac{8}{53}, y = \frac{2 \cdot 6}{53} = \frac{12}{53}, z = \frac{52 - 1}{53} = \frac{51}{53}
+					\]
+					\[
+					P(x,y,z) = \left(\frac{8}{53}, \frac{12}{53}, \frac{51}{53}\right)
+					\]
+				
+			\end{frame}
+			
+			\begin{frame}
+				\begin{table}[ht!]
+					\centering
+					\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+						\hline
+						{}& \textbf{اقليدية} & \textbf{هذلولية} & \textbf{اهليجية} \\\hline
+						يتقاطع المستقيمان في & نقطة واحدة في الأكثر & نقطة واحدة في الأكثر & نقطة واحدة (احادية) ، نقطتان (المزدوجة)\\\hline
+						ليكن $l$ مستقيماً و $p$ نقطة لا تقع على $l$ فأنه & يوجد موازي واحد وواحد فقط للمستقيم $l$ من النقطة $p$ & يوجد موازيان للمستقيم $l$ من النقطة $p$ & لا يوجد موازي الى $l$ من $p$ \\\hline
+						يفصل المستقيم الى نصفين & بواسطة نقطة & بواسطة نقطة & كلا\\\hline
+						اذا قطع مستقيم احد مستقيمين متوازيين فأنه & يقطع الآخر & قد يقطع وقد لا يقطع & ------------\\
+						\hline
+						العمودان على نفس المستقيم يكونان & متوازيين & غير متوازيين & متقاطعان \\
+						\hline
+						مجموع زوايا المثلث  & تساوي زاويتين قائمتين & اقل من زاويتين قائمتين & اكثر من زاويتين قائمتين\\
+						\hline
+					\end{tabular}
+					\caption{مقارنة بين الهندسة الإقليدية واللاإقليدية}
+				\end{table}
+			\end{frame}
+			
+			\begin{frame}
+		\begin{center}
+			\Huge
+			\textbf{شكراً لحسن استماعكم}
+		\end{center}
+	\end{frame}
+\end{document}

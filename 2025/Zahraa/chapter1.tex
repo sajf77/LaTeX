@@ -1,0 +1,93 @@
+\chapter{مفاهيم أساسية}
+
+\section{كثيرات الحدود}
+\textbf{كثيرة الحدود:} عبارة عن تعبيرات رياضية تتكون من متغيرات ومعاملات وعمليات الجمع والطرح
+	والضرب والاسس غير السالبة.
+	
+\section{الدوال الزوجية و الدوال الفردية}
+	\textbf{الدالة الزوجية:} يقال للدالة $f(x)$ دالة زوجية اذا تحقق ان $f(-x)=f(x)$ لكل $x$ ويكون منحني الدالة الزوجية متماثل مع المحور $y$.\\ [10pt]
+	\textbf{الدالة الفردية:} يقال للدالة $f(x)$ دالة فردية اذا تحقق ان $f(-x)=-f(x)$ لكل $x$ ويكون منحني الدالة الزوجية متماثل مع نقطة الاصل $(0,0)$.
+
+
+\section{الدوال المتعامدة}
+	لنفرض الدالتين $h_1(x)$ و $h_2(x)$ المعرفتين و القابلتين للتفاضل و التكامل على الفترة $[a,b]$ اذا كان
+	\[
+	\int_{a}^{b} w(x) h_1(x) h_2(x) \, dx = 0
+	\]
+	حيث ان $w(x) > 0$ هي دالة الوزن القابلة للتكامل على الفترة $[a,b]$ فإنه يقال أن الدالة $h_1(x)$ متعامدة على الدالة $h_2(x)$ في الفترة $[a,b]$ بالنسبة لدالة الوزن $w(x)$. 
+
+\section{التقريب}
+\textbf{التقريب} في الرياضيات هو عملية استبدال عدد حقيقي بقيمة قريبة منه ولكن أبسط أو أسهل في التعامل معها، مع الحفاظ على دقة معقولة حسب الحاجة. يتم ذلك لتسهيل العمليات الحسابية أو لتقريب النتيجة إلى أقرب عدد يمكن استخدامه بسهولة.
+
+
+\section{الأخطاء}
+	\textbf{الخطأ:} تنتج الاخطاء نتيجة لعدم حصولنا على القيمة الحقيقية فالخطأ من جهة النظر الر ياضية هو الفرق بين القيمة المحسوبة و القيمة الحقيقية الدقيقة.\\ [10pt]
+	\textbf{أخطاء القطع:} أن الآلات الحاسبة الالكترونية لا تدور الاعداد غالبا و انما تقطعها الى مرتبة معينة. و ينتج هذا الخطأ عند بتر عدد ذو مراتب عشرية عديدة الى عدد ذو مراتب عشرية اقل و بدون تدوير.
+
+\section{كثيرة حدود شيبشيف من النوع الاول}
+تعرف كثيرات حدود شيبشيف من النوع الاول بالشكل التالي
+\begin{align}
+		&T_n(x) = \cos(n\cos^{-1}x);\quad n\geq 0 , x\in [-1,1]\\
+		&T_0(x) = \cos(0) = 1\tag{كثيرة حدود شيبشيف من الدرجة 0}\\
+		&T_1(x) = \cos(\cos^{-1}x) = x \tag{كثيرة حدود شيبشيف من الدرجة 1}
+\end{align}
+
+\subsection*{العلاقة التكرارية}
+الان لايجاد العلاقة التكرارية لكثيرة حدود شيبشيف نضع
+\begin{align}
+	& \theta = \cos^{-1}x \iff x = \cos\theta\notag\\
+	&T_{n+1}(x) = \cos(n+1)\theta= \cos(n\theta)\cos\theta - \sin(n\theta)\sin\theta\\
+	&T_{n-1}(x) =\cos(n-1)\theta=\cos(n\theta)\cos\theta+\sin(n\theta)\sin\theta		
+\end{align}
+بجمع المعادلتين (2) و (3) نحصل على
+\begin{align}
+	&T_{n+1}(x) + T_{n-1}(x) = 2\cos(n\theta)\cos\theta\notag\\
+	&T_{n+1}(x) = 2\cos(n\theta)\cos\theta - T_{n-1}(x)\notag\\
+	&T_{n+1(x)} = 2xT_n(x) - T_{n-1}(x) 
+\end{align}
+
+\subsection*{بعض خواص كثيرة شيبشيف}
+\begin{enumerate}
+	\item بما ان $-1\leq\cos x\leq 1$ فإن $-1\leq T_n(x) \leq 1$
+	\item درجة كثيرة حدود شيبشيف هي $n$.
+	\item بما ان $\cos x$ هي دالة زوجية فإن $T_n(x) = T_{-n}(x) $ و كذلك $T_{2n}(x) = T_{2n}(-x)$ و $T_{2n+1}(-x) = -T_{2n+1}(x)$ وعليه فإن جميع كثيرات حدود شيبشيف $T_{2n}(x)$ هي دوال زوجية اما $T_{2n+1}(x)$ فهي دوال فردية اي $T_{n}(-x) = (-1)^{-n}T_n(x)$
+	\item كثيرة حدود شيبشيف متعامدة على المجال $[-1,1]$ بالنسبة لدالة الوزن $w(x) = \dfrac{1}{\sqrt{1-x^2}}$
+	\item التركيب (compositiion): $T_n(T_m(x)) = T_{nm}(x)$
+	\item جذور كيثرة حدود شيبشيف هي \quad$x_r = \left[\cos\left(\dfrac{2r-1}{2n}\pi\right)\right], \quad r = 1,2,\dots,n$
+\end{enumerate}
+\textbf{برهان خاصية (4)}
+\[
+I = \int_{-1}^{1} \frac{1}{\sqrt{1-x^2}} T_n(x)T_m(x) \,dx
+\]
+نفرض
+\begin{gather*}
+	x = \cos\theta \Rightarrow \theta = \cos^{-1}(x) \Rightarrow d\theta = \frac{1}{1-x^2}\,dx\\
+	x=-1 \Rightarrow \theta = \pi\\
+	x=1 \Rightarrow \theta = 0
+\end{gather*}
+\begin{align*}
+	I &= \int_{-1}^{1} \frac{1}{\sqrt{1-x^2}} T_n(x)T_m(x) \,dx \\[5pt]
+	&= \int_0^\pi T_n(\cos\theta) T_m(\cos\theta) \, d\theta\\[5pt]
+	&= \int_0^\pi \cos(n\theta) \cos(m\theta) \, d\theta\\[5pt]
+	&=\frac{1}{2} \int_0^\pi \cos(n+m)\theta \cos(n-m)\theta \, d\theta\\[5pt]
+	&= \frac{1}{2} \left[\frac{\sin(n+m)\theta}{n+m} - \frac{\sin(n-m)\theta}{n-m}\right]_0^{\pi}\\[5pt]
+	&= \begin{cases}
+		0 & ;n\neq m \\
+		\pi & ;n=m=0\\
+		\frac{\pi}{2} &; n=m\neq0
+	\end{cases}
+\end{align*}
+\newpage\noindent
+\textbf{برهان خاصية (5)}
+\begin{align*}
+T_{nm}(\cos \theta) &= \cos(nm\theta) \\
+&= \cos(n(m\theta))\\
+&= T_n(\cos(m\theta))\\
+&= T_n(T_m(x))
+\end{align*}
+\textbf{برهان خاصية (6)}
+\begin{align*}
+	T_n\left(\frac{2r-1}{2n} \pi\right) &= \cos\left(n\frac{2r-1}{2n}\pi\right)\\
+	&= \cos\left[(2r-1)\frac{\pi}{2}\right]\\
+	&= \cos\frac{\pi}{2}\\ &=0
+\end{align*}

@@ -1,0 +1,417 @@
+\chapter{الجبر البولياني}
+
+\section{التعاريف الاساسية}
+نفرض $B$ مجموعة غير خالية معرف عليها عمليتان ثنائيتان (+) و (.) و عملية أحادية يرمز لها بالرمز ( $\bar{}$ ) و معها عنصران مختلفان هما 0 و 1.\\
+عندئذ نسمي $B$ جبراً بوليانياًاذا تحققت المسلمات التالية حيث $x,y,z$ عناصر من $B$
+\begin{enumerate}
+	\item قوانين التبديل
+	\[
+	\forall x, y \in B \Rightarrow \begin{cases}
+		x + y = y + x\\
+		x\cdot y = y \cdot x
+	\end{cases}
+	\]
+	\item قوانين التوزيع
+	\[
+	\forall x,y,z \in B \Rightarrow \begin{cases}
+		x + (y\cdot z) = (x+y)\cdot(x+z) \\
+		x \cdot(y+z) = (x\cdot y) + (x\cdot z)
+	\end{cases}
+	\]
+	\item قوانين التطابق (العنصر المحايد)
+	\[
+	\forall x \in B \Rightarrow x + 0 = 0 + x = x
+	\]
+	نقول أن العنصر (0) هو عنصر محايد بالنسبة للعملية (+).
+	\[
+	\forall x \in B \Rightarrow x \cdot 1= 1\cdot  x = x
+	\]
+	نقول أن العنصر (1) هو عنصر محايد بالنسبة للعملية ($\cdot$).
+	\item قوانين الاتمام 
+	\[
+	\forall x \in B \exists \bar{x}: \begin{cases}
+		x + \bar{x} = \bar{x} + x = 1\\
+		x \cdot\bar{x} = \bar{x} \cdot x = 0\\
+	\end{cases}
+	\]
+\end{enumerate}
+\noindent
+\textbf{ملاحظة}\\
+\noindent
+في بعض الاحيان نرمز للجبر البولياني بالرمز
+\[
+\langle B, +, \cdot, \bar{}, 0, 1\rangle
+\]
+عندما نريد التأكيد على أجزائه الستة
+\section*{قاعدة الأسبقية}
+اذا لم تكتب اقواس فإن العملية ( $\bar{}$ ) يكون لها الاسبقية على العملية ($\cdot$) و العملية ($\cdot$) يكون لها الاسبقية على العملية (+)
+\begin{example}
+	$x+y\cdot z$ تعني $x+(y\cdot z)$ و ليس $(x+y)\cdot z$\\
+	$x \cdot \bar{y}$ تعني $x\cdot (\bar{y})$ و ليس  $\overline{(x\cdot y)}$
+\end{example}
+\section{الجبر البولياني بقيمتين}
+يعرف الجبر البولياني بقيمتين على مجموعة من عنصرين $B = \{0, 1\}$ حيث العمليتان الثنائيتان (+) و ($\cdot$) و عملية الاتمام معطاة كما يلي:
+\begin{english}
+	\begin{table}[H]
+		\centering
+		\begin{minipage}{0.3\textwidth}
+			\centering
+			\begin{tabular}{|c|c|c|}
+				\hline
+				$x$ & $y$ & $x\cdot y$ \\
+				\hline
+				0 & 0 & 0 \\
+				0 & 1 & 0 \\
+				1 & 0 & 0 \\
+				1 & 1 & 1 \\
+				\hline
+			\end{tabular}
+		\end{minipage}
+		\begin{minipage}{0.3\textwidth}
+			\centering
+				\begin{tabular}{|c|c|c|}
+				\hline
+				$x$ & $y$ & $x + y$ \\
+				\hline
+				0 & 0 & 0 \\
+				0 & 1 & 1 \\
+				1 & 0 & 1 \\
+				1 & 1 & 1 \\
+				\hline
+			\end{tabular}
+		\end{minipage}
+		\begin{minipage}{0.3\textwidth}
+			\centering
+			\begin{tabular}{|c|c|}
+				\hline
+				$x$ & $\bar{x}$\\
+				\hline
+				0 & 1\\
+				1 & 0\\
+				\hline
+			\end{tabular}
+		\end{minipage}
+	\end{table}
+\end{english}
+
+\noindent
+\textbf{ملاحظة}\\
+\noindent
+إن العمليات السابقة هي نفسها العمليات المنطقية:\\
+	(+) تقابل ($\vee$) or  و ($\cdot$) تقابل ($\wedge$) and و ( $\bar{}$ ) تقابل $(\sim)$ not .
+	\begin{example}
+			لنثبت صحة قانون التوزيع التالي
+		\[
+		x\cdot (y+z) = x\cdot y + x \cdot z
+		\]
+		\begin{english}
+			\begin{table}[H]
+				\renewcommand{\arraystretch}{1.3}
+				\centering
+				\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+					\hline
+					$x$ & $y$ & $z$ & $y+z$ & $x\cdot(y+z)$ & $x\cdot y$ & $x\cdot z$ & $(x\cdot y)+(x\cdot z)$\\
+					\hline
+					0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+					\hline
+					0 & 0 & 1 & 1 & 0 & 0 & 0 &0\\
+					\hline
+					0 &1 &0&1& 0& 0& 0& 0\\
+					\hline
+					0 &1 &1 &1 &0 &0 &0& 0\\
+					\hline
+					1 &0 &0 &0 &0 &0 &0 &0\\
+					\hline
+					1 &0& 1& 1& 1& 0& 1& 1\\
+					\hline
+					1 &1 &0 &1 &1 &1 &1 &1\\
+					\hline
+					1& 1 &1& 1& 1& 1& 1& 1\\
+					\hline 
+				\end{tabular}
+			\end{table}
+		\end{english}
+		بمطابقة العمود الخامس و الاخير ينتج صحة القانون
+	\end{example}
+
+\section{الدوال البوليانية}
+من أجل تعريف الدالة البوليانية نعرف أولاً المتغير البولياني
+\section*{المتغير البولياني}
+نقول أن المتغير $x$ انه متغير بولياني اذا كان يأخذ قيمة من المجموعة $B=\{0,1\}$ فقط. أي أن اذا كانت قيمته 0 أو 1.\\
+من  التعريف السابق يكون قد تحدد لدينا المجال المقابل. الآن نحدد المجال\\
+نأخذ الضرب الديكارتي للمجموعة $B$ بنفسها $n$ من المرات أي 
+$\underbrace{B\times B \times \cdots \times B}_{\text{$n$ من المرات}}$\\
+نحصل على $B^n$ حيث 
+\[
+B^n = \{(x_1, x_2, \dots, x_n) \mid x_i \in B ; 1 \leq i\leq n\}
+\]
+\section*{الدالة البوليانية} 
+هي تعبير جبري يتألف من المتغيرات الثنائية و الثوابت 0 و 1 و العمليات المنطقية، مجاله المجموعة $B^n$ و مجاله المقابل $B$. و نحدد درجة الدالة حسب قيمة $n$.
+
+\begin{example}
+	الدالة
+	$F_1 = x + \bar{y} + \bar{x}\cdot y$
+	هي دالة بوليانية من الدرجة الثانية لأنها يقرن كل زوج $(x,y)$ من $B^2$ بـــ $x + \bar{y} + \bar{x}\cdot y$\\
+	أما الدالة
+	$F_2 = x + \bar{y}\cdot z$
+	هي دالة من الدرجة الثالثة لأنها تقرن كل ثلاثي $(x,y,z)$ من $B^3$ بــ $x + \bar{y}\cdot z$
+\end{example}
+
+
+\section{كيفية تحديد قيم الدالة البوليانية}
+من أجل تحديد قيم الدالة البوليانية ننشئ جدول الصواب للتعبير الذي يمثل الدالة.
+\begin{example}
+	لنوجد قيم الدالة البوليانية المعطاة كما يلي: $F(x,y,z) = x\cdot y + \bar{z}$
+	\begin{english}
+		\begin{table}[H]
+			\centering
+			\renewcommand{\arraystretch}{1.3}
+			\begin{tabular}{|c|c|c|c|c|c|}
+				\hline
+				$x$ & $y$ & $z$ & $x\cdot y$ & $\bar{z}$ & $F(x,y,z) = x\cdot y + \bar{z}$\\
+				\hline
+				0 &0& 0& 0& 1& 1\\
+				\hline
+				0 &0& 1& 0& 0& 0\\
+				\hline
+				0&1&0&0&1&1\\
+				\hline
+				0&1&1&0&0&0\\
+				\hline
+				1&0&0&0&1&1\\
+				\hline
+				1&0&1&0&0&0\\
+				\hline
+				1&1&0&1&1&1\\
+				\hline
+				1&1&1&1&0&1\\
+				\hline  
+			\end{tabular}
+		\end{table}
+	\end{english}
+\end{example}
+
+\section*{تساوي الدوال البوليانية}
+تتساوى الدالتان البوليتيان $F,G$ بــ $n$ من المتغيرات اذا و فقط اذا
+\[
+F(x_1, x_2, \dots, x_n) = G(x_1,x_2, \dots, x_n), \quad \forall (x_1, x_2,\dots. x_n) \in B^n
+\]
+
+\noindent
+\textbf{ملاحظة}\\
+\noindent
+نقول عن تعبيرين بوليانيي مختلفين انهما متكافئان اذا كان كل منهما يمثل الدالة البوليانية نفسها
+\begin{example}
+	التعابير: $xy, xy+0, xy\cdot 1$ هي تعابير بوليانية متكافئة
+\end{example}
+\noindent
+\textbf{ملاحظة}\\
+\noindent
+ان عدد الدوال البوليانبة المختلفة من الدرجة $n$ الممكنة هو $2^{2^n}$ لان عدد عناصر الضرب الديكارتي $B^n$ هو $2^n$ و بما اننا نسند للدالة القيمة 0 أو 1 الى كل من المتعددات ذات الطول $n$ و المختلفة.
+
+\section{العمليات على الدوال البوليانية}
+\subsection*{1- الجمع البولياني للدوال}
+نعرف عملية الجمع للدالتين البوليانيتين $F, G$ كمايلي:
+\[
+(F+G)(x_1, x_2, \dots, x_n) = F(x_1, x_2, \dots, x_n) + G(x_1, x_2, \dots, x_n)
+\]
+
+\subsection*{2- الضرب البولياني للدوال}
+نعرف عملية الضرب للدالتين البوليانيتين $F, G$ كمايلي:
+\[
+(F\cdot G)(x_1, x_2, \dots, x_n) = F(x_1, x_2, \dots, x_n) \cdot G(x_1, x_2, \dots, x_n)
+\]
+
+\subsection*{3- متمم الدالة البوليانية}
+اذا كانت $F$ دالة بوليانية من $B^n$ الى $B$. فإننا نعرف متمم هذه الدالة بالعلاقة
+\[
+\overline{F}(x_1, x_2, \dots, x_n) = \overline{F(x_1, x_2, \dots, x_n)}
+\]
+
+\subsection*{كيفية الحصول على متمم الدالة البوليانية F}
+نرمز له بــ $\overline{F}$ نحصل عليه بإستبدال الاصفار بواحدات و الواحدات بأصفار في قيم الدالة $F$ وهذا يمكن اشتقاق متمم الدالة جبرياً من خلال قانوني ديمورغان حيث نستطيع تحديد هذه القوانين لأكثر من متغيرين.\\ [5pt]
+\noindent
+\textbf{مثال}\\
+\noindent
+لتكن لدينا الدالة البوليانية
+\[
+F(x, y, z) = x + y + z
+\]
+اوجد متمم هذه الدالة.
+\newpage
+\noindent
+\textbf{الحل}\\
+\noindent
+من اجل ايجاد 
+$\overline{F(x, y, z)} = \overline{(x+y + z)}$
+نفرض $y + z = A$ ونعوض
+\[
+\overline{(x + y + z)} = \overline{(x + A)}
+\]
+حسب قانون ديمورغان:
+\[
+\overline{(x+A)} = \overline{x}\cdot \overline{A} = \overline{x}\cdot\overline{(y+z)} = \overline{x}\cdot(\overline{y}\cdot\overline{z}) = \overline{x}\cdot\overline{y}\cdot\overline{z}
+\]
+اذن
+\[
+\overline{F(x, y, z)}  = \overline{x}\cdot\overline{y}\cdot\overline{z}
+\]
+
+
+\section{قوانين الجبر البولياني}
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.7}
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{الاسم} & \textbf{القانون}\\
+		\hline
+		الاتمام المضاعف & $\overline{\overline{x}} = x$\\
+				\hline
+		قوانين تساوي القوى & $x+x =x, \quad x\cdot x=x$\\
+				\hline
+		قوانين المحايد & $x+0=x, \quad x\cdot1=x$\\
+				\hline
+		قوانين الهيمنة & $x\cdot 0 =0,\quad x+1 =1 $\\
+				\hline
+		قوانين الابدال & $x+y = y + x, \quad x\cdot y = y\cdot x$\\
+				\hline
+		قوانين التجميع & $x+(y+z) = (x+y)+z, \quad x(yz)=(xy)z$\\
+				\hline
+		قوانين التوزيع & $x+yz = (x+y)\cdot(x+z), \quad x(y+z)=xy+xz$\\
+				\hline
+		قوانين ديمورغان & $\overline{xy} = \overline{x}+\overline{y}, \quad \overline{x+y}= \overline{x}+\overline{y}$\\
+				\hline
+		قوانين الامتصاص & $x+xy=x, \quad x(x+y)=x$\\
+				\hline
+		الخاصية الواحدية & $x+\overline{x}=1$ \\
+				\hline
+		الخاصية الصفرية & $x\cdot \overline{x} = 0$\\
+		\hline
+	\end{tabular}
+\end{table}
+
+\section{مُرافق التعبير البولياني}
+ان التعبير المُرافق لأي تعبير في الجبر البولياني هو التعبير الذي نحصل عليه بتبديل عملية (+) بعملية (.) ونبدل ايضاً (1) بــ (0) ونبدل (0) بــ (1).
+
+\begin{example}
+	اوجد التعابير المرافقة للتعابير التالية 
+	\begin{enumerate}
+		\item $(1+x) \cdot (y+0) = y$
+		\item $x+(y\cdot 1)$
+		\item $(\overline{x} + 0) \cdot(\overline{y}z)$
+	\end{enumerate}
+\end{example} 
+\noindent
+\textbf{الحل}
+\begin{enumerate}
+	\item $(0\cdot x) + (y\cdot 1) = y$
+	\item $x\cdot (y+0)$
+	\item $(\overline{x} \cdot 1) + ( \overline{y} + z)$
+\end{enumerate}
+
+\begin{note}
+	نرمز لمرافق الدالة البوليانية $F$ بالرمز $\overline{F}$ حيث يمثل مرافق الدالة البوليانية $F$ من خلال تعبير بولياني هو دالة مرافق لهذا التعبير.
+\end{note}
+
+\section{تحويل الدوال والتعابير البوليانية الى عبارات منطقية}
+تتم عملية التحويل وفق الجدول التالي
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.4}
+	\begin{tabular}{|c|c|}
+				\hline
+		\textbf{القضايا والعبارات المنطقية} & \textbf{المساويات}\\
+		\hline
+		$p, q, r$ & $x, y, z$\\
+		and $\wedge$ & $\cdot$\\
+		or $\vee$ & +\\
+		T & 1\\
+		F & 0\\
+		$\equiv$ & $=$\\
+				\hline
+	\end{tabular}
+\end{table}
+
+\begin{example}
+	حول قانون التوزيع $x+yz = (x+y)(x+z)$ الى تكافؤ منطقي
+\end{example}
+\noindent
+\textbf{الحل}
+\[
+p \vee (q \wedge r) = (p \vee q) \wedge ( p \vee r)
+\]
+
+\section{العمليات البتية}
+\textbf{البتية:} معنى كلمة بتية تأتي من الرقم الثنائي لان الاصفار والواحدات  هي ارقام تستخدم في النظام الثنائي.\\
+\textbf{البت:} ان لرمز البت قيمتين ممكنتين هما الصفر (0) والواحد (1) ويمكن ان يستخدم البت لتمثيل القيمة الحقيقة لان قيمتي الحقيقة هما الصح والخطأ لذلك نستطيع ان نستخدم البت (1) ليمثل الصح ونستخدم الصفر (0) ليمثل الخطأ وعليه نستطيع تنظيم الجدول التالي
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.4}
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{البت} & \textbf{قيمة الحقيقة}\\
+		\hline
+		1 & T\\
+		0 & F\\
+		\hline
+	\end{tabular}
+\end{table}
+
+\section{المتحول البولياني}
+نقول عن متحول انه متحول بولياني اذا كانت قيمة هذا المتحول اما الصح او الخطأ لذلك نستطيع ان نستخدم البت لتمثيل المتحول البولياني.\\
+مما سبق نجد ان العمليات البتية الحاسوبية تماثل الارتباطات المنطقية وذلك باستبدال الصح بالواحد (1) والخطأ بالصفر (0).\\
+مما سبق نستطيع ان نوضح العمليات البتية XoR ، OR ، AND  في الجدول التالي
+
+\setLR
+\begin{table}[H]
+	\centering
+		\renewcommand{\arraystretch}{1.4}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			x & y & x OR y & x AND y& x XoR y \\
+			\hline
+			1 & 1 & 1 & 1 & 0\\
+			1 & 0 & 1 & 0 & 1\\
+			0 & 1 & 1 & 0 & 1\\
+			0 & 0 & 0 & 0 & 0\\
+			\hline
+		\end{tabular}
+\end{table}
+\setRL
+\section{الاشرطة البتية}
+نستخدم الاشرطة البتية لتمثيل المعلومات ، وهي عبارة عن لوائح من الواحدات و الاصفار وبالتالي يمكن ان تستخدم لضبط هذه المعلومات.\\
+والشريط البتي هو متتالية مكونة من صفر او اكثر من البتات حيث يتحدد طوله بعدد البتات الموجودة فيه.
+
+\begin{example}
+	الشريط البتي التالي 110101001100 من الطول 12.
+\end{example}
+
+\begin{note}
+	يمكن ان نوسع استخدام العمليات البتية الى الشرائط البتية من خلال تعريف العمليات:
+\begin{center}
+		\LR{bitwize OR, bitwize AND, bitwize XoR}
+\end{center}
+وذلك على شريطين لهما نفس الطول ويكون الناتج اشرطة البتات الناتجة عن العمليات \LR{XoR, OR, AND} على البتات المتقابلة في الشريطين على الترتيب.\\
+سنستخدم الرموز السابقة التي استخدمناها للعمليات المنطقية للعمل على المؤثرات الجديدة 	\LR{bitwize OR, bitwize AND, bitwize XoR} وندعوها AND البتية و OR البتية و XoR البتية.\\
+سنوضح ما سبق من خلال المثال التالي
+\end{note}
+\begin{example}
+	اوجد العمليات  AND البتية و OR البتية و XoR البتية على الشريطين البتيين التاليين:\\
+	01101101110 و 11000111101.
+\end{example}
+\noindent
+\textbf{الحل}
+\[
+\begin{array}{lc}
+	& 01101101110 \\
+	& \underline{11000111101}\\
+\text{\LR{bitwize AND}} & 01000101100\\
+\text{\LR{bitwize OR}} & 11101111111\\
+\text{\LR{bitwize XoR}} & 10101010011
+\end{array}
+\]
+

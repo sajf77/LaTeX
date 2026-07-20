@@ -1,0 +1,40 @@
+# Ignore compiled PDFs
+*.pdf
+
+# Ignore common image formats
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+
+
+# Core LaTeX auxiliary files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.toc
+
+# Bibliography files (BibTeX / Biber)
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+
+# Indexing files
+*.idx
+*.ilg
+*.ind
+
+# Table of contents, lists of figures/tables, and navigation
+*.lof
+*.lot
+*.out
+*.nav
+*.snm
+*.vrb
+
+# Pythontex and other advanced packages temporary data
+*.pytxcode

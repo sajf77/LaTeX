@@ -1,0 +1,36 @@
+% !TeX program = lualatex
+
+\input{arabicTemplate}
+
+\AddToShipoutPicture{
+	\begin{tikzpicture}[remember picture, overlay]
+		\def\margin{15pt}
+		
+		\draw[line width=3pt, cyan!60!black]
+		($(current page.north west) + (\margin,-\margin)$)
+		rectangle
+		($(current page.south east) + (-\margin,\margin)$);
+	\end{tikzpicture}
+}
+
+\begin{document}
+\input{Title Page/titlepage}
+\pagenumbering{roman}
+\input{ayah}
+\input{tha}
+\input{thanks}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+
+
+\input{chapter1}
+\input{chapter2}
+\input{chapter3}
+
+
+
+\input references
+\addcontentsline{toc}{schapter}{المصادر}
+\end{document}

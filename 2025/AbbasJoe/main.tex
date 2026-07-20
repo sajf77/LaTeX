@@ -1,0 +1,66 @@
+\documentclass{arabicClass}
+
+\begin{document}
+	
+	\renewcommand{\theequation}{\arabic{equation}.\arabic{chapter}}
+	
+	\renewcommand{\arraystretch}{1.3}
+	
+	\abovedisplayskip=7pt
+	\belowdisplayskip=7pt
+	
+	\input{Title Page/titlepage}
+	\pagenumbering{roman}
+	\input{ayah}
+	\input{gift}
+	\input{thanks}
+		\tableofcontents
+		\clearpage
+		\pagenumbering{arabic}
+	\input{abstract}
+	\input{intro}
+
+	\input{chapter1}
+	\input{chapter2}
+	\input{chapter3}
+	
+	\input{conclusion}
+	
+
+	
+\begin{thebibliography}{99}
+	\addcontentsline{toc}{chapter*}{المصادر}	
+	\begin{english}
+		\bibitem{Bellman} 
+		Bellman RE, Kashef BG, Casti J, \textit{Differential quadrature: a technique for the rapid solution of non-linear partial differential equations}, J Comput Phys, Vol 10, pp 40-52, 1972.
+		
+		\bibitem{bellman_roth} 
+		Bellman RE, Roth RS, \textit{Methods in approximation: techniques for mathematical modelling}, D Reidel Publishing Company, Dordrecht, Holland, 1986.
+		
+		\bibitem{bert} 
+		Bert CW, Malik M, \textit{Differential quadrature: a powerful new technique for analysis of composite structures}, Compos. Struct., Vol 39, Iss 3-4, pp 179-189, 1997.
+		
+		\bibitem{chang_shu} 
+		Chang Shu, \textit{Differential Quadrature and its Applications in Engineering}, Springer-Verlag London, 1999.
+		
+		\bibitem{chang_tsai} 
+		Chang CT, Tsai CS, Lin TT, \textit{The modified differential quadratures and their applications}, Chem. Eng. Comman., Vol 123, pp 135-164, 1993.
+		
+		\bibitem{finite_volume} 
+		LeVeque RJ, \textit{Finite Volume Methods for Hyperbolic Problems}, Cambridge University Press, Vol 31, pp 1-20, 2002.
+		
+		\bibitem{navier_stokes} 
+		Girault V and Raviart PA, \textit{Finite Element Methods for Navier-Stokes Equations: Theory and Algorithms}, Springer Series in Computational Mathematics, Vol 1, pp 1-100, 1986.
+		
+		\bibitem{Quan} 
+		Quan JR, Chang CT, \textit{New insights in solving distributed system of equations by the quadrature methods}, Comput. Chem. Engrg., Vol 13, pp 779-788, 1989.
+		
+		\bibitem{finite_difference} 
+		Smith GD, \textit{Numerical Solution of Partial Differential Equations: finite difference methods}, Oxford University Press, 1985.
+		\end{english}
+\end{thebibliography}
+
+
+	\input{entitlepage}
+
+\end{document}

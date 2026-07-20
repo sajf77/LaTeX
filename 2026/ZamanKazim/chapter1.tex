@@ -1,0 +1,826 @@
+
+
+	{
+	\vspace*{5cm}
+	\chapter{المصفوفات}
+	\vfill
+	\newpage
+	}
+	
+	\section*{مقدمة}
+	علم المصفوفات هو علم قائم بذاته وله نتائجه التي تميزه عن بقية العلوم ، فالمصفوفة لها دور هام في حل المعادلات الخطية وغير الخطية ، لذلك يجب ان نستكشف المعكوس والدرجة وان نحدد المقاييس التي تخص المصفوفة والمتجه وعلينا ان نتعرف على انواع المصوفات التي تلعب دوراً هاماً في التحليل وبالأخص المصفوفات المتماثلة والمصفوفات الهيرميتية وعلينا ان نحلل خواص ما يسمى بالمحددات ومواضيع اخرى كثيرة.\\
+	في هذا الفصل سنقوم بتقديم مجموعة من انواع المصفوفات المختلفة، سنعرض المصفوفات المستطيلة والمصفوفات القطرية والمصفوفات المتناظرة.\\
+	سنشرح كيفية تعريف هذه الانواع وماهي الخصائص لكل نوع وسنقدم مجموعة من العمليات الاساسية التي يمكن تنفيذها على المصفوفات مثل الجمع والطرح والضرب والتحويلات الأخرى.
+	
+	\section{تعريف المصفوفة}
+	حيث:
+	\begin{itemize}[nosep]
+		\item $m$: عدد الصفوف
+		\item $n$: عدد الأعمدة
+		\item $a_{ij}$: العنصر الموجود في الصف $i$ والعمود $j$
+		\item $a_{11}, a_{22}, \dots, a_{mm}$: عناصر القطر الرئيسي.
+	\end{itemize}
+	
+	\section{العمليات على المصفوفات}
+	\subsection{جمع المصفوفات}
+	اذا كانت $A=[a_{ij}]$ و $B=[b_{ij}]$ مصفوفتين من الدرجة 
+	$m\times n$ فأن مجموعهما $A+B$ يعرف بالشكل $C=[c_{ij}]$ ذات الدرجة $m\times n$ حيث كل عنصر من $C$ هو مجموع العنصرين المتقابلين من المصفوفتين $A, B$ حيث يكون $A+B=[a_{ij} + b_{ij}]$
+	
+	\begin{example}
+		اذا كان 
+		$A = 
+		\begin{bmatrix}
+			1&2&3\\
+			0&1&4
+		\end{bmatrix}
+		$
+		و
+		$
+		B=
+		\begin{bmatrix}
+			2&3&0\\
+			-1&2&5
+		\end{bmatrix}
+		$
+		فأنه يكون
+		\[
+		A+B=
+		\begin{bmatrix}
+			1+2&2+3&3+0\\
+			0+(-1)&1+2&4+5
+		\end{bmatrix}=
+		\begin{bmatrix}
+			3&5&3\\
+			-1&3&9
+		\end{bmatrix}
+		\]
+	\end{example}
+	
+	\subsection{طرح المصفوفات}
+	يكون نفس الجمع تماماً ، ولكن نطرح كل عنصر من نظيره في المصفوفة الثانية.
+	
+	\begin{example}
+		اذا كانت 
+		$
+		A=
+		\begin{bmatrix}
+			5&-2\\
+			4&1
+		\end{bmatrix}
+		$
+		و
+		$
+		B=
+		\begin{bmatrix}
+			2&0\\
+			3&1
+		\end{bmatrix}
+		$
+		فأن
+		\[
+		A-B=
+		\begin{bmatrix}
+			5-2&-2-0\\
+			4-3&1-1
+		\end{bmatrix}=
+		\begin{bmatrix}
+			3&-2\\
+			1&0
+		\end{bmatrix}
+		\]
+	\end{example}
+	
+	\subsection{ضرب المصفوفة بعدد ثابت}
+	اذا كان $k$ عدد حقيقي و $A=[a_{ij}]$ مصفوفة من الدرجة $m\times n$ فأن
+	$kA=k[a_{ij}]=[k\cdot a_{ij}]$ (اي يتم ضرب كل عنصر من المصفوفة بنفس العدد)
+	
+	\begin{example}
+		اذا كانت 
+		$A=
+		\begin{bmatrix}
+			1&2\\
+			3&4
+		\end{bmatrix}
+		$
+		و $k=2$ فأن
+		\[
+		kA= 2\cdot
+		\begin{bmatrix}
+			1&2\\
+			3&4
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			2&4\\
+			6&8
+		\end{bmatrix}
+		\]
+	\end{example}
+	
+	\subsection{ضرب المصفوفات}
+	اذا كانت 
+	$A=[a_{ij}]_{n\times m}$ و $B=[b_{ij}]_{m\times l}$ فأن:
+	\begin{align*}
+		C= A\cdot B = [c_{ij}]_{n\times l}, \quad c_{ij} = \sum_{k=1}^m a_{ik} b_{kj}, \quad \forall i, j
+	\end{align*}
+	وعلى هذا الأساس فأن $B$ تكون قابلة للضرب في $A$ من اليسار اذا ما كان عدد اعمدة $A$ مساوياً لعدد صفوف $B$. وضرب المصفوفات عملية غير ابدالية.
+	
+	\begin{example}
+		اذا كانت 
+		$A=
+		\begin{bmatrix}
+			2&3&6\\
+			5&1&7
+		\end{bmatrix}
+		$
+		و
+		$
+		B=
+		\begin{bmatrix}
+			1\\3\\4
+		\end{bmatrix}
+		$
+		فأن
+		\[
+		C=C_{2\times 1} = A_{2\times 3}\cdot B_{3\times 1}=\begin{bmatrix}
+			2&3&6\\
+			5&1&7
+		\end{bmatrix}\cdot
+		\begin{bmatrix}
+			1\\3\\4
+		\end{bmatrix}=
+		\begin{bmatrix}
+			2\cdot1+3\cdot3+6\cdot4\\
+			5\cdot1+1\cdot3+\cdot7\cdot4
+		\end{bmatrix}=
+		\begin{bmatrix}
+			35\\
+			36
+		\end{bmatrix}
+		\]
+	\end{example}
+	
+	\section{انواع المصفوات}
+	\subsection{المصفوفة الصفرية}
+	هي المصفوفة التي جميع عناصرها اصفاراً اي ان:
+	$a_{ij} = 0$
+	
+	\noindent\textbf{مثال}
+	\[
+	\begin{bmatrix}
+		0&0&0\\
+		0&0&0\\
+		0&0&0
+	\end{bmatrix}
+	\]
+	
+	
+	\subsection{المصفوفة المربعة}
+	هي المصفوفة التي فيها عدد الصفوف يساوي عدد الاعمدة اي ان $m=n$ والعناصر $a_{11}, a_{22}, \dots, a_{mm}$ تسمى بالقطر الرئيسي، مثال على المصفوفة المربعة
+	\[
+	A=
+	\begin{bmatrix}
+		1&1&2\\
+		2&1&0\\
+		1&-1&2
+	\end{bmatrix}_{3\times 3}
+	\]
+	
+	\subsection{المصفوفة المستطيلة}
+	هي المصفوفة التي فيها عدد الأعمدة يكون مختلفاً عن عدد الصفوف ، مثال على ذلك
+	\[
+	A = \begin{bmatrix}
+		2&-1&0\\
+		3&4&-2\\
+		-3&5&4\\
+		1&2&3
+	\end{bmatrix}_{4\times 3}
+	\]
+	مثال آخر
+	\[
+	B= 
+	\begin{bmatrix}
+		1&-1&3&5\\
+		3&2&7&-4\\
+		10&0&1&0&5
+	\end{bmatrix}_{3\times 4}
+	\]
+	
+	\subsection{المصفوفة المثلثية السفلى}
+	هي المصفوفة المربعة التي تكون العناصر فوق القطر الرئيسي تساوي صفراً اي ان 
+	$a_{ij} = 0$ لكل $i < j$
+	\[
+	A =
+	\begin{bmatrix}
+		a_{11} & 0 & 0 & \cdots & 0\\
+		a_{21} & a_{22} & 0& \cdots & 0\\
+		\vdots & \vdots & \vdots & \ddots & \vdots\\
+		a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}\\
+	\end{bmatrix}
+	\]
+	مثال على المصفوفة المثلثية السفلى 
+	\[
+	A=
+	\begin{bmatrix}
+		2&0&0\\
+		6&3&0\\
+		4&-1&8
+	\end{bmatrix}
+	\]
+	مثال آخر
+	\[
+	B=
+	\begin{bmatrix}
+		2&0&0&0\\
+		5&3&0&0\\
+		1&2&2&0\\
+		-1&1&1&5
+	\end{bmatrix}
+	\]
+	
+	\subsection{المصفوفة المثلثية العليا}
+	هي المصفوفة المربعة التي تكون العناصر تحت القطر الرئيسي تساوي صفراً أي أن  
+	$a_{ij} = 0$ لكل $i > j$
+	\[
+	A =
+	\begin{bmatrix}
+		a_{11} & a_{12} & a_{13} & \cdots & a_{1n}\\
+		0 & a_{22} & a_{23} & \cdots & a_{2n}\\
+		0 & 0 & a_{33} & \cdots & a_{3n}\\
+		\vdots & \vdots & \vdots & \ddots & \vdots\\
+		0 & 0 & 0 & \cdots & a_{nn}\\
+	\end{bmatrix}
+	\]
+	مثال على المصفوفة المثلثية العليا
+	\[
+	A=
+	\begin{bmatrix}
+		2&-3&1\\
+		0&5&-4\\
+		0&0&7
+	\end{bmatrix}
+	\]
+	مثال آخر
+	\[
+	B=
+	\begin{bmatrix}
+		1&2&3&4\\
+		0&5&6&-7\\
+		0&0&8&9\\
+		0&0&0&-2
+	\end{bmatrix}
+	\]
+	
+	\subsection{المصفوفة القطرية}
+	هي المصفوفة المربعة التي تكون جميع عناصرها تساوي صفراً ما عدا عناصر القطر الرئيسي، أي أن  
+	$a_{ij} = 0$ لكل $i \neq j$
+	\[
+	A =
+	\begin{bmatrix}
+		a_{11} & 0 & 0 & \cdots & 0\\
+		0 & a_{22} & 0 & \cdots & 0\\
+		0 & 0 & a_{33} & \cdots & 0\\
+		\vdots & \vdots & \vdots & \ddots & \vdots\\
+		0 & 0 & 0 & \cdots & a_{nn}\\
+	\end{bmatrix}
+	\]
+	مثال على المصفوفة القطرية
+	\[
+	B=
+	\begin{bmatrix}
+		1&0&0&0\\
+		0&3&0&0\\
+		0&0&-2&0\\
+		0&0&0&6
+	\end{bmatrix}
+	\]
+	
+	\subsection{المصفوفة الأحادية (المصفوفة المحايدة)}
+	هي مصفوفة قطرية تكون جميع عناصر القطر الرئيسي فيها تساوي الواحد الصحيح، بينما باقي العناصر تساوي صفراً، ويرمز لها بالرمز  
+	$I_n$، اي ان $a_{ii}=1$ لكل $i$.
+	\[
+	I_n =
+	\begin{bmatrix}
+		1 & 0 & 0 & \cdots & 0\\
+		0 & 1 & 0 & \cdots & 0\\
+		0 & 0 & 1 & \cdots & 0\\
+		\vdots & \vdots & \vdots & \ddots & \vdots\\
+		0 & 0 & 0 & \cdots & 1\\
+	\end{bmatrix}
+	\]
+	مثال على المصفوفة الأحادية من الرتبة $3$
+	$
+	I_3=
+	\begin{bmatrix}
+		1&0&0\\
+		0&1&0\\
+		0&0&1
+	\end{bmatrix}
+	$،
+	مثال آخر من الرتبة $4$
+	$
+	I_4=
+	\begin{bmatrix}
+		1&0&0&0\\
+		0&1&0&0\\
+		0&0&1&0\\
+		0&0&0&1
+	\end{bmatrix}
+	$
+	
+	\subsection{المصفوفة الدورية}
+	تسمى المصفوفة $A$ مصفوفة دورية إذا تحقق
+	\[
+	A^{(k+1)} = A
+	\]
+	حيث $k$ عدد صحيح موجب.
+	\begin{example}
+		مثال على مصفوفة دورية من الدرجة الثالثة
+		
+		\[
+		A=
+		\begin{bmatrix}
+			1 & -2 & -6\\
+			-3 & 2 & 9\\
+			2 & 0 & -3
+		\end{bmatrix}
+		\]
+		حساب \(A^2\)
+		\[
+		A^2 = A \cdot A =
+		\begin{bmatrix}
+			1 & -2 & -6\\
+			-3 & 2 & 9\\
+			2 & 0 & -3
+		\end{bmatrix}
+		\begin{bmatrix}
+			1 & -2 & -6\\
+			-3 & 2 & 9\\
+			2 & 0 & -3
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			-5 & -6 & -6\\
+			9 & 10 & 9\\
+			-4 & -4 & -3
+		\end{bmatrix}
+		\]
+		حساب \(A^3\)
+		\[
+		A^3 = A^2 \cdot A =
+		\begin{bmatrix}
+			-5 & -6 & -6\\
+			9 & 10 & 9\\
+			-4 & -4 & -3
+		\end{bmatrix}
+		\begin{bmatrix}
+			1 & -2 & -6\\
+			-3 & 2 & 9\\
+			2 & 0 & -3
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			1 & -2 & -6\\
+			-3 & 2 & 9\\
+			2 & 0 & -3
+		\end{bmatrix}
+		= A
+		\]
+		وبما أن
+		\[
+		A^3 = A
+		\]
+		فإن العلاقة \(A^{(k+1)} = A\) تتحقق عند \(k=2\)، وبالتالي فإن المصفوفة \(A\) مصفوفة دورية.
+	\end{example}
+	
+	\subsection{المصفوفة متساوية القوى}
+	تسمى المصفوفة $A$ مصفوفة متساوية القوى إذا تحقق
+	\[
+	A^2 = A
+	\]
+	مثال على مصفوفة متساوية القوى
+	\begin{example}
+		\[
+		A=
+		\begin{bmatrix}
+			2 & -2\\
+			1 & -1
+		\end{bmatrix}
+		\]
+		
+		حساب \(A^2\):
+		\begin{align*}
+			A^2 &= A \cdot A \\
+			&=
+			\begin{bmatrix}
+				2 & -2\\
+				1 & -1
+			\end{bmatrix}
+			\begin{bmatrix}
+				2 & -2\\
+				1 & -1
+			\end{bmatrix} \\
+			&=
+			\begin{bmatrix}
+				2\cdot 2 + (-2)\cdot 1 & 2\cdot(-2) + (-2)\cdot(-1) \\
+				1\cdot 2 + (-1)\cdot 1 & 1\cdot(-2) + (-1)\cdot(-1)
+			\end{bmatrix} \\
+			&=
+			\begin{bmatrix}
+				4 - 2 & -4 + 2 \\
+				2 - 1 & -2 + 1
+			\end{bmatrix} \\
+			&=
+			\begin{bmatrix}
+				2 & -2 \\
+				1 & -1
+			\end{bmatrix} \\
+			&= A
+		\end{align*}
+		وبما أن
+		\[
+		A^2 = A
+		\]
+		فإن المصفوفة \(A\) مصفوفة متساوية القوى.
+	\end{example}
+	\subsection{المصفوفة معدومة القوى}
+	تسمى المصفوفة $A$ مصفوفة معدومة القوى إذا تحقق
+	\[
+	A^p = 0
+	\]
+	حيث $p$ عدد صحيح موجب.\\
+	\begin{example}
+		مثال على مصفوفة معدومة القوى
+		
+		\[
+		A=
+		\begin{bmatrix}
+			0 & 1 & 0\\
+			0 & 0 & 1\\
+			0 & 0 & 0
+		\end{bmatrix}
+		\]
+		حساب \(A^2\)
+		\[
+		A^2 =
+		\begin{bmatrix}
+			0 & 0 & 1\\
+			0 & 0 & 0\\
+			0 & 0 & 0
+		\end{bmatrix}
+		\]
+		حساب \(A^3\)
+		\[
+		A^3 =
+		\begin{bmatrix}
+			0 & 0 & 0\\
+			0 & 0 & 0\\
+			0 & 0 & 0
+		\end{bmatrix}
+		= 0
+		\]
+		وبما أن
+		\[
+		A^3 = 0
+		\]
+		فإن المصفوفة \(A\) مصفوفة معدومة القوى من الرتبة \(3\).
+	\end{example}
+	
+	\begin{definition}
+		لتكن $A = [a_{ij}]$ مصفوفة من الرتبة $m \times n$.  
+		تُعرف مصفوفة \textbf{منقولة} $A^T$ بأنها مصفوفة من الرتبة $n \times m$ بحيث
+		\[
+		(A^T)_{ij} = a_{ji}, \quad \forall i,j
+		\]
+		أي أنه يتم تبادل الصفوف مع الأعمدة.
+	\end{definition}
+	\begin{example}
+		
+		لتكن
+		\[
+		A=
+		\begin{bmatrix}
+			1 & 2 & 3\\
+			4 & 5 & 6
+		\end{bmatrix}
+		\]
+		نحسب منقولة المصفوفة \(A\):
+		\[
+		A^T =
+		\begin{bmatrix}
+			1 & 4\\
+			2 & 5\\
+			3 & 6
+		\end{bmatrix}
+		\]
+		وبذلك تكون الصفوف قد تحولت إلى أعمدة.
+	\end{example}
+	
+	
+	\subsection{المصفوفة المتناظرة}
+	تسمى المصفوفة $A$ مصفوفة متناظرة إذا تحقق
+	\[
+	A^T = A
+	\]\begin{example}
+		
+		مثال على مصفوفة متناظرة
+		
+		\[
+		A=
+		\begin{bmatrix}
+			1 & 2 & 3\\
+			2 & 4 & -1\\
+			3 & -1 & 5
+		\end{bmatrix}
+		\]
+		نحسب منقول المصفوفة \(A\)
+		\[
+		A^T=
+		\begin{bmatrix}
+			1 & 2 & 3\\
+			2 & 4 & -1\\
+			3 & -1 & 5
+		\end{bmatrix}
+		= A
+		\]
+		وبما أن
+		$A^T = A$
+		فإن المصفوفة \(A\) مصفوفة متناظرة.
+		
+	\end{example}
+	\subsection{المصفوفة المتناظرة عكسياً}
+	تسمى المصفوفة $A$ \textbf{متناظرة عكسياً} (Skew-Symmetric) إذا كانت مربعة وتحقق:
+	\[
+	A^T = -A
+	\]
+	أي أن منقول المصفوفة يساوي السالب للمصفوفة نفسها.
+	
+	\noindent\textbf{مثال:}  
+	لتكن
+	\[
+	A =
+	\begin{bmatrix}
+		0 & \frac{1}{3} & 5 \\
+		-\frac{1}{3} & 0 & 7 \\
+		-5 & -7 & 0
+	\end{bmatrix}
+	\]
+	نحسب منقول المصفوفة:
+	\[
+	A^T =
+	\begin{bmatrix}
+		0 & -\frac{1}{3} & -5 \\
+		\frac{1}{3} & 0 & -7 \\
+		5 & 7 & 0
+	\end{bmatrix} = -A
+	\]
+	وبالتالي، المصفوفة $A$ متناظرة عكسياً.
+	
+	
+	\begin{definition}[{[مرافق العدد العقدي]}]
+		لتكن $z = a + bi$ عددًا عقديًا حيث $a,b \in \mathbb{R}$ و$i^2=-1$.  
+		يُعرف \textbf{مرافق العدد العقدي} بالرمز $\overline{z}$ بأنه
+		\[
+		\overline{z} = a - bi
+		\]
+		أي أنه يتم تغيير إشارة الجزء التخيلي فقط.
+	\end{definition}
+	\subsection{المصفوفة المرافقة}
+	لتكن $A = [a_{ij}]$ مصفوفة عقدية من الرتبة $m \times n$.  
+	تُعرف \textbf{المصفوفة المرافقة} $A^{\overline{T}}$ بأنها:
+	\[
+	A^{\overline{T}} = \overline{A^T} \quad \text{أو} \quad (A^{\overline{T}})_{ij} = \overline{a_{ji}}
+	\]
+	أي أنها ناتج أخذ منقول المصفوفة $A$ مع أخذ المرافق العقدي لكل عنصر.
+	
+	\begin{example}
+		
+		لتكن
+		\[
+		A =
+		\begin{bmatrix}
+			1+i & 2-i \\
+			3 & 4i
+		\end{bmatrix}
+		\]
+		فإن المصفوفة المرافقة لها هي
+		\[
+		A^{\overline{T}} =
+		\begin{bmatrix}
+			1-i & 3\\
+			2+i & -4i
+		\end{bmatrix}
+		\]
+		
+	\end{example}
+	
+	\subsection{المصفوفة الهيرمتية}
+	تسمى المصفوفة $A$ \textbf{هيرمتية} إذا كانت مربعة وتحقق:
+	\[
+	A^{\overline{T}} = A
+	\]
+	حيث $A^{\overline{T}}$ هو المرافق العقدي للمصفوفة $A$. أي أن
+	\[
+	a_{ij} = \overline{a_{ji}}
+	\]
+	حيث $\overline{\cdot}$ تمثل عملية الترافق العقدي.
+	
+	\begin{note}
+		عناصر القطر الرئيسي في المصفوفة الهيرميتية يجب أن تكون أعدادًا حقيقية.
+	\end{note}
+	
+	\begin{example}
+		
+		لتكن
+		\[
+		A =
+		\begin{bmatrix}
+			2 & 1+i & 0 \\
+			1-i & 3 & 2i \\
+			0 & -2i & 4
+		\end{bmatrix}
+		\Rightarrow
+		A^T = 
+		\begin{bmatrix}
+			2 & 1-i & 0\\
+			1+i & 3 & -2i\\
+			0 & 2i & 4
+		\end{bmatrix}
+		\]
+		نحسب المصفوفة المرافقة:
+		\[
+		A^{\overline{T}} =
+		\begin{bmatrix}
+			2 & 1+i & 0 \\
+			1-i & 3 & 2i \\
+			0 & -2i & 4
+		\end{bmatrix} = A
+		\]
+		وبالتالي، المصفوفة $A$ هيرمتية.
+	\end{example}
+	
+	\subsection{المصفوفة المتعامدة}
+	تسمى المصفوفة $A$ \textbf{متعامدة} (Orthogonal) إذا كانت مربعة وتحقق:
+	\[
+	A A^T = A^T A = I
+	\]
+	أي أن المصفوفة مضروبة في منقولها (أو العكس) تعطي المصفوفة الوحدة $I$.
+	
+	\begin{example}
+		
+		لتكن
+		\[
+		A =
+		\begin{bmatrix}
+			0 & 0 & 1 \\
+			0 & 1 & 0 \\
+			-1 & 0 & 0
+		\end{bmatrix}
+		\]
+		
+		نحسب:
+		\[
+		A A^T =
+		\begin{bmatrix}
+			0 & 0 & 1 \\
+			0 & 1 & 0 \\
+			-1 & 0 & 0
+		\end{bmatrix}
+		\begin{bmatrix}
+			0 & 0 & -1 \\
+			0 & 1 & 0 \\
+			1 & 0 & 0
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			1 & 0 & 0 \\
+			0 & 1 & 0 \\
+			0 & 0 & 1
+		\end{bmatrix} = I
+		\]
+		و
+		\[
+		A^T A =
+		\begin{bmatrix}
+			0 & 0 & -1 \\
+			0 & 1 & 0 \\
+			1 & 0 & 0
+		\end{bmatrix}
+		\begin{bmatrix}
+			0 & 0 & 1 \\
+			0 & 1 & 0 \\
+			-1 & 0 & 0
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			1 & 0 & 0 \\
+			0 & 1 & 0 \\
+			0 & 0 & 1
+		\end{bmatrix} = I
+		\]
+		وبذلك، المصفوفة \(A\) متعامدة.
+	\end{example}
+	
+	\section{معكوس المصفوفة}
+	إذا كانت $A, B$ مصفوفتين مربعتين بحيث يكون $AB = BA = I$، فإن $B$ تُسمى معكوس $A$ وتُكتب $B = A^{-1}$.  
+	والمصفوفة $B$ لها معكوس أيضًا هو المصفوفة $A$، ويمكننا أن نكتب $A = B^{-1}$.
+	
+	\begin{example}
+		بما ان
+		\[
+		\underbrace{
+			\begin{bmatrix}
+				1&2&3\\
+				1&3&3\\
+				1&2&4
+			\end{bmatrix}
+		}_A
+		\cdot
+		\underbrace{
+			\begin{bmatrix}
+				6&-2&-3\\
+				-1&1&0\\
+				-1&0&1
+			\end{bmatrix}
+		}_B
+		=
+		\begin{bmatrix}
+			1&0&0\\
+			0&1&0\\
+			0&0&1
+		\end{bmatrix} = I
+		\]
+		فأن كل مصفوفة في حاصل الضرب تكون هي معكوس الأخرى.
+	\end{example}
+	\section{المحددات}
+	\textbf{التعريف:}  
+	لتكن $A = [a_{ij}]$ مصفوفة مربعة من الرتبة $n \times n$. يُعرف \textbf{محدد المصفوفة} $A$، ويرمز له بـ $\det(A)$ أو $|A|$، بأنه دالة خطية متعددة الحدود في عناصر $A$.
+	
+	\subsection{محدد مصفوفة من حجم $2\times 2$}
+	يعرف محدد المصفوفة 
+	$
+	A=
+	\begin{bmatrix}
+		a&b\\c&d
+	\end{bmatrix}
+	$
+	من الرتبة $2\times2 $ على انه الكمية القياسية $ad-bc$.
+	
+	\begin{example}
+		لتكن $
+		A = 
+		\begin{bmatrix}
+			3&2\\6&7
+		\end{bmatrix}
+		$ فأن
+		\[
+		\det A = |A| = 
+		\begin{vmatrix}
+			3&2\\6&7
+		\end{vmatrix}
+		=3\cdot7-2\cdot6 = 21-12=9
+		\]
+	\end{example} 
+	
+	\subsection{محدد مصفوفة من الحجم $3\times 3$}
+	لتكن $A = 
+	\begin{bmatrix}
+		a_{11} & a_{12} & a_{13} \\
+		a_{21} & a_{22} & a_{23} \\
+		a_{31} & a_{32} & a_{33}
+	\end{bmatrix}$
+	مصفوفة $3\times 3$. عندها يُعرّف محدد $A$ بالعلاقة:
+	
+	\begin{align*}
+		A &= 
+		\begin{array}{|ccc|cc}
+			a_{11}&a_{12}&a_{13}&a_{11}&a_{12}\\
+			a_{21}&a_{22}&a_{23}&a_{21}&a_{22}\\
+			a_{31}&a_{32}&a_{33}&a_{31}&a_{32}
+		\end{array}\\
+		&= \big(a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}\big)\\
+		&\phantom{=}- \big(a_{11}a_{23}a_{32}+a_{12}a_{21}a_{33}+a_{13}a_{22}a_{31}\big)
+	\end{align*}
+	
+	\begin{example}
+		لتكن
+		\[
+		A=
+		\begin{bmatrix}
+			1 & 2 & 3 \\
+			2 & 1 & 3 \\
+			3 & 1 & 2
+		\end{bmatrix}
+		\]
+		فإن محددها يُحسب كالآتي:
+		\begin{align*}
+			\det(A) &= 
+			(1)(1)(2) + (2)(3)(3) + (3)(2)(1) \\
+			&\phantom{=} - \big((1)(3)(1) + (2)(2)(2) + (3)(1)(3)\big) \\
+			&= (2 + 18 + 6) - (3 + 8 + 9) \\
+			&= 26 - 20 \\
+			&= 6
+		\end{align*}
+		إذن، \(\det(A) = 6\).
+	\end{example}
+	

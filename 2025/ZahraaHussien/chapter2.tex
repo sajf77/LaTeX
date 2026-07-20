@@ -1,0 +1,132 @@
+\chapter{تحسين مؤثر لوباس الاعتيادي}
+\section{مؤثر لوباس (Lupas) الاعتيادي [2]}
+
+تعرف متتابعة من المؤثرات الخطية الموجبة من الفضاء $C_h[0, \infty)$ إلى نفسه كما يلي:
+\[
+L_n(f(t); x) = \sum_{k=0}^{\infty} p_{n,k} (x) f(k/n)
+\]
+حيث:
+\[
+p_{n,k} (x) = \binom{n+k-1}{k} x^k (1+x)^{-(n+k)}, \quad x \in [0, \infty)
+\]
+
+\subsection*{بعض النتائج المباشرة للدالة $p_{n,k}(x)$}
+\begin{english}
+	\begin{enumerate}[label=\arabic*)]
+		\item $\sum_{k=0}^{\infty} p_{n,k}(x) = 1$
+		\item $\sum_{k=0}^{\infty}k p_{n,k}(x) = nx$
+		\item $\sum_{k=0}^{\infty}k^2 p_{n,k}(x) = n^2 x^2 + nx^2 + nx$
+	\end{enumerate}
+\end{english}
+\noindent
+\textbf{البرهان}
+
+\begin{english}
+1)	$\begin{aligned}[t]
+		\sum_{k=0}^{\infty} p_{n,k}(x) &= \sum_{k=0}^{\infty} \binom{n+k-1}{k} x^k (1+x)^{-(n+k)} \\
+		&= \frac{1}{(1+x)^n} \sum_{k=0}^{\infty} \binom{n+k-1}{k} \left( \frac{x}{1+x} \right)^k \\
+		&= \frac{1}{(1+x)^n} \left( 1 - \frac{x}{1+x} \right)^{-n} = 1.
+	\end{aligned}$
+\end{english}
+	\newpage
+\begin{english}
+2)	$\begin{aligned}[t]
+		\sum_{k=0}^{\infty} k p_{n,k}(x) &= \sum_{k=0}^{\infty} k \binom{n+k-1}{k} x^k (1+x)^{-(n+k)} \\
+		&= \sum_{k=0}^{\infty} k \frac{(n+k-1)!}{k!(n-1)!} x^k (1+x)^{-(n+k)} \\
+		&= 0 + \sum_{k=1}^{\infty} k \frac{(n+k-1)!}{k(k-1)!(n-1)!} x^k (1+x)^{-(n+k)} \\
+		&= \sum_{k=0}^{\infty} \frac{(n+k)(n+k-1)!}{k!(n-1)!} x^{k+1} (1+x)^{-(n+k+1)} \\
+		&= \frac{x}{1+x} \sum_{k=0}^{\infty} (n+k) p_{n,k}(x)
+	\end{aligned}$
+\begin{gather*}
+	I = \frac{x}{1+x} \sum_{k=0}^{\infty} n p_{n,k}(x) + I\\
+	(1+x) I = x(n+I)\\
+	I + xI = nx + xI\\
+	I = nx\\
+	\sum_{k=0}^{\infty} k p_{n,k}(x) = nx
+\end{gather*}
+\end{english}
+\newpage
+\begin{english}
+	3) $ 
+	\begin{aligned}[t]
+		\sum_{k=0}^{\infty} k^2 p_{n,k}(x) &= \sum_{k=1}^{\infty} k^2 \binom{n+k-1}{k} x^k (1+x)^{-(n+k)} \\
+		&= \sum_{k=0}^{\infty} k^2 \frac{(n+k-1)!}{k!(n-1)!} x^k (1+x)^{-(n+k)} \\
+		&= 0 + \sum_{k=1}^{\infty} k^2 \frac{(n+k-1)!}{k(k-1)!(n-1)!} x^k (1+x)^{-(n+k)} \\
+		&= \sum_{k=0}^{\infty} (k+1) \frac{(n+k)(n+k-1)!}{(k!(n-1)!} x^{k+1} (1+x)^{-(n+k)} \\
+		&= \frac{x}{1+x} \sum_{k=0}^{\infty} (k+1)(n+k) p_{n,k}(x)\\
+		&= \frac{x}{1+x} \sum_{k=0}^{\infty} (k^2 + (1+n)k + n)p_{n,k}(x)\\
+		&= \frac{x}{1+x} \left(
+		\sum_{k=0}^{\infty} k^2 p_{n,k} 
+		+ (1+n)\sum_{k=0}^{\infty} k p_{n,k} 
+		+n\sum_{k=0}^{\infty} p_{n,k} 
+		\right)
+	\end{aligned}
+	$
+	\begin{gather*}
+		I = \frac{x}{x+1} (I + (1+n)nx + n)\\
+		(1+x) I = Ix + nx^2 + n^2x^2 + nx\\
+		I + I x = Ix + nx^2 + n^2x^2 + nx\\
+		I = nx^2 + n^2x^2 + nx\\
+		\sum_{k=0}^{\infty}k^2 p_{n,k} = n^2 x^2 + nx^2 + nx
+	\end{gather*}
+\end{english}
+\newcommand{\tL}{\tilde{L}}
+\section{تعريف المؤثر $\tL_n(f(t);x)$}
+تعرف متتابعة من المؤثرات الخطية الموجبة من الفضاء $C_h[0, \infty)$ الى نفسه كما يلي
+\[
+\tL_n(f(t); x) = \sum_{k=0}^{\infty} p_{n, k}(x) f\left(\frac{k+\alpha}{n+\beta}\right)
+\]
+حيث
+\[
+p_{n,k} (x) = \binom{n+k-1}{k} x^k (1+x)^{-(n+k)}, \quad x \in [0, \infty)
+\]
+
+\section{مبرهنة كورفكن للمؤثر $\tL_n(f(t); x)$}
+لتكن $\tL_n(f(t);x)$ متتابعة من المؤثرات الخطية الموجبة \en{\textit{L.P.O}} و الشروط التالية متحققة
+\begin{english}
+	\begin{enumerate}[label=\arabic*)]
+		\item $\tL_n(1;x)=1$
+		\item $\tL_n(t;x) = \dfrac{nx + \alpha}{n + \beta} \to x$
+		\item $\tL_n(t^2;x) = \dfrac{n^2x^2 + nx^2 + 2\alpha n x + \alpha^2}{n^2 + 2n\beta+ \beta^2} \to x^2$
+		\[
+		\Rightarrow\tL_n(f(t);x) \to f(x) \quad\text{as}\quad n\to \infty
+		\]
+	\end{enumerate}
+\end{english}
+\noindent
+\textbf{البرهان}
+
+\begin{english}
+1) $	\begin{aligned}[t]
+		\tL_n(1; x) &= \sum_{k=0}^{\infty} p_{n,k}(x)\\
+		&= \sum_{k=0}^{\infty}\binom{n+k-1}{k} x^k (1+x)^{-(n+k)} \\
+		&=1
+	\end{aligned}$
+\end{english}
+
+\newpage
+\begin{english}
+	\noindent
+	2) $
+	\begin{aligned}[t]
+		\tL_n(t; x) &= \sum_{k=0}^{\infty} p_{n, k}(x) \cdot \frac{k+\alpha}{n+\beta}\\
+		&= \frac{1}{n+\beta} \sum_{k=0}^{\infty} p_{n, k}(x)\, (k+\alpha)\\
+		&= \frac{1}{n+\beta} \left[\sum_{k=0}^{\infty}k p_{n, k}(x)  +\alpha \sum_{k=0}^{\infty} p_{n, k}(x) \right]\\
+		&= \frac{1}{n+\beta} \left[nx + \alpha\right] = \frac{nx + \alpha}{n + \beta}\to x
+	\end{aligned}$\\[20pt]
+	3) $
+	\begin{aligned}[t]
+		\tL_n(t^2; x) &= \sum_{k=0}^{\infty} p_{n, k}(x)  \left(\frac{k+\alpha}{n + \beta}\right)^2\\
+		&= \frac{1}{(n+\beta)^2} \sum_{k=0}^{\infty} p_{n, k}(x) \,(k+\alpha)^2\\
+		&= \frac{1}{(n+\beta)^2} \sum_{k=0}^{\infty} p_{n, k}(x) \,(k^2+2\alpha k + \alpha^2)\\
+		&= \frac{1}{(n+\beta)^2} \left[\sum_{k=0}^{\infty}k^2 p_{n, k}(x)  +2\alpha \sum_{k=0}^{\infty} kp_{n, k}(x)  +\alpha^2 \sum_{k=0}^{\infty} p_{n, k}(x) \right]\\
+		&= \frac{1}{(n+\beta)^2} \big[n^2x^2 + nx^2 + nx + 2\alpha n x+ \alpha^2\big]\\
+		&= \frac{n^2x^2 + nx^2 + nx + 2\alpha n x+ \alpha^2}{n^2 + 2n\beta + \beta^2} \to x^2
+	\end{aligned}$
+\end{english}
+
+
+
+
+
+

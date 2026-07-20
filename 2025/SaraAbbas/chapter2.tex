@@ -1,0 +1,200 @@
+\chapter{مؤثر برينستين}
+
+\section{تعريف مؤثر برينستين}
+
+\begin{definition}
+	لتكن $f(t) \in C[0,1]$. مؤثر برينستين من الرتبة $n$ يعرف بالشكل
+	\[
+	B_n(f(t);x) = \sum_{k=0}^{n} \binom{n}{k} x^k (1-x)^{n-k} f\left(\frac{k}{n}\right) 
+	\]
+\end{definition}
+
+\begin{theorem}
+	الدوال $b_{n,k}(x)$ تمتلك الخواص التالية
+	\begin{english}
+		\begin{enumerate}[label=\textbf{\arabic*.}]
+			\item \(\sum_{k=0}^{n} b_{n,k}(x) = 1\)
+			\item \(\sum_{k=0}^{n} kb_{n,k}(x) = nx\)
+			\item \(\sum_{k=0}^{n} k^2 b_{n,k}(x) = n(n-1)x^2 + nx\)
+			\item \(\sum_{k=0}^{n} k^3 b_{n,k}(x) = n(n-1)(n-2)x^3 + 3n(n-1)x^2 + nx\)
+			\item \(\phi_{n, m}(x) = \dfrac{n!}{(n-m)!} x^m + \dfrac{m(m-1)}{2}\dfrac{n!}{(n-m+1)!} x^{m-1} + \TLP(x)\)\\[10pt]
+			\hspace*{200pt}\ar{حيث $\TLP(x)$ تعني الحدود للقوى الدنيا لــ $x$}
+		\end{enumerate}
+	\end{english}
+\end{theorem}
+\noindent
+\textbf{البرهان}
+\begin{enumerate}
+	\item 
+	\begin{align*}
+		\sum_{k=0}^{n} b_{n,k}(x) = \sum_{k=0}^{n} x^k (1-x)^{n-k} = (x+1-x)^n = 1
+	\end{align*}
+	\item 
+	\begin{align*}
+		\sum_{k=0}^{n} k b_{n,k}(x) &= \sum_{k=0}^{n} k \frac{n!}{k!(n-k)!} x^k (1-x)^{n-k}\\
+		&= 0 + \sum_{k=1}^{n} k \frac{n!}{k!(n-k)!} x^k (1-x)^{n-k}\\
+		&= \sum_{k=1}^{n} \frac{n!}{(k-1)!(n-k)!} x^k (1-x)^{n-k}\\
+		&= \sum_{k=0}^{n-1} \frac{n (n-1)!}{k! (n-1-k)!} x^{k+1} (1-x)^{n-1-k} \\
+		&= nx \sum_{k=0}^{n-1} b_{n-1,k}(x) = nx
+	\end{align*}
+	\item 
+	\begin{align*}
+		\sum_{k=0}^{n} k^2 b_{n,k}(x) &= \sum_{k=0}^{n} k^2 \frac{n!}{k!(n-k)!} x^k(1-x)^{n-k}\\
+		&= 0 + \sum_{k=1}^{n}  k^2 \frac{n!}{k!(n-k)!} x^k(1-x)^{n-k}\\
+		&= \sum_{k=1}^{n} k \frac{n!}{(k-1)!(n-k)!} x^k (1-x)^{n-k}\\
+		&= \sum_{k=0}^{n-1} (k+1) \frac{n(n-1)!}{k!(n-1-k)!} x^{k+1} (1-x)^{n-1-k}\\
+		&= nx \sum_{k=0}^{n-1} (k+1) b_{n-1,k}(x)\\
+		&= nx \left\{\sum_{k=0}^{n-1}kb_{n-1,k}(x) + \sum_{k=0}^{n-1} b_{n-1,k}(x)\right\}\\
+		&= nx \Big\{(n-1)x+1\Big\}\\
+		&= n(n-1)x^2 + nx
+	\end{align*}
+	\item 
+	\begin{align*}
+		\sum_{k=0}^{n} k^3 b_{n,k}(x) 	 &= \sum_{k=0}^{n}k^3 \frac{n!}{k!(n-k)!} x^k (1-x)^{n-k}\\
+		&= 0 + \sum_{k=1}^{n}k^3 \frac{n!}{k!(n-k)!} x^k (1-x)^{n-k}\\
+		&= \sum_{k=1}^{n}k^2 \frac{n!}{(k-1)!(n-k)!} x^k (1-x)^{n-k}\\
+		&= \sum_{k=0}^{n-1}(k+1)^2 \frac{n(n-1)!}{k!(n-1-k)!} x^{k+1} (1-x)^{n-1-k}\\
+		&= nx \sum_{k=0}^{n-1} (k+1)^2 b_{n-1,k}(x)\\
+		&= nx \sum_{k=0}^{n-1} (k^2+2k+1) b_{n-1,k}(x)\\
+		&= nx \Big[(n-1)(n-2)x^2 + (n-1)x + 2\big[(n-1)x\big] + 1\Big]\\
+		&= n(n-1)(n-2)x^3 + (1+2)n(n-1)x^2 + nx\\
+		&= n(n-1)(n-2)x^3 + 3n(n-1)x^2 + nx
+	\end{align*}
+	
+	\item من العلاقة التكرارية $\phi_{n, m+1}(x) = x(1-x)\phi_{n, m}'(x) + nx\phi_{n, m}(x)$ لدينا
+	\begin{align*}
+		\phi_{n, 4}(x) &=  x(1-x)\phi_{n, 3}'(x) + nx\phi_{n, 3}(x)\\
+		&= (x-x^2) [3n(n-1)(n-2)x^2 + 2n(n-1)(2+1)x + n]\\
+		&\quad + nx [n(n-1)(n-2)x^3 + n(n-1)(2+1)x^2 + nx]\\
+		&= [-3n(n-1)(n-2) + n(n-1)(n-2)]x^4\\
+		&\quad + [3n(n-1)(n-2) -2n(n-1)(2+1) + n^2(n-1)(2+1)]x^3\\
+		&\quad + \TLP(x)\\
+		&= n(n-1)(n-2)(n-3)x^4\\
+		& \quad + [3n(n-1)(n-2) + n(n-1)(2+1)(n-2)]x^3 + \TLP(x)\\
+		&= n(n-1)(n-2)(n-3)x^4 + n(n-1)(n-2)(3+2+1)x^3 + \TLP(x)		
+	\end{align*}
+	بالتالي نخمن 
+	\[
+				\phi_{n, m}(x) = \dfrac{n!}{(n-m)!} x^m + \dfrac{m(m-1)}{2}\dfrac{n!}{(n-m+1)!} x^{m-1} + \TLP(x)
+	\]
+	\newpage
+	نكمل البرهان بالاستقراء الرياضي. نفرض العلاقة صحيحة عند $m$. نحتاج ان نبرهن صحة العلاقة عند $m+1$. باستخدام العلاقة التكرارية للدالة $\phi_{n, m+1}(x)$ نحصل على
+	\begingroup\small
+	\begin{align*}
+		\phi_{n, m+1}(x) &= x(1-x)\phi_{n, m}'(x) + nx\phi_{n, m}(x)\\
+		&= (x-x^2) \frac{d}{dx} \left[\frac{n!}{(n-m)!}x^m + \frac{m(m-1)}{2} \frac{n!}{(n-m+1)!}x^{m-1} + \TLP(x)\right]\\
+		& \quad + nx\left[\frac{n!}{(n-m)!}x^m + \frac{m(m-1)}{2} \frac{n!}{(n-m+1)!}x^{m-1} + \TLP(x)\right]\\
+        &= (x-x^2) \left[\frac{n!}{(n-m)!}mx^{m-1} + \frac{m(m-1)}{2} \frac{n!}{(n-m+1)!}(m-1)x^{m-2} + \TLP(x)\right]\\
+        & \quad + nx\left[\frac{n!}{(n-m)!}x^m + \frac{m(m-1)}{2} \frac{n!}{(n-m+1)!}x^{m-1} + \TLP(x)\right]\\
+    &= x^{m+1} \left[-\frac{n!}{(n-m)!}m + n \frac{n!}{(n-m)!}\right]\\
+    & \quad + x^m \left[\frac{n!}{(n-m)!} - \frac{m(m-1)}{2} \frac{n!}{(n-m+1)!} + n\frac{m(m-1)}{2} \frac{n!}{(n-m+1)!}\right]\\
+    & \quad + \TLP(x)\\
+    &= x^{m+1} \frac{n!}{(n-m)!}(n-m)\\
+    & \quad + x^m \frac{n!}{(n-m)!}\left[m - \frac{m(m-1)}{2} \frac{1}{(n-m+1)} (m-1) + n \frac{m(m-1)}{2} \frac{1}{n-m+1}\right]\\
+    &\quad + \TLP(x)\\
+    &= x^{m+1} \frac{n!}{(n-m+1)!}\\
+    &\quad + x^m \frac{n!}{(n-m)!}\left[m - \frac{m(m-1)^2}{2(n-m+1)} + n\frac{m(m-1)}{2(n-m+1)}\right]\\
+    &\quad + \TLP(x)\\
+    &= x^{m+1} \frac{n!}{(n-m+1)!}\\
+    &\quad + x^m \frac{n!}{(n-m)!}\left[m + \frac{m(m-1)}{2(n-m+1)} [n-(m-1)]\right] + \TLP(x)\\
+    &= x^{m+1} \frac{n!}{(n-m+1)!} + x^m \frac{n!}{(n-m)!} \left[m+\frac{m(m-1)}{2}\right] + \TLP(x)\\
+    &= x^{m+1} \frac{n!}{(n-m+1)!} + x^m \frac{n!}{(n-m)!} \left[\frac{m^2+2m-m}{2}\right] + \TLP(x)\\
+    &= \frac{n!}{(n-(m+1))!}x^{m+1} + \frac{(m+1)m}{2} \frac{n!}{(n-(m+1)+1)!}x^m + \TLP(x)
+	\end{align*}
+	\endgroup
+	اذن العلاقة صحيحة عند $m+1$
+\end{enumerate}
+
+\begin{theorem}
+	لتكن $f(t)$ دالة مستمرة على الفترة $[a, b]$ او على $[0, \infty)$ و $B_n(f;x)$ تحقق الشروط التالية
+	\begin{english}
+			\begin{enumerate}
+			\item \(B_n(1;x) \to 1\) as \(n \to \infty\)
+			\item \(B_n(t;x) \to x\) as \(n \to \infty\)
+			\item \(B_n(t^2;x) \to x^2\) as \(n \to \infty\)
+		\end{enumerate}
+	\end{english} 
+	فإن \(B_n(f;x) \to f(x)\) عندما $n \to \infty$
+\end{theorem}
+\noindent
+\textbf{البرهان}
+\begin{english}
+\begin{enumerate}
+	\item \(B_n(1;x) = \sum_{k=0}^{n} b_{n,k}(x)\cdot1 = 1 \to 1\) as \(n\to \infty\).
+	\item \(B_n(t;x) = \sum_{k=0}^{n} b_{n,k}(x) \cdot \left(\dfrac{k}{n}\right)= \dfrac{1}{n}\cdot nx = x \to x\) as \(n \to \infty\). 
+	\item \(B_n(t^2;x) = \sum_{k=0}^{n} b_{n,k}(x) \cdot \left(\dfrac{k^2}{n^2}\right)= \dfrac{1}{n^2}\cdot[n(n-1)x^2+nx] \to x^2\) as \(n \to \infty\).
+\end{enumerate}
+	\end{english} 
+	اذن \(B_n(f;x) \to f(x)\) عندما $n \to \infty$
+
+\section{العزوم من الرتبة \textit{m}}
+
+\begin{definition}
+	نعرف العزوم من الرتبة $m$ لمؤثر برينستين $B_n(f;x)$ كالتالي
+	\[
+	T_{n,m}(x) = B_n((t-x)^m;x) = \sum_{k=0}^{n}b_{n,k}(x) \left(\frac{k}{n}-x\right)^m
+	\]
+\end{definition}
+
+\begin{theorem}
+	لدينا
+	\begin{english}
+			\begin{enumerate}
+			\item \(T_{n,0}(x)=1\)
+			\item \(T_{n,1}(x)=0\)
+			\item \(T_{n,2}(x)=\dfrac{x(1-x)}{n}\)
+		\end{enumerate}
+	\end{english}
+\end{theorem}
+\noindent
+\textbf{البرهان}
+\begin{enumerate}
+	\item 
+	\[
+	T_{n,0}(x)  = B_n((t-x)^0;x) = B_n(1;x) = 1
+	\]
+	\item 
+	\begin{align*}
+		T_{n,1}(x) &= B_n((t-x)^1;x)\\
+		&= B_n(t-x;x)\\
+		&= B_n(t;x) - B_n(x;x)\\
+		&= x - x B_n(1;x) = x - x = 0
+	\end{align*}
+	\item 
+	\begin{align*}
+		T_{n,2}(x) &= B_n((t-x)^2;x)\\
+		&= B_n(t^2-2xt+x^2;x)\\
+		&= B_n((t^2;x) - 2x B_n(t;x) + x^2B_n(1;x)\\
+		&= \frac{1}{n^2}\Big[n(n-1)x^2+nx\Big] - 2x\cdot x + x^2\\
+		&= \frac{x(1-x)}{n}
+	\end{align*}
+\end{enumerate}
+
+\noindent
+\textbf{مثال}\\
+اوجد متعددة حدود تقريبية من الدرجة الثالثة للدالة $\sin t \in C[0,1]$\\
+\noindent\textbf{الحل}\\
+التقريب بواسطة مؤثر برينستين يعطي متعددة حدود تقريبية من الدرجة $n$. اذن
+\begin{align*}
+	B_3(\sin t; x) &= \sum_{k=0}^{3} b_{3,k}(x) \sin\left(\frac{k}{3}\right)\\
+	&= b_{3,0}(x) \sin\left(\frac{0}{3}\right) + b_{3,1}(x) \sin\left(\frac{1}{3}\right)\\
+	 &\qquad+ b_{3,2}(x) \sin\left(\frac{2}{3}\right) + b_{3,3}(x) \sin\left(\frac{3}{3}\right)
+\end{align*}
+
+\section{نشر تيلر للدالة \en{\textit{f}(\textit{t})}}
+متسلسلة تايلر هي تمثيل دالة قابلة للاشتقاق $f(t)$ بعدد غير منتهٍ من الحدود بإستخدام مشتقاتها حول نقطة معينة مثل $x$. يعطى التمثيل الرياضي لها بالشكل 
+\[
+f(t) = \sum_{m=0}^{\infty} \frac{f^{(m)}(x)}{m!} (t-x)^m
+\]
+الآن بأخذ مؤثر برينستين للطر فين، نحصل على
+\[
+B_n(f(t);x) = B_n\left( \sum_{m=0}^{\infty} \frac{f^{(m)}(x)}{m!} (t-x)^m;x\right)
+\]
+الآن بما ان مؤثر برينستين هو مؤثر خطي نحصل على
+\[
+B_n(f(t);x) = \sum_{m=0}^{\infty} \frac{f^{(m)}(x)}{m!} B_n\left( (t-x)^m;x\right)
+\]
+ومن تعريف العزوم 
+\[
+B_n(f(t);x) = \sum_{m=0}^{\infty} \frac{f^{(m)}(x)}{m!} T_{n, m}(x)
+\]

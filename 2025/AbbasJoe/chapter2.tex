@@ -1,0 +1,511 @@
+\chapter{تطبيق طريقة التفاضل التربيعي لحل مسائل القيم الحدودية}
+
+\section[مقدمة]{مقدمة \LR{Introduction}}
+بعد أن بينّا في الفصل الأول كيفية الحصول على معاملات الوزن والفرق بين الطُرق الثلاثة وأيضاً بينّا طرق اختيار نقاط الشبكة. سوف نقوم في الفصل الثاني بتطبيق طريقة التفاضل التربيعي لحل المعادلات الجزئية على الشكل 
+\begin{equation}\label{eq:one_dim_diff_eq}
+	u_t=F(u,x,t,u_x,u_{xx})
+\end{equation}
+مع الشرط الإبتدائي $u(x,0)=g(x)$. حيث $g(x)$ دالة في $x$.
+\section{بعض الامثلة العددية}
+\begin{example}
+	لنحاول تطبيق التفاضل التربيعي على المعادلة 
+	\begin{equation}
+		\label{eq:firstex}
+		u_t = x^2 + \frac{1}{4} u_x^2
+	\end{equation}
+	مع الشرط الحدودي $u(x,0) = 0$. بتطبيق التفاضل التربيعي على المشتقة بالنسبة الى $x$ بواسطة الصيغة \eqref{eq:firstorderDQM} على نقاط الشبكة $x_1, x_2, \dots, x_N$ ، نحصل على
+	\begin{equation}
+		\label{eq:firstexapplied}
+		u_t (x_i, t) = x_i^2 + \frac{1}{4} \left[\sum_{j=1}^{N} a_{ij}^{(1)} u(x_j, t)\right]^2 , \quad i=1,2,\dots,N
+ 	\end{equation}
+ 	اصبح لدينا نظام مكون من $N$ من المعادلات التفاضلية الاعتيادية غير الخطية بالنسبة للمتغير المستقل $t$. سوف نستخدم طريقة رانج - كتا من الدرجة الرابعة (RK4) ، حيث نوجد الحل عند القيم $t_0, t_1, \dots, t_M$ بخطوة مقدارها $h$ حيث $t_{k+1} = t_k + h$ ، نفترض ان 
+ 	\[
+ 	\mathbf{u}_k = \langle u(x_1, t_k) , u(x_2,t_k), \dots, u(x_N, t_k)\rangle^T, \quad k=0,1,2,\dots,M
+ 	\]
+ 	\[
+ 	\mathbf{x} = \langle x_1, x_2, \dots, x_N\rangle^T
+ 	\]
+ 	الان نفرض ان
+ 	\[
+ 	G(t, \mathbf{u}) = \mathbf{x}.^2 + \frac{1}{4} (A \mathbf{u}).^2
+ 	\]
+ 	حيث $A$ مصفوفة معاملات الوزن $a_{ij}$ ، صيغة رانج كتا من الدرجة الرابعة تكون
+ 	\begin{equation}
+ 		\label{eq:firstexRK4}
+ 		\mathbf{u}_{k+1} = \mathbf{u}_k + \frac{k}{6} (\mathbf{k}_1+2\mathbf{k}_2+2\mathbf{k}_3+\mathbf{k}_4), \quad k=0,1,2,\dots,M-1
+ 	\end{equation}
+ 	حيث في كل خطوة $k$ نحسب
+\begin{equation}
+	 	\label{eq:RK4coeffs}
+ 	\begin{aligned}
+ 		&\mathbf{k}_1 = G(t_k, \mathbf{y})\\
+ 		&\mathbf{k}_2 = G\left(t_k + \frac{h}{2}, \mathbf{y}_k + \frac{h}{2}\mathbf{k}_1  \right)\\
+ 		&\mathbf{k}_3 = G\left(t_k + \frac{h}{2}, \mathbf{y}_k + \frac{h}{2}\mathbf{k}_2  \right)\\
+ 		&\mathbf{k}_4 = G(t_k + h, \mathbf{y} + h\mathbf{k}_3)
+ 	\end{aligned}
+\end{equation}
+ 	الآن نحدد $N=3, M=11, h=0.01 $ ، نعين اولاً معاملات الوزن من الصيغ \eqref{quan_chang_equations} نحصل على 
+ 	\[
+ 	A = 
+\begin{bmatrix}
+	-3 & 4 & -1 \\
+	-1 & 0 & 1 \\
+	1 & -4 & 3 \\
+\end{bmatrix}
+ 	\]
+ 	الآن نجد نقاط الشبكة متساوية المسافة من خلال الصيغة \eqref{eq:equally_spaced_points}، نجد
+ 	\[
+ 	x_1 = 0, x_2 = 0.5, x_3 = 1
+ 	\]
+ 	وعند ايجاد نقاط الشبكة غير متساوية المسافة بواسطة الصيغة \eqref{eq:lobatto-points} نجد ان النقاط مطابقة للنقاط متساوية المسافة، الآن نعوض نقاط الشبكة ومعاملات الوزن في \eqref{eq:firstexapplied} ونكمل الحل بطريقة رانج كتا من الدرجة الرابعة ، نبين النتائج في الجدول \ref{tab:firstN3} حيث يبين القيمة الدقيقة لحل المعادلة المتمثل بالدالة
+ 	 $u(x, t) = x^2 \tan(t)$ والخطأ المطلق لطريقة التفاضل التربيعي.
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{english}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$t$ & $x_i$ & Exact & Error\\
+			\hline
+			\multirow{3}{*}{0.1}  & $x_1$ & 0.00000000  & $0$ \\
+			& $x_2$ & 0.02508367  & $2.0752\times10^{-8}$ \\
+			& $x_3$ & 0.10033467  & $8.3007\times10^{-8}$ \\
+			\hline
+			\multirow{3}{*}{0.01} & $x_1$ & 0.00000000  & $0$ \\
+			& $x_2$ & 0.02508367  & $2.0752\times10^{-8}$ \\
+			& $x_3$ & 0.10033467  & $8.3007\times10^{-8}$ \\
+			\hline
+		\end{tabular}
+	\end{english}
+	\caption{مقارنة النتائج العددية مع التحليلية عندما $N=3$}
+		\label{tab:firstN3}
+\end{table}
+الآن عند نفس القيم $h=0.01, M=11 $ ، نأخذ $N=5$ ، نقاط الشبكة متساوية المسافة تكون
+\[
+x_1 = 0, x_2 =0.25, x_3 = 0.5 , x_4=0.75, x_5 =1
+\]
+و نقاط الشبكة غير متساوية المسافة
+\[
+           x_1= 0,x_2=      0.14645   ,  x_3=     0.5, x_4=      0.85355   , x_5=   1
+\]
+ومعاملات الوزن تكون
+\[
+\begin{bmatrix}
+	-8.3 & 16.0 & -12.0 & 5.3 & -1.0 \\
+	-1.0 & -3.3 & 6.0 & -2.0 & 0.3 \\
+	0.3 & -2.7 & 0.0 & 2.7 & -0.3 \\
+	-0.3 & 2.0 & -6.0 & 3.3 & 1.0 \\
+	1.0 & -5.3 & 12.0 & -16.0 & 8.3 \\
+\end{bmatrix}
+\]
+عند تعويض هذه القيم في المعادلة \eqref{eq:firstexapplied} واكمال الحل بخوارزمية رانج كتا من الدرجة الرابعة ، نبين النتائج في الجدول \ref{tab:firstN5} 
+	
+\begin{table}[ht]
+	\renewcommand{\arraystretch}{1.5}
+	\centering
+	\begin{english}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			\multirow{2}{*}{\( t \)} & \multirow{2}{*}{\( x_i \)} & \multicolumn{2}{c|}{Equally Spacing Points} & \multicolumn{2}{c|}{Unequally Spacing Points} \\
+			\cline{3-6}
+			& & Exact & Error & Exact & Error \\
+			\hline
+			\multirow{5}{*}{0.1} & \( x_1 \) & 0.00000000 & \( 0 \) & 0.00000000 & \( 0 \) \\
+			& \( x_2 \) & 0.00627092 & \( 5.1880 \times 10^{-9} \) & 0.00215184 & \( 1.7802 \times 10^{-9} \) \\
+			& \( x_3 \) & 0.02508367 & \( 2.0752 \times 10^{-8} \) & 0.02508367 & \( 2.0752 \times 10^{-8} \) \\
+			& \( x_4 \) & 0.05643825 & \( 4.6692 \times 10^{-8} \) & 0.07309917 & \( 6.0475 \times 10^{-8} \) \\
+			& \( x_5 \) & 0.10033467 & \( 8.3007 \times 10^{-8} \) & 0.10033467 & \( 8.3007 \times 10^{-8} \) \\
+			\hline
+			\multirow{5}{*}{0.01} & \( x_1 \) & 0.00000000 & \( 0 \) & 0.00000000 & \( 0 \) \\
+			& \( x_2 \) & 0.00062502 & \( 5.2081 \times 10^{-14} \) & 0.00021447 & \( 1.7871 \times 10^{-14} \) \\
+			& \( x_3 \) & 0.00250008 & \( 2.0833 \times 10^{-13} \) & 0.00250008 & \( 2.0833 \times 10^{-13} \) \\
+			& \( x_4 \) & 0.00562519 & \( 4.6873 \times 10^{-13} \) & 0.00728578 & \( 6.0710 \times 10^{-13} \) \\
+			& \( x_5 \) & 0.01000033 & \( 8.3330 \times 10^{-13} \) & 0.01000033 & \( 8.3330 \times 10^{-13} \) \\
+			\hline
+		\end{tabular}
+	\end{english}
+	\caption{\centering مقارنة النتائج العددية عند نقاط الشبكة متساوية المسافة وعند نقاط الشبكة غير متساوية المسافة عندما $N=5$}
+	\label{tab:firstN5}
+\end{table}
+\noindent
+الآن عندما $N=7$ ، نجد نقاط الشبكة متساوية المسافة 
+\[
+x_1 = 0, x_2 = 0.1667, x_3 = 0.3333, x_4 = 0.5, x_5 = 0.6667, x_6 = 0.8333, x_7 = 1
+\]
+اما نقاط الشبكة غير متساوية المسافة 
+\[
+x_1 = 0, x_2 = 0.067, x_3 = 0.25, x_4 = 0.5, x_5 = 0.75, x_6 = 0.933, x_7 = 1
+\]
+ومعاملات الوزن 
+\[
+\begingroup
+\small
+\begin{bmatrix}
+	-14.7 & 36.0 & -45.0 & 40.0 & -22.5 & 7.2 & -1.0 \\
+	-1.0 & -7.7 & 15.0 & -10.0 & 5.0 & -1.5 & 0.2 \\
+	0.2 & -2.4 & -3.5 & 8.0 & -3.0 & 0.8 & -0.1 \\
+	-0.1 & 0.9 & -4.5 & -0.0 & 4.5 & -0.9 & 0.1 \\
+	0.1 & -0.8 & 3.0 & -8.0 & 3.5 & 2.4 & -0.2 \\
+	-0.2 & 1.5 & -5.0 & 10.0 & -15.0 & 7.7 & 1.0 \\
+	1.0 & -7.2 & 22.5 & -40.0 & 45.0 & -36.0 & 14.7 \\
+\end{bmatrix}
+\endgroup
+\]
+بطريقة مشابهة نعوض هذه القيم في المعادلة \eqref{eq:firstexapplied} ونكمل الحل برانج كتا من الدرجة الرابعة ، نبين النتائج في الجدول \ref{tab:firstN7} 
+	\begin{table}[ht]
+	\renewcommand{\arraystretch}{1.5}
+	\centering
+	\begin{english}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			\multirow{2}{*}{\( t \)} & \multirow{2}{*}{\( x_i \)} & \multicolumn{2}{c|}{Equally Spacing Points} & \multicolumn{2}{c|}{Unequally Spacing Points} \\
+			\cline{3-6}
+			& & Exact & Error & Exact & Error \\
+			\hline
+			\multirow{7}{*}{0.1} & \( x_1 \) & 0.00000000 & \( 0 \) & 0.00000000 & \( 0 \) \\
+			& \( x_2 \) & 0.00278707 & \( 2.3058 \times 10^{-9} \) & 0.00045023 & \( 3.7248 \times 10^{-10} \) \\
+			& \( x_3 \) & 0.01114830 & \( 9.2230 \times 10^{-9} \) & 0.00627092 & \( 5.1880 \times 10^{-9} \) \\
+			& \( x_4 \) & 0.02508367 & \( 2.0752 \times 10^{-8} \) & 0.02508367 & \( 2.0752 \times 10^{-8} \) \\
+			& \( x_5 \) & 0.04459319 & \( 3.6892 \times 10^{-8} \) & 0.05643825 & \( 4.6692 \times 10^{-8} \) \\
+			& \( x_6 \) & 0.06967686 & \( 5.7644 \times 10^{-8} \) & 0.08734261 & \( 7.2259 \times 10^{-8} \) \\
+			& \( x_7 \) & 0.10033467 & \( 8.3007 \times 10^{-8} \) & 0.10033467 & \( 8.3007 \times 10^{-8} \) \\
+			\hline
+			\multirow{7}{*}{0.01} & \( x_1 \) & 0.00000000 & \( 0 \) & 0.00000000 & \( 0 \) \\
+			& \( x_2 \) & 0.00027779 & \( 2.3147 \times 10^{-14} \) & 0.00004487 & \( 3.7393 \times 10^{-15} \) \\
+			& \( x_3 \) & 0.00111115 & \( 9.2589 \times 10^{-14} \) & 0.00062502 & \( 5.2081 \times 10^{-14} \) \\
+			& \( x_4 \) & 0.00250008 & \( 2.0833 \times 10^{-13} \) & 0.00250008 & \( 2.0833 \times 10^{-13} \) \\
+			& \( x_5 \) & 0.00444459 & \( 3.7036 \times 10^{-13} \) & 0.00562519 & \( 4.6873 \times 10^{-13} \) \\
+			& \( x_6 \) & 0.00694468 & \( 5.7868 \times 10^{-13} \) & 0.00870542 & \( 7.2540 \times 10^{-13} \) \\
+			& \( x_7 \) & 0.01000033 & \( 8.3330 \times 10^{-13} \) & 0.01000033 & \( 8.3330 \times 10^{-13} \) \\
+			\hline
+		\end{tabular}
+	\end{english}
+	\caption{\centering مقارنة النتائج العددية عند نقاط الشبكة متساوية المسافة وعند نقاط الشبكة غير متساوية المسافة عندما $N=7$}
+	\label{tab:firstN7}
+\end{table}
+\noindent
+أخيراً نأخذ $N=9$ ، نجد نقاط الشبكة متساوية المسافة
+\begin{multline*}
+	x_1 = 0, x_2 = 0.125, x_3 = 0.25, x_4 = 0.375,\\ x_5 = 0.5, x_6 = 0.625, x_7 = 0.75, x_8 = 0.875, x_9 = 1
+\end{multline*}
+ونقاط الشبكة غير متساوية المسافة
+\begin{multline*}
+	x_1 = 0, x_2 = 0.0381, x_3 = 0.1464, x_4 = 0.3087,\\ x_5 = 0, x_6 = 0.6913, x_7 = 0.8536, x_8 = 0.9619, x_9 = 1
+\end{multline*}
+ومعاملات الوزن تكون
+\[
+\begingroup\small
+\begin{bmatrix}
+	-21.7 & 64.0 & -112.0 & 149.3 & -140.0 & 89.6 & -37.3 & 9.1 & -1.0 \\
+	-1.0 & -12.7 & 28.0 & -28.0 & 23.3 & -14.0 & 5.6 & -1.3 & 0.1 \\
+	0.1 & -2.3 & -7.6 & 16.0 & -10.0 & 5.3 & -2.0 & 0.5 & -0.0 \\
+	-0.0 & 0.6 & -4.0 & -3.6 & 10.0 & -4.0 & 1.3 & -0.3 & 0.0 \\
+	0.0 & -0.3 & 1.6 & -6.4 & -0.0 & 6.4 & -1.6 & 0.3 & -0.0 \\
+	-0.0 & 0.3 & -1.3 & 4.0 & -10.0 & 3.6 & 4.0 & -0.6 & 0.0 \\
+	0.0 & -0.5 & 2.0 & -5.3 & 10.0 & -16.0 & 7.6 & 2.3 & -0.1 \\
+	-0.1 & 1.3 & -5.6 & 14.0 & -23.3 & 28.0 & -28.0 & 12.7 & 1.0 \\
+	1.0 & -9.1 & 37.3 & -89.6 & 140.0 & -149.3 & 112.0 & -64.0 & 21.7 \\
+\end{bmatrix}
+\endgroup
+\]
+نجد النتائج في الجدول \ref{tab:firstN9} 
+	\begin{table}[ht]
+	\renewcommand{\arraystretch}{1.5}
+	\centering
+	\begin{english}
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			\multirow{2}{*}{\( t \)} & \multirow{2}{*}{\( x_i \)} & \multicolumn{2}{c|}{Equally Spacing Points} & \multicolumn{2}{c|}{Unequally Spacing Points} \\
+			\cline{3-6}
+			& & Exact & Error & Exact & Error \\
+			\hline
+			\multirow{9}{*}{0.1} & \( x_1 \) & 0.00000000 & \( 0 \) & 0.00000000 & \( 0 \) \\
+			& \( x_2 \) & 0.00156773 & \( 1.2970 \times 10^{-9} \) & 0.00014534 & \( 1.2024 \times 10^{-10} \) \\
+			& \( x_3 \) & 0.00627092 & \( 5.1880 \times 10^{-9} \) & 0.00215184 & \( 1.7802 \times 10^{-9} \) \\
+			& \( x_4 \) & 0.01410956 & \( 1.1673 \times 10^{-8} \) & 0.00955888 & \( 7.9081 \times 10^{-9} \) \\
+			& \( x_5 \) & 0.02508367 & \( 2.0752 \times 10^{-8} \) & 0.02508367 & \( 2.0752 \times 10^{-8} \) \\
+			& \( x_6 \) & 0.03919323 & \( 3.2425 \times 10^{-8} \) & 0.04795529 & \( 3.9674 \times 10^{-8} \) \\
+			& \( x_7 \) & 0.05643825 & \( 4.6692 \times 10^{-8} \) & 0.07309917 & \( 6.0475 \times 10^{-8} \) \\
+			& \( x_8 \) & 0.07681873 & \( 6.3552 \times 10^{-8} \) & 0.09284249 & \( 7.6809 \times 10^{-8} \) \\
+			& \( x_9 \) & 0.10033467 & \( 8.3007 \times 10^{-8} \) & 0.10033467 & \( 8.3007 \times 10^{-8} \) \\
+			\hline
+			\multirow{9}{*}{0.01} & \( x_1 \) & 0.00000000 & \( 0 \) & 0.00000000 & \( 0 \) \\
+			& \( x_2 \) & 0.00015626 & \( 1.3020 \times 10^{-14} \) & 0.00001449 & \( 1.2071 \times 10^{-15} \) \\
+			& \( x_3 \) & 0.00062502 & \( 5.2081 \times 10^{-14} \) & 0.00021447 & \( 1.7871 \times 10^{-14} \) \\
+			& \( x_4 \) & 0.00140630 & \( 1.1718 \times 10^{-13} \) & 0.00095273 & \( 7.9389 \times 10^{-14} \) \\
+			& \( x_5 \) & 0.00250008 & \( 2.0833 \times 10^{-13} \) & 0.00250008 & \( 2.0833 \times 10^{-13} \) \\
+			& \( x_6 \) & 0.00390638 & \( 3.2551 \times 10^{-13} \) & 0.00477969 & \( 3.9828 \times 10^{-13} \) \\
+			& \( x_7 \) & 0.00562519 & \( 4.6873 \times 10^{-13} \) & 0.00728578 & \( 6.0710 \times 10^{-13} \) \\
+			& \( x_8 \) & 0.00765651 & \( 6.3800 \times 10^{-13} \) & 0.00925359 & \( 7.7108 \times 10^{-13} \) \\
+			& \( x_9 \) & 0.01000033 & \( 8.3330 \times 10^{-13} \) & 0.01000033 & \( 8.3330 \times 10^{-13} \) \\
+			\hline
+		\end{tabular}
+	\end{english}
+	\caption{\centering مقارنة النتائج العددية عند نقاط الشبكة متساوية المسافة وعند نقاط الشبكة غير متساوية المسافة عندما $N=9$}
+	\label{tab:firstN9}
+\end{table}
+\newpage
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			tick align=outside,
+			tick label style={font=\small},
+			width=13cm,
+			height=11cm,
+			legend pos=north west,
+			legend style={font=\small}
+			]
+			\addplot[red, mark=o, thick] table {DATA/firstDQM0.1N5.txt};
+			\addlegendentry{DQM $t=0.1$}
+			\addplot[blue, mark=o, thick, dashed] table {DATA/firstExact0.1N5.txt};
+			\addlegendentry{Exact $t=0.1$}
+			\addplot[orange, mark=o, thick] table {DATA/firstDQM0.01N5.txt};
+			\addlegendentry{DQM $t=0.01$}
+			\addplot[cyan, mark=o, thick, dashed] table {DATA/firstExact0.01N5.txt};
+			\addlegendentry{Exact $t=0.01$}
+			
+		\end{axis}
+	\end{tikzpicture}
+	\caption{\centering يوضح مقارنة بين الحل التحليلي والحل العددي عندما $N=5$}
+	\label{fig:firstN5}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			tick align=outside,
+			tick label style={font=\small},
+			width=13cm,
+			height=11cm,
+			legend pos=north west,
+			legend style={font=\small}
+			]
+			\addplot[red, mark=o, thick] table {DATA/firstDQM0.1N9.txt};
+			\addlegendentry{DQM $t=0.1$}
+			\addplot[blue, mark=o, thick, dashed] table {DATA/firstExact0.1N9.txt};
+			\addlegendentry{Exact $t=0.1$}
+			\addplot[orange, mark=o, thick] table {DATA/firstDQM0.01N9.txt};
+			\addlegendentry{DQM $t=0.01$}
+			\addplot[cyan, mark=o, thick, dashed] table {DATA/firstExact0.01N9.txt};
+			\addlegendentry{Exact $t=0.01$}
+			
+		\end{axis}
+	\end{tikzpicture}
+	\caption{\centering يوضح مقارنة بين الحل التحليلي والحل العددي عندما $N=9$}
+	\label{fig:firstN9}
+\end{figure}
+\end{example}
+\newpage
+\begin{example}
+لنحاول ايجاد حل للمعادلة 
+\begin{equation}
+	\label{eq:secondex}
+u_t + u u_x = x
+\end{equation}
+مـــــــع الشـــــــــرط الحــــــدودي $u(x, 0) = 2$ ، هذه المـــــعادلــــة تــمـــتــلك الحــــــــل الدقيــــق\\ $u(x,t) = 2\sech(t) + x\tanh(t)$،
+نطبق صيغة التفاضل التربيعي على المشتقة بالنسبة الى $x$ على المعادلة \eqref{eq:secondex} من اجل نقاط الشبكة $x_1, x_2, \dots, x_N$ ، نجد
+\begin{equation}
+	\label{eq:secondexapplied}
+	u_t(x_i, t) = - u(x_i, t) \sum_{j=1}^{N} a_{ij}^{(1)} u(x_j, t) + x_i, \quad i=1,2,\dots,N
+\end{equation}
+كما في المثال الاول ، نكمل الحل بطريقة رانج كتا من الدرجة الرابعة RK4 ،
+للقيم $t_0, t_1, \dots, t_M$ ، من اجل ذلك نفرض
+\[
+G(t, \mathbf{u}) = - \mathbf{u}(A\mathbf{u}) + \mathbf{x} 
+\]
+حيث $A$ مصفوفة معاملات الوزن من  الرتبة الاولى و
+$\mathbf{x}= \langle x_1, \dots, x_N\rangle$ ، صيغة رانج كتا تكون 
+ 	\begin{equation}
+	\label{eq:secondexRK4}
+	\mathbf{u}_{k+1} = \mathbf{u}_k + \frac{k}{6} (\mathbf{k}_1+2\mathbf{k}_2+2\mathbf{k}_3+\mathbf{k}_4), \quad k=0,1,2,\dots,M-1
+\end{equation}
+حيث يتم حساب المعاملات المتجهة 
+$\mathbf{k}_1, \mathbf{k}_2, \mathbf{k}_3, \mathbf{k}_4$ من خلال الصيغ في \eqref{eq:RK4coeffs}\\
+قبل اكمال الحل ، نلاحظ ان نقاط الشبكة متساوية المسافة ونقاط الشبكة غير متساوية المسافة وكذلك معاملات الوزن لا تعتمد على شكل المعادلة التفاضلية وانما فقط على قيمة $N$ لذلك يمكننا الاستعانة بالمثال 2 - 1 لكي نستخدم نقاط الشبكة ومعاملات الوزن\\
+الان نحدد $M=11, h=0.01 $ ونجد الحل من اجل القيم $N=3,5,7,9 $ ، النتائج المبينة في الجداول 
+\ref{tab:secondN3} ، \ref{tab:secondN5} ، \ref{tab:secondN7} ، \ref{tab:secondN9}
+\newpage
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.5}
+	\begin{english}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$t$ & $x_i$ & Exact & Error\\
+			\hline
+			\multirow{3}{*}{0.1}  & $x_1$ & 1.99004150  & $1.8168\times10^{-8}$ \\
+			& $x_2$ & 2.03987550  & $6.0004\times10^{-8}$ \\
+			& $x_3$ & 2.08970949  & $1.0184\times10^{-7}$ \\
+			\hline
+			\multirow{3}{*}{0.01} & $x_1$ & 1.99004150  & $1.8168\times10^{-8}$ \\
+			& $x_2$ & 2.03987550  & $6.0004\times10^{-8}$ \\
+			& $x_3$ & 2.08970949  & $1.0184\times10^{-7}$ \\
+			\hline
+		\end{tabular}
+	\end{english}
+	\caption{مقارنة النتائج العددية مع التحليلية عندما $N=3$}
+	\label{tab:secondN3}
+\end{table}
+
+	\begin{table}[H]
+		\renewcommand{\arraystretch}{1.5}
+		\centering
+		\begin{english}
+\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			\multirow{2}{*}{\( t \)} & \multirow{2}{*}{\( x_i \)} & \multicolumn{2}{c|}{Equally Spacing Points} & \multicolumn{2}{c|}{Unequally Spacing Points} \\
+			\cline{3-6}
+			& & Exact & Error & Exact & Error \\
+			\hline
+			\multirow{5}{*}{0.1} & \( x_1 \) & 1.99004150 & \( 1.8168 \times 10^{-8} \) & 1.99004150 & \( 1.8168 \times 10^{-8} \) \\
+			& \( x_2 \) & 2.01495850 & \( 3.9086 \times 10^{-8} \) & 2.00463754 & \( 3.0422 \times 10^{-8} \) \\
+			& \( x_3 \) & 2.03987550 & \( 6.0004 \times 10^{-8} \) & 2.03987550 & \( 6.0004 \times 10^{-8} \) \\
+			& \( x_4 \) & 2.06479249 & \( 8.0922 \times 10^{-8} \) & 2.07511345 & \( 8.9587 \times 10^{-8} \) \\
+			& \( x_5 \) & 2.08970949 & \( 1.0184 \times 10^{-7} \) & 2.08970949 & \( 1.0184 \times 10^{-7} \) \\
+			\hline
+			\multirow{5}{*}{0.01} & \( x_1 \) & 1.99990000 & \( 1.7986 \times 10^{-14} \) & 1.99990000 & \( 1.8208 \times 10^{-14} \) \\
+			& \( x_2 \) & 2.00239992 & \( 2.2604 \times 10^{-13} \) & 2.00136442 & \( 1.4033 \times 10^{-13} \) \\
+			& \( x_3 \) & 2.00489984 & \( 4.3476 \times 10^{-13} \) & 2.00489984 & \( 4.3476 \times 10^{-13} \) \\
+			& \( x_4 \) & 2.00739975 & \( 6.4304 \times 10^{-13} \) & 2.00843525 & \( 7.2964 \times 10^{-13} \) \\
+			& \( x_5 \) & 2.00989967 & \( 8.5132 \times 10^{-13} \) & 2.00989967 & \( 8.5132 \times 10^{-13} \) \\
+			\hline
+		\end{tabular}
+\end{english}
+	\caption{\centering مقارنة النتائج العددية عند نقاط الشبكة متساوية المسافة وعند نقاط الشبكة غير متساوية المسافة عندما $N=5$}
+\label{tab:secondN5}
+\end{table}
+	
+	
+	\begin{table}[H]
+		\renewcommand{\arraystretch}{1.5}
+		\centering
+		\begin{english}
+\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			\multirow{2}{*}{\( t \)} & \multirow{2}{*}{\( x_i \)} & \multicolumn{2}{c|}{Equally Spacing Points} & \multicolumn{2}{c|}{Unequally Spacing Points} \\
+			\cline{3-6}
+			& & Exact & Error & Exact & Error \\
+			\hline
+			\multirow{7}{*}{0.1} & \( x_1 \) & 1.99004150 & \( 1.8168 \times 10^{-8} \) & 1.99004150 & \( 1.8168 \times 10^{-8} \) \\
+			& \( x_2 \) & 2.00665283 & \( 3.2114 \times 10^{-8} \) & 1.99671799 & \( 2.3773 \times 10^{-8} \) \\
+			& \( x_3 \) & 2.02326416 & \( 4.6059 \times 10^{-8} \) & 2.01495850 & \( 3.9086 \times 10^{-8} \) \\
+			& \( x_4 \) & 2.03987550 & \( 6.0004 \times 10^{-8} \) & 2.03987550 & \( 6.0004 \times 10^{-8} \) \\
+			& \( x_5 \) & 2.05648683 & \( 7.3950 \times 10^{-8} \) & 2.06479249 & \( 8.0922 \times 10^{-8} \) \\
+			& \( x_6 \) & 2.07309816 & \( 8.7895 \times 10^{-8} \) & 2.08303300 & \( 9.6235 \times 10^{-8} \) \\
+			& \( x_7 \) & 2.08970949 & \( 1.0184 \times 10^{-7} \) & 2.08970949 & \( 1.0184 \times 10^{-7} \) \\
+			\hline
+			\multirow{7}{*}{0.01} & \( x_1 \) & 1.99990000 & \( 1.7097 \times 10^{-14} \) & 1.99990000 & \( 1.7764 \times 10^{-14} \) \\
+			& \( x_2 \) & 2.00156662 & \( 1.5721 \times 10^{-13} \) & 2.00056985 & \( 7.3719 \times 10^{-14} \) \\
+			& \( x_3 \) & 2.00323323 & \( 2.9576 \times 10^{-13} \) & 2.00239992 & \( 2.2649 \times 10^{-13} \) \\
+			& \( x_4 \) & 2.00489984 & \( 4.3476 \times 10^{-13} \) & 2.00489984 & \( 4.3476 \times 10^{-13} \) \\
+			& \( x_5 \) & 2.00656645 & \( 5.7332 \times 10^{-13} \) & 2.00739975 & \( 6.4304 \times 10^{-13} \) \\
+			& \( x_6 \) & 2.00823306 & \( 7.1232 \times 10^{-13} \) & 2.00922982 & \( 7.9536 \times 10^{-13} \) \\
+			& \( x_7 \) & 2.00989967 & \( 8.5043 \times 10^{-13} \) & 2.00989967 & \( 8.5132 \times 10^{-13} \) \\
+			\hline
+		\end{tabular}
+\end{english}
+	\caption{\centering مقارنة النتائج العددية عند نقاط الشبكة متساوية المسافة وعند نقاط الشبكة غير متساوية المسافة عندما $N=7$}
+\label{tab:secondN7}
+\end{table}
+
+	
+	\begin{table}[H]
+		\renewcommand{\arraystretch}{1.5}
+		\centering
+		\begin{english}
+\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+			\multirow{2}{*}{\( t \)} & \multirow{2}{*}{\( x_i \)} & \multicolumn{2}{c|}{Equally Spacing Points} & \multicolumn{2}{c|}{Unequally Spacing Points} \\
+			\cline{3-6}
+			& & Exact & Error & Exact & Error \\
+			\hline
+			\multirow{9}{*}{0.1} & \( x_1 \) & 1.99004150 & \( 1.8168 \times 10^{-8} \) & 1.99004150 & \( 1.8169 \times 10^{-8} \) \\
+			& \( x_2 \) & 2.00250000 & \( 2.8627 \times 10^{-8} \) & 1.99383489 & \( 2.1353 \times 10^{-8} \) \\
+			& \( x_3 \) & 2.01495850 & \( 3.9086 \times 10^{-8} \) & 2.00463754 & \( 3.0422 \times 10^{-8} \) \\
+			& \( x_4 \) & 2.02741700 & \( 4.9545 \times 10^{-8} \) & 2.02080485 & \( 4.3994 \times 10^{-8} \) \\
+			& \( x_5 \) & 2.03987550 & \( 6.0004 \times 10^{-8} \) & 2.03987550 & \( 6.0004 \times 10^{-8} \) \\
+			& \( x_6 \) & 2.05233399 & \( 7.0463 \times 10^{-8} \) & 2.05894614 & \( 7.6014 \times 10^{-8} \) \\
+			& \( x_7 \) & 2.06479249 & \( 8.0922 \times 10^{-8} \) & 2.07511345 & \( 8.9587 \times 10^{-8} \) \\
+			& \( x_8 \) & 2.07725099 & \( 9.1381 \times 10^{-8} \) & 2.08591611 & \( 9.8656 \times 10^{-8} \) \\
+			& \( x_9 \) & 2.08970949 & \( 1.0184 \times 10^{-7} \) & 2.08970949 & \( 1.0184 \times 10^{-7} \) \\
+			\hline
+			\multirow{9}{*}{0.01} & \( x_1 \) & 1.99990000 & \( 1.7764 \times 10^{-14} \) & 1.99990000 & \( 1.8874 \times 10^{-14} \) \\
+			& \( x_2 \) & 2.00114996 & \( 1.2212 \times 10^{-13} \) & 2.00028059 & \( 4.9738 \times 10^{-14} \) \\
+			& \( x_3 \) & 2.00239992 & \( 2.2604 \times 10^{-13} \) & 2.00136442 & \( 1.4033 \times 10^{-13} \) \\
+			& \( x_4 \) & 2.00364988 & \( 3.3085 \times 10^{-13} \) & 2.00298648 & \( 2.7534 \times 10^{-13} \) \\
+			& \( x_5 \) & 2.00489984 & \( 4.3476 \times 10^{-13} \) & 2.00489984 & \( 4.3476 \times 10^{-13} \) \\
+			& \( x_6 \) & 2.00614980 & \( 5.3868 \times 10^{-13} \) & 2.00681319 & \( 5.9419 \times 10^{-13} \) \\
+			& \( x_7 \) & 2.00739975 & \( 6.4304 \times 10^{-13} \) & 2.00843525 & \( 7.2919 \times 10^{-13} \) \\
+			& \( x_8 \) & 2.00864971 & \( 7.4696 \times 10^{-13} \) & 2.00951908 & \( 8.1979 \times 10^{-13} \) \\
+			& \( x_9 \) & 2.00989967 & \( 8.5043 \times 10^{-13} \) & 2.00989967 & \( 8.5176 \times 10^{-13} \) \\
+			\hline
+		\end{tabular}
+\end{english}
+	\caption{\centering مقارنة النتائج العددية عند نقاط الشبكة متساوية المسافة وعند نقاط الشبكة غير متساوية المسافة عندما $N=9$}
+\label{tab:secondN9}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+				tick align=outside,
+			tick label style={font=\small},
+			width=13cm,
+			height=11cm,
+			legend pos=north west,
+			legend style={font=\small}
+			]
+			\addplot[red, mark=o, thick] table {DATA/secondDQM0.1N5.txt};
+			\addlegendentry{DQM $t=0.1$}
+			\addplot[blue, mark=o, thick, dashed] table {DATA/secondExact0.1N5.txt};
+			\addlegendentry{Exact $t=0.1$}
+			\addplot[orange, mark=o, thick] table {DATA/secondDQM0.01N5.txt};
+			\addlegendentry{DQM $t=0.01$}
+			\addplot[cyan, mark=o, thick, dashed] table {DATA/secondExact0.01N5.txt};
+			\addlegendentry{Exact $t=0.01$}
+			
+		\end{axis}
+	\end{tikzpicture}
+	\caption{\centering يوضح مقارنة بين الحل التحليلي والحل العددي عندما $N=5$}
+\label{fig:secondN5}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+				tick align=outside,
+			tick label style={font=\small},
+			width=13cm,
+			height=11cm,
+			legend pos=north west,
+			legend style={font=\small}
+			]
+			\addplot[red, mark=o, thick] table {DATA/secondDQM0.1N9.txt};
+			\addlegendentry{DQM $t=0.1$}
+			\addplot[blue, mark=o, thick, dashed] table {DATA/secondExact0.1N9.txt};
+			\addlegendentry{Exact $t=0.1$}
+			\addplot[orange, mark=o, thick] table {DATA/secondDQM0.01N9.txt};
+			\addlegendentry{DQM $t=0.01$}
+			\addplot[cyan, mark=o, thick, dashed] table {DATA/secondExact0.01N9.txt};
+			\addlegendentry{Exact $t=0.01$}
+			
+		\end{axis}
+	\end{tikzpicture}
+	\caption{\centering يوضح مقارنة بين الحل التحليلي والحل العددي عندما $N=9$}
+\label{fig:secondN9}
+\end{figure}
+\end{example}
+\newpage
+\section{مناقشة النتائج}
+في هذا البند سوف نناقش النتائج العددية التي حصلنا عليها من خلال تطبيق التفاضل التربيعي على الامثلة في البند السابق من حيث القيمة المطلقة للفرق بين القيمة الدقيقة والقيمة المُقربة بالتفاضل التربيعي. 
+
+طُبقت طريقة التفاضل التربيعي مع توزيع النقاط متساوية المسافة والنقاط غير متساوية المسافة ، واستعملنا الخطوة الزمنية \LR{(time step)} $h=0.01$ وللنقاط $N=3, N=5, N=7, N=9$ ، وكانت النتائج العددية متطابقة الى حد كبير مع الحل التحليلي (الدقيق) وهذا ما تأكده الرسوم البيانية (\ref{fig:firstN5} ، \ref{fig:firstN9} ، \ref{fig:secondN5} ، \ref{fig:secondN9}). حيث نرى ان الفرق كاد لا يذكر في الرسم. ومن خلال الجداول للحلول العددية التي حصلنا عليها (الجداول
+\ref{tab:firstN3}, \ref{tab:firstN5}, \ref{tab:firstN7}, \ref{tab:firstN9}
+, \ref{tab:secondN3}, \ref{tab:secondN5}, \ref{tab:secondN7}, \ref{tab:secondN9}
+)
+نلاحظ ان طريقة التفاضل التربيعي مستقرة الى حد كبير ، حيث نرى ان مقدار الخطأ مستقر مع زيادة قيمة $N$. كما يمكن رؤية ان اختيار نقاط الشبكة اثر على النتائج ولكن بشكل طفيف الى حد ما ، ومن المعروف ان لطريقة رانج كتا من الدرجة الرابعة افضلية على طريقة الفروقات المحددة (انظر \cite{finite_difference})وهذا يفسر دقة النتائج وتقاربها رغم اختلاف نقاط الشبكة.
+
+

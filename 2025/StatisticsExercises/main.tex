@@ -1,0 +1,477 @@
+\documentclass[14pt, a4paper, leqno]{extarticle}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{tcolorbox}
+\usepackage{pgfplots}
+\usepackage{cancel, forest}
+\usepackage{polyglossia}
+
+\setmainlanguage[numerals=western]{arabic}
+\newfontfamily{\arabicfont}[Script=Arabic]{Times New Roman}
+\setotherlanguage{english}
+
+\usepackage[T1]{fontenc}
+\usepackage{times}
+
+\newcommand{\en}{\textenglish}
+\newcommand{\ar}{\textarabic}
+
+\usepackage[lite, subscriptcorrection, zswash]{mtpro2}
+
+\DeclareMathSymbol{0}{\mathalpha}{operators}{`0}
+\DeclareMathSymbol{1}{\mathalpha}{operators}{`1}
+\DeclareMathSymbol{2}{\mathalpha}{operators}{`2}
+\DeclareMathSymbol{3}{\mathalpha}{operators}{`3}
+\DeclareMathSymbol{4}{\mathalpha}{operators}{`4}
+\DeclareMathSymbol{5}{\mathalpha}{operators}{`5}
+\DeclareMathSymbol{6}{\mathalpha}{operators}{`6}
+\DeclareMathSymbol{7}{\mathalpha}{operators}{`7}
+\DeclareMathSymbol{8}{\mathalpha}{operators}{`8}
+\DeclareMathSymbol{9}{\mathalpha}{operators}{`9}
+
+
+\newcommand{\mybinom}[2]{\biggl(\genfrac{}{}{0pt}{}{#1}{#2}\biggr)}
+\everydisplay{\let\binom\mybinom}
+
+\newtheoremstyle{theoremstyle}
+{\topsep}
+{\topsep}
+{\normalfont}
+{}
+{\bfseries}
+{\vspace{5pt}\\}
+{.5ex}  
+{#1 #2 \textbf{#3}}
+
+\theoremstyle{theoremstyle}
+\newtheorem{example}{تمرين}
+
+\input{mtpro2-patch.tex}
+
+\tcolorboxenvironment{example}{
+    colback={\ifodd\value{example} green!15!white\else red!15!white\fi},
+	boxrule=0pt,
+	boxsep=1pt,
+	left=2pt,right=2pt,top=2pt,bottom=2pt,
+	oversize=2pt,
+	sharp corners,
+	before skip=\topsep,
+	after skip=\topsep,
+}
+
+\newenvironment{solution}{\noindent\textbf{الحل}\vspace{3pt}\\}{}
+
+\renewcommand{\sin}{\text{sin}}
+\renewcommand{\cos}{\text{cos}}
+\renewcommand{\tan}{\text{tan}}
+\renewcommand{\sec}{\text{sec}}
+\renewcommand{\csc}{\text{csc}}
+\renewcommand{\cot}{\text{cot}}
+
+% Redefine other math operators
+\renewcommand{\log}{\text{log}}
+\renewcommand{\ln}{\text{ln}}
+\renewcommand{\exp}{\text{exp}}
+\renewcommand{\det}{\text{det}}
+\renewcommand{\gcd}{\text{gcd}}
+\renewcommand{\lim}{\text{lim}}
+
+\begin{document}
+	
+	
+	\section*{مسائل و تمارين}
+	
+	%%%%%%example 1%%%%%%
+	\begin{example}
+		\en{Five digit number is formed using digits 1, 3, 5, 7 and 9 without repeating any one of them. What is the sum of all such possible numbers?}
+	\end{example}
+	
+	\begin{solution}
+		المطلوب ان نجمع كل الاعداد المتكونة من 5 مراتب و المختارة من الاعداد الفردية 1,3,5,7,9 بدون تكرار
+		\begin{align*}
+		(5-1)! \times (1+3+5+7+9) &\times (1+10+100+1000+10000)  \\
+		& = 24 \times 25 \times 11111  = 6666600
+		\end{align*}
+	\end{solution}
+	%%%%%%
+	
+	%%%%%%example 2%%%%%%
+	\begin{example}
+		\en{If 2 red cards and 2 black cards are lying on a table face down, find the probability of guessing their color correctly.}
+	\end{example}
+	
+	\begin{solution}
+		هناك 4 بطاقات 2 منها حمراء و 2 سوداء موضوعة على طاولة و وجها الى الاسفا (اي لا يمكن رؤية الالوان) و المطلوب احتمالية تخمين الالوان الصحيحة. نجد اولاً عدد طرق ترتيب البطاقات على الطاولة:
+		\[
+		\frac{n!}{n_1! \times n_2!} = \frac{4!}{2!\times 2!} = 6
+		\]
+		اي لدينا 6 تخمينات واحدة منها صحيحة اي ان
+		\[
+		p = \frac{1}{6}
+		\]
+	\end{solution}
+	%%%%%%
+	
+	%%%%%%example 3%%%%%%
+	\begin{example}
+		\en{A bag contains 100 tickets numbered 1, 2, ..., 100. If one ticket is picked at random, what is the probability that the number on the ticket is divisible by 2 or 3?}
+	\end{example}
+	
+	\begin{solution}
+		حقيبة تحتوي على تذاكر مرقمة 100,...,1,2 و التجربة هي اختيار بطاقة من الحقيبة بشكل عشوائي. المطلوب هي احتمالية الرقم الظاهر هو قابل للقسمة على 2 او 3\\
+ليكن \(A\) الحدث حيث العدد يقبل القسمة على 2 و \(B\) الحدث حيث العدد يقبل القسمة على 3. المطلوب \(P(A\cup B)\) 
+    \[
+    P(A\cup B) = P(A) + P(B) - P(A \cap B)
+    \]
+    عدد الاعداد التي تقبل القسمة على 2 يساوي \(100/2=50\) و عدد الاعداد التي تقل القسمة على 3 يساوي \(100/3=33.3=33\) اي ان
+    \[
+    P(A) = \frac{50}{100} = 0.5, \quad P(B) = \frac{33}{100} = 0.33
+    \]
+    \(A\cap B\) هو الحدث حيث العدد يقبل القسمة على 2 و 3 اي يقبل القسمة على 6. عدد الاعداد التي تقبل القسمة على 6 يساوي \(100/6=18.3=18\)
+    \[
+    P(A\cap B) = \frac{18}{100} = 0.18
+    \]
+    اذن
+    \[
+    P(A\cup B) = 0.5 + 0.33 - 0.18 = 0.65
+    \]
+	\end{solution}
+	%%%%%%
+	
+	%%%%%%example 4%%%%%%
+	\begin{example}
+		\en{If \(A\) and \(B\) are two events such that \(P(A) = 0.4\), \(P(A|B) = 0.6\) and \(P(B|A) = 0.3\), find \(P(B)\).}
+	\end{example}
+	
+	\begin{solution}
+		حسب مبرهنة بيس \en{\bfseries Bayes' Theorem}:
+		\[
+		P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}
+		\]
+		اذن
+		\[
+		P(B) = \frac{P(B|A) \cdot P(A)}{P(A|B)} = \frac{0.3 \times 0.4}{0.6} = 0.2
+		\]
+	\end{solution}
+	%%%%%%
+	
+	%%%%%%example 5%%%%%%
+	\begin{example}
+		\en{Three bags of the same appearance have the following proportion of balls: 2 black and 1 white in bag-I, 1 black and 2 white in bag-II, and 2 black and 2 white in bag-III. One of the bags is selected and one ball is drawn at random. If that turns out to be white, what is the probability of drawing white balls again if the first one drawn is not replaced?}
+	\end{example}
+		
+		\begin{solution}
+			لدينا 3 حقائب. الحقيبة الاولى فيها 2 كرة سوداء و 1 كرة بيضاء و الحقيبة الثانية فيها 1 كرة سوداء و 2 كرة بيضاء. و الحقيبة الثالثة فيها 2 كرة سوداء و 2 كرة بيضاء. التجربة هي اختيار حقيبة عشوائياً و سحب كرة منها. اذا كانت الكرة هي بيضاء ما احتمالية سحب كرة بيضاء اخرى:
+			\begin{center}
+			\begin{forest}
+				for tree = {l sep=15mm, s sep = 15mm}
+				[
+				[Bag-I, edge label={node[midway,above] {$\frac{1}{3}$}}
+				[B, edge label={node[midway,above] {$\frac{2}{3}$}}]
+			    [W, edge label={node[midway,above] {$\frac{1}{3}$}}
+			    [B, edge label={node[midway,above] {$1$}}]
+			    [W, edge label={node[midway,above] {$0$}}]
+			    ]
+				]
+				[Bag-II, edge label={node[midway,left] {$\frac{1}{3}$}}
+				[B, edge label={node[midway,above] {$\frac{1}{3}$}}]
+				[W, edge label={node[midway,above] {$\frac{2}{3}$}}
+				[B, edge label={node[midway,above] {$\frac{1}{2}$}}]
+				[W, edge label={node[midway,above] {$\frac{1}{2}$}}]
+				]
+				]
+				[Bag-III, edge label={node[midway,above] {$\frac{1}{3}$}}
+				[B, edge label={node[midway,above] {$\frac{2}{4}$}}]
+				[W, edge label={node[midway,above] {$\frac{2}{4}$}}
+				[B, edge label={node[midway,above] {$\frac{2}{3}$}}]
+				[W, edge label={node[midway,above] {$\frac{1}{3}$}}]
+				]
+				]
+				]
+			\end{forest}
+		\end{center}
+		\[
+		p = 0\cdot\frac{1}{3}\cdot\frac{1}{3} + \frac{1}{2}\cdot\frac{2}{3}\cdot\frac{1}{3} + \frac{1}{3}\cdot\frac{2}{4}\cdot\frac{1}{3} = \frac{1}{9} + \frac{1}{18} = \frac{1}{6}
+		\]
+		\end{solution}
+	%%%%%%
+	
+	%%%%%%example 6%%%%%%
+	\begin{example}
+		\en{How many ways can a set \(X\) containing 10 elements be partitioned into two cells?}
+	\end{example}
+	
+	\begin{solution}
+		لدينا المجموعة \(X\) تحتوي على 10 عناصر المطلوب عدد طرق تقسيم المجموعة الى مجموعتين
+        \begin{enumerate}
+			\item الاحتمال الاول احدى المجموعتين تحتوي على عنصر واحد. \(\binom{10}{1}=10\)
+			\item الاحتمال الثاني احدى المجموعتين تحتوي على عنصرين. \(\binom{10}{2}=45\)
+			\item الاحتمال الثالث احدى المجموعتين تحتوي على  3 عناصر. \(\binom{10}{3}=120\)
+			\item الاحتمال الرابع احدى المجموعتين تحتوي على  4 عناصر. \(\binom{10}{4}=210\)
+			\item الاحتمال الخامس احدى المجموعتين تحتوي على  5 عناصر. \(\binom{10}{5}=252\)
+		\end{enumerate}
+		لا توجد حالات اخرى لان لو قلنا احدى المجموعتين تحتوي على 6 عناصر فإن الاخرى سوف تحتوي على 4 عناصر و هذه الحالة غطيناها. اذن
+		\[
+		\textit{Ans} = \binom{10}{1} + \binom{10}{2} + \binom{10}{3} + \binom{10}{4} + \binom{10}{5} = 637
+		\]
+	\end{solution}
+	%%%%%%
+	
+	%%%%%%example 7%%%%%%
+	\begin{example}
+		\en{There are 3 questions in a question paper. If the questions have 4, 3, and 2 solutions respectively, find the total number of solutions.}
+	\end{example}
+	
+	\begin{solution}
+		لدينا 3 اسئلة. اذا كانت الاسئلة تمتلك 4,3,2 اجوبة على التوالي. ما مجموع عدد الاجوبة
+		\[
+		\textit{Ans} = 4\times 3 \times 2 = 24
+		\]
+	\end{solution}
+	%%%%%%
+	
+	%%%%%%example 8%%%%%%
+	\begin{example}
+		\en{Find the number of arrangements of the letters of the word \\INDEPENDENCE. In how many of these arrangements, (i) do all the vowels always occur together, (ii) do the vowels never occur together?}
+	\end{example}
+	
+	\begin{solution}
+		لدينا الكلمة INDEPENDENCE و المطلوب ايجاد عدد التباديل للكلمة في حالتين: (i) كل احرف العلة تتواجد معاً، (ii) حروف العلة منفصلة عن بعضها، اولاً نجد عدد التباديل بدون قيود بإستخدام القانون
+		\[
+		\frac{n!}{n_1! \times n_2! \times \dots \times n_k!}
+		\]
+		لان لدينا تكرار في الاحرف حيث \(n=12\) و: \\
+		الحرف I مكرر مرة واحدة، اي ان \(n_1=1\) \\
+		الحرف P مكرر مرة واحدة، اي ان \(n_2=1\) \\
+		الحرف N مكرر 3 مرات، اي ان \(n_3=3\) \\
+		الحرف D مكرر مرتان، اي ان \(n_4=2\) \\
+		الحرف E مكرر 4 مرات، اي ان \(n_5 = 4\) \\
+		الحرف C مكرر مرة واحدة، اي ان \(n_6=1\). اي ان:
+		\[
+		\frac{12!}{1!\times 1!\times 3!\times 2!\times 4!\times 1!} = 1663200
+		\]
+		(i) لدينا 5 احرف علة في الكلمة  و هي: \en{I,E,E,E,E} يجب ان نعامل هذه الاحرف كجزء واحد لان المطلوب ان بكونوا معاً. مع الاحرف البقية \en{N,N,N,D,D,P,C} التي عددها 7 يكون لدينا \(n=8\)
+	\[
+	\frac{8!}{1!\times 1!\times 2!\times 3!} = 3360
+	\]
+	اما عدد التباديل لاحرف العلة فقط 
+	\[
+	\frac{5!}{4!} = 5
+	\]
+	اذن  الحل النهائي
+	\[
+	\textit{Ans} = 5 \times 3360 = 16800
+	\]
+	(ii) لايجاد المطلوب هنا نطرح عدد التباديل الكلية و عدد التباديل في الفرع (i)
+	\[
+	1663200 - 16800 = 1646400
+	\]
+	\end{solution}
+	%%%%%%
+	
+	%%%%%%example 9%%%%%%
+	\begin{example}
+		\en{A student has to answer 10 questions, choosing at least 4 from each of Parts A and B. If there are 6 questions in Part A and 7 in Part B, in how many ways can the student choose 10 questions?}
+	\end{example}
+	
+	\begin{solution}
+		طالب يجب ان يجيب على 10 اسئلة. على الاقل 4 اسئلة من كلا الجزئين، اذا كان الجزء  A يحوي 6 و الجزء B يحوي على 7. كم طريقة يمكن للطالب ان يجيب على 10 اسئلة
+		\begin{align*}
+		\textit{Ans} &= \binom{6}{4}\binom{7}{6} + \binom{6}{5}\binom{7}{5}+\binom{6}{6}\binom{7}{4}\\
+		& = \binom{6}{2}\binom{7}{1} + \binom{6}{1}\binom{7}{2}+1\cdot\binom{7}{3}\\
+		& = \frac{6\times 2}{2\times1}\cdot\frac{7}{1} + \frac{6}{1}\cdot\frac{7\times6}{2\times 1}+\frac{7\times6\times5}{3\times2\times1} = 266
+	\end{align*}
+	\end{solution}
+	%%%%%%
+	
+	%%%%%%example 10%%%%%%
+	\begin{example}
+		\en{In a hand of poker, 5 cards are dealt from a regular pack of 52 cards. In how many of these hands are there four of the same kind?}
+	\end{example}
+	
+	\begin{solution}
+		لدينا حزمة من بطاقات اللعب (52 بطاقة) و تم سحب 5 بطاقات منها. بكم طريقة يمكن ان يكون لدينا 4 بطاقات من نفس النوع\\
+		لدينا 13 تصنيف: \en{Ace, 2, 3, ...,10, Jack, Queen, King}\\
+		اذن عدد طرق اختيار النوع الذي سوف يتكرر 4 مرات يساوي 13\\
+		عدد طرق تحديد البطاقة الخامسة يكون 12\\
+		\[
+		\textit{Ans} = 13 \times 12 \times 4 = 624
+		\]
+	\end{solution}
+	%%%%%%
+	
+	%%%%%%example 11%%%%%%
+	\begin{example}
+		\en{Suppose an urn contains 8 balls. What is the number of ordered samples of size 3 with replacement?}
+	\end{example}
+	
+	\begin{solution}
+		اناء يحوي 8 كرات ما هو عدد العينات من ثلاث كرات مع الارجاع (اي اذا تم سحب كرة نقوم بإرجاعها)
+		\[
+		\textit{Ans} = 8^3 = 512
+		\]
+	\end{solution}
+	%%%%%%
+	
+	%%%%%%example 12%%%%%%
+	\begin{example}
+		\en{In how many ways can 5 children be arranged in a line such that two particular children of them are never together?}
+	\end{example}
+	
+	\begin{solution}
+		كم طريقة يمكن ترتيب 5 اطفال بحيث 2 منهم لا يكونا معاً أبداً\\
+		اولاً نحسب عدد التباديل بدون شروط
+		\[
+		5! = 120
+		\]
+		الآن نحسب عدد التباديل بحيث هذان الطفلان معاً
+		\[
+		4! \times 2! = 24 \times 2 = 48
+		\]
+		التباديل مع الشرط
+		\[
+		\textit{Ans} = 120 - 48 = 72
+		\]
+	\end{solution}
+	%%%%%%
+	
+	%%%%%%example 13%%%%%%
+	\begin{example}
+		\en{Two digits are selected at random from the digits 1 through 9. If the sum is even, find the probability that both numbers are odd.}
+	\end{example}
+	
+	\begin{solution}
+		تجربة اختيار رقمين بشكل عشوائي من الارقام من 1 الى 9. اذا كان مجموعهما عدد زوجي، ما هي احتمالية كون الرقمين فرديان\\
+		عدد طرق اختيار رقمين
+		\[
+		\binom{9}{2} = \frac{9\times 8}{2\times 1} = 36
+		\]
+		عدد طرق اختيار عددان فرديان
+		\[
+		\binom{5}{2} = \frac{5\times 4}{2\times1} = 10
+		\]
+		اذن عدد طرق اختيار رقمين مجموعهما عدد زوجي يساوي \(6+10=16\). ااذن احتمالية ان الرقمين فرديان:
+		\[
+		p = \frac{10}{36} = \frac{5}{18}
+		\]
+	\end{solution}
+	%%%%%%
+	
+	%%%%%%example 14%%%%%%
+	\begin{example}
+		\en{Find the value of \(n\) such that \(\dfrac{P^n_4}{P^{n-1}_4} = \dfrac{5}{3}\), \(n > 4\).}
+	\end{example}
+	
+	\begin{solution}
+		نكتب القانون اولاً:
+		\[
+		P^n_r = \frac{n!}{(n-r)!}
+		\]
+		اذن 
+		\[
+		\frac{P^n_4}{P^{n-1}_4} = \frac{n!/(n-4)!}{(n-1)!/(n-5)!} = \frac{n!(n-5)!}{(n-1)!(n-4)!}
+		\]
+		نبيسط باستخدام خواص المضروب \(n!=n(n-1)!\) و \((n-4)!=(n-4)(n-5)!\) اذن:
+		\[
+		\frac{P^n_4}{P^{n-1}_4} = \frac{n\cancel{(n-1)!(n-5)!}}{\cancel{(n-1)!}(n-4)\cancel{(n-5)!}} = \frac{n}{n-4} = \frac{5}{3}
+		\]
+		طرفين بوسطين:
+		\[
+		3n = 5n - 20 \Rightarrow 2n = 20 \Rightarrow n = 10
+ 		\]
+	\end{solution}
+	%%%%%%
+	
+	%%%%%%example 15%%%%%%
+	\begin{example}
+		\en{A question paper consists of 10 questions divided into two parts A and B. Each part contains five (5) questions. A candidate is required to attempt six (6) questions in all of which at least 2 should be from part A and at least 2 from part B. How many ways can the candidate select the questions if he can answer all questions equally well?}
+	\end{example}
+	
+	\begin{solution}
+		مشابه لسؤال 9 حيث هنا يجب ان يجيب الطالب على الاقل 2 سؤال من كل جزءو يجب ان يجيب على 6 اسئلة كمجموع
+		\begin{align*}
+		\textit{Ans} &= \binom{5}{2}\binom{5}{4} + \binom{5}{3}\binom{5}{3} + \binom{5}{4}\binom{5}{2} \\
+		&= \binom{5}{2}\binom{5}{1} + \binom{5}{2}\binom{5}{2} + \binom{5}{1}\binom{5}{2}\\
+		& = \frac{5\times 4}{2\times1} \cdot\frac{5}{1} +  \frac{5\times 4}{2\times1} \cdot\frac{5\times 4}{2\times 1} + \frac{5}{1} \cdot\frac{5\times4}{2\times1}  \\
+		&= 50 + 100 + 50 = 200 \,\,\textit{ways} 
+		\end{align*}
+	\end{solution}
+	%%%%%%
+	
+	%%%%%%example 16%%%%%%
+	\begin{example}
+		\en{If \(A\) and \(B\) are two independent events with both having probability \(p\) and \(P(A \cup B) = \alpha\), find the value of \(p\).}
+	\end{example}
+	
+	\begin{solution}
+		لدينا حدثان مستقلان \(A,B\) و \(P(A) = P(B) = p\) و كذلك معطى ان \(P(A\cup B) = \alpha\). من القانون:
+		\[
+		P(A\cup B) = P(A) + P(B) - P(A \cap B)
+		\]
+		نستخدم الاستقلالية \(P(A\cap B) = P(A)P(B)\) و المعطيات
+		\[
+		\alpha = p+p - p^2 \Rightarrow p^2-2p+\alpha = 0
+		\]
+		بالدستور:
+		\[
+		p = \frac{2\pm\sqrt{4-4\alpha}}{2} = 1\pm \sqrt{1-\alpha}
+		\]
+	\end{solution}
+	%%%%%%
+	
+	%%%%%%example 17%%%%%%
+	\begin{example}
+		\en{If \(A\) and \(B\) are two events of sample space such that \(A \subset B\), find \(P(B|A)\).}
+	\end{example}
+	
+	\begin{solution}
+		قانون الاحتمالية الشرطية:
+		\[
+		P(B|A) = \frac{P(A\cap B)}{P(A)} = \frac{P(A)}{P(A)} = 1
+		\]
+		لان هنا \(A\subset B\) يؤدي الى ان \(A\cap B = A\)
+	\end{solution}
+	%%%%%%
+	
+	%%%%%%example 18%%%%%%
+	\begin{example}
+		\en{If two points \(x\) and \(y\) are selected at random such that \(0\leq x \leq 3\) and \(-2 \leq y \leq 0\), what is the probability that the distance between \(x\) and \(y\) is greater than 3?}
+	\end{example}
+	
+	\begin{solution}
+		\[
+		d = |x-y| > 3 \Rightarrow x-y > 3 \,\, \text{or} \,\, y-x > 3
+		\]
+		
+		\begin{center}
+			\begin{tikzpicture}
+				\begin{axis}[
+					axis lines=middle,
+					legend style={at={(0,1)}, anchor=south east},
+					width=8cm,
+					height=8cm,
+					xlabel=\(x\),
+					ylabel=\(y\),
+					xtick={3},
+					ytick={-2},
+					xmin=-1, xmax=4,
+					ymin=-3, ymax=1
+					]
+					\addplot[color=red] {x+3};
+					\addplot[color=magenta, thick]{x-3};
+					\addlegendentry{$y=x-3$};
+					\addplot[fill=blue, opacity=0.3] coordinates{(0,-2) (3,-2) (3,0) (0,0) (0,-2)};
+					\node at (axis cs:1.5,-1) {$A_1$};
+					\node at (axis cs: 2,-1.8) {$A_2$};
+					\node at (axis cs: 1.4,-2.2) {$(1,-2)$};
+					\node at (axis cs: 3.4,-2.2) {$(3,-2)$};
+				\end{axis}
+			\end{tikzpicture}
+		\end{center}
+
+		\[
+         p = \frac{\text{\en{Area of $A_2$}}}{\text{\en{Area of $A_1$}}} = \frac{\dfrac{1}{2}(2)(2)}{(3)(2)} = \frac{1}{3}
+		\]
+	\end{solution}
+	%%%%%%
+\end{document}

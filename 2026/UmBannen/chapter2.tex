@@ -1,0 +1,899 @@
+\chapter{حل المعادلات التفاضلية بمعادلتي برنولي وريكاتي}
+
+\section{معادلة برنولي التفاضلية \en{Bernoulli's Differential Equation}}
+تعد معادلة برنولي واحدة من اشهر المعادلات المستخدمة لحل نوع خاص من المعادلات التفاضلية غير الخطية ، والتي تسمى بمعادلة برنولي ، تكمن اهمية هذه المعادلة في تحويل المعادلة من شكلها المعقد غير الخطي الى شكل خطي مألوف يمكن حله.
+
+\subsection*{الصيغة الاساسية}
+تأخذ معادلة برنولي الشكل التالي
+
+\begin{equation}
+	\label{eq:bernoulli}
+	\frac{dy}{dx} + P(x) y = Q(x) y^n
+\end{equation}
+حيث ان:
+\begin{itemize}
+	\item $P(x)$ و $Q(x)$ دوال في $x$.
+	\item $n$ عدد حقيقي. 
+\end{itemize}
+
+\begin{note}
+	اذا كانت قيمة $n=0,1 $ فأن المعادلة \eqref{eq:bernoulli} 
+تصبح خطية.
+\[
+\text{if}\quad n=0 
+\]
+\[
+\frac{dy}{dx} + P(x) y = Q(x)
+\]
+\[
+\text{if}\quad n=1 
+\]
+\[
+\frac{dy}{dx} + P(x) y = Q(x) y \implies \frac{dy}{dx} + \Big[P(x) - Q(x)\Big] y = 0
+\]
+\end{note}
+
+\begin{example}[\cite{diff_eqs_its_apps}]
+	لنأخذ مثالاً عندما $n=0 $ ، ولتكن المعادلة 
+\[
+\frac{dy}{dx} + \frac{1}{x} =x
+\]
+\end{example}
+\begin{solution}
+	هذه المعادلة خطية يمكن حلها بإيجاد عامل التكامل لها
+	\[
+	\mu(x) = e^{\int \frac{1}{x} dx} = e^{\ln x} = x
+	\]
+	اذن الحل العام يكون بالشكل
+	\[
+	\mu(x) y = \int \mu(x)\cdot x \, dx
+	\]
+	بالتعويض عن $\mu(x)$
+	\[
+	xy = \int x^2 \, dx = \frac{x^3}{3} + C
+	\]
+	حيث $C$ ثابت اخيتاري ، الآن بالقسمة على $x$ للطرفين
+	\[
+	y = \frac{x^2}{3} + \frac{C}{x}
+	\]
+\end{solution}
+
+\begin{example}[\cite{diff_eqs_its_apps}]
+	الآن نأخذ مثالاً على الحالة $n=1 $ ، ولتكن المعادلة 
+	\[
+	\frac{dy}{dx} + e^x y = \sin(x) y
+	\]
+\end{example}
+\begin{solution}
+	يمكننا نقل الحد $e^x y$ الى الطرف الآخر
+	\[
+	\frac{dy}{dx} = \sin(x) y - e^x y
+	\]
+	بأخذ $y$ عامل مشترك
+	\[
+	\frac{dy}{dx} = \Big[\sin x - e^x\Big] y
+	\]
+	يمكننا استخدام طريقة فصل المتغيرات لحل هذه المعادلة
+	\[
+	\frac{dy}{y} = (\sin x - e^x) dx
+	\]
+	بتكامل الطرفين
+	\[
+	\int \frac{dy}{y} = \int (\sin x - e^x) dx
+	\]
+	ينتج
+	\[
+	\ln y = -\cos x - e^x + C
+	\]
+	حيث $C$ ثابت اختياري.
+\end{solution}
+
+\newpage
+\subsection*{اشتقاق معادلة برنولي}
+لحل المعادلات من نوع برنولي التي تكون من الشكل
+\[
+\frac{dy}{dx} + P(x) y = Q(x) y^n \tag{1}
+\]
+ نتبع الخطوات التالية:
+\begin{enumerate}[label=$\bullet$]
+	\item نقسم طرفي المعادلة \eqref{eq:bernoulli} على $y^n$ لتصبح
+	\begin{equation}
+		\label{eq:bernoullidiv}
+		y^{-n} \frac{dy}{dx} + P(x) y^{1-n}= Q(x)
+	\end{equation}
+	
+	\item نفرض ان 
+	\begin{equation}
+		\label{eq:bernoullisub}
+		z=y^{1-n}
+	\end{equation}
+	\item نشتق طرفي الفرضية \eqref{eq:bernoullisub} بالنسبة الى $x$ مع استعمال قاعدة السلسلة لنحصل على 
+	\[
+	\frac{dz}{dx} = (1-n)y^{-n} \frac{dy}{dx}
+	\]
+	\begin{equation}
+		\label{eq:bernoullider}
+		 y^{-n}\frac{dy}{dx} = \frac{1}{1-n}\frac{dz}{dx}
+	\end{equation}
+	
+	\item نعوض \eqref{eq:bernoullisub} و \eqref{eq:bernoullider} في \eqref{eq:bernoullidiv} لنحصل على 
+	\begin{equation*}
+		\frac{1}{1-n} \frac{dz}{dx} + P(x) z = Q(x)
+	\end{equation*}
+	
+	\item نضرب طرفي المعادلة بــــ $1-n$
+	\begin{equation}
+		\label{eq:bernoulilinear}
+		\frac{dz}{dx} + (1-n)P(x) \, z = (1-n)Q(x)
+	\end{equation}
+	 
+
+	\item نلاحظ ان المعادلة \eqref{eq:bernoulilinear} خطية في $z$ ، يتم حلها بإيجاد عامل التكامل
+	\[
+	\mu(x) = \exp\left(\int (1-n)\, P(x) \, dx\right)
+	\]
+	
+	\item اذن حل المعادلة \eqref{eq:bernoulilinear} يصبح
+	\[
+	\mu(x) z = \int (1-n)\, \mu(x) Q(x) \, dx
+	\]
+	\item استبدال $z$ بــ $y^{1-n}$ نحصل على حل المعادلة \eqref{eq:bernoulli}
+	\[
+	\mu(x) y^{1-n} = \int \mu(x) Q(x)\, dx
+	\]
+\end{enumerate}
+\newpage
+\setcounter{example}{0}
+\setcounter{equation}{0}
+\begin{example}[\cite{diff_eqs_its_apps}]
+	اوجد حل المعادلة 
+	\[
+	\frac{dy}{dx} + \frac{1}{x} y = xy^2
+	\]
+	مع الشرط $y(1) = 1 $
+\end{example}
+\begin{solution}
+	هنا المعادلة تمثل معادلة برنولي مع $n=2 $ ، اولاً نقسم طرفي المعادلة على $y^2 $ ، لتصبح
+	\begin{equation}
+		\label{eq:example1div}
+		y^{-2} \frac{dy}{dx} + \frac{1}{x} y^{-1} = x
+	\end{equation}
+	الآن ، نفرض
+	\begin{equation}
+		\label{eq:example1sub}
+		z=y^{-1}
+	\end{equation}
+	ونشتق هذه الفرضية بالنسبة الى $x$
+	\begin{equation}
+		\label{eq:example1der}
+		\frac{dz}{dx} =  -y^{-2} \frac{dy}{dx}
+	\end{equation}
+	الآن ، نعوض الفرضية \eqref{eq:example1sub} ومشتقتها \eqref{eq:example1der} في المعادلة \eqref{eq:example1div} لنحصل على 
+	\[
+	-\frac{dz}{dx} + \frac{1}{x} z =x
+	\]
+	\begin{equation}
+		\label{eq:example1linear}
+		\frac{dz}{dx} - \frac{1}{x} z = -x
+	\end{equation}
+	وهذه معادلة خطية ، نقوم بإيجاد عامل التكامل لها
+	\[
+	\mu(x) = e^{\int -\frac{1}{x} dx} = e^{-\ln x} = e^{\ln x^{-1}} = x^{-1} = \frac{1}{x}
+	\]
+	اذن حل المعادلة \eqref{eq:example1linear} يصبح
+	\begin{align*}
+		\mu(x) z = \int -x \cdot \mu(x) dx\\
+		\Rightarrow \frac{z}{x} = \int -x \cdot \frac{1}{x} dx\\
+		\frac{z}{x} = \int (-1) dx = -x + C\\
+		\Rightarrow z = -x^2 + Cx
+	\end{align*}
+	نقوم بأرجاع الفرضية \eqref{eq:example1sub} لنحصل على حل المعادلة الاصلية
+	\[
+	y^{-1} = -x^2 + Cx \Rightarrow y = \frac{1}{-x^2 + Cx}
+	\]
+	الآن لكي نحصل على الحل الخاص نستخدم الشرط $y(1) = 1 $ 
+	\[
+	1= \frac{1}{-1^2 + C(1)} \Rightarrow C-1=1\Rightarrow C=2
+	\]
+	اذن الحل الخاص يكون 
+	\[
+	y = \frac{1}{-x^2 + 2x}
+	\]
+\end{solution}
+\setcounter{equation}{0}
+\begin{example}[\cite{diff_eqs_its_apps}]
+	اوجد حل المعادلة 
+	\[
+	\frac{dy}{dx} + y = e^{x}\sin x \, y^3
+	\]
+	اذا كان $y(0)=1$.
+\end{example}
+
+\begin{solution}
+	هنا المعادلة تمثل معادلة برنولي حيث $n=3$ ، أولاً نقسم طرفي المعادلة على $y^3$ ، فنحصل على
+	\begin{equation}
+		\label{eq:ex3div}
+		y^{-3}\frac{dy}{dx} + y^{-2} = e^{x}\sin x
+	\end{equation}
+	الآن نفرض
+	\begin{equation}
+		\label{eq:ex3sub}
+		z = y^{-2}
+	\end{equation}
+	ونشتق هذه الفرضية بالنسبة الى $x$
+	\begin{equation}
+		\label{eq:ex3der}
+		\frac{dz}{dx} = -2 y^{-3}\frac{dy}{dx}
+	\end{equation}
+	ومنها
+	\[
+	y^{-3}\frac{dy}{dx} = -\frac{1}{2}\frac{dz}{dx}
+	\]
+	نعوض المعادلتين 
+	\eqref{eq:ex3sub} و \eqref{eq:ex3der} في المعادلة \eqref{eq:ex3div} فنحصل على
+	\[
+	-\frac{1}{2}\frac{dz}{dx} + z = e^{x}\sin x
+	\]
+	وبضرب طرفي المعادلة في $-2$ نحصل على
+	\begin{equation}
+		\label{eq:ex3linear}
+		\frac{dz}{dx} - 2z = -2 e^{x}\sin x
+	\end{equation}
+	وهذه معادلة خطية ، عامل التكامل لها
+	\[
+	\mu(x) = e^{\int -2 dx} = e^{-2x}
+	\]
+	اذن
+	\begin{align*}
+		e^{-2x} z &= \int -2 e^{x}\sin x \, e^{-2x} dx \\
+		&= \int -2 e^{-x}\sin x \, dx
+	\end{align*}وباستخدام التكامل بالأجزاء مرتين نحصل على:
+	\begin{align*}
+	I &= \int e^{-x}\sin x \, dx
+	\end{align*}
+	نأخذ في المرة الأولى:
+	\[
+	u = \sin x , \quad dv = e^{-x} dx
+	\]
+	إذن
+	\[
+	du = \cos x \, dx , \quad v = -e^{-x}
+	\]
+	وبالتالي
+	\begin{align*}
+	I &= uv - \int v \, du \\
+	&= (-e^{-x}\sin x) - \int (-e^{-x}\cos x)\, dx \\
+	&= -e^{-x}\sin x + \int e^{-x}\cos x \, dx
+	\end{align*}
+	لنضع
+	\[
+	J = \int e^{-x}\cos x \, dx
+	\]
+	نطبق التكامل بالأجزاء مرة ثانية:
+	\[
+	u = \cos x , \quad dv = e^{-x} dx
+	\]
+	إذن
+	\[
+	du = -\sin x \, dx , \quad v = -e^{-x}
+	\]
+	وبالتالي
+	\begin{align*}
+	J &= uv - \int v \, du \\
+	&= (-e^{-x}\cos x) - \int (-e^{-x})(-\sin x)\, dx \\
+	&= -e^{-x}\cos x - \int e^{-x}\sin x \, dx \\
+	&= -e^{-x}\cos x - I
+	\end{align*}
+	نرجع إلى العلاقة الأولى:
+	\begin{align*}
+	I &= -e^{-x}\sin x + J \\
+	&= -e^{-x}\sin x + (-e^{-x}\cos x - I)
+	\end{align*}
+	إذن
+	\[
+	I = -e^{-x}\sin x - e^{-x}\cos x - I
+	\]
+	ومنها
+	\[
+	2I = -e^{-x}(\sin x + \cos x)
+	\]
+	وبالتالي
+	\[
+	I = \frac{-e^{-x}}{2}(\sin x + \cos x)
+	\]
+	أي
+	\[
+	\int e^{-x}\sin x \, dx
+	= \frac{e^{-x}}{2}(-\sin x - \cos x)
+	\]
+	اذن
+	\[
+	e^{-2x} z
+	= e^{-x}(\sin x + \cos x) + C
+	\]
+	ومنها
+	\[
+	z = e^{x}(\sin x + \cos x) + C e^{2x}
+	\]
+	وبالرجوع الى الفرضية \eqref{eq:ex3sub}
+	\[
+	y^{-2} = e^{x}(\sin x + \cos x) + C e^{2x}
+	\]
+	الآن نستخدم الشرط الابتدائي $y(0)=1$ لإيجاد $C$.
+	عند $x=0$ يكون
+	\[
+	1^{-2} = e^{0}(\sin 0 + \cos 0) + C e^{0}
+	\]
+	\[
+	1 = 1(0 + 1) + C \Rightarrow C = 0
+	\]
+	اذن الحل الخاص يصبح
+	\[
+	y^{-2} = e^{x}(\sin x + \cos x)
+	\]
+	\[
+	\Rightarrow y = \frac{1}{\sqrt{\,e^{x}(\sin x + \cos x)\,}}
+	\]
+\end{solution}
+\setcounter{equation}{0}
+\section{معادلة ريكاتي التفاضلية \en{Ricatti's Differential Equation}}
+تعتبر معادلة ريكاتي حالة خاصة لمعادلة برنولي ، السر في معادلة ريكاتي هو انها لا تحل مباشرة الا اذا عرفنا حلا خاصاً لها. بمجرد الحصول على هذا الحل ، تتحول المعادلة الى معادلة خطية.
+
+\subsection*{الصيغة الاساسية}
+تكون الصيغة العامة لمعادلة ريكاتي بالشكل 
+\begin{equation}
+	\label{eq:recatti}
+	\frac{dy}{dx} = P(x) + Q(x) y + R(x) y^2
+\end{equation}
+
+\subsection*{اشتقاق المعادلة}
+لكي نتمكن من حل معادلة ريكاتي ، يجب ان يكون لدينا حل خاص لها مثل $y_1(x)$ يحقق المعادلة \eqref{eq:recatti} ، الآن نتبع الخطوات التالية
+\begin{enumerate}[label=$\bullet$]
+	\item نفرض ان الحل يكون بالشكل 
+	\begin{equation}
+		\label{eq:recattisub}
+		y = y_1 + \frac{1}{u}
+	\end{equation}
+	حيث ان 
+	$u$ دالة جديدة (في $x$) نبحث عنها.
+	\item نقوم بإشتقاق الفرضية \eqref{eq:recattisub}
+	\begin{equation}
+		\label{eq:recattider}
+		\frac{dy}{dx} = \frac{dy_1}{dx} - \frac{1}{u^2} \frac{du}{dx}
+	\end{equation}
+	\item نعوض الفرضية \eqref{eq:recattisub} ومشتقتها \eqref{eq:recattider} في المعادلة \eqref{eq:recatti} لنحصل على
+	\[
+	\frac{dy_1}{dx} - \frac{1}{u^2} \frac{du}{dx} = P(x) + Q(x) \left[y_1 + \frac{1}{u}\right] + R(x) \left[y_1 + \frac{1}{u}\right]^2
+	\]
+	نقوم بفتح الاقواس من خلال التوزيع ومفكوك مربع الحدانية :
+	\[
+	\frac{dy_1}{dx} - \frac{1}{u^2} \frac{du}{dx} = P(x) + Q(x) y_1 + \frac{Q(x)}{u} + R(x) \left[y_1^2 + \frac{2y_1}{u} + \frac{1}{u^2}\right]
+	\]
+	نوزع الضرب على الجمع ، نحصل على 
+	\begin{equation}
+		\label{eq:recattiprog}
+		\begin{split}
+		\frac{dy_1}{dx} - \frac{1}{u^2} \frac{du}{dx} = P(x) + Q(x) y_1 + \frac{Q(x)}{u}+ R(x) y_1^2 + R(x)\frac{2y_1}{u} + \frac{R(x)}{u^2}
+		\end{split}
+	\end{equation}
+	الآن ، بما ان $y_1 $ هو حل للمعادلة \eqref{eq:recatti} اذن
+	\[
+	\frac{dy_1}{dx} = P(x) + Q(x) y + R(x) y^2
+	\]
+	اذن يمكننا اختزال المعادلة \eqref{eq:recattiprog} الى
+	\[
+	- \frac{1}{u^2} \frac{du}{dx} =  \frac{Q(x)}{u}  + R(x)\frac{2y_1}{u} + R(x)\frac{1}{u^2}
+	\]
+	بضرب الطرفين بــ $u^2 $ ، نحصل على 
+	\[
+	- \frac{du}{dx} = Q(x) u + 2R(x)y_1 u + R(x)
+	\]
+	\begin{equation}
+		\label{eq:recattilinear}
+		\frac{du}{dx} + [Q(x) + 2R(x)y_1] u = -R(x)
+	\end{equation}
+	
+	\item المعادلة الناتجة \eqref{eq:recattilinear} معادلة خطية يمكن حلها من خلال ايجاد عامل التكامل 
+	\[
+	\mu(x) = \exp \left(\int Q(x) + 2R(x) y_1 \, dx\right)
+	\]
+	اذن الحل للمعادلة \eqref{eq:recattilinear} يصبح
+	\[
+	u\cdot \mu(x) = - \int \mu(x) R(x) \,dx
+	\]
+	\item الآن نرجع الفرضية \eqref{eq:recattisub} ، بما ان
+	\[
+	y = y_1 + \frac{1}{u} \Rightarrow u = \frac{1}{y-y_1}
+	\]
+	\item اذن الحل النهائي لمعادلة ريكاتي ، يصبح
+	\[
+	\frac{\mu(x)}{y-y_1} = - \int \mu(x) R(x) \,dx
+	\]
+\end{enumerate}
+
+\setcounter{example}{0}
+\setcounter{equation}{0}
+
+\newpage
+\begin{example}[\cite{diff_eqs_its_apps}]
+	حل المعادلة التفاضلية
+	\begin{equation}
+		\label{eq:rec1}
+		\frac{dy}{dx} = -\frac{1}{x^2} - \frac{1}{x} y + y^2
+	\end{equation}
+	مع العلم ان 
+	$y_1=\mfrac{1}{x}$ هو حل لها ، مع الشرط $y(1) = 2 $.
+\end{example}
+\begin{solution}
+	هذه المعادلة تمثل معادلة ريكاتي حيث
+	\[
+	P(x) = -\frac{1}{x^2}, \quad Q(x) =-\frac{1}{x} , \quad R(x) = 1 
+	\]
+	نفرض ان حل المعادلة بالشكل
+	\[
+	y = y_1 + \frac{1}{u}
+	\]
+	\begin{equation}
+		\label{eq:rec1sub}
+		y = \frac{1}{x} + \frac{1}{u}
+	\end{equation}
+	نشتق هذه الفرضية بالنسبة الى $x$:
+	\begin{equation}
+		\label{eq:rec1der}
+		\frac{dy}{dx} = -\frac{1}{x^2} - \frac{1}{u^2}\frac{du}{dx}
+	\end{equation}
+	نعوض 
+	\eqref{eq:rec1sub} و \eqref{eq:rec1der} في المعادلة \eqref{eq:rec1}
+	\[
+	-\frac{1}{x^2} - \frac{1}{u^2}\frac{du}{dx} = -\frac{1}{x^2} - \frac{1}{x} \left[\frac{1}{x} + \frac{1}{u}\right] + \left[\frac{1}{x} + \frac{1}{u}\right]^2
+	\]
+	نقوم بتوزيع الضرب على الجمع ونفتح مربع الحدانية في الطرف الايمن
+	\[
+	-\frac{1}{x^2} - \frac{1}{u^2}\frac{du}{dx}=
+	-\frac{1}{x^2}-\frac{1}{x^2} -\frac{1}{xu} + \frac{1}{x^2} + \frac{2}{xu} + \frac{1}{u^2}
+	\]
+	نلاحظ يمكننا ان نجمع الكسور ذات المقامات المتساوية ، نحصل على 
+	\[
+	-\frac{1}{x^2} - \frac{1}{u^2}\frac{du}{dx}=
+	\frac{-1-1+1}{x^2} + \frac{-1+2}{xu} + \frac{1}{u^2} 
+	\]
+	\[
+	\cancel{-\frac{1}{x^2}} - \frac{1}{u^2}\frac{du}{dx}=
+	\cancel{-\frac{1}{x^2}} + \frac{1}{xu} + \frac{1}{u^2}
+	\]
+	\[
+	-\frac{1}{u^2}\frac{du}{dx} = \frac{1}{xu} + \frac{1}{u^2}
+	\]
+	نضرب طرفي المعادلة بــ  $u^2 $ ، نحصل على 
+	\[
+	-\frac{du}{dx} = \frac{1}{x} u + 1
+	\]
+	\begin{equation}
+		\label{eq:rec1linear}
+		\frac{du}{dx} + \frac{1}{x} u = -1
+	\end{equation}
+	هذه معادلة خطية نحلها من خلال ايجاد عامل التكامل
+	\[
+	\mu(x) = \exp\left(\frac{1}{x} dx\right) = \exp(\ln x) =x
+	\]
+	اذن الحل للمعادلة \eqref{eq:rec1linear} يكون 
+	\[
+	\mu(x)\cdot u = \int (-1) \mu(x) dx
+	\]
+	\[
+	xu = \int -x dx = -\frac{x^2}{2} + C
+	\]
+	\[
+	u = -\frac{x}{2} + \frac{C}{x}
+	\]
+	من الفرضية \eqref{eq:rec1sub} 
+	\[
+	y = \frac{1}{x} + \frac{1}{u} \Rightarrow u = \frac{1}{y-\mfrac{1}{x}} = \frac{x}{xy-1}
+	\]
+	اذن الحل العام النهائي
+	\[
+	\frac{x}{xy-1} = -\frac{x}{2} + \frac{C}{x}
+	\]
+	الآن نوجد الحل الخاص من استعمال الشرط المعطى 
+	$y(1)=2$ ، اي ان عندما $x=1$ فأن $y=2$
+	\[
+	\frac{1}{(1)(2)-1} = -\frac{1}{2} + \frac{C}{1}
+	\]
+	\[
+	1 = -\frac{1}{2} + C \Rightarrow C = \frac{3}{2}
+	\]
+	اذن الحل الخاص 
+	\[
+	\frac{x}{xy-1} = -\frac{x}{2} + \frac{3}{2x}
+	\]
+\end{solution}
+
+\setcounter{equation}{0}
+\begin{example}[\cite{guide_to_diff_eqs}]
+	حل المعادلة التفاضلية
+	\begin{equation}
+		\label{eq:rec2}
+		\frac{dy}{dx} = x^3 (y - x)^2 + \frac{y}{x}
+	\end{equation}
+	مع العلم ان 
+	\[
+	y_1(x) = x
+	\] 
+	هو حل خاص لها، ومع الشرط $y(1) = 2$.
+\end{example}
+
+\begin{solution}
+	هذه المعادلة تمثل معادلة ريكّاتي مع حل خاص \(y = x\). نفترض ان الحل على الشكل:
+	\[
+	y = y_1 + \frac{1}{u}
+	\]
+	\begin{equation}
+		\label{eq:rec2sub}
+		y = x + \frac{1}{u}
+	\end{equation}
+	نشتق هذه الفرضية بالنسبة الى $x$:
+	\begin{equation}
+		\label{eq:rec2der}
+		\frac{dy}{dx} = 1 - \frac{1}{u^2}\frac{du}{dx}
+	\end{equation}
+	نعوض \eqref{eq:rec2sub} و \eqref{eq:rec2der} في المعادلة \eqref{eq:rec2}:
+	\[
+	1 - \frac{1}{u^2}\frac{du}{dx} = x^3 \left(x + \frac{1}{u} - x\right)^2 + \frac{x + \mfrac{1}{u}}{x}
+	\]
+	نبسط
+	\[
+	1 - \frac{1}{u^2}\frac{du}{dx} = \frac{x^3}{u^2} + \frac{x}{x} + \frac{\mfrac{1}{u}}{x}
+	\]
+	اذن 
+	\[
+	1 - \frac{1}{u^2} \frac{du}{dx} = \frac{x^3}{u^2} + 1 + \frac{1}{xu}
+	\]
+	نطرح 1 من الطرفين:
+	\[
+	- \frac{1}{u^2}\frac{du}{dx} = \frac{x^3}{u^2} + \frac{1}{xu}
+	\]
+	نضرب طرفي المعادلة في $u^2$:
+	\[
+	- \frac{du}{dx} = x^3 + \frac{u}{x}
+	\]
+	نرتب للحصول على معادلة خطية في $u$:
+	\begin{equation}
+		\label{eq:rec2linear}
+		\frac{du}{dx} + \frac{1}{x} u = - x^3
+	\end{equation}
+	عامل التكامل:
+	\[
+	\mu(x) = \exp\left(\int \frac{1}{x} dx\right) = x
+	\]
+	اذن الحل العام 
+	\[
+	\mu(x) u = \int \mu(x) (-x^3) \, dx = - \int x^4 \, dx
+	\]
+	نحسب التكامل:
+	\[
+	\int x^4 dx = - \frac{x^5}{5} + C
+	\]
+	اذن الحل العام
+	\[
+	xu = - \frac{x^5}{5} + C
+	\]
+	حيث $C$ ثابت اختياري ، بالقسمة على $x$
+	\[
+	u = - \frac{x^4}{5} + \frac{C}{x}
+	\]
+	نعود للفرضية \eqref{eq:rec2sub}:
+	\[
+	y = x + \frac{1}{u} = x + \frac{1}{- x^4 /5 + C/x} = x + \frac{x}{C - x^5/5}
+	\]
+	باستخدام الشرط الابتدائي $y(1) = 2$:
+	\[
+	2 = 1 + \frac{1}{C - 1/5} \Rightarrow 1 = \frac{1}{C - 1/5} \Rightarrow C = 6/5
+	\]
+	إذن الحل الخاص هو:
+	\[
+	\boxed{y(x) = x + \frac{x}{6/5 - x^5/5}}
+	\]
+\end{solution}
+\newpage
+\section{مقارنة بين مسار حل المعادلتين}
+\setcounter{equation}{0}
+\begin{example}[\cite{guide_to_diff_eqs}]
+	حل المعادلة التفاضلية بمعادلتي ريكاتي وبرنولي
+	\begin{equation}
+		\label{eq:mix1}
+		\frac{dy}{dx}=\frac{y}{x}+\frac{y^2}{x}
+	\end{equation}
+	مع العلم ان 
+	$y_1=-1$ هو حل لها ، مع الشرط $y(1)=2$.
+\end{example}
+\begin{solution}
+	\textbf{أولاً: الحل بمعادلة برنولي}\\
+	نكتب المعادلة على الصورة القياسية
+	\[
+	\frac{dy}{dx}-\frac{1}{x}y=\frac{1}{x}y^2
+	\]
+	وهي معادلة برنولي حيث $n=2$.
+	نقسم طرفي المعادلة على $y^2$
+	\[
+	y^{-2}\frac{dy}{dx}-\frac{1}{x}y^{-1}
+	=
+	\frac{1}{x}
+	\]
+	نفرض
+	\begin{equation}
+		\label{eq:mix1subB}
+		z=y^{-1}
+	\end{equation}
+	باشتقاقها
+	\begin{equation}
+		\label{eq:mix1derB}
+		\frac{dz}{dx}=-y^{-2}\frac{dy}{dx}
+	\end{equation}
+	ومنها
+	\[
+	y^{-2}\frac{dy}{dx}=-\frac{dz}{dx}
+	\]
+	نعوض فنحصل على
+	\[
+	-\frac{dz}{dx}-\frac{1}{x}z=\frac{1}{x}
+	\]
+	وبضرب طرفي المعادلة في $-1$
+	\begin{equation}
+		\label{eq:mix1linearB}
+		\frac{dz}{dx}+\frac{1}{x}z=-\frac{1}{x}
+	\end{equation}
+	وهي معادلة خطية ، عامل التكامل
+	\[
+	\mu(x)=e^{\int \frac{1}{x}dx}=x
+	\]
+	اذن
+	\[
+	\frac{d}{dx}(xz)=-1
+	\]
+	بالتكامل
+	\[
+	xz=-x+C
+	\]
+	\[
+	z=-1+\frac{C}{x}
+	\]
+	وبالرجوع الى \eqref{eq:mix1subB}
+	\[
+	\frac{1}{y}=-1+\frac{C}{x}
+	\]
+	وباستخدام الشرط $y(1)=2$
+	\[
+	\frac{1}{2}=-1+C
+	\Rightarrow
+	C=\frac{3}{2}
+	\]
+	اذن
+	\[
+	\frac{1}{y}=-1+\frac{3}{2x} = \frac{-2x}{2x} + \frac{3}{2x} = \frac{3-2x}{2x}
+	\]
+	بالتالي الحل النهائي
+	\[
+	y = \frac{2x}{3-2x}
+	\]
+	\setcounter{equation}{0}
+	\noindent\textbf{ثانياً: الحل بمعادلة ريكاتي}\\
+	هذه المعادلة تمثل معادلة ريكاتي حيث
+	\[
+	P(x)=0, \quad Q(x)=\frac{1}{x}, \quad R(x)=\frac{1}{x}
+	\]
+	بما ان 
+	$y_1=-1$ حل خاص ، نفرض ان الحل على الصورة
+	\[
+	y = y_1 + \frac{1}{u}
+	\]
+	\begin{equation}
+		\label{eq:mix1subR}
+		y=-1+\frac{1}{u}
+	\end{equation}
+	نشتق بالنسبة الى $x$
+	\begin{equation}
+		\label{eq:mix1derR}
+		\frac{dy}{dx}=-\frac{1}{u^2}\frac{du}{dx}
+	\end{equation}
+	نعوض \eqref{eq:mix1subR} و \eqref{eq:mix1derR} في المعادلة \eqref{eq:mix1}
+	\[
+	-\frac{1}{u^2}\frac{du}{dx}
+	=
+	\frac{-1+\frac{1}{u}}{x}
+	+
+	\frac{\left(-1+\frac{1}{u}\right)^2}{x}
+	\]
+	\[
+	=
+	\frac{-1}{x}+\frac{1}{xu}
+	+
+	\frac{1}{x}\left(1-\frac{2}{u}+\frac{1}{u^2}\right)
+	\]
+	\[
+	=
+	\cancel{-\frac{1}{x}}+\frac{1}{xu}
+	+
+	\cancel{\frac{1}{x}}-\frac{2}{xu}+\frac{1}{xu^2}
+	\]
+	\[
+	-\frac{1}{u^2}\frac{du}{dx}
+	=
+	-\frac{1}{xu}+\frac{1}{xu^2}
+	\]
+	نضرب طرفي المعادلة بـ $u^2$
+	\[
+	-\frac{du}{dx}
+	=
+	-\frac{u}{x}+\frac{1}{x}
+	\]
+	اي
+	\begin{equation}
+		\label{eq:mix1linearR}
+		\frac{du}{dx}-\frac{1}{x}u=-\frac{1}{x}
+	\end{equation}
+	هذه معادلة خطية ، عامل التكامل
+	\[
+	\mu(x)=e^{\int -\frac{1}{x}dx}
+	=e^{-\ln x}
+	=\frac{1}{x}
+	\]
+	اذن
+	\[
+	\frac{d}{dx}\left(\frac{u}{x}\right)
+	=
+	-\frac{1}{x^2}
+	\]
+	بالتكامل
+	\[
+	\frac{u}{x}
+	=
+	\int -\frac{1}{x^2}dx
+	=
+	\frac{1}{x}+C
+	\]
+	\[
+	u
+	=
+	1+Cx
+	\]
+	من الفرضية \eqref{eq:mix1subR}
+	\[
+	y=-1+\frac{1}{1+Cx}
+	\]
+	نوجد الثابت من الشرط $y(1)=2$
+	\[
+	2=-1+\frac{1}{1+C}
+	\]
+	\[
+	3=\frac{1}{1+C}
+	\Rightarrow
+	1+C=\frac{1}{3}
+	\Rightarrow
+	C=-\frac{2}{3}
+	\]
+	اذن الحل الخاص
+	\[
+	y=-1+\frac{1}{1-\frac{2}{3}x} = -1 + \frac{3}{3-2x} = \frac{-(3-2x)+3}{3-2x} = \frac{-3+2x+3}{3-2x}
+	\]
+	بالتالي الحل النهائي
+	\[
+	y = \frac{2x}{3-2x}
+	\]
+		وهو مكافئ للحل السابق.
+\end{solution}
+
+\setcounter{equation}{0}
+\begin{example}[\cite{diff_eqs_its_apps}]
+	حل المعادلة التفاضلية
+	\begin{equation}
+		\label{eq:rec2}
+		\frac{dy}{dx} = -\frac{3}{x^2} + \frac{1}{x}y + y^2
+	\end{equation}
+	مع العلم ان 
+	$y_1=\mfrac{1}{x}$ هو حل لها ، مع الشرط $y(1) = 2 $.
+\end{example}
+
+\begin{solution}
+	\textbf{أولاً : بمعادلة برنولي}\\
+	نلاحظ انه هذه المعادلة لاتمثل معادلة برنولي\\[10pt]
+	\textbf{ثانياً : بمعادلة ريكاتي}\\
+	هذه المعادلة تمثل معادلة ريكاتي حيث
+	\[
+	P(x) = -\frac{3}{x^2}, \quad Q(x) = \frac{1}{x} , \quad R(x) = 1 
+	\]
+	نفرض ان حل المعادلة بالشكل
+	\[
+	y = y_1 + \frac{1}{u}
+	\]
+	\begin{equation}
+		\label{eq:rec2sub}
+		y = \frac{1}{x} + \frac{1}{u}
+	\end{equation}
+	نشتق هذه الفرضية بالنسبة الى $x$:
+	\begin{equation}
+		\label{eq:rec2der}
+		\frac{dy}{dx} = -\frac{1}{x^2} - \frac{1}{u^2}\frac{du}{dx}
+	\end{equation}
+	نعوض 
+	\eqref{eq:rec2sub} و \eqref{eq:rec2der} في المعادلة \eqref{eq:rec2}
+	\[
+	-\frac{1}{x^2} - \frac{1}{u^2}\frac{du}{dx}
+	=
+	-\frac{3}{x^2} + \frac{1}{x}\left[\frac{1}{x} + \frac{1}{u}\right]
+	+ \left[\frac{1}{x} + \frac{1}{u}\right]^2
+	\]
+	نقوم بتوزيع الضرب على الجمع ونفتح مربع الحدانية في الطرف الايمن
+	\[
+	-\frac{1}{x^2} - \frac{1}{u^2}\frac{du}{dx}
+	=
+	-\frac{3}{x^2} + \frac{1}{x^2} + \frac{1}{xu}
+	+ \frac{1}{x^2} + \frac{2}{xu} + \frac{1}{u^2}
+	\]
+	نلاحظ يمكننا ان نجمع الكسور ذات المقامات المتساوية ، نحصل على 
+	\[
+	-\frac{1}{x^2} - \frac{1}{u^2}\frac{du}{dx}
+	=
+	-\frac{1}{x^2} + \frac{3}{xu} + \frac{1}{u^2}
+	\]
+	\[
+	\cancel{-\frac{1}{x^2}} - \frac{1}{u^2}\frac{du}{dx}
+	=
+	\cancel{-\frac{1}{x^2}} + \frac{3}{xu} + \frac{1}{u^2}
+	\]
+	\[
+	-\frac{1}{u^2}\frac{du}{dx} = \frac{3}{xu} + \frac{1}{u^2}
+	\]
+	نضرب طرفي المعادلة بــ $u^2$ ، نحصل على 
+	\[
+	-\frac{du}{dx} = \frac{3}{x}u + 1
+	\]
+	\begin{equation}
+		\label{eq:rec2linear}
+		\frac{du}{dx} + \frac{3}{x}u = -1
+	\end{equation}
+	هذه معادلة خطية نحلها من خلال ايجاد عامل التكامل
+	\[
+	\mu(x) = \exp\left(\int \frac{3}{x}\,dx\right) = \exp(3\ln x)=x^3
+	\]
+	اذن الحل للمعادلة \eqref{eq:rec2linear} يكون 
+	\[
+	\mu(x)\,u = \int (-1)\mu(x)\,dx
+	\]
+	\[
+	x^3u = \int -x^3\,dx = -\frac{x^4}{4}+C
+	\]
+	\[
+	u = -\frac{x}{4}+\frac{C}{x^3}
+	\]
+	من الفرضية \eqref{eq:rec2sub}
+	\[
+	y = \frac{1}{x} + \frac{1}{u}
+	\]
+	وبالتالي
+	\[
+	y = \frac{1}{x} + \frac{1}{-\frac{x}{4}+\frac{C}{x^3}}
+	\]
+	الآن نوجد الحل الخاص من استعمال الشرط المعطى 
+	$y(1)=2$ ، اي ان عندما $x=1$ فأن $y=2$
+	\[
+	2 = 1 + \frac{1}{-\frac{1}{4}+C}
+	\]
+	\[
+	1 = \frac{1}{-\frac{1}{4}+C}
+	\]
+	\[
+	-\frac{1}{4}+C = 1 \Rightarrow C=\frac{5}{4}
+	\]
+	اذن الحل الخاص 
+	\[
+	y = \frac{1}{x} + \frac{1}{-\frac{x}{4}+\frac{5}{4x^3}}
+	\]
+	وبتبسيطها نحصل على
+	\[
+	y = \frac{1}{x} + \frac{4x^3}{5-x^4}
+	\]
+\end{solution}
+\vskip2cm
+\noindent
+اذن نستنتج أن كل معادلة برنولي هي بالضرورة معادلة ريكاتي، ولكن العكس غير صحيح ، في المثال السابق عدم وجود  $P(x)$ اي ان $P(x)=0 $ 
+سمح لنا بحل المعادلة بالمعادلتين (ريكاتي وبرنولي) ولكن اذا كانت $P(x)\neq 0 $ فأن المعادلة التفاضلية غير قابلة للحل بمعادلة برنولي. ولاحظنا ان الحل بمعادلة برنولي كان ابسط من الحل بمعادلة ريكاتي، كما ان معادلة ريكاتي تتطلب علم مسبق بحل للمعادلة عكس معادلة برنولي التي تكون مباشرة بدون الحاجة لحل خاص.

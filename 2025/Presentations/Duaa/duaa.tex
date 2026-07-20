@@ -1,0 +1,269 @@
+\input{/home/sajad/Programming/LaTeX/Presentations/arabicBeamer.tex}
+
+\author{\textbf{الطالبة : دعاء مجيد}}
+\title{\textbf{فضاء المتجهات}}
+\date{\textbf{م. صفاء عبدالشهيد عبدالحميد}}
+
+\begin{document}
+\maketitle
+\timesfont
+\abovedisplayskip=7pt
+\belowdisplayskip=7pt
+\begin{frame}{مقدمة}
+	
+	\pause
+	\noindent
+	\textbf{المتجهات} هي كميات رياضية تتميز بامتلاكها مقدارًا واتجاهًا، وتُستخدم على نطاق واسع في العديد من المجالات العلمية والهندسية. تتمثل أهميتها في الحياة العملية في وصف الظواهر الفيزيائية مثل القوة والسرعة والتسارع، حيث تعتمد العديد من التطبيقات الهندسية والتقنية على تحليل المتجهات لفهم حركة الأجسام والتفاعل بين القوى المختلفة. بالإضافة إلى ذلك، تلعب المتجهات دورًا أساسيًا في الرسومات الحاسوبية، والملاحة الجوية، والذكاء الاصطناعي، وحتى في الاقتصاد والتمويل عند تحليل البيانات واتجاهات السوق.
+	
+	\pause
+	\noindent
+	أما \textbf{فضاء المتجهات}، فهو مفهوم رياضي يُعرّف على أنه مجموعة من المتجهات التي تخضع لعمليات الجمع والضرب العددي، ويمثل الأساس للعديد من النظريات الرياضية مثل الجبر الخطي والتحليل العددي. يُستخدم فضاء المتجهات في حل المعادلات التفاضلية، والنمذجة العلمية، والتشفير، مما يجعله عنصرًا جوهريًا في فهم وتطوير العديد من العلوم والتقنيات الحديثة.
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\Huge
+		\textbf{المتجهات}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	
+	\pause
+	\begin{exampleblock}{تعريف المتجهات}
+		هي كميات رياضية لها مقدار واتجاه. تستخدم المتجهات في العديد من المجالات مثل: الملاحة والطيران والطقس. تتميز المتجهات بخصائص مثل: الجمع والطرح والضرب.
+	\end{exampleblock}
+	
+	\pause
+	\begin{exampleblock}{العمليات على المتجهات}
+		
+		\pause
+		\textbf{1. جمع المتجهات}
+		عند جمع متجهين معاً يصبح عندها متجه جديد يختلف عنهما بالمقدار والاتجاه. ويمكن التعبير عن ذلك بالعلاقة
+		\begin{align*}
+			\vec{U} + \vec{V} &= (U_1, U_2, \dots, U_n) + (V_1, V_2, \dots, V_n)\\
+			&= (U_1+V_1, U_2+V_2, \dots, U_n+V_n)
+		\end{align*}
+		
+		\pause
+		\textbf{2. طرح المتجهات}
+		يعطى بالعلاقة التالية
+		\[
+		\vec{U} - \vec{V} = \vec{U} + (-\vec{V})
+		\]
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\begin{exampleblock}{العمليات على المتجهات}
+		\textbf{3. ضرب عدد في متجه}
+		عند ضرب عدد في متجه يتغير الطول فقط. وعند ضرب المتجه في عدد سالب يتغير الاتجاه، للتعبير عنه يعطى بالعلاقة التالية
+		\begin{align*}
+			k \vec{U} &= k(U_1, U_2, \dots, U_n)\\
+			&= (kU_1, kU_2, \dots, kU_n)
+		\end{align*}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	
+	\pause
+	\begin{exampleblock}{الضرب العددي النقطي}
+		ليكن $\vec{U}, \vec{V}$ متجهين في $\R^n$ فإن الضرب النقطي لهما يعطى بالعلاقة 
+		\[
+		\vec{U} \cdot \vec{V} = u_1v_1 + u_2v_2 + \cdots + u_nv_n
+		\]
+	\end{exampleblock}
+	
+	\pause
+	\begin{exampleblock}{خواص الضرب النقطي}
+		\begin{english}
+			\begin{enumerate}
+				\item $\vec{U}\cdot\vec{V}=\vec{V}\cdot\vec{U}$
+				\item $\vec{U}\cdot(\vec{V}+\vec{W}) = \vec{U}\cdot\vec{V} + \vec{U}\cdot\vec{W}$
+				\item $k(\vec{U}\cdot\vec{V}) = (k\vec{U})\cdot\vec{V}$
+				\item $\vec{V}\cdot\vec{V} = ||\vec{V}||^2$
+				\item $\vec{V}\cdot \vec{0} = \vec{0}$
+			\end{enumerate}
+		\end{english}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	
+	\pause
+	\begin{exampleblock}{الضرب الاتجاهي}
+		ليكن $\vec{U}, \vec{V}$ متجهين في $\R^3$ فإن الضرب الاتجاهي لهما يكون كالاتي
+		\begin{align*}
+			\vec{U}\times\vec{V}  = 
+			\begin{vmatrix}
+				i & j & k\\
+				U_1 & U_2 & U_3\\
+				V_1 & V_2 & V_3
+			\end{vmatrix}= i(U_2V_3 - U_3V_2 ) -j(U_1V_3 - U_3V_1) + k(U_1V_2 - U_2V_1)
+		\end{align*}
+	\end{exampleblock}
+	
+	\pause
+\begin{exampleblock}{خواص الضرب الاتجاهي}
+		\begin{english}
+		\begin{enumerate}
+			\item $\vec{U}\times\vec{V} = -(\vec{V}\times\vec{U})$
+			\item $\vec{U}\times(\vec{V} + \vec{W}) = (\vec{U}\times\vec{V}) + (\vec{U}\times\vec{V})$
+			\item $(\vec{U}+\vec{V})\times\vec{W} = (\vec{U}\times\vec{W}) + (\vec{U}\times\vec{W})$
+			\item $c(\vec{U}\times\vec{V}) = (c\vec{U})\times\vec{V} = \vec{U}\times(c
+			\vec{V})$
+			\item $\vec{U}\times\vec{0} = \vec{0}\times\vec{U} = \vec{0}$
+			\item $\vec{U}\times\vec{U} = \vec{0}$
+		\end{enumerate}
+	\end{english}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\Huge
+		\textbf{فضاء المتجهات}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	
+	\pause
+	\begin{exampleblock}{تعريف}
+		الفضاء المتجهي على الحقل $F$ هو مجموعة غير خالية $V$ من العناصر $\{x, y, \dots\}$ (تدعى متجهات) وهذه المجموعة مزودة بعمليتين جبريتين:\\
+		\noindent
+		\textbf{العملية الاولى:} داخلية نرمز لها بــ "+" اي الجمع المتجهي حيث يربط كل عنصرين $x, y$ من $V$ بعنصر ثالث $x+y$ ينتمي الى $V$.\\
+		\noindent
+		\textbf{العملية الثانية:} خارجية نرمز لها بــ "." اي الضرب المتجهي الذي ينتج من ضرب عنصر $x$ من الفضاء $V$ بعنصر من الحقل التبديلي $F$.\\
+		\noindent
+		نسمي الثلاثي $(V, +, \cdot)$ فضاء متجهي او فضاء خطي على $F$ ونرمز له بــ $V(F)$ اذا حقق الشروط التالية
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	
+	\pause
+	\begin{english}
+		\begin{enumerate}
+			\item $U+V = V+U$
+			\item $U+(V+W) = (U+V)+W$
+			\item $U+0=0+U=U$
+			\item $U+(-U) = 0$
+			\item $a(U+V) = aU + aV$
+			\item $(a+b)\cdot U = aU + bU$
+			\item $(ab)\cdot U = a\cdot (bU)$
+			\item $1\cdot U = U$
+		\end{enumerate}
+	\end{english}
+\end{frame}
+
+\begin{frame}{امثلة على فضاء المتجهات}
+	
+	\pause
+	\begin{example}
+			\begin{enumerate}
+				\item الفضاء الاقليدي $\R^n$ حيث $\R^n = \{(x_1, x_2, \dots, x_n) : x_i \in \R\}$
+				حيث تعرف عمليتي الجمع والضرب كالآتي
+				\[
+				(x_1, x_2, \dots, x_n) + (y_1, y_2, \dots, y_n)  = (x_1+x_1, x_2+y_2, \dots, x_n+y_n) 
+				\]  
+				\[
+				\alpha (x_1, x_2, \dots, x_n)  = (\alpha x_1,\alpha x_2, \dots, \alpha x_n) 
+				\]
+				
+				\pause
+				\item فضاء المصفوفات: 
+				تعرف $M_{m\times n}(\R)$ على انها مجموعة كل المصفوفات ذات البعد $m \times n$ على حقل الاعداد الحقيقية $\R$. 
+				حيث {عمليتي الجمع والضرب}\\
+				\textbf{الجمع:} لتكن $A=[a_{ij}]$ و $B=[b_{ij}]$ مصفوفات من $M_{m\times n}(\R)$ فإن 
+				$
+				A + B = [a_{ij} + b_{ij}] 
+				$\\
+				\textbf{الضرب:} ليكن $c\in \R$ و $A = [a_{ij}]\in M_{m\times n}(\R)$ فإن 
+				$
+				cA = [c\, a_{ij}] 
+				$
+			\end{enumerate}
+	\end{example}
+\end{frame}
+
+\begin{frame}{الفضاء الجزئي}
+\begin{exampleblock}{تعريف}
+	ليكن $V(F)$ فضاءاً متجهياً على الحقل $F$ و $\varnothing \neq W\subseteq V$ نسمي $W$ فضاء متجه جزئي من فضاء المتجهات $V(F)$ اذا كان $W$ فضاءاً متجهياً بحد ذاته بالنسبة لعمليتي الجمع والضرب.\\
+	\noindent
+	ويكون $W$ فضاء متجهي اذا تحقق :
+	\begin{enumerate}
+		\item $W$ مغلقة بالنسبة لعملية الجمع : $\forall x, y \in W \Rightarrow x+y \in W$
+		\item $W$ مغلقة بالنسبة لعملية الضرب : $\forall \alpha \in F,\forall x \in W \Rightarrow \alpha\cdot x\in W$
+	\end{enumerate}
+	
+	\pause
+	ويمكن دمج الشرطين بشرط واحد :
+	\[
+	\forall \alpha, \beta \in F , \forall x, y \in W \Rightarrow \alpha x + \beta y \in W
+	\]
+\end{exampleblock}
+
+\pause
+\begin{exampleblock}{مثال}
+	المجموعة
+	$W = \{(x, y, 0) : x, y\in R\}$
+	فضاء جزئي من $\R^3$.
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+\begin{exampleblock}{التركيب الخطي}
+	ليكن $V$ فضاء متجهات وان 
+	$\vec{v}_1, \vec{v}_2,\dots, \vec{v}_n$
+	متجهات في $V$ يقال للمتجه $\vec{v}$ بأنه تركيب خطي من $\vec{v}_1, \vec{v}_2,\dots, \vec{v}_n$ اذا امكن التعبير عن $\vec{v}$ بالشكل 
+	\[
+	\vec{v} = k_1\vec{v}_1+k_2\vec{v}_2+\cdots +k_2\vec{v}_n
+	\]
+\end{exampleblock}
+
+\pause
+\begin{exampleblock}{مولد الفضاء}
+	ليكن $S = \{v_1, v_2, \dots, v_n\}$ مجموعة جزئية من المتجهات في فضاء المجهات $V$ ، تكون $S$ مولد لــ $V$ اذا كان كل المتجهات هي تركيب خطي من $S$ اي ان
+	\[
+	v = k_1v_1 + k_2v_2 + \cdots + k_nv_n
+	\]
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\begin{exampleblock}{الاستقلال والارتباط الخطي}
+		لتكن $S=\{v_1, v_2, \dots, v_n\}$ مجموعة جزئية من المتجهات في فضاء المتجهات $V$ ، تكون $S$:
+		\begin{enumerate}
+			\item \textbf{مستقلة خطياً} اذا وجدت العناصر $k_1, k_2, \dots, k_n\in \R$ كلها اصفاراً بحيث \\$k_1v_1 + k_2v_2 + \cdots + k_n v_n = 0$.
+			\item \textbf{مرتبطة خطياً} اذا وجدت العناصر $k_1, k_2, \dots, k_n\in \R$ ليست  كلها اصفاراً بحيث \\$k_1v_1 + k_2v_2 + \cdots + k_n v_n = 0$.
+		\end{enumerate}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	
+	\pause
+	\begin{exampleblock}{اساس الفضاء}
+		لتكن
+		$S = \{v_1, v_2, \dots, v_n\}$
+		مجموعة جزئية من فضاء المتجهات $V$ ، نقول ان $S$ اساس للفضاء $V$ اذا تحقق الشرطان 
+		\begin{enumerate}
+			\item $S$ تولد $V$.
+			\item $S$ مستقلة خطياً.
+		\end{enumerate}
+	\end{exampleblock}
+	
+	\pause
+	
+	\begin{exampleblock}{البعد}
+		اذا كانت $S = \{v_1, v_2, \dots, v_n\}$ اساس للفضاء $V$ فإن عدد المتجهات $n$ في $S$ يسمى بعد dimension للفضاء $V$ ونكتب $\dim V = n$
+	\end{exampleblock}
+	
+	\pause
+	\begin{exampleblock}{مثال}
+			المجموعة $S = \{e_1, e_2,e_3\}$ اساس الفضاء $\R^3$ اذن $\dim \R^3=3 $.
+	\end{exampleblock}
+\end{frame}
+\end{document}

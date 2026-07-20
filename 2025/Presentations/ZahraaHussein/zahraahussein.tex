@@ -1,0 +1,189 @@
+\input{/home/sajad/Programming/LaTeX/Presentations/arabicBeamer.tex}
+
+
+\title{
+\textbf{ بعض مؤثرات لوباس}
+}
+
+\author{
+\textbf{الطالبة : زهراء حسين سموم}
+}
+\date{
+\textbf{إشراف : م.م. تهاني عبدالمجيد}
+}
+
+\begin{document}
+	\begin{frame}
+		\maketitle
+	\end{frame}
+	
+	\timesfont
+	\begin{frame}{مقدمة}
+		في الكثير من التطبيقات العلمية في الرياضيات أو الهندسة والتكنولوجيا، يمكن أن نحصل على دوال معقدة وأحيانًا غير مألوفة، وبذلك تصبح عملية دراسة هذه الدوال من حيث اتصالها وقابليتها للتفاضل أو التكامل وغيره من الموضوعات الصعبة جدًا والتي تستغرق الكثير من الوقت.\\
+		\noindent  		
+		لكل هذه الأسباب وغيرها، يكون من الضروري والمفيد استبدال دالة بسيطة وغير معقدة بدالة ذات شكل رياضي معقد أو دالة بيانات بحيث يمكن اعتبارها بديلاً للدالة المعطاة. في الواقع، أن \textbf{نظرية التقريب} تتعامل مع كل المفاهيم السابقة.\\
+		\noindent
+		والتقريب يمكن أن يكون بواسطة الدوال كثيرات حدود جبرية أو غير جبرية أو بواسطة دوال أسية أو دوال مثلثية وغيرها.
+		
+	\end{frame}
+	
+	\begin{frame}
+\begin{center}
+			\Huge\textbf{مؤثر لوباس الاعتيادي}
+\end{center}
+	\end{frame}
+	
+	\begin{frame}{مؤثر لوباس الاعتيادي}
+	\begin{exampleblock}{تعريف}
+
+		
+		تعرف متتابعة من المؤثرات الخطية الموجبة من الفضاء $C_h[0, \infty)$ إلى نفسه كما يلي:
+		\[
+		L_n(f(t); x) = \sum_{k=0}^{\infty} p_{n,k} (x) f\left(\frac{k}{n}\right)
+		\]
+		حيث:
+		\[
+		p_{n,k} (x) = \binom{n+k-1}{k} x^k (1+x)^{-(n+k)}, \quad x \in [0, \infty)
+		\]
+	\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{center}
+			\Huge
+			\textbf{بعض النتائج المباشرة للدالة $p_{n,k}(x)$}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{exampleblock}{بعض النتائج المباشرة للدالة $p_{n,k}(x)$}
+			\begin{english}
+				\begin{enumerate}
+					\item $\sum_{k=0}^{\infty} p_{n,k}(x) = 1$
+					\item $\sum_{k=0}^{\infty}k p_{n,k}(x) = nx$
+					\item $\sum_{k=0}^{\infty}k^2 p_{n,k}(x) = n^2 x^2 + nx^2 + nx$
+				\end{enumerate}
+			\end{english}
+		\end{exampleblock}
+	\end{frame}
+	\newcommand{\tL}{\tilde{L}}
+	\begin{frame}{تعريف المؤثر $\tL_n(f(t);x)$}
+		\begin{exampleblock}{تعريف}
+			تعرف متتابعة من المؤثرات الخطية الموجبة من الفضاء $C_h[0, \infty)$ الى نفسه كما يلي
+			\[
+			\tL_n(f(t); x) = \sum_{k=0}^{\infty} p_{n, k}(x) f\left(\frac{k+\alpha}{n+\beta}\right)
+			\]
+			حيث
+			\[
+			p_{n,k} (x) = \binom{n+k-1}{k} x^k (1+x)^{-(n+k)}, \quad x \in [0, \infty)
+			\]
+			و حيث ان $0 \leq \alpha\leq \beta$
+			
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+\begin{center}
+	\Huge\textbf{مبرهنة كورفكن للمؤثر $\tL_n(f(t); x)$}
+\end{center}
+	\end{frame}
+	
+	\begin{frame}{مبرهنة كورفكن للمؤثر $\tL_n(f(t); x)$}
+		\begin{exampleblock}{نظرية}	
+		لتكن $\tL_n(f(t);x)$ متتابعة من المؤثرات الخطية الموجبة \en{\textit{L.P.O}} و الشروط التالية متحققة
+		\begin{english}
+			\begin{enumerate}
+				\item $\tL_n(1;x)=1$
+				\item $\tL_n(t;x) = \dfrac{nx + \alpha}{n + \beta} \to x$
+				\item $\tL_n(t^2;x) = \dfrac{n^2x^2 + nx^2 + 2\alpha n x + \alpha^2}{n^2 + 2n\beta+ \beta^2} \to x^2$
+				\[
+				\Rightarrow\tL_n(f(t);x) \to f(x) \quad\text{as}\quad n\to \infty
+				\]
+			\end{enumerate}
+		\end{english}
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+	\begin{center}
+		\Huge\textbf{مؤثر لوباس من نوع مجموع - تكامل}
+	\end{center}
+\end{frame}
+	
+	\begin{frame}{تعريف المؤثر $B_n(f(t); x)$}
+		\begin{exampleblock}{تعريف}
+			متتابعة من المؤثرات الخطية الموجبة من الفضاء $C_h[0, \infty)$ الى نفسه كما يلي
+			\[
+			B_n(f(t); x) = (n-1)\sum_{k=0}^{\infty} p_{n, k}(x) \int_{0}^{\infty} p_{n, k}(t) f\left(\frac{nt + \alpha}{n + \beta}\right) \, dt
+			\]
+			حيث $0 \leq \alpha\leq \beta$
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{center}
+			\Huge\textbf{مبرهنة كورفكن للمؤثر $B_n(f(t); x)$}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{مبرهنة كورفكن للمؤثر $B_n(f(t); x)$}
+		\begin{exampleblock}{نظرية}
+			لتكن $B_n(f(t);x)$ متتابعة من المؤثرات الخطية الموجبة \textit{L.P.O} والشروط التالية متحققة 
+			\begin{english}
+				\begin{enumerate}
+					\item $B_n(1; x) =1$
+					\item $B_n(t; x) = \frac{n^2x + n}{(n+ \beta)(n-2)} + \frac{\alpha}{n + \beta} \to x$
+					\item $B_n(t^2; x) = \frac{n^4x^2 + n^3x^2 + 3n^3x + n^3 x + 2n}{(n+\beta)^2 (n-2)(n-2)} + \frac{2\alpha x n^2 + 2n \alpha}{(n+\beta)^2 (n-2)} + \frac{\alpha^2 }{(n+\beta)^2} \to x^2$
+					\[
+					\Rightarrow B_n(f(t); x) \to f(x)\,\, \text{ as $n \to \infty$}
+					\]
+				\end{enumerate}
+			\end{english}
+		\end{exampleblock}
+	\end{frame}
+\newcommand{\tB}{\tilde{B}}	
+\begin{frame}
+	\begin{center}
+		\Huge\textbf{تعريف المؤثر $\tB_n(f(t); x)$}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{exampleblock}{تعريف}
+		تعرف متتابعة من المؤثرات الخطية الموجبة من الفضاء $C_h[0, \infty)$ الى نفسه كما يلي
+		\[
+		\tB_n(f(t); x) = (n-1)\sum_{k=0}^{\infty} p_{n+2, k}(x) \int_{0}^{\infty} p_{n, k+1}(t) f(t) \, dt
+		\]
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\Huge\textbf{مبرهنة كورفكن للمؤثر $\tB_n(f(t); x)$}
+	\end{center}
+\end{frame}
+
+\begin{frame}{مبرهنة كورفكن للمؤثر $\tB_n(f(t); x)$}
+	\begin{exampleblock}{نظرية}
+		لتكن $\tB_n(f(t); x)$ متتابعة من المؤثرات الخطية الموجبة \en{\textit{L.P.O}} تحقق الشروط التالية
+		\begin{english}
+			\begin{enumerate}
+				\item $\tB_n(1; x) = 1$
+				\item $\tB_n(t; x) = \dfrac{(n+2)x+2}{n-2}\to x$
+				\item $\tB_n(t^2; x) = \dfrac{(n+2)(n+3)x^2 + 6(n+2)x + 6}{(n-3)(n-2)}\to x^2$
+				\[
+				\Rightarrow \tB(f(t); x) \to f(x)\quad \text{as}\quad n \to \infty
+				\]
+			\end{enumerate}
+		\end{english}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\Huge
+		\textbf{\LR{Thanks}}\\
+		\textbf{شكراً لإصغائكم}
+	\end{center}
+\end{frame}
+\end{document}

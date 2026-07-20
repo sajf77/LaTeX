@@ -1,0 +1,197 @@
+\input{/home/sajad/Programming/LaTeX/Presentations/arabicBeamer.tex}
+
+\title{\textbf{نظرية المعيار}\\
+\textbf{\LR{Module Theory}}}
+\author{\textbf{الطالبة : زينب هامل}}
+\date{\textbf{إشراف :}
+		\textbf{م.م. جنان عبدالامام نجم}}
+\begin{document}
+	\abovedisplayskip=7pt
+	\belowdisplayskip=7pt
+	\maketitle
+	\timesfont
+	\begin{frame}{مقدمة}
+		
+		\pause
+			سوف ندرس في هذا البحث المكونات الرياضية التي تسمى بالمعايير \en{\textbf{Modules}}. كان الاستخدام الاول لهذه المكونات من انجازات احد المع علماء الرياضيات في النصف الاول من هذا القرن
+		\en{\textbf{Emmy Noether}} التي مهدت الطريق لاظهار قوة واناقة هذه البنية. سوف نرى ان الفضاءات المتجهة ليست الا اشكالاً خاصة من المعايير. اي ان المعيار هو تعميم لمفهوم فضاء المتجهات فبدلاً من البناء على حقل سوف نبني النظام المعياري على حلقة. 
+	\end{frame}
+	
+	\begin{frame}
+		\begin{center}
+			\Huge
+			\textbf{الفصل الاول}\\
+			\textbf{مفاهيم اساسية}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}
+		
+		\pause
+		\begin{exampleblock}{الزمرة}
+			الزمرة $(G, *)$ هي مجموعة $G$ غير خالية تكون مغلقة تحت العملية * مع تحقيق البديهيات التالية
+			\begin{enumerate}
+				\item (التجميعية) لكل $a, b, c\in G$ لدينا
+				\[
+				(a*b) * c = a*(b*c)
+				\]
+				\item (العنصر المحايد) يوجد عنصر $e\in G$ بحيث ان لكل $x\in G$ 
+				\[
+				e * a = a * e = a
+				\]
+				\item (العنصر النظير)  لكل $a\in G$ يوجد عنصر مثل $a' \in G$ بحيث 
+				\[
+				a * a' = a' * a = e
+				\]
+			\end{enumerate}
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{}
+			الزمرة $G$ تكون تبديلية (Abilian) اذا كانت العملية الثنائية تبديلية.
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+		
+		\pause
+		\begin{exampleblock}{الزمرة الجزئية}
+				اذا كانت $H$ مجموعة جزئية من الزمرة $(G, *)$ ومغلقة تحت العملية الثنائية للزمرة فإذا كانت $(H, *)$ زمرة فإن $H$ زمرة جزئية من $G$ ونكتب $H\leq G$.
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{الحلقة}
+		الحلقة $(R, +, \cdot)$ هي مجموعة $R$ مع عمليتان ثنائيتيان. الجمع (+) و الضرب ($\cdot$) مع البديهيات التالية
+		\begin{enumerate}
+			\item $(R, +)$ زمرة ابدالية.
+			\item $a\cdot(b\cdot c) = (a\cdot b)\cdot c$ لكل $a, b, c\in R$.
+			\item $a\cdot(b+c) = (a\cdot b) + (a\cdot c)$ و $(a+b)\cdot c = (a\cdot c) + (a\cdot b)$ لكل $a, b, c\in R$. 
+		\end{enumerate}
+		\end{exampleblock}
+		
+		\pause
+		\begin{exampleblock}{المحايد للحلقة}
+			لتكن $R$ حلقة. المحايد هو العنصر $1\in R$ بحيث ان $1\cdot x= x\cdot1=x$ لكل $x\in R$.
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{center}
+			\Huge
+			\textbf{الفصل الثاني}\\
+			\textbf{المعيار}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{تعريف وامثلة}
+		
+		\pause
+		\begin{exampleblock}{تعريف}
+			لتكن $R$ حلقة (ليس من الضروري تبديلية او تمتلك محايد) المعيار اليساري على $R$ هو مجموعة $M$ مع الشروط التالية
+			\begin{enumerate}
+				\item عملية ثنائية + على $M$ بحيث $(M, +)$ زمرة ابدالية
+				\item تأثير $R$ على $M$ (دالة $R\times M \to M$) يرمز لها عادة بــ $rm$, لكل $r\in R$ و $m\in M$ و تحقق
+				\begin{tasks}
+					\task $(r+s)m = rm + rs$ لكل $r,s\in R$ و $m\in M$.
+					\task $(rs)m=r(sm)$ لكل $r,s\in R$ و $m\in M$.
+					\task $r(m+n) = rm+rn$ لكل $r\in R$ و $m,n\in M$.
+				\end{tasks}
+				اذا الحلقة $R$ تمتلك محايد 1 نضيف الشرط
+				\begin{tasks}[resume]
+					\task $1m = m$ لكل $m\in M$.
+				\end{tasks}
+			\end{enumerate}
+		\end{exampleblock}
+	\end{frame}
+	
+\begin{frame}
+	
+	\pause
+		\begin{exampleblock}{مثال 1}
+		لتكن $G=(G, +)$ زمرة ابدالية، اّذا كان $n\in\Z$ و $x\in G$ فإن $nx$ يعرف بالشكل 
+		\[
+		nx = 
+		\begin{cases}
+			0 & n=0 \\
+			\underbrace{x+x+\dots+x}_{\text{$n$ من المرات}}, & n>0\\
+			\underbrace{(-x)+(-x)+\dots+(-x)}_{\text{$n$ من المرات}}, & n<0\\
+		\end{cases}
+		\]
+		 ان $G$ معيار يساري على $\Z$ بواسطة دالة الضرب
+		\[
+		\cdot : \Z\times G \to G, \quad (n,x) \mapsto nx
+		\]
+		لكل $m,n\in \Z$ و لكل $x,y\in G$
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{المعيار الجزئي}
+	
+	\pause
+	\begin{exampleblock}{تعريف}
+		ليكن $M$ هو معيار يساري على $R$ فإن $\varnothing\neq U\subseteq M$ يسمى معيار جزئي من $M$ اذا تحقق
+		\begin{enumerate}
+			\item $(U, +) \leq (M, +)$ (زمرة جزئية)
+			\item  لكل $a\in R$ و لكل $u\in U$ فـــــإن $au\in U$
+		\end{enumerate}
+	\end{exampleblock}
+	
+	\pause
+	\begin{exampleblock}{مثال 2}
+		في الزمرة الابدالية $(G,+)$ و المعيار اليساري المعرف على $\Z$ في المثال \ref{ex:modules}. فإن المعايير الجزئية من $G$ هي الزمر الجزئية من $(G,+)$
+	\end{exampleblock}
+	
+	\pause
+		\begin{exampleblock}{مثال 3}
+		ليكن $M$ معيار يساري على الحلقة $R$ فإن المجموعة $R_x=\{ax\mid a\in R\}$ هو معيار جزئي من $M$ لكل $x\in M$.
+	\end{exampleblock}
+\end{frame}
+
+
+\begin{frame}{التشاكل المعياري}
+	
+	\pause
+	\begin{exampleblock}{تعريف}
+		لتكن $R$ حلقة و ليكن كل من $M$ و $N$ معيار يساري على $R$ فإن الدالة $\phi:M\to N$ تسمى تشاكل معياري يساري اذا كان 
+		\begin{enumerate}
+			\item $\phi(x+y) = \phi(x) + \phi(y)$ لكل $x,y\in M$.
+			\item $\phi(rx) = r\phi(x)$ لكل $x\in M, r\in R$.  
+		\end{enumerate}
+	\end{exampleblock}
+	
+	
+	\pause
+\begin{exampleblock}{مبرهنة}
+	ليكن $M,N$ معايير يسارية على الحلقة $R$، فإن الدالة $\phi:M\to N$ تكون تشاكل معياري اذا و فقط اذا كان
+	\[
+	\phi(rx + y) = r\phi(x) + \phi(y)
+	\]
+	لكل $x,y\in M$ و لكل $r\in R$
+\end{exampleblock}
+\end{frame}
+
+
+\begin{frame}{مبرهنات التشاكل الاساسية}
+	
+	\pause 
+	\begin{exampleblock}{مبرهنة التشاكل الاولى}
+		ليكن كل من $M,N$ معيار يساري على الحلقة $R$ و لتكن الدالة $\phi:M\to N$ تشاكل معياري يساري فإن $\ker \phi$ هو معيار جزئي من $M$ و $M/\ker\phi\cong \phi(M)$
+	\end{exampleblock}
+	
+	\pause
+	\begin{exampleblock}{مبرهنة التشاكل الثانية}
+		ليكن كل من $A,B$ معيار جزئي من المعيار اليساري $M$ على  الحلقة $R$ فإن
+		\[
+		(A+B)/B\cong A/(A\cap B)
+		\]
+	\end{exampleblock}
+
+	\pause
+	\begin{exampleblock}{مبرهنة التشاكل الثالثة}
+		ليكن $M$ معيار على الحلقة $R$ و كل من $A, B$ معيار جزئي منه مع $A\subseteq B$ فإن
+		\[
+		(M/A) / (B/A) \cong M/B
+		\]
+	\end{exampleblock}
+	\end{frame}
+\end{document}

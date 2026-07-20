@@ -1,0 +1,285 @@
+\chapter{صيغة التغاير التكرارية}
+
+\section{مقدمة}
+
+تعتبر هذه الطريقة التي اقترحها العالم He في اواخر التسعينات من اقوى الادوات لحل المعادلات التفاضلية الخطية وغير الخطية.
+
+\section{الفكرة الاساسية لهذه الطريقة}
+تعتمد هذه الطريقة على بناء مؤثر تصحيحي 
+(functional correction)
+يقوم بتقريب الحل تدريجياً من خلال عملية تكرارية دون الحاجة لتحويل "لابلاس" او "متسلسلات تايلور" المعقدة في البداية.
+
+\section{الصيغة الرياضية للطريقة}
+لنفرض وجود معادلة تفاضلية عامة بالصيغة
+\[
+L\{u(t)\} + N\{u(t)\} = g(t)
+\]
+حيث
+\begin{itemize}[nosep]
+	\item $L$ المؤثر الخطي (linear operator).
+	\item $N$ المؤثر غير الخطي (non-linear operator).
+	\item $g(t)$ الدالة المصدرية (source term).
+\end{itemize}
+
+\subsection*{بناء المؤثر التصحيحي}
+يتم بناء التكرار وفق الصيغة التالية
+\[
+u_{n+1}(t) = u_n(t) + \int_{0}^{t} \lambda(\tau) \Big[L u_n(\tau) + N \tilde{u}_n(\tau) - g(\tau)\Big] d\tau
+\]
+حيث
+\begin{itemize}[nosep]
+	\item $\lambda$ : هو مضروب لاكرانج العام 
+	(general lagrange multiplier) ويتم ايجاده بأستخدام نظرية التغاير.
+	
+	\item $\tilde{u}_n$ : يمثل التغاير المقيد 
+	(restricted variation) ، اي يتم اعتباره ثابتاً عند اشتاقاق $\lambda$.
+\end{itemize}
+
+\subsection*{خطوات الحل}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+	\item تحديد مضروب لاكرانج $\lambda$ الامثل للمعادلة المعطاة.
+	\item تعويض قيمة $\lambda$ في الصيغة التكرارية.
+	\item اختيار دالة ابتدائية $u_0(t)$ (غالباً ما تكون الشروط الابتدائية).
+	\item اجراء التكرارات ($n=0,1,2,\dots$) حتى الوصول الى الحل التقريبي.
+\end{enumerate}
+
+\begin{example}
+	لنأخذ المعادلة التفاضلية البسيطة
+	\[
+	u'(t) = t, \quad u(0) = 0
+	\]
+	\textbf{اولاً:} نحدد العناصر 
+	\begin{itemize}
+		\item المؤثر الخطي $L(u) = u'(t)$.
+		\item لا يوجد مؤثر غير خطي ، اي ان $N=0$.
+		\item دالة المصدر $g(t) = t$
+	\end{itemize}
+	\textbf{ثانياً:} صياغة دالة التصحيح
+	\[
+	u_{n+1}(t) = u_n(t) + \int_{0}^{t} \lambda(\tau) \Big[L u_n(\tau) + N \tilde{u}_n(\tau) - g(\tau)\Big] d\tau
+	\]
+	\[
+	\Rightarrow
+	u_{n+1}(t) = u_n(t) + \int_{0}^{t} \lambda(\tau) \Big[u_n'(\tau)   - \tau\Big] d\tau
+	\]
+	\textbf{ثالثاً:} اختيار مضاعف لاكرانج ، حيث في هذه الحالة البسيطة المضاعف المناسب هو $\lambda(\tau) = -1$.
+	اذن العلاقة التكرارية تصبح
+	\[
+	u_{n+1}(t) = u_n(t) - \int_{0}^{t}  \Big[u_n'(\tau)   - \tau\Big] d\tau
+	\]
+	\textbf{رابعاً:} البدء بالتقريب الاولي ، نبدأ بالحل الابتدائي 
+	$u_0(t) = 0$\\
+	\textbf{خامساً:} نجد التكرار الأول
+	\begin{align*}
+		u_{1}(t) &= u_0(t) - \int_{0}^{t} \Big[u_0'(\tau)   - \tau\Big] d\tau\\
+		& = 0 - \int_{0}^{t} 0 - \tau d\tau\\
+		& = \int_{0}^{t} \tau d\tau \\
+		& = \frac{t^2}{2}
+	\end{align*}
+	الآن نجد التكرار الثاني
+	\begin{align*}
+		u_{2}(t) &= u_1(t) - \int_{0}^{t} \Big[u_1'(\tau)   - \tau\Big] d\tau\\
+		& = \frac{t^2}{2} - \underbrace{\int_{0}^{t} (\tau - \tau) d \tau}_{ = 0} = \frac{t^2}{2}
+	\end{align*}
+	نلاحظ ان 
+	$u_1(t) = u_2(t)$ اذن يمكننا الاستنتاج ان
+	\[
+	u(t) = u_1(t) = u_2(t) = \cdots = \frac{t^2}{2}
+	\]
+\end{example}
+
+\begin{example}
+	لنأخذ المعادلة التفاضلية غير الخطية
+	\[
+	\frac{dy}{dx} + y^2 = 1, \quad y(0)=0
+	\]
+	\textbf{اولاً:} نحدد العناصر 
+	\begin{itemize}
+		\item المؤثر الخطي $L(y) = \dfrac{dy}{dx}$.
+		\item المؤثر غير الخطي $N(y) = y^2$.
+		\item دالة المصدر $g(x) = 1$.
+	\end{itemize}
+	\textbf{ثانياً:} صياغة دالة التصحيح
+	\[
+	y_{n+1}(x) = y_n(x) + \int_{0}^{x} 
+	\lambda(\tau) 
+	\Big[
+	L y_n(\tau) + N \tilde{y}_n(\tau) - g(\tau)
+	\Big] d\tau
+	\]
+	\[
+	\Rightarrow
+	y_{n+1}(x) = y_n(x) + \int_{0}^{x} 
+	\lambda(\tau) 
+	\Big[
+	y_n'(\tau) + y_n^2(\tau) - 1
+	\Big] d\tau
+	\]
+	\textbf{ثالثاً:} اختيار مضاعف لاكرانج.  
+	بإجراء التباين نحصل على المضاعف المناسب
+	\[
+	\lambda(\tau) = -1
+	\]
+	اذن العلاقة التكرارية تصبح
+	\[
+	y_{n+1}(x) =
+	y_n(x) -
+	\int_{0}^{x}
+	\Big[
+	y_n'(\tau) + y_n^2(\tau) - 1
+	\Big] d\tau
+	\]
+	\textbf{رابعاً:} نبدأ بالتقريب الابتدائي
+	\[
+	y_0(x)=0
+	\]
+	\textbf{خامساً:} التكرار الأول
+	\begin{align*}
+		y_1(x)
+		&= y_0(x) -
+		\int_{0}^{x}
+		\Big[
+		y_0'(\tau) + y_0^2(\tau) - 1
+		\Big] d\tau \\
+		&= 0 - \int_{0}^{x} (0 + 0 - 1)\, d\tau \\
+		&= \int_{0}^{x} 1\, d\tau \\
+		&= x
+	\end{align*}
+	\textbf{التكرار الثاني}
+	\begin{align*}
+		y_2(x)
+		&= y_1(x) -
+		\int_{0}^{x}
+		\Big[
+		y_1'(\tau) + y_1^2(\tau) - 1
+		\Big] d\tau \\
+		&= x -
+		\int_{0}^{x}
+		\Big[
+		1 + \tau^2 - 1
+		\Big] d\tau \\
+		&= x - \int_{0}^{x} \tau^2 d\tau \\
+		&= x - \frac{x^3}{3}
+	\end{align*}
+\textbf{التكرار الثالث}
+\begin{align*}
+	y_3(x)
+	&= y_2(x) -
+	\int_{0}^{x}
+	\Big[
+	y_2'(\tau) + y_2^2(\tau) - 1
+	\Big] d\tau
+\end{align*}
+نحسب أولاً المشتقة والمربع:
+\[
+y_2(x)=x-\frac{x^3}{3}
+\]
+\[
+y_2'(\tau)=1-\tau^2
+\]
+\[
+y_2^2(\tau)=\left(\tau-\frac{\tau^3}{3}\right)^2
+= \tau^2-\frac{2}{3}\tau^4+\frac{1}{9}\tau^6
+\]
+اذن 
+\begin{align*}
+	y_2'(\tau)+y_2^2(\tau)-1
+	&=(1-\tau^2)+\left(\tau^2-\frac{2}{3}\tau^4+\frac{1}{9}\tau^6\right)-1 \\
+	&= -\frac{2}{3}\tau^4+\frac{1}{9}\tau^6
+\end{align*}
+إذن
+\begin{align*}
+	y_3(x)
+	&= x-\frac{x^3}{3}
+	- \int_{0}^{x}
+	\left(
+	-\frac{2}{3}\tau^4+\frac{1}{9}\tau^6
+	\right)d\tau \\
+	&= x-\frac{x^3}{3}
+	+\int_{0}^{x}
+	\left(
+	\frac{2}{3}\tau^4-\frac{1}{9}\tau^6
+	\right)d\tau
+\end{align*}
+نحسب التكامل:
+\[
+\int_{0}^{x}\frac{2}{3}\tau^4 d\tau=\frac{2}{15}x^5
+\]
+\[
+\int_{0}^{x}\frac{1}{9}\tau^6 d\tau=\frac{1}{63}x^7
+\]
+إذن الحل الثالث:
+\[
+y_3(x)
+=
+x-\frac{x^3}{3}
++\frac{2}{15}x^5
+-\frac{1}{63}x^7
+\]
+	وبالاستمرار نحصل على متسلسلة تقارب الحل الدقيق
+	\[
+	y(x) = \tanh(x)
+	\]
+\end{example}
+
+\begin{example}
+	لنأخذ المعادلة التفاضلية الجزئية غير الخطية
+	\[
+	u_t - 6u u_x + u_{xxx} = 0, \quad u(x,0)=6x
+	\]
+	\textbf{اولاً:} نحدد العناصر
+	\begin{itemize}
+		\item المؤثر الخطي $L(u)=u_t+u_{xxx}$
+		\item المؤثر غير الخطي $N(u)=-6u u_x$
+		\item لا يوجد حد مصدر، أي $g=0$
+	\end{itemize}
+	\textbf{ثانياً:} صياغة دالة التصحيح
+	\[
+	u_{i+1}(x,t)=u_i(x,t)+\int_{0}^{t}\lambda(\tau)\Big[(u_i)_{\tau}+(u_i)_{xxx}-6u_i (u_i)_x\Big]d\tau
+	\]
+	\textbf{ثالثاً:} باجراء التباين نحصل على مضاعف لاكرانج
+	\[
+	\lambda(\tau)=-1
+	\]
+	اذن العلاقة التكرارية تصبح
+	\[
+	u_{i+1}(x,t)=u_i(x,t)-\int_{0}^{t}\Big[(u_i)_{\tau}+(u_i)_{xxx}-6u_i (u_i)_x\Big]d\tau
+	\]
+	\textbf{رابعاً:} التقريب الابتدائي من الشرط الابتدائي
+	\[
+	u_0(x,t)=6x
+	\]
+	\textbf{خامساً:} التكرار الأول
+	\[
+	(u_0)_{\tau}=0,\quad (u_0)_x=6,\quad (u_0)_{xxx}=0
+	\]
+	\[
+	-6u_0 (u_0)_x=-6(6x)(6)=-216x
+	\]
+	\[
+	u_1(x,t)=6x-\int_{0}^{t}(-216x)d\tau
+	\]
+	\[
+	u_1(x,t)=6x+216xt
+	\]
+	\textbf{التكرار الثاني}
+	\[
+	u_2(x,t)=u_1(x,t)-\int_{0}^{t}\Big[(u_1)_{\tau}+(u_1)_{xxx}-6u_1 (u_1)_x\Big]d\tau
+	\]
+	حيث
+	\[
+	u_1(x,t)=6x+216xt
+	\]
+	نحصل بعد التعويض والتكامل على
+	\[
+	u_2(x,t)=6x+216xt+3888xt^2+279936xt^3
+	\]
+	\textbf{التكرار الثالث}
+	\[
+	u_3(x,t)=u_2(x,t)-\int_{0}^{t}\Big[(u_2)_{\tau}+(u_2)_{xxx}-6u_2 (u_2)_x\Big]d\tau
+	\]
+	وبعد الحساب نحصل على
+	\[
+	u_3(x,t)=6x+216xt+3888xt^2+279936xt^3+10077696xt^4+2176782336xt^5
+	\]
+\end{example}

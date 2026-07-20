@@ -1,0 +1,174 @@
+\chapter{تعميم مبرهنة كيلي}
+
+\section*{مقدمة}
+
+في هذا الفصل سوف نناقش تطبيق مهم لتأثير الزمرة على المجموعة وهو تعميم لمبرهنة كيلي وكذلك بعض النتائج على هذه المبرهنة منها مبرهنة الدليل.
+
+\begin{theorem}[\cite{ref5}]
+	\addcontentsline{toc}{section}{مبرهنة (3-1)}
+	لتكن $G$ زمرة وليكن $a\in G$
+	\begin{enumerate}[label=(\alph*)]
+		\item التطبيق $\lambda_a : G \to G$ المعرف بالقاعدة $\lambda_a(x) = ax$ لكل $x\in G$ تبديلاً.
+		
+		\item $H = \{\lambda_a : a\in G\} \le S_G$.
+		
+		\item $G \simeq H$.  
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\begin{tasks*}
+		\item 	لاحظ انه لكل $x, y\in G$ لدينا
+		$\lambda_a(x) = \lambda_a(y) \iff ax = ay \iff x = y$ ولذا فأن $\lambda_a$ تطبيق احادي واذا كان $y\in G$ فأنه
+		$\lambda_a(a^{-1} y) = a(a^{-1} y) = y$ ومنه فأن $\lambda_a$ شامل اذن $\lambda_a$ تبديل.
+		
+		\item لاحظ ان $\lambda_a \in H$ ولذا فأن $\lambda_a \circ \lambda_{a^{-1}} = \lambda_e$ ومنه $(\lambda_a)^{-1} = \lambda_{a^{-1}}$. الآن اذا كان $\lambda_a, \lambda_b \in H$ فأنه لكل $x\in G$ لدينا
+		\[
+		(\lambda_a \circ \lambda_{b}^{-1})(x) = (\lambda_a\circ\lambda_{b^{-1}})(x) = \lambda_a(b^{-1} x) = (ab^{-1})x = \lambda_{ab^{-1}}(x) 
+		\] اذن 
+		$\lambda_a \circ \lambda_{b}^{-1} \in H$ وبالتالي 
+		$H \le S_G$.
+		
+		\item ليكن التطبيق
+		$\phi : G \to H$ المعرف بالقاعدة $\phi(a) = \lambda_a$ لكل $a\in G$. لاحظ انه اذا كان $a, b\in G$ فلكل $x\in G$ لدينا
+		\[
+		ax = bx \iff \lambda_a(x) = \lambda_b(x) \iff \phi(a) = \phi(b)
+		\]
+		لذا فأن $\phi$ تطبيق احادي ومن الواضح ايضاً ان $\phi$ شامل ، أخيراً لكل $a, b\in G$ لدينا
+		$\phi(ab) = \lambda_{ab}$ ، $\phi(a) \circ \phi(b) = \lambda_a \circ \lambda_b$ اذن لكل $x\in G$ نجد ان
+		\[
+		\lambda_{ab}(x) = (ab) x = a(b x) = \lambda_a(bx) = \lambda_a(\lambda_{b}(x)) = (\lambda_a \circ \lambda_b) (x)
+		\]
+		لذا فأنه 
+		$\phi(ab) = \phi(a) \circ \phi(b)$ اي ان $\phi$ تشاكل اذن $G\simeq H$.
+		
+	\end{tasks*}
+\end{proof}
+
+\begin{theorem}[\cite{ref5}]\label{thm:ch3thm1}
+	\addcontentsline{toc}{section}{مبرهنة (3-2)}
+	اذا اثرت الزمرة $G$ على المجموعة $A$ بالضرب من اليسار (اي ان
+	$g*a=ga$) فأن:
+	\begin{enumerate}[label=(\alph*)]
+		\item لكل $g\in G$ يكون التطبيق $\tau_g : A \to A$ المعرف بالقاعدة $\tau_g(a)= ga$ تبديلاً.
+		\item $\tau_{g_1g_2} = \tau_{g_1} \circ \tau_{g_2}$ لكل $g_1, g_2\in G$.
+		\item يكون التطبيق $\psi : G \to S_A$ المعرف بالقاعدة $\psi(g) = \tau_g$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\begin{tasks*}
+		\item لنفرض أن $\tau_g(a) = \tau_g(b)$ حيث $a, b\in A$ عندئذٍ $ga=gb$ ، الآن
+		\[
+		a = ea = (g^{-1} g)a = g^{-1} (ga) = g^{-1}(gb) = (g^{-1}g)b=eb=b
+		\]
+		ولذا فأن $\tau_g$ أحادي ، $\tau_g$ شامل أيضاً لأنه اذا كان $b\in A$ فأن
+		\[
+		\tau_g(g^{-1} b) = g(g^{-1}b) = (gg^{-1})b=eb=b 
+		\]
+		اذن $\tau_g$ تبديل.
+		\item اذا كان $g_1, g_2 \in G$ فأنه لكل $a\in A$ :
+		\[
+		\tau_{g_1g_2}(a) = (g_1g_2) a=g_1(g_2 a) = \tau_{g_1}(g_2 a) = \tau_{g_1} \big(\tau_{g_2}(a)\big) = (\tau_{g_1} \circ \tau_{g_2})(a)
+		\]
+		ولذا فأن 
+		$\tau_{g_1g_2} = \tau_{g_1}\circ \tau_{g_2}$
+		
+		\item $\psi(g_1g_2) = \tau_{g_1g_2} = \tau_{g_1}\circ \tau_{g_2} = \psi(g_1) \circ \psi(g_2)$ اذن $\psi$ تشاكل.
+	\end{tasks*}
+\end{proof}
+
+%\section{تعميم مبرهنة كيلي}
+
+\begin{theorem}[(مبرهنة كيلي المعممة) \cite{ref3}]
+	\label{thm:general}
+	\addcontentsline{toc}{section}{مبرهنة (3-3)}
+		اذا كانت $H\le G$ وكانت $A = \{aH : a\in G\}$ فأنه يوجد تشاكل $\psi : G\to S_A$ يحقق
+	$\ker\psi \subseteq H$
+\end{theorem}
+\begin{proof}
+	لاحظ اولاً ان $G$ تؤثر على $A$ بالضرب من اليسار ، أي أن 
+	$g* (aH) = (ga) H$ لكل $g\in H$ وكل $aH\in A$. اذن ، بأستخدام المبرهنة \ref{thm:ch3thm1} يوجد تشاكل
+	$\psi : G \to S_A$ معرفاً بالقاعدة $\psi(g) = \tau_g$. الآن،
+	\[
+	g\in \ker\psi \implies \psi(g) = \tau_e \implies \tau_g(aH) = aH \forall aH\in A
+	\]
+	\[
+	\implies g(aH) = aH \forall aH\in A \implies g(eH) = eH \implies gH = H\implies g\in H
+	\]
+	بالتالي $\ker\psi \subseteq H$
+	
+\end{proof}
+\newpage
+\begin{example}
+	لتكن $G = \mathbb{Z}_3 = \{0,1,2\}$ ، و $H = \{0\}$.
+	\[
+	A = \{a + H : a \in G\} = \{0+H,\, 1+H,\, 2+H\}
+	\]
+	وبما أن $H = \{0\}$ فإن:
+	\[
+	0+H = \{0\}, \quad 1+H = \{1\}, \quad 2+H = \{2\}
+	\]
+	أي أن:
+	\[
+	A = \{\{0\}, \{1\}, \{2\}\} \simeq \Z_3
+	\]
+	حسب المبرهنة يوجد تشاكل 
+	$\psi : \Z_3 \to S_3$ بحيث $\ker\psi \subseteq H$.\\
+	ليكون $\psi$ تشاكل ، يجب ان يكون
+	\[
+	\psi(0) = I = 
+	\begin{pmatrix}
+		1&2&3\\
+		1&2&3
+	\end{pmatrix}
+	\]
+	الآن لأن رتبة العدد 1 في الزمرة $\Z_3 $ هي 3 اذن يوجد احتمالين لصورة العنصر $1\in \Z_3 $ ، أما
+	\begin{align*}
+		&\psi(1) = (1\; 2\; 3)\\
+		&\psi(2) = \psi(1 + 1) = (1\; 2\; 3)\circ (1\; 2\; 3) = (1\; 3\; 2)
+	\end{align*}
+	اذن
+	\[
+	0 \mapsto I, \quad 1 \mapsto (1\;2\;3), \quad 2\mapsto (1\;3\;2)
+	\]
+	بالتالي
+	\[
+	\ker\psi = \{0\} = H
+	\]
+أو
+	\begin{align*}
+		&\psi(1) = (1\; 3\; 2)\\
+		&\psi(2) = \psi(1 + 1) = (1\; 3\; 2)\circ (1\; 3\; 2) = (1\; 2\; 3)
+	\end{align*}
+	إذن
+	\[
+	0 \mapsto I, \quad 1 \mapsto (1\;3\;2), \quad 2\mapsto (1\;2\;3)
+	\]
+	وبالتالي
+	\[
+	\ker\psi = \{0\} = H
+	\]
+\end{example}
+
+
+\begin{theorem}[(مبرهنة الدليل) \cite{ref3}]
+	\addcontentsline{toc}{section}{مبرهنة (3-4)}
+	اذا كانت $H$ زمرة جزئية من الزمرة المنتهية $G$ حيث
+	$[G : H] =n$ ، واذا كان $|G|$ لا يقسم $n!$
+	\linebreak فإن $G$ تحتوي على زمرة جزئية ناظمية غير تافهة.
+\end{theorem}
+\begin{proof}
+	بإستخدام المبرهنة \ref{thm:general} يوجد تشاكل $\psi : G\to S_n$ يحقق
+	$\ker(\psi) \subseteq H$ ولذا ، بإستخدام مبرهنة التماثل الأولى نجد أن
+	$G / \ker(\psi) \simeq \psi$ يقسم $n!$ ، وبما أن $|G|$ لا يقسم $n!$ فأننا نجد $\ker\psi \neq 1$ وبالتالي $\ker\psi$ زمرة جزئية ناظمية غير تافهة من $G$.
+\end{proof}
+
+\begin{example}
+	اذا كانت 
+	$H \le G$ حيث $|G| = 80$ و $|H| = 16$ فأن $[G : H] = 5$ ، نلاحظ ان
+	\[
+	5! = 5\times4\times3\times2\times1 = 120
+	\] 
+	اذن $80$ لا تقسم $5!$ فأن $G$ تحتوي على زمرة جزئية ناظمية غير تافهة.
+\end{example}
+
+

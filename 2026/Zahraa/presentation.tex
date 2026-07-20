@@ -1,0 +1,429 @@
+\documentclass{beamer}
+
+\usepackage{tikz}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\LL}{\mathcal{L}}
+
+% Define new math operators
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\arcsec}{arcsin}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arccot}{arccot}
+
+\title{Coefficients Bound for Certian Families of Holomorphic Multivalent Functions}
+\author{\textbf{By}\\ \textbf{Zahraa Abdulqader}}
+\date{\textbf{Supervised by}\\ \textbf{Asst. Prof. Dr. Sarem H. Hadi}}
+
+\begin{document}
+	\frame{\titlepage}
+	
+	
+	\begin{frame}{Abstract}
+		
+		
+		In this research, we investigate coefficient bounds for various families of holomorphic multivalent functions, with a particular focus on $p$-valent, starlike, convex, close-to-convex, and bi-univalent function classes
+	\end{frame}
+	
+	\begin{frame}
+		\begin{center}
+			\Huge \textbf{Chapter One}\\[40pt]
+			\textbf{Basic Concepts}
+		\end{center}
+	\end{frame}
+	
+	
+	
+	
+	
+	
+	\begin{frame}
+\begin{definition}[{[Analytic (Holomorphic) Function]}]
+	
+	A function \(f : \C \to \C\) is said to be \emph{analytic} (or \emph{holomorphic}) at a point \(z_0 \in \C\) if it is differentiable in some neighborhood of \(z_0\). That is, the limit
+	\begin{equation}\label{eq:def-derivative}
+		f'(z_0) = \lim_{\Delta z \to 0} \frac{f(z_0 + \Delta z) - f(z_0)}{\Delta z}
+	\end{equation}
+	exists.
+	
+	
+	
+	If \(f\) is analytic at every point of the open disc
+	\[
+	\U_r(z_0) = \{\, z \in \C : |z - z_0| < r \,\},
+	\]
+	then we say that \(f\) is analytic in \(\U_r(z_0)\). In such a disc, an analytic function admits a Taylor series expansion:
+	\begin{equation}\label{eq:taylor}
+		f(z) = \sum_{k=0}^{\infty} a_k (z - z_0)^k, 
+		\qquad 
+		a_k = \frac{f^{(k)}(z_0)}{k!},
+	\end{equation}
+	and this series converges to \(f(z)\) for every \(z \in \U_r(z_0)\).
+\end{definition}
+	\end{frame}
+	
+	\begin{frame}{The region $\mathbb{U}$}
+		
+		\begin{figure}
+			\begin{tikzpicture}[scale=2]
+				\fill[gray!20] (0,0) circle (1);
+				
+				% Axes
+				\draw[-latex, very thick] (-1.5,0) -- (1.5,0) node[right] {$x$};
+				\draw[-latex, very thick] (0,-1.5) -- (0,1.5) node[above] {$y$};
+				
+				% Filled unit disk
+				\draw[thick] (0, 0) -- ++(30:1) node[above, midway, sloped]{$1$};
+				
+				% Boundary circle
+				\draw[thick, black, dashed] (0,0) circle (1);
+				
+				% Label
+				\node at (1,1) {$\mathbb{U}$};
+			\end{tikzpicture}
+			\caption{The region $\mathbb{U} = \{z : |z| < 1\}$}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}{The region $\U_r$}
+		
+		\begin{figure}[ht]
+			\centering
+			\begin{tikzpicture}[scale=2]
+				% Define center and radius
+				\def\xo{0.5}
+				\def\yo{0.3}
+				\def\r{0.8}
+				
+				% Filled disk
+				\fill[gray!20] (\xo,\yo) circle (\r);
+				
+				% Axes
+				\draw[-latex, very thick] (-1.5,0) -- (1.5,0) node[right] {$x$};
+				\draw[-latex, very thick] (0,-1.5) -- (0,1.5) node[above] {$y$};
+				
+				% Boundary circle
+				\draw[thick, dashed] (\xo,\yo) circle (\r);
+				
+				% Center point
+				\fill (\xo,\yo) circle (1pt);
+				\node[right] at (\xo,\yo) {$z_0$};
+				
+				\draw[thick] (\xo,\yo) -- ++(90:\r) node[midway, left] {$r$};
+				
+				% Label
+				\node at (1,1.3) {$\U_r(z_0)$};
+			\end{tikzpicture}
+			\caption{The region $\U_r = \{z : | z - z_0 | < r\}$}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}{Some Classes of Analytic Functions}
+		
+		\textbf{1. The class $\mathcal{A}$}\\[10pt]
+		Let \(\U = \{ z \in \C : |z| < 1 \}\) denote the open unit disc.  
+		The class \(\mathcal{A} = \mathcal{A}(\U)\) consists of all functions \(f\) analytic in \(\U\) that satisfy the normalization conditions
+		\[
+		f(0) = 0, 
+		\qquad 
+		f'(0) = 1.
+		\]
+		
+		Consequently, every \(f \in \mathcal{A}\) admits the Taylor expansion
+		\[
+		f(z) = z + \sum_{k=2}^{\infty} a_k z^k.
+		\]
+	\end{frame}
+	
+	\begin{frame}{Some Classes of Analytic Functions}
+		
+		\textbf{2. The class $\varphi$}\\[10pt]
+		
+		Let \(\varphi\) denote the class of analytic functions in the unit disc whose real part is positive:
+		\[
+		\varphi = \{\, \omega : \U \to \C 
+		\;\text{analytic},\; 
+		\re(\omega(z)) > 0 \text{ for all } z \in \U \,\}.
+		\]
+		A function \(\omega \in \varphi\) is typically normalized by
+		\[
+		\omega(0) = 1,
+		\]
+		and thus has the Taylor expansion
+		\[
+		\omega(z) = 1 + \sum_{k=1}^{\infty} w_k z^k.
+		\]
+	\end{frame}
+	
+	\begin{frame}{Univalent Functions}
+		
+		The theory of univalent (i.e., one-to-one) analytic functions is a central part of geometric function theory.  
+		An analytic function
+		\[
+		f : \U \to \C, 
+		\qquad 
+		\U = \{ z \in \C : |z| < 1 \},
+		\]
+		is called \emph{univalent} if it is injective; that is,
+		\[
+		f(z_1) \neq f(z_2) \quad \text{whenever } z_1 \neq z_2.
+		\]
+		
+		A particularly important subclass of univalent functions is the class \(S\), consisting of all functions analytic and univalent in \(\U\), normalized by
+		\[
+		f(0) = 0, 
+		\qquad 
+		f'(0) = 1.
+		\]
+		Thus every \(f \in S\) admits the Taylor expansion
+		\[
+		f(z) = z + a_2 z^2 + a_3 z^3 + \cdots.
+		\]
+	\end{frame}
+	
+	\begin{frame}
+		
+		Several transformations preserve univalence and the normalization of the class \(S\).  
+		If \(f \in S\), then the following functions also belong to \(S\):
+		
+		\begin{enumerate}
+			
+			\item \textbf{Rotation:}
+			\[
+			J(z) = e^{-i\theta} f(e^{i\theta} z),
+			\qquad \theta \in \R.
+			\]
+			
+			\item \textbf{Dilation:}
+			\[
+			J(z) = r^{-1} f(rz),
+			\qquad 
+			0 < r < 1.
+			\]
+			
+			\item \textbf{Square-root transformation:}
+			\[
+			J(z) = \big(f(z^2)\big)^{1/2},
+			\]
+			which is analytic and univalent in \(\U\) with the appropriate branch of the square root.
+			
+			\item \textbf{Omitted-value transformation:}  
+			If \(f(\U)\) omits a value \(v \in \C\), then
+			\[
+			J(z) = \frac{v f(z)}{\, v - f(z)\, }
+			\]
+			is again in \(S\).  
+			This is a Möbius transformation.
+		\end{enumerate}
+	\end{frame}
+	
+	\begin{frame}{Subclasses of Univalent Functions}
+		
+		\textbf{1. Starlike Functions}
+		\begin{definition}
+			An analytic function \(f:\U \to \C\) is starlike, denoted \(f \in S^*\), if and only if
+			\[
+			\re\left[\frac{z f'(z)}{f(z)}\right] > 0, \quad z \in \U.
+			\]
+		\end{definition}
+		
+		
+		\textbf{2. Convex Functions}
+		\begin{definition}
+			An analytic function \(f:\U \to \C\) is convex, denoted \(f \in \mathcal{C}\), if and only if
+			\[
+			\re\left[ 1 + \frac{z f''(z)}{f'(z)} \right] > 0, \quad z \in \U.
+			\]
+		\end{definition}
+	\end{frame}
+	
+	\begin{frame}{Subclasses of Univalent Functions}
+		
+		\textbf{3. Close-to-Convex Functions}
+		\begin{definition}[{[2]}]
+			A function \(f \in \mathcal{A}\) is \emph{close-to-convex}, denoted \(f \in \mathcal{K}\), if there exists \(h \in \mathcal{C}\) such that
+			\[
+			\re\left[ \frac{f'(z)}{h'(z)} \right] > 0, \quad z \in \U.
+			\]
+			
+			Equivalently, using Theorem~\ref{thm:convex}, we can write
+			\[
+			\re\left[ \frac{z f'(z)}{\psi(z)} \right] > 0,
+			\]
+			where \(\psi \in S^*\).
+		\end{definition}
+	\end{frame}
+	
+	\begin{frame}{Growth and Distrotion Theorems}
+		\begin{theorem}[Growth Theorem]
+			Let \(f \in S\) and let \(|z| = r < 1\). Then
+			\begin{equation}\label{eq:growth}
+				\frac{r}{(1+r)^2}
+				\;\le\;
+				|f(z)|
+				\;\le\;
+				\frac{r}{(1-r)^2}.
+			\end{equation}
+		\end{theorem}
+		
+		\begin{theorem}[Distortion Theorem]
+			Let \(f \in S\) and let \(|z| = r < 1\). Then
+			\begin{equation}\label{eq:distortion}
+				\frac{1-r}{(1+r)^3}
+				\;\le\;
+				|f'(z)|
+				\;\le\;
+				\frac{1+r}{(1-r)^3}.
+			\end{equation}
+		\end{theorem}
+	\end{frame}
+
+
+	\begin{frame}{Biuinvalent Functions}
+		\textbf{The class \(\Sigma\)}\\
+		The class \(\Sigma\) consists of all functions \(f\) that are analytic and biunivalent in the unit disc
+		\[
+		\U = \{ z \in \C : |z| < 1 \}.
+		\]
+		That is,
+		\[
+		\Sigma = \Bigg\{ f : \U \to \C \;\Bigg|\;
+		\begin{array}{l}
+			f \text{ is analytic and univalent in } \U,\\[1mm]
+			f^{-1} \text{ exists, is analytic, and univalent in } \U
+		\end{array}
+		\Bigg\}.
+		\]
+	\end{frame}
+	
+	\begin{frame}
+		\begin{center}
+			\Huge \textbf{Chapter Two}\\[40pt]
+			\textbf{Subclasses of $p$-valent Functions and Coefficient Bounds}
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}{Differential Subordination $\prec$}
+		
+		Let $f(z)$ and $h(z)$ be two analytic functions in $\U$. The function $f(z)$ is said to be \emph{subordinate} to the function $h(z)$, or equivalently, $h(z)$ is \emph{superordinate} to $f(z)$, denoted by
+		\[
+		f(z) \prec h(z) \quad \text{or} \quad h(z) \succ f(z),
+		\]
+		if there exists a Schwarz function $\Phi$ satisfying
+		\[
+		\Phi(0) = 0, \qquad |\Phi(z)| < 1 \quad (z \in \U),
+		\]
+		such that
+		\[
+		f(z) = h(\Phi(z)), \qquad (z \in \U).
+		\]
+	\end{frame}
+	
+	\begin{frame}{The Convolution of Analytic Functions}
+		
+		The convolution (or Hadamard product) of analytic functions is defined in this section, along with some of its important properties. This theory has proved to be extremely effective in obtaining new results in the study of subclasses of univalent and $p$-valent functions.
+		Let
+		\[
+		f_1(z) = z + \sum_{k=2}^{\infty} a_k z^k, 
+		\qquad
+		h_1(z) = z + \sum_{k=2}^{\infty} d_k z^k.
+		\]
+		The convolution (Hadamard product) of $f_1$ and $h_1$, denoted $f_1 * h_1$, is defined by
+		\[
+		(f_1 * h_1)(z) = z + \sum_{k=2}^{\infty} a_k d_k z^k, \qquad (z \in \U),
+		\]
+		and clearly,
+		\[
+		f_1 * h_1 = h_1 * f_1.
+		\]
+	\end{frame}
+	
+	\begin{frame}{$p$-Valent Functions}
+		
+		\begin{definition}
+			A $p$-valent function is a concept that naturally generalized the idea of univalent function. A function $f(z)$ that is holomorphic and exists in the domain of the $\C$-plane is said to be $p$-valent (multivalent) in $\varepsilon$ ($p = 1, 2, \dots$) if it occurs in this domain at most $p$ times for each of its values, or if there are no more than $p$ roots for $f(z) = w$ in $\varepsilon$ for any given value of $w$.
+		\end{definition}
+		
+		\begin{definition}[The class $S(p)$]
+			Let $S(p)$ be the class of analytic and $p$-valent functions $f(z)$ in the open disc $\U$ with their normalized form given by
+			\[
+			f(z) = z^p + \sum_{k=p+1}^{\infty} a_k z^k, \quad (p \in \N)
+			\]
+		\end{definition}
+	\end{frame}
+	
+	\begin{frame}{Some Classes of $p$-valent Functions}
+		
+		\textbf{$p$-Valent Starlike Functions}\\
+		
+		\begin{definition}
+			A function $f$ is said to be \emph{$p$-valent starlike} in $\U$, denoted by $f \in \mathcal{S}_p^*$, if
+			\[
+			\re\left[\frac{z f'(z)}{f(z)}\right] > 0,
+			\quad z \in \U.
+			\]
+		\end{definition}
+		
+		\begin{theorem}\label{thm:coeff-starlike}
+			If $f \in \mathcal{S}_p^*$, then
+			\[
+			|a_k| \le \frac{2p}{k-p}, \quad k \ge p+1.
+			\]
+		\end{theorem}
+	\end{frame}
+	
+	\begin{frame}{Some Classes of $p$-valent Functions}
+		
+		\textbf{$p$-Valent Convex Functions}
+		
+		\begin{definition}
+			A function $f$ is said to be \emph{$p$-valent convex} in $\U$, denoted by $f \in \mathcal{C}_p$, if
+			\[
+			\re\left[1 + \frac{z f''(z)}{f'(z)}\right] > 0, \quad z \in \U.
+			\]
+		\end{definition}
+		
+		
+		\begin{theorem}\label{thm:coeff-convex}
+			If $f \in \mathcal{C}_p$, then
+			\[
+			|a_k| \le \frac{2p}{(k-p)(k-p+1)}, \quad k \ge p+1.
+			\]
+		\end{theorem}
+	\end{frame}
+	
+	\begin{frame}{Some Classes of $p$-valent Functions}
+		
+		\textbf{$p$-Valent Close-to-Convex Functions}
+		
+		\begin{definition}
+			A function $f$ is said to be \emph{$p$-valent close-to-convex} in $\U$, denoted by $f \in \mathcal{K}_p$, if there exists $g \in \mathcal{S}_p^*$ such that
+			\[
+			\re\left[\frac{z f'(z)}{g(z)}\right] > 0, \quad z \in \U.
+			\]
+		\end{definition}
+		
+
+		
+		\begin{theorem}
+			If $f \in \mathcal{K}_p$, then
+			\[
+			|a_k| \le \frac{p}{k-p}, \quad k \ge p+1.
+			\]
+		\end{theorem}
+	\end{frame}
+	
+	\begin{frame}{}
+		\centering
+		\Huge
+		\textbf{Thanks For Listening}
+	\end{frame}
+\end{document}

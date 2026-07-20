@@ -1,0 +1,24 @@
+% !TeX program = lualatex
+\input{arabicTemplate}
+
+\begin{document}
+\input{Title Page/titlepage}
+\pagenumbering{roman}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+\input{ayah}
+\input gift
+\input thanks
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+\input{abstract}
+\input{intro}
+\input{chapter1}
+\input{chapter2}
+\input{conc}
+\input{references}
+\addcontentsline{toc}{schapter}{المصادر}
+\end{document}

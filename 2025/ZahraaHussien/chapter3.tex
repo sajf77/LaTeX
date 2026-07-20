@@ -1,0 +1,172 @@
+\chapter{مؤثر لوباس من نوع مجموع - تكامل}
+
+\section{تعريف المؤثر $B_n(f(t); x)$}
+متتابعة من المؤثرات الخطية الموجبة من الفضاء $C_h[0, \infty)$ الى نفسه كما يلي
+\[
+B_n(f(t); x) = (n-1)\sum_{k=0}^{\infty} p_{n, k}(x) \int_{0}^{\infty} p_{n, k}(t) f\left(\frac{nt + \alpha}{n + \beta}\right) \, dt
+\]
+حيث $0 \leq \alpha\leq \beta$
+
+\begin{note}
+	\[
+	\int_{0}^{\infty} p_{n, k}(t) t^m \, dt = \frac{(k+m)(k-m-2)!}{k!(n-1)!}
+	\]
+\end{note}
+
+\subsection*{اثبات ان المؤثر $B_n(f(t); x)$ خطي وموجب}
+1) نثبت ان المؤثر $B_n(f(t); x)$ هو خطي
+\begin{align*}
+	B_n((af+bg)(t); x) &= (n-1)\sum_{k=0}^{\infty} p_{n, k}(x) \int_{0}^{\infty} p_{n, k}(t) (af+bg)\left(\frac{nt + \alpha}{n + \beta}\right) \, dt\\
+	&= (n-1)\sum_{k=0}^{\infty} p_{n, k}(x)  \left[a\int_{0}^{\infty} p_{n, k}(t) f\left(\frac{nt + \alpha}{n + \beta}\right) \, dt\right.\\
+	&\qquad\qquad  +\left. b\int_{0}^{\infty} p_{n, k}(t) g\left(\frac{nt + \alpha}{n + \beta}\right) \, dt\right]\\
+	&= a(n-1)\sum_{k=0}^{\infty} p_{n, k}(x)  \left[\int_{0}^{\infty} p_{n, k}(t) f\left(\frac{nt + \alpha}{n + \beta}\right) \, dt\right]\\
+	&\qquad\qquad  + b(n-1)\sum_{k=0}^{\infty} p_{n, k}(x)  \left[\int_{0}^{\infty} p_{n, k}(t) g\left(\frac{nt + \alpha}{n + \beta}\right) \, dt\right]\\
+	& = a B_n(f(t) ; x) + b B(g(t); x)
+\end{align*}
+اذن المؤثر خطي.
+
+\noindent
+2) نثبت ان المؤثر $B_n(f(t); x)$ هو موجب
+\[
+B_n(f(t); x) \geq 0 \iff f(t) \geq 0
+\]
+($\Leftarrow$) نفرض ان $B_n(f(t); x) \geq 0$ ونبرهن $f(t) \geq 0$\\
+بما ان $p_{n, k}(x) \geq 0 $ 
+\[
+\Rightarrow (n-1)\sum_{k=0}^{\infty} p_{n, k}(x) \int_{0}^{\infty} p_{n, k}(t) f\left(\frac{nt + \alpha}{n + \beta}\right) \, dt \geq 0 
+\] 
+\[
+\Rightarrow \int_{0}^{\infty} p_{n, k}(t) f\left(\frac{nt + \alpha}{n + \beta}\right) \, dt \geq 0
+\]
+\[
+\Rightarrow f(t) \geq 0
+\]
+($\Rightarrow$) نفرض ان $f(t) \geq 0$ ونبرهن $B_n(f(t); x) \geq 0$
+\[
+\Rightarrow f(t) \geq 0
+\]
+بما ان $p_{n, k}(x) \geq 0 $ 
+\[
+\Rightarrow \int_{0}^{\infty} p_{n, k}(t) f\left(\frac{nt + \alpha}{n + \beta}\right) \, dt \geq 0
+\]
+\[
+\Rightarrow (n-1)\sum_{k=0}^{\infty} p_{n, k}(x) \int_{0}^{\infty} p_{n, k}(t) f\left(\frac{nt + \alpha}{n + \beta}\right) \, dt \geq 0 
+\] 
+\[
+\Rightarrow B_n(f(t); x) \geq 0
+\]
+
+\newpage
+\section{مبرهنة كورفكن للمؤثر $B_n(f(t); x)$}
+لتكن $B_n(f(t);x)$ متتابعة من المؤثرات الخطية الموجبة \textit{L.P.O} والشروط التالية متحققة 
+\begin{english}
+	\begin{enumerate}[label=\arabic*)]
+		\item $B_n(1; x) =1$
+		\item $B_n(t; x) = \frac{n^2x + n}{(n+ \beta)(n-2)} + \frac{\alpha}{n + \beta} \to x$
+		\item $B_n(t^2; x) = \frac{n^4x^2 + n^3x^2 + 3n^3x + n^3 x + 2n}{(n+\beta)^2 (n-2)(n-2)} + \frac{2\alpha x n^2 + 2n \alpha}{(n+\beta)^2 (n-2)} + \frac{\alpha^2 }{(n+\beta)^2} \to x^2$
+		\[
+		\Rightarrow B_n(f(t); x) \to f(x)\,\, \text{ as $n \to \infty$}
+		\]
+	\end{enumerate}
+\end{english}
+\noindent
+\textbf{{البرهان}}	
+
+\noindent
+\[
+1) B_n(1; x) = (n-1) \sum_{k=0}^{\infty} p_{n, k}(x) \int_{0}^{\infty} p_{n, k}(t) \, dt = 1
+\]
+\begin{align*}
+	2) B_n(t; x) &= (n-1) \sum_{k=0}^{\infty} p_{n, k}(x) \int_{0}^{\infty} p_{n, k}(t) \left(\frac{nt+\alpha}{n + \beta}\right)\, dt \\
+	&= \frac{n-1}{n+\beta} \sum_{k=0}^{\infty} p_{n, k}(x) \int_{0}^{\infty} p_{n, k}(t) (nt + \alpha) \, dt\\
+	&= \frac{n-1}{n+\beta} \sum_{k=0}^{\infty} p_{n, k}(x) \left[n\int_{0}^{\infty} t p_{n, k}(t\, dt) + \alpha \int_{0}^{\infty} \alpha p_{n,k}(t)\, dt\right]\\
+	&= \frac{n-1}{n+\beta} \sum_{k=0}^{\infty} p_{n, k}(x) \left[\textstyle
+	\frac{n(k+1)! (n-3)!}{k!(n-1)!} + \frac{\alpha k!(n-2)!}{k!(n-1)!}
+	\right]\\
+	&= \frac{n-1}{n+\beta} \sum_{k=0}^{\infty} p_{n, k}(x) \left[\textstyle
+	\frac{n(k+1)k!(n-3)!}{k!(n-1)(n-2)(n-3)!} + \frac{\alpha k! (n-2)!}{k! (n-1)(n-2)!}
+	\right]\\
+	&= \frac{n-1}{n+\beta} \sum_{k=0}^{\infty} p_{n, k}(x) \frac{n(k+1)!}{(n-1)(n-2)} + \frac{\alpha(n-1)}{n+\beta} \sum_{k=0}^{\infty} p_{n, k}(x) \frac{1}{n-1}\\
+	&= \frac{n(nx + 1)}{(n+\beta)(n-2)} + \frac{\alpha}{n + \beta}\\
+	&= \frac{nx^2 + n}{(n+\beta)(n-2)} + \frac{\alpha}{n + \beta} \to x
+\end{align*}
+
+\begin{align*}
+3)\qquad	B_n(t^2; x) &= (n-1) \sum_{k=0}^{\infty} p_{n, k}(x) \int_{0}^{\infty} p_{n, k}(t) \left(\frac{nt+\alpha}{n + \beta}\right)^2\, dt \\
+	&= \frac{n-1}{(n+\beta)^2} \sum_{k=0}^{\infty} p_{n, k}(x) \int_{0}^{\infty} p_{n, k}(t) (nt + \alpha)^2 \, dt\\
+	&= \frac{n-1}{(n+\beta)^2} \sum_{k=0}^{\infty} p_{n, k}(x) \int_{0}^{\infty} p_{n, k}(t) (n^2t^2 + 2\alpha n t + \alpha^2) \, dt\\
+	&= \frac{n-1}{(n+\beta)^2} \sum_{k=0}^{\infty} p_{n, k}(x) \left[
+	\int_{0}^{\infty} p_{n, k}(t) n^2 t^2 \, dt 
+	\right.\\
+	& \qquad\qquad\qquad + \left.\int_{0}^{\infty} p_{n, k}(t) 2 n t \alpha \, dt + \int_{0}^{\infty} p_{n, k}(t) \alpha^2 \, dt \right]\\
+	&= \frac{n-1}{(n+\beta)^2} \sum_{k=0}^{\infty} p_{n, k}(x) \left[
+	n^2 \int_{0}^{\infty} p_{n, k}(t) t^2 \, dt 
+	\right.\\
+	& \qquad\qquad\qquad + \left. 2n\int_{0}^{\infty} p_{n, k} t \alpha \, dt + \int_{0}^{\infty} p_{n, k}(t) \alpha^2 \, dt \right]
+\end{align*}
+\begin{align*}
+	&= \frac{n-1}{(n+\beta)^2} \sum_{k=0}^{\infty}p_{n, k}(x) \left[\textstyle
+	\frac{n^2(k+2)(n-4)!}{k!(n-1)!} + \frac{2n\alpha(k+1)(n-3)!}{k!(n-1)!} + \frac{\alpha^2 k!(n-2)!}{k!(n-1)!}
+	\right]\\
+	&= \frac{n-1}{(n+\beta)^2} \sum_{k=0}^{\infty}p_{n, k}(x) \left[\textstyle
+	\frac{n^2(k+2)(k+1)k!(n-4)!}{k!(n-1)(n-2)(n-3)(n-4)!} + \frac{2n\alpha (k+1)k!(n-3)!}{k!(n-1)(n-2)(n-3)!}+
+	\frac{\alpha^2 k!(n-2)!}{k!(n-1)(n-2)!}
+	\right]\\
+	&= \frac{n-1}{(n+\beta)^2} \sum_{k=0}^{\infty}p_{n, k}(x)  {\textstyle\frac{n^2(k+2)(k+1)}{(n-1)(n-2)(n-3)}} +  \frac{n-1}{(n+\beta)^2} \sum_{k=0}^{\infty}p_{n, k}(x) {\textstyle\frac{2n\alpha (k+1)}{(n-1)(n-2)}}\\
+	&\qquad\qquad + \frac{n-1}{(n+\beta)^2} \sum_{k=0}^{\infty}p_{n, k}(x) {\textstyle\frac{\alpha^2}{n-1}}\\
+	&= {\textstyle \frac{n^2}{(n+\beta)^2(n-2)(n-3)}}\sum_{k=0}^{\infty} p_{n,k}(x)(k+2)(k+1) + {\textstyle \frac{2n\alpha}{(n+\beta)^2(n-2)}} \sum_{k=0}^{\infty} p_{n,k}(x) (k+1)\\
+	&\qquad\qquad + {\textstyle\frac{\alpha^2}{(n+\beta)^2}} \sum_{k=0}^{\infty} p_{n,k}(x)\\
+	&= {\textstyle \frac{n^2}{(n+\beta)^2(n-2)(n-3)}} \left[
+	\sum_{k=0}^{\infty}p_{n,k}(x) k^2 + 3 \sum_{k=0}^{\infty}p_{n,k}(x) k + 2 \sum_{k=0}^{\infty}p_{n,k}(x)
+	\right]\\
+	&\qquad\qquad + {\textstyle \frac{2n\alpha}{(n+\beta)^2(n-2)}} \left[
+	\sum_{k=0}^{\infty}p_{n,k}(x)  k + \sum_{k=0}^{\infty}p_{n,k}(x) 
+	\right]
+	+  {\textstyle\frac{\alpha^2}{(n+\beta)^2}} \sum_{k=0}^{\infty} p_{n,k}(x)\\
+	& = \frac{n^2(n^2x^2nx^2+3nx +nx+2)}{(n+\beta)^2(n-2)(n-3)} + \frac{2n\alpha(nx+1)}{(n+\beta)^2(n-2)} + \frac{\alpha^2}{(n+\beta)^2}\\
+	& = \frac{n^4x^2+n^3x^2+3n^3x +n^3x+2n^2}{(n+\beta)^2(n-2)(n-3)} + \frac{2 \alpha x n^2+2n\alpha}{(n+\beta)^2(n-2)} + \frac{\alpha^2}{(n+\beta)^2} \to x^2 
+\end{align*}
+
+\newcommand{\tB}{\tilde{B}}
+\section{تعريف المؤثر $\tB_n(f(t); x)$}
+
+تعرف متتابعة من المؤثرات الخطية الموجبة من الفضاء $C_h[0, \infty)$ الى نفسه كما يلي
+\[
+\tB_n(f(t); x) = (n-1)\sum_{k=0}^{\infty} p_{n+2, k}(x) \int_{0}^{\infty} p_{n, k+1}(t) f(t) \, dt
+\]
+
+\section{مبرهنة كورفكن للمؤثر $\tB_n(f(t); x)$}
+لتكن $\tB_n(f(t); x)$ متتابعة من المؤثرات الخطية الموجبة \en{\textit{L.P.O}} تحقق الشروط التالية
+\setLR
+	\begin{enumerate}[label=(\arabic*]
+		\item $\tB_n(1; x) = 1\to 1$
+		\item $\tB_n(t; x) = \dfrac{(n+2)x+2}{n-2}\to x$
+		\item $\tB_n(t^2; x) = \dfrac{(n+2)(n+3)x^2 + 6(n+2)x + 6}{(n-3)(n-2)}\to x^2$
+		\[
+		\Rightarrow \tB(f(t); x) \to f(x)\quad \text{as}\quad n \to \infty
+		\]
+	\end{enumerate}
+
+\setRL
+\noindent
+\textbf{البرهان}
+\begin{align*}
+1)\,\,\tB_n(1; x) &= (n-1)\sum_{k=0}^{\infty} p_{n+2, k}(x) \int_{0}^{\infty} p_{n, k+1}(t)  \, dt\\
+&= (n-1) \sum_{k=0}^{\infty} p_{n+2, k}(x) \left[\frac{(k+1)!(n-2)!}{(k+1)!(n-2)!}\right] = 1
+\end{align*}
+\begin{align*}
+2)\,\,\tB_n(t; x) &= (n-1)\sum_{k=0}^{\infty} p_{n+2, k}(x) \int_{0}^{\infty} p_{n, k+1}(t)  t\, dt\\
+&= (n-1)\sum_{k=0}^{\infty} p_{n+2, k}(x) \left[\frac{(k+2)!(n-3)!}{(k+1)!(n-1)(n-2)(n-3)!}\right]\\
+&= \frac{1}{n-2}\sum_{k=0}^{\infty} p_{n+2, k}(x)\, (k+2)\\
+&= \frac{1}{n-2}\left[\sum_{k=0}^{\infty} kp_{n+2, k}(x) + 2\sum_{k=0}^{\infty} p_{n+2, k}(x)\right]\\
+&=\frac{1}{n-2}\left[nx+2\right] = \frac{(n+2)x+2}{n-2}
+\end{align*}
+\begin{align*}
+	3) \,\,\tB_n(t^2; x) &= (n-1)\sum_{k=0}^{\infty} p_{n+2, k}(x) \int_{0}^{\infty} p_{n, k+1}(t)  t^2\, dt\\
+	&= (n-1)\sum_{k=0}^{\infty} p_{n+2, k}(x) \left[\frac{(k+3)!(n-4)!}{(k+1)!(n-1)!}\right]\\
+	&= (n-1)\sum_{k=0}^{\infty} p_{n+2, k}(x)  \left[\frac{(k+3)(k+2)(k+1)!(n-4)!}{(k+1)!(n-1)(n-2)(n-3)(n-4)!}\right]\\
+	&= \sum_{k=0}^{\infty} p_{n+2, k}(x) \left[\frac{k^2+5k+6}{(n-2)(n-3)}\right]\\
+	&= \frac{1}{(n-2)(n-3)} \sum_{k=0}^{\infty} p_{n+2, k}(x) \left[k^2+5k+6\right]\\
+	&= \frac{1}{(n-2)(n-3)} \left[\sum_{k=0}^{\infty} p_{n+2, k}(x) k^2+5\sum_{k=0}^{\infty} p_{n+2, k}(x)  k + 6\sum_{k=0}^{\infty} p_{n+2, k}(x) \right]\\
+&= \frac{(n+2)(n+3)x^2 + 6(n+2)x + 6}{(n-2)(n-3)}
+\end{align*}

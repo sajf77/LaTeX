@@ -1,0 +1,633 @@
+\chapter[الإحتمالية]{الإحتمالية \en{Probability}}
+
+\section{مفاهيم أساسية}
+
+قبل الدخول الى مفاهيم الإحتمالية يجب أن ندرس بعض المفاهيم الأساسية في الرياضيات التي يجب فهمها بشكل جيد و عدم التهاون معها
+
+\subsection*{1- قوانين العد}
+
+\begin{enumerate}
+	
+	\item[أ-] \textbf{مفكوك العدد \en{factorial}}
+\[
+n ! = n(n-1)(n-2) \dots 3 \times 2 \times 1 = n (n-1)!
+\]
+\begin{note}
+	\(0!=1\) و \(1!=1\)
+\end{note}
+
+    \item[ب-] \textbf{التباديل \en{(permutations)}:}   هي إعادة ترتيب لكل أو لبعض مجموعة من الأشياء
+\begin{note}
+عدد التباديل لـ \(n\) من الأشياء هو \(\boxed{n!}\)
+\end{note}
+
+\begin{note}
+	عدد التباديل لــ \(n\) من الأشياء المختلفة مأخوذ منها \(r\) هو 
+	\[
+	P^n_r = \frac{n!}{(n-r)!}
+	\]
+\end{note}
+
+\begin{note}
+	عدد التباديل المختلفة لــ \(n\) من الأشياء التي مقسمة الى \(n_1\) من النوع الأول و \(n_2\) من النوع الثاني و \dots \(n_k\) من النوع الــ\(k\)
+	\[
+	\frac{n!}{n_1!\times n_2!\times \dots \times n_k!}
+	\]
+\end{note}
+
+\end{enumerate}
+
+	\begin{example}
+		\en{How many the permutations of the letters a, b and c taken 2 at a time}\\
+		كم عدد التباديل للأحرف \en{(a, b, c)} مأخوذ منها 2
+	\end{example}
+	
+	\begin{solution}
+		لأن الأحرف كلها مختلفة عن بعضها سوف نطبق القانون:
+		\[
+       	P^n_r = \frac{n!}{(n-r)!}
+		\]
+		حيث \(n=3\) و \(r=2\)، إذن
+		\[
+		P^3_2 = \frac{3!}{(3-2)!} = \frac{6}{1} = 6
+		\]
+	\end{solution}
+
+\begin{example}
+	\en{Consider the word \textcolor{red}{STATISTICS}. Find the number of premutations}\\
+	جد عدد التباديل للكلمة \en{\textcolor{red}{STATISTICS}}
+\end{example}
+
+\begin{solution}
+	هنا لأن الكلمة فيها أحرف متكررة يجب إستخدام القانون
+	\[
+	\frac{n!}{n_1!\times n_2!\times \dots \times n_k!}
+	\]
+	\begin{english}
+    \begin{align*}
+    	n &= 10, \text{total number of letters \ar{عددالأحرف الكلي}}\\
+    	n_1 &= 3, \text{number of letter S \ar{عدد مرات تكرار الحرف}}\\
+    	n_2 &= 3, \text{number of letter T \ar{عدد مرات تكرار الحرف}}\\
+    	n_3 &= 2, \text{number of letter I \ar{عدد مرات تكرار الحرف}}\\
+    	n_4 &= 1, \text{number of letter A \ar{عدد مرات تكرار الحرف}}\\
+    	n_5 &= 1, \text{number of letter C \ar{عدد مرات تكرار الحرف}}
+    \end{align*}
+    \end{english}
+    \[
+    \Rightarrow \frac{n!}{n_1! \cdot n_2! \cdot n_3! \cdot n_4! \cdot n_5!} = \frac{10!}{3!\cdot 3!\cdot 2!\cdot 1!\cdot 1!} = 50400
+    \]
+    
+    \begin{enumerate}
+    	
+    	\item[جــ-] \textbf{التوافيق \en{(Combination)}:} هي اختيار عدد معين من الاشياء بغض النظر عن الترتيب 
+    	
+    	\begin{note}
+    		عدد التوافيق لمجموعة مكونة \(n\) من الاشياء مأخوذ منها \(r\) هو
+    		\[
+    		\binom{n}{r} = \frac{n!}{r!(n-r!)}
+    		\]
+    	\end{note}
+    	
+    	\begin{note}
+    		\[
+    		\binom{n}{n-r} = \binom{n}{r}
+    		\]
+    	\end{note}
+    	
+    \end{enumerate}
+    
+    \begin{example}
+    	\en{In how many ways can a committee consisting of 3 men and 2 women be chosen from 7 men and 5 women}\\
+    	كم عدد الطرق التي يمكن تشكيل لجنة مكونة من 3 رجال و إمرأتان مأخوذين من 7 رجال و 5 نساء
+    \end{example}
+    
+    \begin{solution}
+    	عدد طرق اختيار الرجال:
+    	\[
+    	\binom{7}{3} = \frac{7!}{3!(7-3)!} = \frac{7!}{3!\times 4!} = \frac{7\times 6\times 5 4!}{3!\times 4} = 35
+    	\]
+    	
+    	عدد طرق اختيار النساء:
+    	\[
+    	\binom{5}{2} = \frac{5!}{2!(5-2)!} = 10
+    	\]
+    	الآن نحسب طرق تشكيل اللجنة: \(35\times 10 = 350\)
+    \end{solution}
+\end{solution}
+
+\begin{example}
+	\en{In how many ways can a party of 7 persons arrange their selves}\\
+	كم عدد الطرق يمكن لـــ 7 أشخص في حفلة أن يرتبوا نفسهم\\
+	\en{(i) In a row of 7 chairs \quad (ii) In a circle table}\\
+	(i) في صف من 7 كراسي \quad (ii) في طاولة دائرية
+\end{example}
+
+\begin{solution}
+	(i) \(n! = 7! = 7\times 6\times 5\times 4\times 3\times 2\times 1\)\\
+	(ii) \((n-1)! = 6! = 6\times 5\times 4\times 3\times 2\times 1\)
+\end{solution}
+
+\subsection*{2- مبرهنة ذات الحدين \en{(Binomial Theorem)}}
+واحدة من أهم الأدوات التي سوف نستخمها كثيراً
+\[
+(a+b)^n = \sum_{r=0}^{n} \binom{n}{r} a^{n-r} b^r
+\]
+هنا \(r\) يمكن استبادله بأي حرف آخر بإستثناء \(a, b, n\)
+
+\section{التعاريف الأساسية}
+
+\subsection*{1- الاحتمالية}
+
+\begin{definition}[الاحتمالية \en{(Probability)}]
+	هي دراسة التجارب العشوائية، مثلاً اذا رمينا حجر نرد في الهواء فإنه بالتأكيد سوف يسقط و لكن لا نعلم أي رقم سيظهر، اذن التجربة العشوائية هي التجربة التي من المستحيل أن نعرف نتيجتها
+\end{definition}
+
+\subsection*{2- فضاء العينة}
+
+\begin{definition}[فضاء العينة \en{(Sample Space)}]
+	\en{A Sample Space \(\Omega\) is the collection of every possible outcome of a random experiment}\\
+	فضاء العينة هو تجمع لكل نتيجة محتملة للتجربة العشوائية
+\end{definition}
+\noindent
+الآن سوف نتعرف على بعض الامثلة لتكون لدينا فكرة عن فضاء العينة
+
+\begin{example}[1]
+	\en{The sample space of tossing a coin is:}
+	\[
+	\Omega = \{H, T\}
+	\]
+	هذا فضاء العينة لتجربة قلب قطعة معدنية و التي فيها فقط احتمالان 
+\end{example}
+
+\begin{example}[2]
+	\en{The sample space of tossing a die is:}
+	\[
+	\Omega = \{1,2,3,4,5,6\}
+	\]
+	و هذا فضاء العينة لتجربة رمي حجر نرد في الهواء و التي فيها 6 احتمالات
+\end{example}
+
+\begin{example}[3]
+	\en{Toss a coin until a head appears and then count the numbers of times the coin was tossed, then:}
+	\[
+	\Omega = \{1,2,3,\dots,\infty\}
+	\]
+	هذه تجربة لقلب عملة معدنية الى أن يظهر الوجه \en{(Head)} ثم نحسب عدد المرات التي قلبنا فبها العملة المعدنية، و هنا من الممكن ان نحصل على الوجه من مرة واحدة او مرتان ،... و هكذا
+\end{example}
+
+\begin{note}
+	هنا \(\Omega\) ليس رمز خاص و يمكن استبداله بأي حرف نريد و لكن بالعادة نرمز لفضاء العينة بـــــــــ \(S\) أو \(\Omega\)
+\end{note}
+
+\subsection*{3- الحدث}
+
+\begin{definition}[الحدث \en{(Event)}]
+	الحدث \(F\) هو مجموعة جزئية من فضاء العينة \(\Omega\) و الذي بالعادة يحدد بشرط معين كما سوف نرى في المثال التالي  
+\end{definition}
+
+\begin{example}
+    \en{In the case of a pair of dice, suppose \(F\) is the event defined by the condition \(\alpha\) = The collection of all ordered pairs from \(\Omega\) for which the sum of the pair equals 7.}\\
+	هنا التجربة هي رمي حجران نرد في المرة الواحدة لذلك تكون المخرجات او النتائج على شكل ازواج مرتبة بالشكل التالي 
+	\[
+	S = \{(1,1), (1,2), (3,5), \dots\}
+	\]
+	بمجموع 36 زوج (لان 6$\times$6=36). هنا تم وصف الحدث \(F\) بأنه تجمع كل الازواج المرتبة التي مجموع نواتجها 7 اذن:
+	\[
+	F = \{(1,6), (2,5), (3,4), (4,3), (5,2) , (6,1)\}
+	\]
+\end{example}
+
+\subsection*{4- العمليات الجبرية على الحدث}
+
+\begin{flushleft}
+	\en{1. \(F^c = \{w \mid w\, \text{does not satisfies condition} \,\alpha \}\)}
+\end{flushleft}
+\(F^c\) هو الحدث الذي لا يحقق الشرط في الحدث الاصلي \(F\)
+\begin{flushleft}
+	\en{2. \(F_1 \cap F_2 = \{w\mid w\, \text{satisfies both}\, \alpha_1, \alpha_2\}\) }
+\end{flushleft}
+هنا تقاطع حدثين هو كل العناصر التي تحقق الشرطين معاً
+\begin{flushleft}
+	\en{3. \(F_1 \cup F_2 = \{w \mid w \,\text{satisfies either}\, \alpha_1 \text{or}\, \alpha_2\}\)}
+\end{flushleft}
+الاتحاد هو جميع العناصر التي تحقق سواء الشرط الاول او الشرط الثاني او كليهما معاً
+\begin{flushleft}
+	\en{4. \(F_1 - F_2 = \{w \mid w\, \text{satisfies}\, \alpha_1 \text{but not}\, \alpha_2\}\)}
+\end{flushleft}
+أما الفرق هو مجموعة العناصر التي تحقق الشرط الاول و لا تحقق الشرط الثاني 
+
+\begin{note}
+	ببساطة العمليات الجبرية هي العمليات المعتادة على المجموعات و لانحتاج الى ان نكتب التعاريف اعلاهز
+\end{note}
+
+\begin{note}
+	نعرف الآن الحدث المستحيل \(\varnothing\) الذي يمثل عدم حصول شيء، و نعرف ايضاً الحدث المؤكد الذي يمثل فضاء العينة كله \(\Omega\) او \(S\)
+\end{note}
+
+\begin{definition}
+	نقول أن حدثين \(F_1, F_2\) منفصلين \en{disjoint} او متنافيان \en{mutually exclusive} اذا كان \(F_1 \cap F_2 = \varnothing\)
+\end{definition}
+
+\begin{example}
+	\en{Let \(S=\{H, T\}\) and \(A=\{H\}, B=\{T\}\). Then \(A, B\) are mutually exclusive}\\
+	هنا الحدث هو قلب عملة معدنية و لدينا حدثين \(A, B\) متنافيان لان \(A\cap B = \varnothing\)
+\end{example}
+
+\subsection*{5- حقل بورل \en{Borel Field}}
+
+\begin{definition}
+	\en{The class \(\mathcal{F}\) of events (or collection, family of events) in space \(\Omega\) is called "Borel Field" [or sigma-field (\(\sigma\)-field)]}\\
+	يقال لتجمع (او عائلة) من الاحداث \(\mathcal{F}\) بحقل بورل اذا تحققت الشروط التالية
+	\begin{flushleft}
+		\en{\noindent
+		1. \(\Omega \in \mathcal{F}\)\\
+		2. whenever \(A \in \mathcal{F}\), then \(A^c \in \mathcal{F}\)\\
+		3. whenever \(A_1, A_2,\dots \in \mathcal{F}\), then \(\bigcup_{i=1}^\infty \in \mathcal{F}\) 
+		}
+	\end{flushleft}
+\end{definition}
+
+\begin{note}
+	الشرط الاول: يجب وجود الحدث \(\Omega\) في عائلة الاحداث\\
+	الشرط الثاني: اذا وجدنا حدث مثلاً \(A\) يجب ان يوجد المكمل له \(A^c\)\\
+	الشرط الثالث: اي حدثين موجودان يجب ان يكون اتحادهم موجود ايضاً  
+\end{note}
+
+\begin{example}
+	\en{Let \(S=\{H, T\}\)}
+	\begin{flushleft}
+		\en{\noindent
+		1. \(\mathcal{F}_1 = \{\varnothing, S\}\) is a Borel Field\\
+		2. \(\mathcal{F}_2 = \{\varnothing, \{H\}, \{T\}, S\}\) is a Borel Field.\\
+		3. \(\mathcal{F}_3 = \{\{H\}, S\}\) is \textcolor{red}{not} a Borel Filed\\
+		4. \(\mathcal{F}_4 = \{\varnothing, \{H\}\}\) is \textcolor{red}{not} a Borel Filed
+		}
+	\end{flushleft}
+	النقطة الثالثة لا تحقق الشرط الثاني  \(S\in \mathcal{F}_3\) و لكن \(\varnothing \notin \mathcal{F}_3\) (المتمم لــــ \(S\) هو \(\varnothing\))\\
+	النقطة الرابعة لا تحقق الشرط الاول \(S \notin \mathcal{F}_4\)
+\end{example}
+
+\begin{example}
+	\en{If \(A \neq \varnothing, \Omega\), what is the Borel field generated by \(\{A\}\)}\\
+	هنا المطلوب ايجاد حقل بورل المتولد من الحدث \(A\) بحيث ان \(A\neq \varnothing, \Omega\)
+\end{example}
+
+\begin{solution}
+	لنرمز للحقل بالرمز \(\mathcal{F}\)، و بما ان الحقل متولد من \(A\)، يجب ان يكون \(A \in \mathcal{F}\)، و الان يجب ان نحقق كل الشروط الثلاثة:\\\noindent
+	1. \(S \in \mathcal{F}\)\\
+	2. \(S^c =\varnothing \in \mathcal{F}\) و \(A^c \in \mathcal{F}\)\\
+	3. شرط الاتحاد دائماً نطبقه على المجموعات غير \(\varnothing, S\) اي فقط على \(A\) و \(A^c\)
+	\[
+	A \cup A^c = S \in \mathcal{F}
+	\]
+	\[
+	\Rightarrow \mathcal{F} = \{\varnothing, A, A^c, S\}
+	\]
+\end{solution}
+
+\begin{example}
+	\en{Let \(S = \{1, 2, 3 ,4\}\). Find the Borel Field generated by \(\{A, B\}\), where \(A = \{1, 2\}\) and \(B = \{1, 3\}\)}
+\end{example}
+
+\begin{solution}
+	بنفس الاسلوب يجب ان يكون \(A, B \in \mathcal{F}\) و نحقق الشروط:\\ \noindent
+	1. \(S \in \mathcal{F}\)\\
+	2. \(S^c = \varnothing\) و \(A^c = \{3, 4\}\) و \(B^c = \{2, 4\}\)\\
+	3. نجري عملية الاتحاد بين كل المجموعات ما عدا \(\varnothing, S\)
+	\begin{align*}
+		A \cup B &= \{1, 2, 3\} \\
+		A^c \cup B^c &= \{2, 3, 4\} \\
+		A \cup B^c &= \{1, 2, 4\} \\
+		A^c \cup B &= \{1, 3, 4\} \\
+		A \cup A^c = S &,\quad B \cup B^c = S
+	\end{align*}
+	\[
+	\Rightarrow \mathcal{F} = \{\varnothing, S, \{1,2\}, \{1,3\},\{3,4\}, \{2,4\}, \{1,2,3\}, \{1,2,4\}, \{1,3,4\}\}
+	\]
+\end{solution}
+
+\section{تعريف الاحتمالية الرياضي}
+
+\begin{definition}
+	الاحتمالية هي ربط الحدث (مثلاً \(A\)) بعدد موجب بين الصفر و الواحد، اي قياس لفرصة حصول الحدث و نرمز لها بالرمز \(P(A)\) و تحقق:
+	\begin{flushleft}
+		\en{\noindent
+		1. \(0 \leq P(A) \leq 1, \forall A \in \mathcal{F}\)\\
+		2. \(P(\Omega) = 1\)\\
+		3. If \(A, B\) are mutually exclusive (\(A \cap B = \varnothing\)). Then \(P(A\cup B) = P(A) + P(B)\)
+		}
+	\end{flushleft}
+	هذه شروط نستفاد منها في حل الامثلة و التمارين
+\end{definition}
+
+\begin{example}
+	\en{Let \(S=\{HH, HT, TH, TT\}\) and \(A=\{HT, TH, TT\}\), then \(P(A)=3/4\)}\\
+	هنا الاحتمالية بشكل مباشر هي عدد عناصر المجموعة \(A\) على عدد عناصر المجموعة \(S\).
+\end{example}
+
+\begin{example}
+	\en{A bag contains 8 red, 6 white and 7 blue balls, what is the probability that two balls drawn white and blue}\\
+	حقيبة فيها 8 كرات حمراء و 6 كرات بيضاء و 7 كرات زرقاءز ماهي الاحتمالية ان الكرتين المسحوبتان هي بيضاء و زرقاء. 
+\end{example}
+
+\begin{solution}
+	التجربة هي سحب كرتين، نحسب عدد طرق سحب كرتين كما تعلمنا في موضوع التوافيق لان هنا لا يهم ترتيب السحب:
+	\[
+	\text{عدد الطرق} = \binom{21}{2} = \frac{21!}{2!(21-2)!} = 210
+	\]
+	الان نحسب عدد طرق الحدث (الكرتان المسحوبتان واحدة بيضاء و واحدة زرقاء):
+	\[
+	\text{عدد الطرق} = \binom{6}{1} \times \binom{7}{1} = 6 \times 7 = 42
+	\]
+	الاحتمالية للحدث تحسب ببساطة بالشكل التالي:
+	\[
+	P = \frac{42}{210} = \frac{1}{5}
+	\]
+\end{solution}
+
+\begin{example}
+	\en{A coin is weighted so that head is twice as likely to appear as tail. Find \(P(H)\) and \(P(T)\)}\\
+	عملة معدنية موزونة بشكل ان فرصة ظهور الوجه \(H\) هي ضعف فرصة ظهور الكتابة \(T\). المطلوب ايجاد احتمالية ظهور الوجه و الكتابة. 
+\end{example}
+
+\begin{solution}
+	نفرض ان \(P(T) = p\) و من المعطيات نستنتج ان \(P(H) = 2p\) و بما ان \(S= \{H, T\}\) اذن \(P(S) = P(H) + P(T)\) اي ان \(P(S) = 3p\) و باستخدام خواص الاحتمال \(P(S) = 1\) (\(S\) هو الحدث المؤكـــــــــــــــد) اي ان:
+	\[
+	P(S) = 3p = 1 \Rightarrow p =\frac{1}{3}
+	\]
+	اذن:
+	\[
+	P(H) = 2p = \frac{2}{3}, P(T) = p = \frac{1}{3}
+	\]
+\end{solution}
+
+\begin{theorem}[بعض خواص الاحتمال]
+	1. \(P(A^c) = 1 - P(A)\)\\
+	2. \(P(A \cup B) = P(A) + P(B) + P(A \cap B)\)
+\end{theorem}
+
+\begin{example}
+	\en{If a die is tossed in the air and we observe the number on the top and let:\\
+	\(A\) is the event that \textcolor{red}{even} number appear, \(B\) is the event that \textcolor{red}{odd} number appear,	\(C\) is the event that \textcolor{red}{prime} number appear.
+	}\\
+	تجربة رمي حجر نرد في الهواء و ملاحظة الرقم الذي يظهر و لدينا ثلاث احداث: \(A\) حدث ظهور رقم زوجي و \(B\) حدث ظهور رقم فردي و \(C\) حدث ظهور عدد اولي. المطلوب ايجاد:\\
+	1. \(P(A \cap B)\)\\
+	2. \(P(A \cup B)\)\\
+	3. \(P(A \cup C)\)\\
+	4. \(P(C^c)\)
+\end{example}
+
+\begin{solution}
+	الحدث الكلي \(S\) هو اي عدد من المجموعة \(\{1, 2, 3, 4, 5, 6\}\) و الاحدث:
+	\[
+	A = \{2,4,6\}, B = \{1,3,5\}, C=\{2,3,5\}
+	\]
+	الان نجد \(A\cap B\)، \(A\cup B\)، \(A\cup C\)، \(C^c\):
+	\begin{align*}
+		&A\cap B = \varnothing\\
+		&A\cup B = S\\
+		&A \cup C = \{2,3,4,5,6\}\\
+		&C^c = \{1,4,6\}		
+	\end{align*}
+	نجد الاحتمالية:
+	\begin{align*}
+		& P(A\cap B) = P(\varnothing) = 0\\
+		& P(A\cup B) = P(S) = 1\\
+		& P(A \cup C) = 5/6 \\
+		& P(C^c) = 3/6 = 1/2
+	\end{align*}
+	يمكن تطبيق المبرهنة لايجاد النواتج \en{H.W.}
+\end{solution}
+
+\section{الاستقلالية \en{(Independence)}}
+
+\begin{definition}
+	\en{Two events \(A, B\) are independent if and only if: \(P(A\cap B) = P(A)\cdot P(B)\) }
+\end{definition}
+لا بد من التفريق بين معنى الاستقلالية و التنافي، الاستقلالية تعني ان حدثين ان وقعا لا يؤثر احدهما بالآخر، اما التنافي هو استحالة وقوع حدثين بنفس الوقت و الشرط كان \(A\cap B=\varnothing\).
+
+\begin{example}
+	\en{Toss a coin three times, let the event \(A\) is the first head and \(B\) is the second head and \(C\) is that two heads respectively. Test \((A, B)\), \((A, C)\) and \((B, C)\) are independent or not.}\\
+	التجربة هي رمي حجر نرد ثلاث مرات و لدينا ثلاث احداث: \(A\) هو ظهور الوجه في الرمية الاولى و \(B\) ظهور الوجه في الرمية الثانية و \(C\) ظهور وجه في رميتان متتاليتان. المطلوب اختبار استقلالية الاحداث.
+\end{example}  
+
+\begin{solution}
+	نجد عناصر الفضاء اولاً:
+	\[
+	S = \{HHH, HHT, HTH, THH, THH, HTT, THT, TTH, TTT\}
+	\]
+	الآن نكتب عناصر الاحداث و احتمالية كل منها:
+	\begin{gather*}
+		A = \{HHH, HHT, HTH, HTT\} \Rightarrow P(A) = \frac{4}{8} = \frac{1}{2}\\
+		B = \{HHH, HHT, THH, THT\} \Rightarrow P(B) = \frac{4}{8} = \frac{1}{2}\\
+		C = \{HHH, HHT, THH\} \Rightarrow P(C) = \frac{3}{8}
+	\end{gather*}
+	ثم نجد التقاطع:
+	\begin{gather*}
+		A \cap B = \{HHH, HHT\} \Rightarrow P(A\cap B) = \frac{2}{8} = \frac{1}{4} \\
+		A \cap C = \{HHH, HHT\} \Rightarrow P(A\cap C) = \frac{2}{8} = \frac{1}{4} \\
+		B \cap C = \{HHH, HHT, THH\} \Rightarrow P(A\cap B) = \frac{3}{8} 
+	\end{gather*}
+	نختبر الاستقلالية:
+	\[
+	P(A)\cdot P(B) = \frac{1}{2}\cdot\frac{1}{2} = \frac{1}{4} = P(A\cap B)
+	\]
+	اذن \(A, B\) احداث مستقلة \en{Independent}
+	\[
+	P(A)\cdot P(C) = \frac{1}{2}\cdot\frac{3}{8} = \frac{3}{16} \neq P(A\cap C)
+	\]
+	اذن \(A, C\) احداث غير مستقلة \en{Not Independent}
+	\[
+	P(B)\cdot P(C) = \frac{1}{2}\cdot\frac{3}{8} = \frac{3}{16} \neq P(B\cap C)
+	\]
+	اذن \(B, C\) احداث غير مستقلة \en{Not Independent}
+\end{solution}
+
+\begin{definition}[الاستقلالية بأزواج]
+	\en{The events \(A_1, A_2. \dots, A_n\) are said to be pairwise independent if for every \(i\) and \(j\), \(i \neq j\): \(P(A_i\cap A_j) = P(A_i)\cdot P(A_j)\)}\\
+	لدينا مجموعة من الاحداث \(A_1, A_2, \dots, A_n\) تكون مستقلة بالازواج اذا كان كل اثنين منها مستقلين عن بعضهما 
+\end{definition}
+
+\begin{example}
+	\en{Let \(\Omega=\{a,b,c,d\}\) and \(A=\{a,d\}\), \(B=\{b,d\}\) and \(C=\{c,d\}\). Are \(A,B,C\) pairwise independent?}
+\end{example}
+
+\begin{solution}
+	نجد الاحتمالية:
+	\[
+	P(A) = P(B) = P(C) = \frac{1}{2} 
+	\]
+	نجد التقاطع و الاحتمالية:
+	\begin{gather*}
+	A\cap B = A\cap C = B\cap C = \{d\}\\
+	P(A\cap B) = P(A\cap C) = P(B\cap C) = \frac{1}{4}
+	\end{gather*}
+	نختبر الاستقلالية:
+	\begin{gather*}
+		P(A)\cdot P(B) = \frac{1}{2}\cdot\frac{1}{2} = \frac{1}{4} = P(A\cap B)\\
+		P(A)\cdot P(C) = \frac{1}{2}\cdot\frac{1}{2} = \frac{1}{4} = P(A\cap C)\\
+		P(B)\cdot P(C) = \frac{1}{2}\cdot\frac{1}{2} = \frac{1}{4} = P(B\cap C)
+	\end{gather*}
+	\en{\(\therefore\) The events \(A, B, C\) are pairwise independent.}
+\end{solution}
+
+\section{الاحتمالية الشرطية \en{Conditional Probability}}
+
+\begin{definition}
+	\en{The conditional probability of \(A\) given \(B\) written as:}
+	\[
+	P(A\mid B) = \frac{P(A\cap B)}{P(B)}
+	\]
+\end{definition}
+من الممكن ان تكون الاحداث مرتبطة كما تعلمنا في موضوع الاستقلالية او تكون مستقلة عن بعضها تماماً. لذا في هذا الموضوع سنتعرف كيف نحسب احتمالية حدث تحت تأثير حدث آخر \newpage
+
+\begin{example}
+	\en{Two dice are tossed and let \(A\) be the event that the number 2 appears at least on one die, and \(B\) that get sum 6}\\
+تجربة رمي حجرين نرد و لدينا الحدث \(A\) الذي يمثل ظهور العدد 2 على الاقل في حجر واحد من الاثنين والحدث \(B\) يمثل النواتج التي حاصل جمعها 6. جد\\
+1. \(P(A\mid B)\) \quad 2. \(P(B\mid A)\)
+\end{example}
+
+\begin{solution}
+	نكتب عناصر الحدثين مع الاحتمالية:
+	\begin{gather*}
+		A = \{(1,2), (2,2), (3,2), (4,2), (5, 2), (6,2), (2,1), (2,3), (2,4), (2,5), (2,6)\}\\
+		\Rightarrow P(A) = \frac{11}{36}\\
+		B = \{(1,5), (2,4), (3,3), (4,2), (5,1)\}\\
+		\Rightarrow P(B) = \frac{5}{36}
+	\end{gather*}
+	نجد التقاطع و من ثم الاحتمالية الشرطية:
+	\begin{gather*}
+		A\cap B = \{(2, 4), (4, 2)\} \Rightarrow P(A \cap B) = \frac{2}{36}\\
+		P(A\mid B) = \frac{P(A\cap B)}{P(B)} = \frac{2/36}{5/36} = \frac{2}{5}\\
+		P(B\mid A) = \frac{P(B\cap A)}{P(A)} = \frac{2/36}{11/36} = \frac{2}{11}
+	\end{gather*}
+\end{solution}
+
+\newpage
+
+\subsection*{مخطط الشجرة \en{Tree Diagram}}
+هو اداة تستخدم لترتيب كل الاحتمالات المنطقية لسلسلة من الاحداث بحيث كل حدث يمكن ان يحصل بعدد منتهي من الطرق، بما معناه ان هذه الطريقة تستخدم عندما تكون التجربة متعددة الخطوات وهذا سيتضح في الامثلة القادمة.
+
+\begin{example}
+	\en{Find the product set \(A\times B\times C\) where \(A=\{1,2\}\), \(B=\{a,b,c\}\), \(C=\{3,4\}\)}\\
+	هذا المثال يوضح عمل طريقة الشجرة.
+\end{example}
+\begin{solution}
+	\begin{english}
+			\Tree
+		[.{}
+		[.{1}
+		[.{a}
+		[.{3\\ (1,a,3)} ]
+		[.{4\\ (1,a,4)} ]
+		]
+		[.{b}
+		[.{3\\ (1,b,3)} ]
+		[.{4\\ (1,b,4)} ]
+		]
+		]
+		[.{2}
+		[.{a}
+		[.{3\\ (2,a,3)} ]
+		[.{4\\ (2,a,4)} ]
+		]
+		[.{b}
+		[.{3\\{(2,b,3)}} ]
+		[.{4\\ (2,b,4)} ]
+		]
+		]
+		]
+	\end{english}
+\end{solution}
+
+\begin{example}
+	\en{We are given three urns as follows:\\
+	Urn A contains 3 red and 5 white marbles,\\
+	Urn B contains 2 red and 1 white marble,\\
+	Urn C contains 2 red and 3 white marbles\\
+	An urn is selected at random and an marble is drown from the the urn. If the marble is red, what is the probability that it came from Urn A.
+	}\\
+لدينا ثلاث اوعية \en{A, B, C} كل وعاء فيه عدد من الكرات الحمراء و الكرات البيضاء. التجربة هي اختيار وعاء عشوائياً ثم سحب كرة من هذا الوعاء، اذا كانت الكرة حمراء فما هي احتمالية ان الكرة جاءت من الوعاء A
+\end{example}
+
+\begin{solution}
+	لدينا خطوتين في التجربة. الاولى هي اختيار الوعاء و الثانية هي سحب الكرة لذا سنرسم مخطط الشجرة
+\begin{center}
+\begin{forest}
+	for tree={parent anchor=south,child anchor=north}
+	[
+	[A,edge label={node[midway,left,font=\small]{\(\frac{1}{3}\)}}
+	  [R, edge label={node[midway, left, font=\small]{$\frac{3}{8}$}}]
+	  [W, edge label={node[midway, right, font=\small]{$\frac{5}{8}$}}]
+	]
+	[B,edge label={node[midway,left,font=\small]{\(\frac{1}{3}\)}}
+	  [R, edge label={node[midway, left, font=\small]{$\frac{2}{3}$}}]
+	  [W, edge label={node[midway, right, font=\small]{$\frac{1}{3}$}}]
+	]
+	[C,edge label={node[midway,right,font=\small]{\(\frac{1}{3}\)}}
+	  [R, edge label={node[midway, left, font=\small]{$\frac{2}{5}$}}]
+	  [W, edge label={node[midway, right, font=\small]{$\frac{3}{5}$}}]
+	]
+	]
+\end{forest}
+\end{center}
+نلاحظ التفرع الاول هو للاوعية الثلاثة و احتمالية اختيار كل وعاء هي \(1/3\) ثم من كل وعاء تفرعين واحد لكل لون كرة مع احتمالية كل كرة. مثلاً من الوعاء A توجد 8 كرات كــــــمجموع (3 حمراء و 5 بيضاء) لذا احتمالية الكرة الحمراء R هي \(3/8\) و احتمالية الكرة البيضاء W هي \(5/8\). المطلوب هنا هو \(P(A\mid R)\)، نطبق قانون الاحتمال الشرطي:
+\[
+P(A\mid R) = \frac{P(A\cap B)}{P(R)}
+\]
+اولا نجد \(P(A\cap R)\) اي الكرة الحمراء مسحوبة من الوعاء A. نتبع المسار في المخطط من الوعاء A الى الكرة الحمراء R و نضرب الاحتمالات.
+\[
+P(A\cap R) = \frac{1}{3}\cdot\frac{3}{8} = \frac{1}{8}
+\]
+اما \(P(R)\) هي جمع كل المسارات التي تؤدي الى الكرة الحمراء
+\[
+P(R) = \frac{1}{3}\cdot\frac{3}{8}+ \frac{1}{3}\cdot\frac{2}{3}+ \frac{1}{3}\cdot\frac{2}{5} = \frac{173}{360}
+\] 
+اذن:
+\[
+P(A\mid R) = \frac{1/8}{173/360} = \frac{45}{173}
+\]
+\end{solution}
+
+\begin{example}
+	\en{We are given two urns as follows:\\
+	Urn A contains 3 red and  2 white balls. Urn B contains 2 red and 5 white balls. An urn is selected at random; a ball is drawn and put into the other urn, then a ball is drawn from the second urn. Find the probability (\(p\)) that both balls drawn are of the same color 
+	}\\
+	هذا المثال مشابه الى حد كبير المثال السابق، حيث لدينا وعائين فيهما عدد من الكرات الحمراء و البيضاء و التجربة فيها ثلاث خطوات: الاولى هي اختيار الوعاء ثم سحب كرة منه ثم وضع هذه الكرة في الوعاء الآخر ثم سحب كرة من الوعاء  الآخر. فـــــــفي خلال التجربة تم سحب كرتين المطلوب احتمالية ان الكرتين من نفس اللون.
+\end{example}
+
+\begin{solution}
+	اولاً نرسم مخطط الشجرة 
+\begin{center}
+	\begin{forest}
+		for tree={parent anchor=south,child anchor=north}
+		[
+		 [A, edge label={node[midway,left,font=\small]{\(\mfrac{1}{2}\)}}
+		  [R, edge label={node[midway,left,font=\small]{\(\mfrac{3}{5}\)}} 
+		   [R, edge label={node[midway,left,font=\small]{\(\mfrac{3}{8}\)}}]
+		   [W, edge label={node[midway,right,font=\small]{\(\mfrac{5}{8}\)}}]
+		  ]
+		  [W, edge label={node[midway,right,font=\small]{\(\mfrac{2}{5}\)}}
+		   [R, edge label={node[midway,left,font=\small]{\(\mfrac{2}{8}\)}}]
+		   [W, edge label={node[midway,right,font=\small]{\(\mfrac{6}{8}\)}}]
+		  ]
+		 ]
+         [B, edge label={node[midway,right,font=\small]{\(\mfrac{1}{2}\)}}
+          [R, edge label={node[midway,left,font=\small]{\(\mfrac{2}{7}\)}}
+           [R, edge label={node[midway,left,font=\small]{\(\mfrac{4}{6}\)}}]
+           [W, edge label={node[midway,right,font=\small]{\(\mfrac{2}{6}\)}}]
+          ]
+          [W, edge label={node[midway,right,font=\small]{\(\mfrac{5}{7}\)}}
+           [R, edge label={node[midway,left,font=\small]{\(\mfrac{3}{6}\)}}]
+           [W, edge label={node[midway,right,font=\small]{\(\mfrac{3}{6}\)}}]
+          ]
+         ]
+		]
+	\end{forest}	
+\end{center}
+نلاحظ هذه المرة ان الرسم يبدأ من الاوعية ثم من كل وعاء تفرع للكرات و لكن من صيغة التجربة سيتم سحب كرة أخرى ولكن من الوعاء الثاني، و لكي تتضح الفكرة لنركز على الوعاء A حيث فيه 3 كرات حمراء و كرتان بيضاويتان، لو أن الكرة المسحوبة هي حمراء سوف نضعها في الوعاء الآخر و سوف يتغير عدد الكرات في الوعاء B حيث سيصبح لدينا 3 كرات حمراء و 5 كرات بيضاء أي 8 كرات كمجموع بدل من 7. لكي نحسب الاحتمالية المطلوبة نركز على المسارات التي فيها الكرات من نفس اللون و نجمع الاحتماليات:
+
+\[
+p = \frac{1}{2}\cdot\frac{3}{5}\cdot\frac{3}{8} + \frac{1}{2}\cdot\frac{2}{5}\cdot\frac{6}{8} + \frac{1}{2}\cdot\frac{2}{7}\cdot\frac{4}{6} + \frac{1}{2}\cdot\frac{5}{7}\cdot\frac{3}{6} = \frac{901}{1680}
+\]  
+\end{solution}

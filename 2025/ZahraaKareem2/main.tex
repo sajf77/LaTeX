@@ -1,0 +1,47 @@
+\documentclass{arabicClass}
+
+\begin{document}
+	\abovedisplayskip=7pt
+	\belowdisplayskip=7pt
+	\input{Title Page/titlepage}
+	\pagenumbering{roman}
+	\amiri
+	\input{ayah}
+	\input{gift}
+	\input{thanks}
+	\arabicfont
+	\tableofcontents
+	\clearpage
+	\pagenumbering{arabic}
+	\input{intro}
+%	\input{abstract}
+	\input{chapter1}
+	\input{chapter2}
+	\input{chapter3}
+	
+	
+\begin{thebibliography}{9}
+	\addcontentsline{toc}{chapter*}{المصادر}
+\begin{english}
+		\bibitem{brown2012}
+	Brown, L. (2012). \textit{Linear Algebra and Its Applications}. Upper Saddle River, NJ: Prentice Hall.
+	
+	\bibitem{williams2018}
+	Williams, R. (2018). \textit{Matrix Analysis}. Cambridge: Cambridge University Press.
+	
+	\bibitem{lee2016}
+	Lee, S. (2016). \textit{Matrix Computations}. Baltimore: Johns Hopkins University Press.
+\end{english}
+	
+	\bibitem{shahri2010}
+	عبد الرحمن الشهري، "الجبر الخطي وتطبيقاته في الهندسة"، جامعة الملك سعود، الرياض، 2010. ص 25-40.
+	
+	\bibitem{aziz2005}
+	محمد عبد العزيز، "المصفوفات وتطبيقاتها في الهندسة الكهربائية"، جامعة القاهرة، القاهرة، 2005. ص 60-75.
+	
+	\bibitem{ghamdi2012}
+	سعيد الغامدي، "تحليل المصفوفات وتطبيقاتها في الهندسة الميكانيكية"، جامعة الملك فهد للبترول والمعادن، الظهران، 2012. ص 100-115.
+	
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,396 @@
+\section{Boolean Algebra}
+%\subsection*{Definition and Examples}
+%\phantomsection
+%\addcontentsline{toc}{subsection}{Definition and Examples}
+
+\begin{mydef}[\cite{modern_algebra}]
+A Boolean Algebra is mathematical system $(B,\vee,\wedge)$ consisting of a nonempty set $B$ and two binary operations $\vee$ and $\wedge$ defined on $B$ such that:
+\begin{tasks}[label=$(\mathrm{P_{\arabic*}})$,label-width=22pt]
+\task Each of the operations $\vee$ and $\wedge$ is commutative; that is,
+$$
+a \vee b=b \vee a, \quad a \wedge b=b \wedge a \quad \text { for all } a, b \in B .
+$$
+
+\task Each operation is distributive over the other; that is, 
+\begin{align*}
+    a\vee(b\wedge c)&=(a\vee b)\wedge (a\vee c)\\
+    a\wedge(b\vee c)&=(a\wedge b)\vee(a\wedge c)\quad \text{for all}\ a,b,c\in B
+\end{align*}
+
+\task There exist distinct identity elements 0 and 1 relative to the operations $\vee$ and $\wedge$, respectively; that is,
+$$
+a \vee 0=a, \quad a \wedge 1=a \quad \text { for all } a \in B .
+$$
+
+\task For each element $a \in B$, there exists an element $a^{\prime} \in B$, called the complement of $a$, such that
+$$
+a \vee a^{\prime}=1, \quad a \wedge a^{\prime}=0 
+$$.
+\end{tasks}
+\end{mydef}
+
+\begin{example}
+\label{ex1_2}
+Let \(X\) be a nonempty set and consider the system \((\p(X),\cup,\cap)\)
+\begin{tasks}[label=$(\mathrm{P_{\arabic*}})$,label-width=22pt]
+    \task \(A\cup B=B\cup A,\quad A\cap B=B\cap A\)\quad for all \(A,B\subseteq X\)
+
+    \task For all \(A,B,C\subseteq X\)
+    \begin{align*}
+        A\cup(B\cap C)&=(A\cup B)\cap(A\cup C)\\
+        A\cap(B\cup C)&=(A\cap B)\cup(A\cap C)
+    \end{align*}
+
+    \task For all \(A\subseteq X\) we have,
+    \[
+    A\cap X=A,\quad A\cup\varnothing=A
+    \]
+
+    \task For each \(A\subseteq X\) we can take \(A^{\prime}=X-A\) since
+    \[
+    A\cup(X-A)=X,\quad A\cap(X-A)=\varnothing
+    \]
+\end{tasks}
+\end{example}
+
+\section{The Relation $\leq$}
+%\addcontentsline{toc}{subsection}{The Relation $\leq$}
+
+\begin{mydef}[\cite{survey}] 
+    In a Boolean algebra \((B,\vee,\wedge)\). Let \(\leq\) be a relation defined on \(B\) such that for each \(a,b\in B\) 
+    \[
+    a\leq b \longleftrightarrow a\wedge b=a
+    \]
+\end{mydef}
+
+\noindent
+\textbf{Note 1: }It is clear to see that \(a\wedge b\leq a\), since
+\[
+a\wedge(a\wedge b)=(a\wedge a)\wedge b=a\wedge b
+\]
+\textbf{Note 2: }This definition inspired from set theory as we will see in the next example.
+\begin{example}
+    In the Boolean algebra \((\p(X),\cup,\cap)\) we define the relation \(\leq\) to be the inclusion since, for each \(A,B\subseteq X\) we have
+    \[
+    A\subseteq B\longleftrightarrow A\cap B=A
+    \]
+\end{example}
+
+\section{Some Theorems and Results}
+%\addcontentsline{toc}{subsection}{Some Theorems and Results}
+
+\begin{theo}[\cite{modern_algebra}]
+    In any Boolean algebra \((B,\vee,\wedge)\), the following properties hold
+    \begin{tasks}[label=$\mathrm{\arabic*.}$]
+        \task The elements \(0\) and \(1\) are unique
+        
+        \task For each \(a\in B\) : \(a\vee a=a,\quad a\wedge a=a\)
+
+        \task For each element \(a\in B\) : \(a\vee 1=1,\quad a\wedge 0=0\)
+
+        \task For each \(a,b\in B\) :
+        \[
+        a\vee(a\wedge b)=a,\quad a\wedge(a\vee b)=a
+        \]
+    \end{tasks}
+\end{theo}
+\begin{myproof}
+    \noindent
+        \begin{enumerate}
+            \item Suppose there are other identity elements for the operations \(\vee\) and \(\wedge\) say \(\bar{0}\) and \(\bar{1}\) respectively, that is,
+            \[
+            a\wedge\bar{1}=a,\quad a\vee\bar{0}=a\quad\forall a\in B
+            \]
+            So we have 
+            \[  0=0\vee\bar{0}=\bar{0}\vee0=\bar{0}
+            \]
+            and
+            \[1=1\wedge\bar{1}=\bar{1}\wedge1=\bar{1}
+            \]
+
+            \item 
+            \begin{align*}
+                a&=a\vee 0 && (\text{by P}_3)\\
+                &=a\vee(a\wedge\comp{a}) && (\text{by P}_4)\\
+                &=(a\vee a)\wedge(a\vee\comp{a}) && (\text{by P}_2)\\
+                &=(a\vee a)\wedge 1 && (\text{by P}_4)\\
+                &=a\vee a && (\text{by P}_3)
+            \end{align*}
+            Similarly 
+            \begin{align*}
+                a&=a\wedge1 && (\text{by P}_3)\\
+                &=a\wedge(a\vee\comp{a}) && (\text{by P}_4)\\
+                &=(a\wedge a)\vee(a\wedge\comp{a}) && (\text{by P}_2)\\
+                &=(a\wedge a)\wedge 0 && (\text{by P}_4)\\
+                &=a\wedge a && (\text{by P}_3)
+            \end{align*}
+
+            \item 
+            \begin{align*}
+                1&=a\vee\comp{a} && (\text{by P}_4)\\
+                &=a\vee(\comp{a}\wedge1) && (\text{by P}_3)\\
+                &=(a\vee\comp{a})\wedge(a\vee1) && (\text{by P}_2)\\
+                &=1\wedge(a\vee1) && (\text{by P}_4)\\
+                &=a\vee 1 && (\text{by P}_3)
+            \end{align*}
+            Similarly 
+            \begin{align*}
+                0&=a\wedge\comp{a} && (\text{by P}_4)\\
+                &=a\wedge(\comp{a}\vee1) && (\text{by P}_3)\\
+                &=(a\wedge\comp{a})\vee(a\vee1) && (\text{by P}_2)\\
+                &=1\vee(a\wedge1) && (\text{by P}_4)\\
+                &=a\wedge 1 && (\text{by P}_3)
+            \end{align*}
+
+            \item 
+            \begin{align*}
+                a&=a\wedge1 && (\text{by P}_3)\\
+                &=a\wedge(b\vee1) && (\text{by 3})\\
+                &=(a\wedge b)\vee(a\wedge1) && (\text{by P}_2)\\
+                &=(a\wedge b)\vee a && (\text{by P}_3)\\
+                &=a\vee(a\wedge b) && (\text{by P}_1)
+            \end{align*}
+            Similarly
+            \begin{align*}
+                a&=a\vee0 && (\text{by P}_3)\\
+                &=a\vee(b\wedge0) && (\text{by 3})\\
+                &=(a\vee b)\wedge(a\vee0) && (\text{by P}_2)\\
+                &=(a\vee b)\wedge a && (\text{by P}_3)\\
+                &=a\wedge(a\vee b) && (\text{by P}_1)
+            \end{align*}
+        \end{enumerate}\qed
+\end{myproof}
+
+\begin{theo}[\cite{modern_algebra}]
+    In any Boolean algebra \((B,\vee,\wedge)\) each of the operations \(\vee\) and \(\wedge\) is associative, that is 
+    \begin{align*}
+        a\vee(b\vee c)&=(a\vee b)\vee c,\\
+        a\wedge(b\wedge c)&=(a\wedge b)\wedge c\quad \text{for all } a,b,c\in B
+    \end{align*}
+\end{theo}
+
+\begin{myproof}
+    First set \(x=a\vee(b\vee c)\) and \(y=(a\vee b)\vee c\), we want to prove \(x=y\). Note that
+    \begin{align*}
+        a\wedge x&=(a\wedge a)\vee[a\wedge(b\vee c)] && (\text{by P}_2) \\
+        &=a\vee[a\wedge(b\vee c)] && [\text{by Theorem 2.4.1(2)}] \\
+        &=a && [\text{by Theorem 2.4.1(4)}]
+    \end{align*}
+    and also 
+    \begin{align*}
+        a\wedge y&=[a\wedge(a\vee b)]\vee (a\wedge c) && (\text{by P}_2) \\
+        &=a\vee(a\wedge c) && [\text{by Theorem 2.4.1(4)}] \\
+        &=a && [\text{by Theorem 2.4.1(4)}]
+    \end{align*}
+    Therefore \(a\wedge x=a\wedge y\). Now,
+    \begin{align*}
+        \comp{a}\wedge x&=(\comp{a}\wedge a)\vee[\comp{a}\wedge(b\vee c)] && \text{(by P)}_2 \\
+        &=0\vee[\comp{a}\wedge(b\vee c)] && (\text{by }\mathrm{P}_1,\mathrm{P}_4) \\
+        &=\comp{a}\wedge(b\vee c) && (\text{by P}_3)
+    \end{align*}
+    and also
+    \begin{align*}
+       \comp{a}\wedge y&=[\comp{a}\wedge(a\vee b)]\vee(\comp{a}\wedge c) && (\text{by P}_2)\\
+       &=[(\comp{a}\wedge a)\vee(\comp{a}\wedge b)]\vee(\comp{a}\wedge c)&& (\text{by P}_2)  \\
+       &=[0\vee(\comp{a}\wedge b)]\vee(\comp{a}\wedge c) && (\text{by }\mathrm{P}_1,\mathrm{P}_4) \\
+       &=(\comp{a}\wedge b)\vee(\comp{a}\wedge c)&& (\text{by P}_3)  \\
+       &=\comp{a}\wedge(b\vee c) && (\text{by P}_2)
+    \end{align*}
+    Therefore \(\comp{a}\wedge x=\comp{a}\wedge y\), we conclude that
+    \begin{align*}
+        (a\wedge x)\vee(\comp{a}\wedge x)&=(a\wedge y)\vee(\comp{a}\wedge y) &&\\
+        (a\wedge\comp{a})\vee x&=(a\vee\comp{a})\vee y && (\text{by }\mathrm{P}_1,\mathrm{P}_2)\\
+        1\vee x&=1\vee y && (\text{by P}_4)\\
+        x&=y && (\text{by P}_3)
+    \end{align*}
+    The same steps can be applied on the operation \(\wedge\).\qed
+\end{myproof}
+
+\begin{theo}[\cite{modern_algebra}]
+    In any Boolean algebra \((B,\vee,\wedge)\) the following hold
+    \begin{enumerate}
+        \item[\normalfont{1.}] Each element \(a\in B\) has unique complement.
+
+        \item[\normalfont{2.}] For each element \(a\in B\), \(a^{\prime\prime}=a\); where \(a^{\prime\prime}=\comp{(\comp{a})}\).
+
+        \item[\normalfont{3.}] \(\comp{0}=1\) and \(\comp{1}=0\).
+        
+        \item[\normalfont{4.}] For all \(a,b\in B\),
+        \[
+        \comp{(a\vee b)}=\comp{a}\wedge\comp{b},\quad \comp{(a\wedge b)}=\comp{a}\vee\comp{b}
+        \]
+    \end{enumerate}
+\end{theo}
+
+\begin{myproof}
+    \noindent
+    \begin{enumerate}
+        \item Assume there are two elements \(x\) and \(y\) such that,
+        \begin{align*}
+            a\vee x=1&,\quad a\wedge x=0\\
+            a\vee y=1&,\quad a\wedge y=0
+        \end{align*}
+        Then we have 
+        \begin{align*}
+            x&=x\wedge 1 && (\text{by P}_3)\\
+            &=x\wedge(a\vee y) && (\text{by hypothesis})\\
+            &=(x\wedge a)\vee(x\wedge y) &&(\text{by P}_2) \\
+            &=(a\wedge x)\vee(x\wedge y) && (\text{by P}_1)\\
+            &=0\vee(x\wedge y ) &&(\text{by hypothesis}) \\
+            &=x\wedge y && (\text{by P}_3)
+        \end{align*}
+        Similarly we can show that \(y=y\wedge x=x\wedge y\). Hence \(x=y\)
+
+        \item From the definition of the complement of \(a\), \(a\vee\comp{a}=1\) and \(a\wedge\comp{a}=0\). Hence by \(\mathrm{P_1}\),
+        \[
+        \comp{a}\vee a=1\quad\text{and}\quad \comp{a}\wedge a=0
+        \]
+        From this, we conclude,
+        \[
+        a^{\prime\prime}=\comp{(\comp{a})}=a
+        \]
+
+        \item By \(\mathrm{P_3}\) we have,
+        \[
+        0\vee 1=1,\quad 0\wedge 1=0
+        \]
+        Hence 
+        \[
+        \comp{0}=1,\quad\text{and then } 0=0^{\prime\prime}=\comp{1}
+        \]
+
+        \item Since the complement is unique, it is enough to show,
+        \[
+        (a\vee b)\vee(\comp{a}\wedge\comp{b})=1,\quad (a\vee b)\wedge(\comp{a}\wedge\comp{b})=0
+        \]
+        Now,
+        \begin{align*}
+            (a\vee b)\vee(\comp{a}\wedge\comp{b})&=[(a\vee b)\vee\comp{a}]\wedge[(a\vee b)\vee\comp{b}]\\
+            &=[(a\vee\comp{a})\vee b]\wedge[a\vee(b\vee\comp{b})]\\
+            &=(1\wedge b)\wedge(a\vee 1)\\
+            &=1\wedge 1\\
+            &=1
+        \end{align*}
+        Further
+        \begin{align*}
+            (a\vee b)\wedge(\comp{a}\wedge\comp{b})&=(\comp{a}\wedge\comp{b})\wedge(a\vee b)\\
+            &=[(\comp{a}\wedge\comp{b})\wedge a]\wedge[(\comp{a}\wedge\comp{b})\wedge b]\\
+            &=[(\comp{a}\wedge a)\wedge\comp{b}]\wedge[\comp{a}\wedge(\comp{b}\wedge b)]\\
+            &=(0\wedge\comp{b})\wedge(\comp{a}\vee0)\\
+            &=0\wedge0\\
+            &=0
+        \end{align*}
+        Hence \(\comp{(a\vee b)}=\comp{a}\wedge\comp{b}\). Note that
+        \[ \comp{(\comp{a}\vee\comp{b})}=\dcomp{a}\wedge\dcomp{b}=a\wedge b
+        \]
+        so we get 
+        \[
+        \comp{(a\wedge b)}=\dcomp{(\comp{a}\vee\comp{b})}=\comp{a}\vee\comp{b}
+        \]
+    \end{enumerate}\qed
+\end{myproof}
+
+\begin{cor}[\cite{applied_algebra}]
+    In any Boolean algebra \((B,\vee,\wedge)\) we have for all \(x,y\in B\)
+    \[
+    x\leq y\longleftrightarrow \comp{y}\leq\comp{x}
+    \]
+\end{cor}
+
+\begin{myproof}
+    Let \(x\leq y\), then, \(x\wedge y=x\). Now
+    \begin{align*}
+        \comp{x}\wedge\comp{y}&=\comp{(x\wedge y)}\wedge\comp{y}\\
+        &=(\comp{x}\vee\comp{y})\wedge\comp{y}\\
+        &=\comp{y}
+    \end{align*}
+    so, \(\comp{y}\leq\comp{x}\). Now let \(\comp{y}\leq\comp{x}\), then from first direction we have \(\dcomp{x}\leq\dcomp{y}\). Hence \(x\leq y\)\qed
+\end{myproof}
+
+\begin{theo}[\cite{applied_algebra}]
+\label{thm_2.8}
+    In any Boolean algebra \((B,\vee,\wedge)\) we have for all \(x,y\in B\)
+    \[
+    x\leq y \longleftrightarrow x\wedge\comp{y}=0
+    \]
+\end{theo}
+
+\begin{myproof}
+    Let \(x\leq y\), then, \(x\wedge y=x\). Now
+    \begin{align*}
+        x\wedge\comp{y}&=(x\wedge y)\wedge\comp{y}\\
+        &=x\wedge(y\wedge\comp{y})\\
+        &=x\wedge0\\
+        &=0
+    \end{align*}
+    Now let \(x\wedge\comp{y}=0\), then we have
+    \begin{align*}
+        x\wedge y&=(x\wedge y)\vee0\\
+        &=(x\wedge y)\vee(x\wedge\comp{x})\\
+        &=x\wedge(y\vee\comp{x})\\
+        &=x\wedge\comp{(x\wedge\comp{y})}\\
+        &=x\wedge\comp{0}\\
+        &=x\wedge1\\
+        &=x
+    \end{align*}
+    Hence \(x\leq y\)\qed
+\end{myproof}
+
+\section{Boolean Homomorphism}
+%\addcontentsline{toc}{subsection}{Boolean Homomorphism}
+
+\begin{mydef}[\cite{applied_algebra}]
+    Let \((B_1,\vee_1,\wedge_1)\) and \((B_2,\vee_2,\wedge_2)\) be Boolean algebras then the function \(f:B_1\longrightarrow B_2\) is called \textit{Boolean homomorphism} if the following hold
+    \begin{enumerate}
+        \item \(f(x\vee_1 y)=f(x)\vee_2 f(y)\),\quad for all \(x,y\in B_1\)
+
+        \item \(f(x\wedge_1 y)=f(x)\wedge_2 f(y)\),\quad for all \(x,y\in B_1\)
+
+        \item \(f(\comp{x})=\comp{[f(x)]}\),\quad for all \(x\in B_1\)
+    \end{enumerate}
+\end{mydef}
+
+\noindent
+\textbf{Notes}
+\begin{enumerate}
+  \item If the function in the definition above is bijective (one to one and onto), then, it is called \textit{Boolean isomorphism} and we write \(B_1\simeq_b B_2\)
+
+  \item For a simpler notation, we will note the identities of \(B_1\) and \(B_2\) by \(0\) and \(1\) for the operations \(\vee_1,\vee_2\) and \(\wedge_1,\wedge_2\) respectively.
+\end{enumerate}
+
+\begin{theo}[\cite{applied_algebra}]
+    Let \(f:B_1\longrightarrow B_2\) be a Boolean homomorphism, then,
+    \begin{enumerate}
+        \item[\normalfont{1.}] \(f(0)=0,\quad f(1)=1\)
+
+        \item[\normalfont{2.}] for all \(x,y\in B_1\), if \(x\leq y\) then \(f(x)\leq f(y)\)
+    \end{enumerate}
+\end{theo}
+
+\begin{myproof}
+\noindent
+    \begin{enumerate}
+        \item Note that
+        \begin{align*}
+            f(0)&=f(0\wedge_1\comp{0})\\
+            &=f(0)\wedge_2 f(\comp{0})\\
+            &=f(0)\wedge_2\comp{[f(0)]}\\
+            &=0
+        \end{align*}
+        Similarly
+        \begin{align*}
+            f(1)&=f(1\vee_1\comp{1})\\
+            &=f(1)\vee_2 f(\comp{1})\\
+            &=f(1)\vee_2\comp{[f(1)]}\\
+            &=0
+        \end{align*}
+
+        \item Let \(x\leq y\), then it follows that
+        \begin{align*}
+            &\Longrightarrow x\wedge y=x\\
+            &\Longrightarrow f(x\wedge_1 y)=f(x)\\
+            &\Longrightarrow f(x)\wedge_2 f(y)=f(x)\\
+            &\Longrightarrow f(x)\leq f(y)
+        \end{align*}
+    \end{enumerate}\qed
+\end{myproof}

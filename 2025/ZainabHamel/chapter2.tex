@@ -1,0 +1,387 @@
+\chapter{المعيار}
+
+\section*{مقدمة}
+سنتناول في هذا الفصل التعريف الرياضي للمعيار و بعض الامثلة عليه و كذلك اهم النظريات التي تخص المعيار، وكذلك سنتعرف على مفهوم المعيار الجزئي وبعض النتائج التي تخص المعيار الجزئي و أيضاً سندرس التشاكل المعياري والمبرهنات الاساسية له.
+
+\section{تعاريف و أمثلة}
+
+\begin{definition}
+	لتكن $R$ حلقة (ليس من الضروري تبديلية او تمتلك محايد) المعيار اليساري على $R$ هو مجموعة $M$ مع الشروط التالية
+	\begin{enumerate}
+		\item عملية ثنائية + على $M$ بحيث $(M, +)$ زمرة ابدالية
+		\item تأثير $R$ على $M$ (دالة $R\times M \to M$) يرمز لها عادة بــ $rm$, لكل $r\in R$ و $m\in M$ و تحقق
+		\begin{tasks}
+			\task $(r+s)m = rm + sm$ لكل $r,s\in R$ و $m\in M$.
+			\task $(rs)m=r(sm)$ لكل $r,s\in R$ و $m\in M$.
+			\task $r(m+n) = rm+rn$ لكل $r\in R$ و $m,n\in M$.
+		\end{tasks}
+		اذا الحلقة $R$ تمتلك محايد 1 نضيف الشرط
+		\begin{tasks}[resume]
+			\task $1m = m$ لكل $m\in M$.
+		\end{tasks}
+	\end{enumerate}
+\end{definition}
+
+تعريف المعيار اليميني يكون مشابه تماماً و لكن بتعريف التأثير لـــ $R$ على $M$ بالشكل $mr$  لكل $r\in R$ و لكل $m\in M$.
+
+\begin{example}\label{ex:modules}
+	لتكن $G=(G, +)$ زمرة ابدالية، اّذا كان $n\in\Z$ و $x\in G$ فإن $nx$ يعرف بالشكل 
+\[
+nx = 
+\begin{cases}
+	0 & n=0 \\
+	\underbrace{x+x+\dots+x}_{\text{$n$ من المرات}}, & n>0\\
+	\underbrace{(-x)+(-x)+\dots+(-x)}_{\text{$n$ من المرات}}, & n<0\\
+\end{cases}
+\]
+	اثبت ان $G$ معيار يساري على $\Z$ بواسطة دالة الضرب
+	\[
+	\cdot : \Z\times G \to G, \quad (n,x) \mapsto nx
+	\]
+	لكل $m,n\in \Z$ و لكل $x,y\in G$
+\end{example}
+
+\noindent
+	\textbf{الحل}\\
+	\noindent
+	(a
+	\begin{align*}
+		(m+n) x &= \underbrace{x+x+\dots+x}_{\text{$m+n$ من المرات}}\\
+		&= \underbrace{(x+x+\dots+x)}_{\text{$m$ من المرات}} +  \underbrace{(x+x+\dots+x)}_{\text{$n$ من المرات}} \\
+		&= mx+nx
+	\end{align*}
+	(b
+	\begin{align*}
+		(mn)x &= \underbrace{x+x+\dots+x}_{\text{$mn$ من المرات}}\\
+		&= \underbrace{
+		\underbrace{(x+x+\dots+x)}_{\text{$n$ من المرات}} + \underbrace{(x+x+\dots+x)}_{\text{$n$ من المرات}} + \dots + \underbrace{(x+x+\dots+x)}_{\text{$n$ من المرات}}
+		}_{\text{$m$ من المرات}}\\
+		&= m(nx)
+	\end{align*}
+	(c
+	\begin{align*}
+		m(x+y) &= \underbrace{(x+y)+(x+y)+\dots+(x+y)}_{\text{$m$ من المرات}}\\
+		&= \underbrace{(x+x+\dots+x)}_{\text{$m$ من المرات}} + \underbrace{(y+y+\dots+y)}_{\text{$m$ من المرات}} \\
+		&= mx+ my
+	\end{align*}
+	(d $1x = x$
+	\begin{example}
+		لتكن $S$ حلقة جزئية من $R$، اذن بواسطة الدالة
+		\[
+		(s,r) \mapsto sr, \forall r\in R , s\in S
+		\]
+	\end{example}
+	\noindent
+	\textbf{الحل}\\
+	\noindent
+	الحلقة $R$ تصبح معيار يساري على $S$ لأن:\\
+	 	$R$ حلقة اذن $(R,+)$ زمرة ابدالية. الآن نطبق البديهيات: لكل $x,y\in R$ و لكل $r,s\in S$
+	\begin{tasks}
+			\task $(r+s)x=rx+sx$ لأن $R$ حلقة و بالتالي العملية $\cdot$ تتوزع على $+$ من اليمين
+		\task $(rs)x=r(sx)$ لأن $R$ حلقة اذن $(R,\cdot)$ شبه زمرة و بالتالي العملية $\cdot$ تجميعية
+		\task $r(x+y) = rx+ry$ لأن $R$ حلقة و بالتالي العملية $\cdot$ تتوزع على $+$ من اليسار
+	\end{tasks}
+
+\section{المعيار الجزئي}
+\begin{definition}
+  ليكن $M$ هو معيار يساري على $R$ فإن $\varnothing\neq U\subseteq M$ يسمى معيار جزئي من $M$ اذا تحقق
+  \begin{enumerate}
+  	\item $(U, +) \leq (M, +)$ (زمرة جزئية)
+  	\item  لكل $a\in R$ و لكل $u\in U$ فـــــإن $au\in U$
+  \end{enumerate}
+\end{definition}
+
+\begin{example}\label{ex:submodules}
+	في الزمرة الابدالية $(G,+)$ و المعيار اليساري المعرف على $\Z$ في المثال \ref{ex:modules}. فإن المعايير الجزئية من $G$ هي الزمر الجزئية من $(G,+)$
+	\end{example}
+	\noindent
+	\textbf{الحل}\\
+	\noindent
+	لتكن $(H,+)$ زمرة جزئية من $(G,+)$ يجب ان نثبت $H$ معيار جزئي من $G$ على $\Z$  
+	\begin{enumerate}
+		\item $(H, +) \leq (G, +)$ (حسب الفرض)
+		\item ليكن $n\in\Z$ و $x\in H$ فإن 
+		\[
+		nx = 
+		\begin{cases}
+			0 & n=0 \\
+			\underbrace{x+x+\dots+x}_{\text{$n$ من المرات}}, & n>0\\
+			\underbrace{(-x)+(-x)+\dots+(-x)}_{\text{$n$ من المرات}}, & n<0\\
+		\end{cases}
+		\qquad \in H
+		\]
+		لان $H$ مغلقة تحت العملية + بالتالي $H$ معيار جزئي من $G$ على الحلقة $\Z$.
+	\end{enumerate}
+
+	\begin{example}
+		 ليكن $M$ معيار يساري على الحلقة $R$ فإن المجموعة $R_x=\{ax\mid a\in R\}$ هو معيار جزئي من $M$ لكل $x\in M$.
+	\end{example}
+	\noindent
+	\textbf{الحل}\\
+	\noindent
+	ليكن $x\in M$ يجب ان نثبت $R_x$ معيار جزئي من $M$ على الحلقة $R$.
+	\begin{enumerate}
+		\item لكل $a,b\in R$:
+		\[
+		ax - bx = \underbrace{(a-b)}_{\in R} x \in R_x
+		\]
+		فإن $(R_x,+)\leq (M,+)$
+		\item لكل $a,b\in R$:
+		\[
+		b(ax) = \underbrace{(ba)}_{\in R}x \in R_x
+		\]
+	\end{enumerate}
+
+
+\begin{theorem}
+	لتكن $R$ حلقة و ليكن $M$ معيار يساري على $R$ فإن $N\subseteq M$ يكون معيار جزئي من $M$ اذا و فقط اذا
+	\begin{enumerate}
+		\item $N\neq \varnothing$
+		\item $x+ry\in N$ لكل $r\in R$ و لكل $x,y\in N$
+	\end{enumerate}
+\end{theorem}
+\noindent
+\textbf{البرهان}\\
+\noindent
+نفرض $N$ هو معيار جزئي من $M$ $\leftarrow$ $0\in N$ $\leftarrow$ $N\neq \varnothing$ و من تعريف المعيار الجزئي فإن $ry\in N$ لكل $y\in N, r\in R$ و بما أن $(N,+)$ زمرة $\leftarrow$ $x+ry\in N$ لكل $x,y\in N, r\in R$.\\
+عكسياً نفرض أن $N\neq \varnothing$ و $x+ry\in N$ لكل $x,y\in N, r\in R$ ليكن $r=-1$ $\leftarrow$ $x-y\in N$ لكل $x,y\in N$ أي أن $(N,+)\leq (M,+)$، و اذا كان $x=0$ فإن $ry\in N$ لكل $y\in N, r\in R$ أي أن $N$ يصبح معيار جزئي من $M$. \qedsymbol
+
+\section{التشاكل المعياري}
+
+\begin{definition}
+	لتكن $R$ حلقة و ليكن كل من $M$ و $N$ معيار يساري على $R$ فإن الدالة $\phi:M\to N$ تسمى تشاكل معياري يساري اذا كان 
+	\begin{enumerate}
+		\item $\phi(x+y) = \phi(x) + \phi(y)$ لكل $x,y\in M$.
+		\item $\phi(rx) = r\phi(x)$ لكل $x\in M, r\in R$.  
+	\end{enumerate}
+\end{definition}
+
+\begin{note}
+1.	التشاكل المعياري اليساري يسمى تماثل معياري \en{isomorphism} اذا كانت الدالة $\phi:M\to N$ تباين و شاملة و نقول $M$ و $N$ متماثلين \en{isomorphic} و نكتب $M\cong N$.\\
+2. تسمى المجموعة 
+\[
+\ker\phi = \{m\in M\mid \phi(m) = 0\}
+\]
+بنواة التشاكل $\phi$ و المجموعة 
+\[
+\phi(M) = \{ n\in N \mid n = \phi(M), \exists m\in M\}
+\]
+بصورة التشاكل $\phi$\\
+3. التشاكل المعياري اليميني يعرف بشكل مشابه ولكن على عملية الضرب $xr$ حيث $x\in M, r\in R$
+\end{note}
+
+\section{معيار القسمة}
+\begin{theorem}
+	ليكن $U$ معيار جزئي من المعيار اليساري $M$ على الحلقة $R$. لتكن $M/U$ زمرة القسمة، نعرف عملية الضرب
+	\[
+	\cdot : R \times M/U \to M/U, \quad a(x+U):= ax + U
+	\]
+	$M/U$ مع عملية الضرب المعرفة أعلاه يكون معيار معرف على $R$ و يسمى معيار القسمة. في $M/U$ لدينا العمليات
+	\[
+	(x+U) + (y+U) = (x+y) + U
+	\]
+	و 
+	\[
+	a(x+U) = ax+U
+	\]
+\end{theorem}
+\noindent
+\textbf{البرهان}\\
+\noindent
+لكل $\alpha,\beta\in R$ و لكل $x,y\in M$
+\begin{enumerate}
+	\item 
+	\begin{align*}
+		(\alpha+\beta)(x+U) &= (\alpha+\beta)x+U\\
+		&= (\alpha x+ \beta x) + U\\
+		&= (\alpha x + U) + (\beta x + U) \\
+		&= \alpha (x+U) + \beta (x+U)
+	\end{align*}
+	\item 
+	\begin{align*}
+		\alpha [(x+U)+(y+U)] &= \alpha [(x+y)U]\\
+		&= \alpha(x+y) + U\\
+		&= (\alpha x+ \beta y) + U\\
+		&= (\alpha x + U) + (\alpha y+U) \\
+		& = \alpha (x+U) + \alpha (y+U)
+	\end{align*}
+	\item 
+	\begin{align*}
+		(\alpha \beta ) (x+U) &= (\alpha \beta )x + U\\
+		&= \alpha (\beta x) + U\\
+		&= \alpha [\beta x+U]\\
+		&= \alpha[\beta (x+U)]
+	\end{align*}
+\end{enumerate}
+\begin{theorem}
+	لتكن $R$ حلقة، $M$ معيار يساري على $R$ و $N$ هو معيار جزئي منه. فإن التطبيق الطبيعي
+	\[
+	\pi:M \to M/N, \quad \pi(x) = x+N
+	\]
+	يمثل تشاكل معياري
+\end{theorem}
+\noindent
+\textbf{البرهان}\\
+\noindent
+لكل $r\in R, x, y\in M$
+	\begin{align*}
+		\pi(x+y) &= (x+y) + N\\
+		&= (x+N) + (y+N)\\
+		&= \pi(x) + \pi(y) 
+	\end{align*}
+\begin{align*}
+	\pi(rx) &= rx + N\\
+	&= r(x+N)\\
+	&= r \pi(x)
+\end{align*}
+
+\begin{theorem}
+	ليكن $M,N$ معايير يسارية على الحلقة $R$، فإن الدالة $\phi:M\to N$ تكون تشاكل معياري اذا و فقط اذا كان
+	\[
+	\phi(rx + y) = r\phi(x) + \phi(y)
+	\]
+	لكل $x,y\in M$ و لكل $r\in R$
+\end{theorem}
+\noindent
+\textbf{البرهان}\\
+\noindent
+نفرض $\phi$ تشاكل فإن
+\[
+\phi(rx+y) = \phi(rx) + \phi(y) = r\phi(x) + \phi(y)
+\]
+لكل $x,y \in M$ و لكل $r\in R$.\\
+عكسياً نفرض $\phi(rx+y)=r\phi(x)+\phi(y)$ لكل $x,y\in M$ و لكل $r\in R$. نأخذ $r=1$ ينتج $\phi(x+y) = \phi(x)+\phi(y)$ لكل $x,y\in M$ و لو أخذنا $y=0$ ينتج $\phi(rx)=r\phi(x)$ و بالتالي $\phi : M \to N$ يكون تشاكل معياري . \qedsymbol
+
+\begin{definition}
+	ليكن كل من $A,B$ معيار جزئي من المعيار اليساري $M$ على الحلقة $R$ نعرف الجمع لـــــــ $A$ و $B$ على انه المجموعة
+	\[
+	A+B = \{a+b \mid a\in A, b\in B\}
+	\]
+\end{definition}
+	
+\section{مبرهنات التماثل}
+	
+\begin{theorem}
+		ليكن كل من $M,N$ معيار يساري على الحلقة $R$ و لتكن الدالة $\phi:M\to N$ تشاكل معياري يساري فإن $\ker \phi$ هو معيار جزئي من $M$ و $M/\ker\phi\cong \phi(M)$
+\end{theorem}
+\noindent
+\textbf{البرهان}\\
+\noindent
+نفرض $K=\ker\phi$. نثبت $K$ معيار جزئي من $M$. نلاحظ
+\[
+\phi(0) = \phi(0+0) = \phi(0) + \phi(0) \Rightarrow \phi(0) = 0
+\]
+أي أن $0\in K$ $\Leftarrow$ $K\neq \varnothing$. الآن لكل $x,y\in K$ و لكل $r\in R$ نلاحظ
+\[
+\phi(rx+y) = r\phi(x) + \phi(y) = r\cdot 0 + 0 =0 
+\]
+اذن $rx+y\in K$ و بالتالي $K$ معيار جزئي من $M$. الآن نعرف الدالة
+\[
+f:M/K \to \phi(M), \quad f(x+K) = \phi(x), \forall x\in M
+\]
+نثبت أولاً ان $f$ معرفة تعريفاً حسناً. اذا كان $x+K=y+K$ اذن $x-y\in K$ و من ثم
+\begin{align*}
+	\phi(x-y) = 0 \Rightarrow \phi(x) - \phi(y) = 0 &\Rightarrow \phi(x) = \phi(y)\\
+	&\Rightarrow f(x+K) = f(y+K)
+\end{align*}
+الآن نثبت $f$ تشاكل معياري يساري، لكل $x,y\in M$ و $r\in R$
+\begin{align*}
+	f[r(x+K) + (y+K)] &= f[(rx+y) + K] \\
+	&= \phi(rx+y)\\
+	&= r\phi(x) + \phi(y)\\
+	&= rf(x+K) + f(y+K)
+\end{align*}
+الآن نثبت $f$ دالة تقابل [تباين و شاملة]
+\begin{align*}
+	f(x+K) = f(y+K) &\Rightarrow \phi(x) = \phi(y)\\
+	&\Rightarrow \phi(x-y) = 0\\
+	&\Rightarrow x-y \in K\\
+	&\Rightarrow x+K = y+K
+\end{align*}
+بالتالي $f$ دالة تباين 
+\[
+\forall y\in \phi(M) \Rightarrow \exists x\in M: y = \phi(x) = f(x+K)
+\]
+اذن الدالة $f$ شاملة و بالتالي $f$ تماثل معياري و من ثم $M/K\cong\phi(M)$
+%\newpage
+\begin{theorem}
+	ليكن كل من $A,B$ معيار جزئي من المعيار اليساري $M$ على  الحلقة $R$ فإن
+\[
+(A+B)/B\cong A/(A\cap B)
+\]
+\end{theorem}
+\noindent
+\textbf{البرهان}\\
+\noindent
+سوف نستخدم مبرهنة التماثل الأولى حيث نعرف الدالة
+\[
+f:A+B \to A/(A+B), \quad f(a+b) = a+(A\cap B)
+\]
+نثبت اولاً أن $f$ معرفة تعريفاً حسناً. لو كان $a_1+b_1=a_2+b_2$ فإن $a_1-a_2=b_2-b_1$ و حيث أن $a_1-a_2\in A$ و $b_2-b_1\in B$ يكون لدينا $a_1-a_2\in A\cap B$ و بالتالي
+\[
+a_1 + (A\cap B) = a_2 + (A\cap B) \Rightarrow f(a_1 + b_1) = f(a_2+b_2)
+\] 
+الآن نثبت أن $f$ تشاكل معياري يساري. لكل $a_1,a_2\in A$ و لكل $b_1,b_2\in B$ و لكل $r\in R$
+\begin{align*}
+	f[r(a_1+b_1)+(a_2+b_2)] &= f[\underbrace{(ra_1+a_2)}_{\in A} + \underbrace{(rb_1+b_2)}_{\in B}]\\
+	&= (ra_1+a_2) + (A\cap B) \\
+	&= r[a_1+(A\cap B)] + [a_2 + (A\cap B)]\\
+	&= rf(a_1+b_1) + f(a_2+b_2) 
+\end{align*}
+الآن نثبت $f$ دالة شاملة
+\[
+\forall y\in A/(A\cap B) \to \exists a\in A: y=a+(A\cap B) = f(a+b), \text{لبعض $b\in B$} 
+\]
+الآن نوجد نواة التشاكل
+\begin{align*}
+	\ker f = \{a+b \mid f(a+b) = A\cap B\}
+	= \{a+b \mid a+(A\cap B) &= A\cap B\} \\
+	= \{a+b\mid a\in A\cap B\}=
+	 \{a+b \mid a\in B\} &= B
+\end{align*}
+اذن من مبرهنة التماثل الاولى نحصل على
+\[
+\boxed{(A+B)/\ker f \cong A/(A\cap B)} \Rightarrow \boxed{(A+B)/B \cong A/(A\cap B)}
+\]
+
+\begin{theorem}
+	 ليكن $M$ معيار على الحلقة $R$ و كل من $A, B$ معيار جزئي منه مع $A\subseteq B$ فإن
+	 \[
+	 (M/A) / (B/A) \cong M/B
+	 \]
+\end{theorem}
+\noindent
+\textbf{البرهان}\\
+\noindent
+نعرف الدالة
+\[
+f:M/A \to M/B, \quad f(x+A) = x+B, \forall x\in M
+\]
+نثبت $f$ معر فة تعريفاً حسناً. لو كان $x+A=y+A$ فإن $x-y\in A$ و بما أن $A\subseteq B$ فإن $x-y\in B$ و بالتالي
+\[
+x+B = y+B \Rightarrow f(x+A) = f(y+A)
+\]  
+نثبت الآن $f$ تشاكل معياري يساري. لكل $x,y\in M$ و لكل $r\in R$
+\begin{align*}
+	f[r(x+A) + (y+A)] &= f[(rx+y) + A] \\
+	&= (rx+y) + B\\
+	&= r(x+B) + (y+B)\\
+	&= rf(x+A) + f(y+A)
+\end{align*}
+الآن نثبت $f$ دالة شاملة
+\[
+\forall y\in M/B \to \exists x\in M : y = x+B = f(x+A) 
+\]
+الآن نوجد نواة التشاكل $f$
+\begin{align*}
+	\ker f &= \{x+A \mid f(x+A) = B\}\\
+	&= \{x+A\mid x+B = B\}\\
+	&= \{x+A\mid x\in B\}= B/A 
+\end{align*}
+اذن من مبرهنة التماثلل الأولى
+\[
+(M/A) / (B/A) \cong M/B 
+\]
+
+
+

@@ -1,0 +1,188 @@
+\input{/home/sajad/Programming/LaTeX/Presentations/arabicBeamer.tex}
+
+\title{\textbf{طريقة التغاير التكراري لحل المعادلات التفاضلية الجزئية}}
+\author{\textbf{الطالبة : عذراء جاسم}}
+\date{\textbf{إشراف : م.م. رغد كريم مسلم}}
+
+\begin{document}
+	\abovedisplayskip=0pt
+	\belowdisplayskip=0pt
+	\maketitle
+	
+	\timesfont
+	
+	\begin{frame}{مقدمة}
+		طريقة التغاير التكراري
+	\LR{(Variational Iteration Method)}
+		 هي واحدة من الطرق الرياضية الحديثة التي تستخدم لحل المعادلات التفاضلية، سواء كانت خطية أو غير خطية. تعتبر هذه الطريقة من الأساليب الفعّالة التي تتيح إيجاد حلول تقريبية للمعادلات المعقدة التي يصعب حلها باستخدام الطرق التقليدية.\\
+		\noindent
+		تم تطوير طريقة التغاير التكراري في أوائل التسعينات بواسطة الباحثين\LR{J. H. He} و \LR{H. S. Zhang}، وهي تقوم على فكرة استخدام تكرارات لتحسين تقريب الحلول للمعادلات التفاضلية. تعتمد هذه الطريقة على تعديل المعادلة التفاضلية الأصلية بشكل يسمح بتطوير سلسلة تكرارية تؤدي إلى تقريب الحل بفعالية مع كل خطوة.\\
+		\noindent
+		تتميز طريقة التغاير التكراري بقدرتها على توفير حلول دقيقة، حتى عندما تكون المعادلات التفاضلية غير خطية أو تحتوي على معقدات متعددة. يمكن استخدامها لحل مجموعة واسعة من المعادلات التفاضلية الجزئية والعادية، بما في ذلك معادلات بواسون، معادلات لايبنز، معادلات فاراداي، وغيرها.
+	\end{frame}
+	
+	\begin{frame}
+		\begin{exampleblock}{تعريف طريقة التغاير التكراري} 
+			طريقة التغاير التكراري هي اجراء تكراري للحصول على حل تقريبي (بالغالب متقارب بسرعة) لمعادلة تفاضلية خطية او غير خطية. وتتلخص فكرتها الاساسية في انشاء دالة تصحيحية تعمل على تحسين التخمين الاولي من خلال دمج مضروب لاكرانج المحدد من نظرية التغاير.
+		\end{exampleblock}
+		
+		\begin{exampleblock}{عرض الطريقة}
+			لتكن لدينا المعادلة الدالية من الشكل 
+			\[
+			L[u(x)] + N[u(x)] = g(x)
+			\]
+			حيث
+			\begin{itemize}
+				\item $L$ المؤثر الخطي.
+				\item $N$ المؤثر غير الخطي.
+				\item $g(x)$ دالة معروفة.
+				\item $u(x)$ الدالة المجهولة التي يجب تحديدها.
+			\end{itemize}
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{exampleblock}{المخطط التكراري}
+			طريقة التغاير التكراري تولد متتابعة من الدوال $u_n(x)$ تتقارب الى الحل $u(x)$ من خلال انشاء دالي تصحيحي كالآتي
+			\[
+			u_{n+1}(x) = u_n(x) + \int_a^b \lambda(s) \big[L[u_n(s)] + N[\tilde{u}_n(s)] - g(s)\big] \, ds
+			\]
+			حيث
+			\begin{itemize}
+				\item $u_n(x)$ هي التقريب الحالي.
+				\item $\lambda(s)$ مضروب لاكرانج الذي يتحدد من خلال نظرية التغاير.
+				\item $\tilde{u}_n(s)$ يمثل التغاير المقيد لــ $u_n(x)$، اي ان من خلال الاجراء التكراري نعتبر $\delta\tilde{u}_n(s) = 0$
+			\end{itemize}
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+		
+		\begin{exampleblock}{طريقة التغاير التكراري للمعادلات التفاضلية الجزئية}
+			لتكن لدينا المعادلة التفاضلية الجزئية من الشكل
+			\[
+			L[u(x, t)] + N[u(x, t)] = g(x, t)
+			\]
+			حيث
+			\begin{itemize}
+				\item $L$ المؤثر الخطي.
+				\item $N$ المؤثر غير الخطي.
+				\item $g(x, t)$ دالة معروفة.
+				\item $u(x, t)$ الدالة المجهولة التي يجب تحديدها.
+			\end{itemize}
+			الصيغة التكرارية تكون على الصورة
+			\begin{equation}
+				u_{n+1}(x, t) = u_n(x, t) + \int_{0}^{t} \lambda(s) \big[L[u_n(x, s)] + N[\tilde{u}_n(x, s)] - g(x, s)\big] \, ds 
+			\end{equation}
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{exampleblock}{مثال}
+				حل المعادلة التالية بإستخدام طريقة التغاير التكراري
+			\[
+			u_t + u u_x = 0 , \qquad u(x, 0) = -x
+			\]
+		\end{exampleblock}
+		\begin{exampleblock}{الحل}
+			
+			من خلال (1) الصيغة التكرارية تكون 
+			\begin{equation}
+				u_{n+1}(x, t) = u_n(x, t) + \int_{0}^{t} \lambda(s) \left[\frac{\partial u_n}{\partial s} + \tilde{u}  \frac{\partial \tilde{u}_n}{\partial x}\right] \, ds 
+			\end{equation}
+			بأخذ التغاير لطرفي المعادلة (2) نحصل على
+			\begin{align}
+				\delta u_{n+1} &= \delta u_n + \int_{0}^{t} \lambda(s) \left[\delta\left(\frac{\partial u_n}{\partial s}\right) + \delta \left(\tilde{u}  \frac{\partial \tilde{u}_n}{\partial x}\right)\right]\, ds\notag\\
+				&= \delta u_n + \int_{0}^t \lambda(s) \delta\left(\frac{\partial u_n}{\partial s}\right) \, ds + \int_{0}^{t} \lambda(s) \delta \left(\tilde{u}  \frac{\partial \tilde{u}_n}{\partial x}\right) \, ds
+			\end{align}
+			وبما ان $\delta\tilde{u}_n = 0$ فإن التكامل الثاني يساوي صفراً. اذن الصيغة (3) تصبح 
+			\begin{equation}
+				\delta u_{n+1} = \delta u_n + \int_{0}^{t} \lambda(s) \frac{\partial(\delta u_n)}{\partial s} \, ds
+			\end{equation} 
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{exampleblock}{}
+			بإجراء التكامل بالاجزاء على التكامل في (4) نحصل على
+			\begin{align*}
+				\delta u_{n+1} &= \delta u_n + \lambda(t) \delta u_n - \int_0^t \frac{d \lambda}{ds} \delta u_n \, ds\\
+				&= [1 + \lambda(t)] \delta u_n - \int_0^t \frac{d \lambda}{ds} \delta u_n \, ds
+			\end{align*}
+			الآن بجعل $\delta u_{n+1} = 0$ يجب ان نجعل معاملات $\delta u_n$ تساوي صفراُ في الطرف الايمن نحصل على الشروط
+			\begin{equation}
+				\begin{cases}
+					\dfrac{d \lambda}{ds} = 0 \\
+					1 + \lambda(t) = 0
+				\end{cases}
+			\end{equation}
+			بحل النظام (5) نحصل على مضروب لاكرانج $\lambda(s) = -1$. بالتعويض في (2) نحصل على الصيغة التكرارية 
+			\begin{equation}
+				u_{n+1}(x, t) = u_n(x, t) - \int_{0}^{t} \frac{\partial u_n}{\partial s} + {u}_n  \frac{\partial {u}_n}{\partial x}\, ds 
+			\end{equation}
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{exampleblock}{}
+			
+			الآن نفرض $u_0(x,t) = -x$ و نحسب $u_1(x, t)$ من خلال العلاقة التكرارية (6)
+			\begin{align*}
+				u_1(x, t) &= u_0(x, t) - \int_{0}^t \frac{\partial u_0}{\partial s} + u_0 \frac{\partial u_0}{\partial x} \, ds\\
+				&= -x - \int_{0}^t 0 + (-x)(-1) \, ds\\
+				&= -x - \int_{0}^t x \, ds\\
+				&= -x - sx \Big|_0^t\\
+				&= -x -tx\\
+				&= -x(1+t)
+			\end{align*}
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{exampleblock}{}
+						نجد $u_2(x, t)$
+			\begin{align*}
+				u_2(x, t) &= u_1(x, t) - \int_{0}^t \frac{\partial u_1}{\partial s} + u_1 \frac{\partial u_1}{\partial x} \, ds\\
+				&= -x(1+t) - \int_{0}^t -x + \big[-x(1+s)\big]\big[-(1+s)\big]\, ds\\
+				&= -x(1+t) - \int_{0}^t -x + x(1+s)^2\, ds\\
+				&= -x(1+t) - \left[-sx + \frac{x(1+s)^3}{3}\right]_0^t\\
+				&= -x(1+t) - \left[-tx + \frac{x(1+t)^3}{3} - \frac{x}{3}\right]\\
+				&= -x -xt + tx - \frac{x(1+3t + 3t^2 + t^3)}{3} + \frac{x}{3}\\
+				&= -x - x \left(\frac{1}{3} + t + t^2 + \frac{t^3}{3} - \frac{1}{3}\right)
+			\end{align*}
+
+			
+		\end{exampleblock}
+	\end{frame}
+	\abovedisplayskip=7pt
+	\belowdisplayskip=7pt
+	\begin{frame}
+		\begin{exampleblock}{}
+		\[
+		= -x \left(1+t+t^2 + \frac{t^3}{3}\right)
+		\]
+					نلاحظ عندما $n \to \infty$ فإن 
+		\[
+		u_n(x ,t) \to -x (1+t+t^2+t^3+t^4 + \cdots) = \frac{-x}{1-t} , \quad |t| < 1
+		\]
+		وهو يمثل الحل الحقيقي ويمكننا التحقق من ذلك كالآتي
+		\[
+		u_t + u u_x = \frac{-x}{(1-t)^2} + \left(\frac{-x}{1-t}\right)\left(\frac{-1}{1-t}\right) = \frac{-x}{(1-x)^2} + \frac{x}{(1-t)^2} = 0
+		\]
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}{الخلاصة}		
+		في نهاية البحث قد تعرفنا على طريقة التغاير التكراري  
+		\textbf{(VIM)} في حل المعادلات التفاضلية الجزئية و طبقناها على حل مثال. حيث هذه الطريقة تستخدم مفهوم مضروب لاكرانج في نظرية التغاير للحصول حل امثلي \\\LR{\textbf{(optimal solution)}}
+		وعرفنا ان التكرارات في هذه الطريقة هي عبارة عن دوال تقترب الى الحل الحقيقي
+		\\ \LR{\textbf{(exact solution)}}. وفي كثير من الحالات يكون افضل من الطرق العددية التي تعطي حلول عددية بدل من الدوال.
+	\end{frame}
+	
+	\begin{frame}
+		\Huge
+		\begin{center}
+			\textbf{شكراً لحسن استماعكم}
+		\end{center}
+	\end{frame}
+\end{document}

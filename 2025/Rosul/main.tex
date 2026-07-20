@@ -1,0 +1,42 @@
+\documentclass{arabicClass}
+
+\newcommand{\sen}[1]{\en{\textsuperscript{#1}}}
+
+\begin{document}
+	\abovedisplayskip=7pt
+	\belowdisplayskip=7pt
+	
+	\input{Title Page/titlepage}
+	
+	\pagenumbering{roman}
+	\input{ayaa}
+	\input{gift}
+	\input{thanks}
+	
+	\tableofcontents
+	\clearpage
+	\pagenumbering{arabic}
+	\input{abstract}
+	\input{intro}
+	
+	\input{chapter1}
+	\input{chapter2}
+	
+	%\input{conclusion}
+	
+	\addcontentsline{toc}{chapter*}{المصادر}
+	\begin{thebibliography}{9}
+	\bibitem{odesolapp}
+	اسماعيل بوقفه و عايش الهناودة ، المعادلات التفاضلية حلول وتطبيقات.
+	
+	\bibitem{research}
+	آية عبدالعالي علي زيدان ، مشروع بحث ، ليبيا جامعة سبها ، 2015 - 2016.
+	
+	\bibitem{odepart2}
+	حسن مصطفى العويضي ، المعادلات التفاضلية الجزء الثاني ، مكتبة رشيد.
+	
+	\bibitem{matrix}
+	مجدي الطويل ، المصفوفات ، النظرية و التطبيق ، القاهرة ، 1417 هــ - 1996 م.
+	
+\end{thebibliography}
+\end{document}

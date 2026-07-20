@@ -1,0 +1,51 @@
+\documentclass{arabicClass}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+
+\begin{document}
+	
+
+	
+	\abovedisplayskip=7pt
+	\belowdisplayskip=7pt	
+	
+	%\renewcommand{\jot}{5pt}
+	
+	\input{Title Page/titlepage.tex}
+	\pagenumbering{roman}
+	\amirifont
+	\input{ayah}
+	\input{gift}
+	\input{thanks}
+	\arabicfont
+	\tableofcontents
+	\clearpage
+	\pagenumbering{arabic}
+	\input{abstract}
+	\input{intro}
+	
+	\input{chapter1}
+	\input{chapter2}
+	\input{chapter3}
+	
+	
+	\input{conclusion}
+	
+	\begin{thebibliography}{9}
+		\addcontentsline{toc}{section}{المصادر}
+		\bibitem{key1}
+		بيرتون د. م. "مقدمة في الجبر الحديث" ترجمة عبدالعال جاسم محمد وسناء عبدمحمد، جامعة الموصل، الطبعة الأولى، 1982.
+		
+		\bibitem{key2}
+		د. عمران قوبا "كتاب الجبر الجزء الاول مبادئ الجبر المجرد".
+		
+		\bibitem{key4}
+		هادي جبر مصطفى وآخرون "الجبر" ، جامعة البصرة الطبعة الاولى ، 1993.
+		
+		\begin{english}
+			\bibitem{key3}
+			David M. Burton "Abstract Algebra" , WM.C. Brown Publishers, 1988.
+		\end{english}
+		
+	\end{thebibliography}
+\end{document}

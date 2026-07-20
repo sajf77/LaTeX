@@ -1,0 +1,251 @@
+% !TeX program = xelatex
+
+\input{arabicBeamer.tex}
+
+\begin{document}
+	\author{\textbf{الطالبة : زمن كاظم عبدالرؤوف}}
+	\title{\textbf{زمرة المصفوفات}}
+	\date{\textbf{اشراف\\
+			 م.م. حنين عدنان بكري}}
+	
+		
+		\begin{frame}
+			\maketitle
+		\end{frame}
+		
+		\begin{frame}{مقدمة}
+			تُعد المصفوفات من أهم الأدوات الرياضية التي ظهرت في القرن التاسع عشر، حيث وفّرت وسيلة منظمة للتعامل مع الأنظمة الخطية والمعادلات متعددة المتغيرات. ومع تطور الرياضيات الحديثة، برزت الزمر كأحد المفاهيم الأساسية في الجبر التجريدي، إذ تُستخدم لدراسة البنى الرياضية التي تمتلك عمليات مغلقة وقوانين محددة مثل الانعكاس والتبديل. وعند الجمع بين هذين المفهومين، تظهر لنا زمرة المصفوفات التي تمثل مجموعة من المصفوفات تحت عملية الضرب، وتُعد مثالاً عملياً غنيّاً يوضح كيف يمكن للزمر أن تُطبّق في مجالات متعددة مثل الفيزياء النظرية، علم الحاسوب، والهندسة.  
+			يهدف هذا البحث إلى استعراض الأسس النظرية للمصفوفات والزمر، ثم الانتقال إلى دراسة زمرة المصفوفات بشكل خاص، مع بيان أهم خصائصها وتطبيقاتها، وذلك لتوضيح الدور المحوري الذي تلعبه هذه البنى الرياضية في تطوير العلوم الحديثة.
+		\end{frame}
+		
+		\begin{frame}
+			\begin{center}\Huge
+				\textbf{الفصل الأول}\\
+				\textbf{المصفوفات}
+			\end{center}
+		\end{frame}
+		
+		\begin{frame}{تعريف المصفوفة}
+			\begin{exampleblock}{تعريف}
+				
+				هي ترتيب مستطيلي الشكل من اعداد حقيقية او عقدية ويطلق على هذه الاعداد في هذا الترتيب بعناصر المصفوفة (entries) ، وقد تكون عناصر المصفوفة مقادير غير عددية.\\
+				المصفوفة هي جدول مستطيل من الاعداد يرمز لها عادة بحرف كبير مثل $A$ وتكتب على الصورة
+				\[
+				A =
+				\begin{bmatrix}
+					a_{11} & a_{12} & a_{13} & \cdots & a_{1n}\\
+					a_{21} & a_{22} & a_{23} & \cdots & a_{2n}\\
+					\vdots & \vdots & \vdots & \ddots & \vdots\\
+					a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}\\
+				\end{bmatrix}
+				\]
+			\end{exampleblock}
+		\end{frame}
+		
+		\begin{frame}{جمع المصفوفات}
+			\begin{exampleblock}{مثال}
+						اذا كان 
+				$A = 
+				\begin{bmatrix}
+					1&2&3\\
+					0&1&4
+				\end{bmatrix}
+				$
+				و
+				$
+				B=
+				\begin{bmatrix}
+					2&3&0\\
+					-1&2&5
+				\end{bmatrix}
+				$
+				فأنه يكون
+				\[
+				A+B=
+				\begin{bmatrix}
+					1+2&2+3&3+0\\
+					0+(-1)&1+2&4+5
+				\end{bmatrix}=
+				\begin{bmatrix}
+					3&5&3\\
+					-1&3&9
+				\end{bmatrix}
+				\]
+			\end{exampleblock}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{exampleblock}{مثال}
+				
+				اذا كانت 
+				$A=
+				\begin{bmatrix}
+					2&3&6\\
+					5&1&7
+				\end{bmatrix}
+				$
+				و
+				$
+				B=
+				\begin{bmatrix}
+					1\\3\\4
+				\end{bmatrix}
+				$
+				فأن
+				\[
+				C=C_{2\times 1} = A_{2\times 3}\cdot B_{3\times 1}=\begin{bmatrix}
+					2&3&6\\
+					5&1&7
+				\end{bmatrix}\cdot
+				\begin{bmatrix}
+					1\\3\\4
+				\end{bmatrix}=
+				\begin{bmatrix}
+					2\cdot1+3\cdot3+6\cdot4\\
+					5\cdot1+1\cdot3+\cdot7\cdot4
+				\end{bmatrix}=
+				\begin{bmatrix}
+					35\\
+					36
+				\end{bmatrix}
+				\]
+			\end{exampleblock}
+		\end{frame}
+		
+		\begin{frame}{انواع المصفوفات}
+			\begin{itemize}
+				\item المصفوفة الصفرية
+				\item  المصفوفة المستطيلة
+				\item المصفوفة المثلثية السفلى والعليا
+				\item المصفوفة القطرية
+				\item المصفوفة المحايدة
+				\item المصفوفة الدورية
+				\item المصفوفة متساوية القوى
+				\item المصفوفة معدومة القوى
+				\item المصفوفة المتناظرة
+			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{center}\Huge
+				\textbf{الفصل الثاني}\\
+				\textbf{نظرية الزمر}
+			\end{center}
+		\end{frame}
+		
+		\begin{frame}{تعريف الزمرة}
+			\begin{exampleblock}{تعريف}
+				لتكن $S$ مجموعة غير خالية و $*:S\times S\to S$ عملية ثنائية، تسمى $(S, *)$ زمرة إذا تحقق ما يلي:
+				\begin{enumerate}
+					\item الانغلاق: لأي عنصرين $a, b\in S$ فإن $a*b\in S$.
+					\item العملية التجميعية: $\forall a, b, c\in S: a*(b*c) = (a*b)*c$.
+					\item العنصر المحايد: $\exists e\in S, \forall a\in S: a*e = e*a = a$.
+					\item العنصر النظير: $\forall a\in S, \exists b\in S: a*b = b*a = e$.
+				\end{enumerate}
+				
+	\textbf{ملاحظة:} عادة نكتب $S$ بدلاً من $(S, *)$ وأيضًا نكتب $ab$ بدلاً من $a*b$.
+			\end{exampleblock}
+		\end{frame}
+		
+		\begin{frame}{الزمرة الجزئية}
+			\begin{definition}
+				لتكن $G$ زمرة ولتكن $H$ مجموعة جزئية (غير خالية) من $G$ يقال ان $H$ زمرة جزئية من $G$ اذا تحقق ما يلي:
+				\begin{enumerate}
+					\item لكل $a,b\in H$ فأن $ab\in H$.
+					\item المجموعة $H$ مع الربط المستحدث
+					$
+					\begin{array}{c}
+						H\times H \to H\\
+						(a, b) \mapsto ab
+					\end{array}
+					$
+					يكون زمرة.
+				\end{enumerate}
+				
+				\noindent 
+				يلاحظ ان كل زمرة $G$ تحتوي على زمرتين جزئيتين تافهتين هما $G, \{e\}$ حيث $e$ العنصر المحايد. 
+			\end{definition}
+		\end{frame}
+		
+		\begin{frame}{زمرة المصفوفات}
+			تُعد الزُمَر من أهم المفاهيم الأساسية في الجبر التجريدي، إذ تُوفر إطارًا رياضيًا لدراسة البُنى والعلاقات بين العناصر تحت عمليات معينة. ومن أبرز الأمثلة العملية على الزُمَر هي زمرة المصفوفات، التي تتكون من جميع المصفوفات القابلة للعكس مع عملية الضرب. هذه الزمرة لا تقتصر أهميتها على الجانب النظري فحسب، بل تمتد لتشمل تطبيقات واسعة في مجالات متعددة مثل الفيزياء، علوم الحاسوب، والهندسة، حيث تُستخدم في تمثيل التحويلات الخطية، الدورانات، وحل الأنظمة الرياضية. إن دراسة زمرة المصفوفات تُعد مدخلاً لفهم أعمق للبُنى الرياضية المعقدة، وتُبرز كيف يمكن للرياضيات أن تكون أداة فعالة في تفسير الظواهر الطبيعية والأنظمة التقنية.
+		\end{frame}
+		
+		\begin{frame}
+			\begin{theorem}
+				اذا كانت \(A, B, C\) مصفوفات متناظرة ، زمرة ابدالية
+				\[
+				A =
+				\begin{bmatrix}
+					a_{11} & a_{12} & a_{13} & \cdots & a_{1n}\\
+					a_{21} & a_{22} & a_{23} & \cdots & a_{2n}\\
+					\vdots & \vdots & \vdots & \ddots & \vdots\\
+					a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}\\
+				\end{bmatrix}
+				\]
+				\[
+				A = \{a_{ij} = a_{ji}, \forall a_{ij}\in A \mid i = j\}
+				\]
+				\[
+				B = \{b_{ij} = b_{ji}, \forall b_{ij}\in B \mid i = j\}
+				\]
+				\[
+				C = \{c_{ij} = c_{ji}, \forall c_{ij}\in C \mid i = j\}
+				\]
+				\[
+				G = \{A \in M_{m\times n}(\R)  : A^T = A\}
+				\]
+				 فأن $(G, +)$ زمرة ابدالية 
+			\end{theorem}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{theorem}
+				لتكن $(S, +)$ مجموعة جزئية من زمرة المصفوفات المتناظرة $(G, +)$ فأنه
+				\[
+				\forall A, B\in S \to A + (-B) \in S
+				\]
+			\end{theorem}
+		\end{frame}
+		
+		\begin{frame}
+			\begin{example}
+				نفرض
+				\[
+				S = \{A_{3\times 3}(X) ; A = A^T : A_{ij} = a_{ji} \forall i=j\}
+				\]
+				\[
+				A = \begin{bmatrix}
+					1 & 2 & 5 \\
+					2 & 1 & 3 \\
+					5 & 3 & 1
+				\end{bmatrix} ; B = \begin{bmatrix}
+					4 & -2 & 1/2 \\
+					-2 & 4 & 0 \\
+					1/2 & 0 & 4
+				\end{bmatrix}\]
+				\[
+				A - B = \begin{bmatrix}
+					1 & 2 & 5 \\
+					2 & 1 & 3 \\
+					5 & 3 & 1
+				\end{bmatrix} - \begin{bmatrix}
+					4 & -2 & 1/2 \\
+					-2 & 4 & 0 \\
+					1/2 & 0 & 4
+				\end{bmatrix} = \begin{bmatrix}
+					-3 & 0 & \frac{9}{2} \\
+					0 & -3 & 3 \\
+					\frac{9}{2} & 3 & -3
+				\end{bmatrix} \to A - B \in S
+				\]
+			\end{example}
+		\end{frame}
+		
+	\begin{frame}
+		\begin{center}
+			\Huge
+			\textbf{شكراً لحسن استماعكم}
+		\end{center}
+	\end{frame}
+\end{document}

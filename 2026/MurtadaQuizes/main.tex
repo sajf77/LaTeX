@@ -1,0 +1,191 @@
+\documentclass[a4paper]{extarticle}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage[
+margin=0.25in
+]{geometry}
+\usepackage{setspace}
+%\setstretch{1.4}
+\usepackage{xcolor, multicol}
+\pagestyle{empty}
+\usepackage[inline]{enumitem}
+\setlist{itemjoin=\hfil, label=\hspace*{10pt}\arabic*)\hspace{10pt}, labelindent=0pt, labelsep=0pt}
+\usepackage{tikz}
+\setlength{\parindent}{0pt}
+\setlength{\columnseprule}{0.4pt}
+\setlength{\columnsep}{1cm}
+\usepackage{amsmath, amssymb, mathtools, amsthm, nccmath}
+
+\usepackage[main=arabic, bidi=basic, provide=*, layout=counters.tabular graphics]{babel}
+
+%\babelprovide[justification=kashida, transforms=kashida.base]{arabic}
+%\babelfont{rm}[Script=Arabic, Scale=1.33]{Scheherazade}
+\babelfont{rm}[Script=Arabic]{Times New Roman}
+\babelfont[english]{rm}{Times New Roman}
+
+\directlua{Babel.arabic.justify_factor = 1.03}
+
+\usepackage[lite]{mtpro2}
+\DeclareMathSymbol{0}{\mathalpha}{operators}{`0}
+\DeclareMathSymbol{1}{\mathalpha}{operators}{`1}
+\DeclareMathSymbol{2}{\mathalpha}{operators}{`2}
+\DeclareMathSymbol{3}{\mathalpha}{operators}{`3}
+\DeclareMathSymbol{4}{\mathalpha}{operators}{`4}
+\DeclareMathSymbol{5}{\mathalpha}{operators}{`5}
+\DeclareMathSymbol{6}{\mathalpha}{operators}{`6}
+\DeclareMathSymbol{7}{\mathalpha}{operators}{`7}
+\DeclareMathSymbol{8}{\mathalpha}{operators}{`8}
+\DeclareMathSymbol{9}{\mathalpha}{operators}{`9}
+
+\def\SPACE{\hspace*{28pt}}
+\def\VSPACE{\vskip5pt}
+\def\MARKS{\hfill\textbf{(10 درجات)}}
+\def\EMPTY{\text{---------}}
+
+\newcommand{\dashedrule}{%
+	\noindent\leaders\hbox{\rule{5pt}{0.4pt}\hskip3pt}\hfill\kern0pt
+	\vskip10pt
+}
+
+\AtBeginDocument{
+	\allowdisplaybreaks
+	\renewcommand{\jot}{10pt}
+	\abovedisplayskip=7pt
+	\belowdisplayskip=7pt
+}
+
+\begin{document}
+
+
+%\noindent
+\begin{minipage}{0.3\textwidth}
+	\begin{center}
+		\textbf{ثانوية آمنة بنت وهب}\linebreak
+		\textbf{للبنات}
+	\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\textwidth}
+	\begin{center}
+		\textbf{اسئلة امتحان نصف السنة}\\
+		\textbf{للعام الدراسي}
+		\textbf{2025 - 2026}\\
+		\textbf{(الدور الاول)}
+	\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\textwidth}
+	\begin{center}
+		\textbf{المادة : الرياضيات}\\
+		\textbf{الصف : الاول المتوسط}\\
+		\textbf{التأريخ : 24/1/2026}\\
+		\textbf{الوقت : ساعة ونصف}
+	\end{center}
+\end{minipage}
+{\vskip5pt\hrule\vskip5pt
+\centering
+	\textbf{ملاحظة : الاجابة عن خمسة اسئلة فقط (لكل سؤال 20 درجة)}
+\vskip5pt\hrule\vskip5pt}
+
+\textbf{س 1: أ/}
+	 جدي ناتج ما يأتي لأثنين فقط \hfill \textbf{(10 درجات)}
+\\\SPACE 
+\begin{enumerate*}
+	\item $\dfrac{7}{9} - \dfrac{8}{5}$
+	\item $4.6+(-3.7)$
+	\item $1\dfrac{2}{3} \times \dfrac{-3}{10}$
+\end{enumerate*}\\
+
+\textbf{س 1: ب/}
+	 جدي ناتج الضرب $4\times(8y+4z+5)$ \hfill \textbf{(10 درجات)}
+
+\dashedrule
+
+\textbf{س 2:}
+	 اجيبي عن فرعين فقط\\
+\SPACE \textbf{أ/} 
+	قدّر الجذر (لأثنين فقط) 
+\begin{enumerate*}
+\item $\sqrt[3]{24}$
+\item $\sqrt{13}$
+\item $\sqrt{94}$
+\end{enumerate*}\hfill\textbf{(10 درجات)}
+\VSPACE
+\SPACE
+\textbf{ب/}
+	 من $24z^2wy$ اطرح $-32z^2wy$ \hfill\textbf{(10 درجات)}
+\VSPACE
+\SPACE\textbf{ج/} طلى عصام غرفة بلون جديد خلال 12 ساعة فأذا ساعده رياض بطلاء غرفة اخرى بالقياس نفسه ، الى كم ساعة يجتاجون 
+\SPACE\hspace{10pt}
+لأنجاز العمل ؟ (بأعتبار ان رياض ينجز العمل بكفاءة عصام وسرعته)
+\hfill\textbf{(10 درجات)}
+
+\dashedrule
+
+\textbf{س 3: أ/} مثلث قائم الزاوية طولا ضلعيه (12 ، 5 سم) جد طول الوتر \hfill\textbf{(10 درجات)}
+\VSPACE
+\SPACE\textbf{ب/} جدي القيمة العددية للمقادير الجبرية التالية (لواحد فقط) \MARKS\\\SPACE\SPACE
+	\begin{enumerate*}[itemjoin=]
+		\item $3r^2 + 2v + 16, \quad r = 3, v = 7$\\
+		\SPACE\SPACE\SPACE
+		\item $8w - 7z + 12, \quad w = 3, z = 3$
+	\end{enumerate*}
+	
+\dashedrule
+
+\textbf{س 4: أ/} شريط طوله $3\dfrac{1}{5} \,m$ قطع الى 4 قطع متساوية ما طول القطعة الواحدة ؟\MARKS
+\VSPACE
+\SPACE
+\textbf{ب/} اجيبي عن نقطة واحدة \MARKS\\
+\SPACE\SPACE \textbf{1)} حل معادلة الجمع والطرح باستعمال العلاقة بين الجمع والطرح 
+$X + 22 = | -42 | $
+
+\SPACE\SPACE\textbf{2)} حل معادلة القسمة باستعمال العلاقة بين الضرب والقسمة 
+$42 \div Y = -6$
+
+\dashedrule
+
+\textbf{س 5: اجيبي عن فرعين فقط}\\
+\SPACE\textbf{أ/} استعمل ترتيب العمليات وجد ناتج
+$(32- 9) \times (18 \div 6) + 4$ \MARKS
+\VSPACE\SPACE
+\textbf{ب/} اذا كانت
+$
+A = \{-4, -3, -1, 0, 2\}
+$
+،\SPACE
+$
+B = \{-4, -1, 3, 5\}
+$\MARKS\\\SPACE\SPACE
+جدي 
+\begin{enumerate*}[itemjoin=\hspace{15pt}]
+	\item $A\cap B$ \item $A\cup B$
+\end{enumerate*}
+
+\VSPACE\SPACE
+\textbf{ج/} جدي التقسيم التناسبي $3:4$ من 210000 \MARKS
+
+\dashedrule
+
+\textbf{س 6: أ/} اكملي العبارات التالية بما يناسبها \MARKS
+\begin{enumerate}[topsep=0pt, itemsep=0pt, leftmargin=60pt]
+	\item $8^0 = \EMPTY$
+	\item $\sqrt[3]{125} = \EMPTY$
+	\item النسبة المئوية للعدد $\mfrac{20}{5}$ هي \EMPTY
+	\item الحد الجبري $7xy$ المعامل هو \EMPTY\, والمتغير هو \EMPTY
+\end{enumerate}
+
+\VSPACE\VSPACE\SPACE
+\textbf{ب/} استعملي خصائص العمليات لتحسبي
+ $(21 + 33) + 9$ \MARKS
+ 
+ 
+ \hrule
+ 
+ \begin{center}
+ 	\textbf{مدرسة المادة : رنا سمير عبدالعباس}
+ \end{center}
+ 
+\end{document}
+
+
+

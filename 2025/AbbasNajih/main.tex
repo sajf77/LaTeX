@@ -1,0 +1,101 @@
+\documentclass{arabicClass}
+
+\begin{document}
+	\renewcommand{\jot}{10pt}
+	\abovedisplayskip=7pt
+	\belowdisplayskip=7pt
+	\renewcommand{\theequation}{\arabic{equation}.\arabic{chapter}}
+	
+	
+	\input{Title Page/titlepage}
+	\pagenumbering{roman}
+	\amirifont
+	\input{ayah}
+	\input{gift}
+	\input{thanks}
+	\arabicfont
+	\tableofcontents
+	\clearpage
+	\pagenumbering{arabic}
+	\input{abstract}
+	\input{intro}
+    
+    \chapter*{ أهداف البحث}
+    \begin{enumerate}
+    	\item تقديم الأساس النظري لتحويل لابلاس
+    	\item توضيح تطبيقاته في حل المعادلات التفاضلية
+    	\item إبراز أهميته في التطبيقات الفيزيائية والهندسية
+    \end{enumerate}
+  
+	\input{chapter1}
+	\input{chapter2}
+	\input{chapter3}
+	
+
+
+\chapter*{ النتائج و التوصيات}
+\addcontentsline{toc}{chapter*}{النتائج والتوصيات}
+\section*{النتائج}
+\begin{enumerate}
+	\item تم حل ثلاث مشكلات فيزيائية رئيسية باستخدام تحويل لابلاس
+	\item أظهر التحويل كفاءة عالية في تبسيط الحلول
+	\item تم الحصول على نتائج تتوافق مع الحلول التحليلية المعروفة
+\end{enumerate}
+
+\section*{التوصيات}
+\begin{enumerate}
+	\item التوسع في استخدام تحويل لابلاس لحل مشكلات أكثر تعقيدًا
+	\item دراسة تطبيقات إضافية في مجالات الهندسة المختلفة
+\end{enumerate}
+	
+	\chapter*{الخاتمة}
+	يؤكد هذا البحث على الأهمية النظرية والعملية لتحويل لابلاس في الرياضيات التطبيقية والفيزياء. تظهر النتائج أن التحويل يقدم طريقة منهجية وفعالة لحل مجموعة واسعة من المشكلات الرياضية والفيزيائية.
+	\begin{thebibliography}{9}
+		\addcontentsline{toc}{chapter*}{المصادر}
+		
+		\begin{english}
+			\bibitem{jaeger1969}
+		C.~Jaeger and G.~Newstead,
+		\textit{An introduction to the Laplace transformation with engineering applications}, 
+		3rd ed., Methuen \& Co., London, 1969.
+		
+		\bibitem{guest1991}
+		P.~B. Guest,
+		\textit{Laplace Transforms and an Introduction to Distributions}, 
+		Ellis Horwood, 1991.
+		
+		\bibitem{schiff2004}
+		Joel L. Schiff,
+		\textit{The Laplace Transform: Theory and Applications}, 
+		Springer-Verlag, New York, 2004.
+		
+		\bibitem{spiegel1965}
+		Murry R. Spiegel,
+		\textit{Schaum's Outline of Theory and Problems of Laplace Transforms}, 
+		McGraw-Hill Inc., 1965.
+		
+		\bibitem{dyke2014}
+		Phil Dyke,
+		\textit{An Introduction to Laplace Transforms and Fourier Series}, 
+		2nd ed., Springer-Verlag, London, 2014.
+		
+		\bibitem{paterson1984}
+		A.~R. Paterson,
+		\textit{A First Course in Fluid Dynamics},
+		Cambridge University Press, 1984.
+		
+		\bibitem{joseph1990}
+		D.~D. Joseph,
+		\textit{Fluid Dynamics of Viscoelastic Liquids},
+		Springer, 1990.
+		
+		\bibitem{jha2005}
+		D.~K. Jha,
+		\textit{Text Book of Simple Harmonic Motion and Wave Theory},
+		Discovery Publishing House, 2005.
+		\end{english}
+		
+	\end{thebibliography}
+	
+
+\end{document}

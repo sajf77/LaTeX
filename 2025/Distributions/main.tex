@@ -1,0 +1,64 @@
+\documentclass[14pt]{extarticle}
+
+\usepackage[a4paper, margin=0.4in]{geometry}
+
+\usepackage{amssymb, amsmath, amsthm}
+
+\usepackage[T1]{fontenc}
+\usepackage{times}
+
+\usepackage[italic]{mathastext}
+
+\DeclareMathOperator{\E}{E}
+\DeclareMathOperator{\Var}{Var}
+
+
+\renewcommand{\arraystretch}{3} 
+
+
+\begin{document}
+\pagestyle{empty}
+\section*{Continous Distrubutions}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+	\hline 
+	Name & \(f(x)\) & \(\E(X)\) & \(\Var(X)\) & \(M_X(t)\) \\
+	\hline
+	\(X \sim \text{U}(a, b)\) & \(\dfrac{1}{b-a}, \; a < x < b\) & \(\dfrac{a+b}{2}\) & \(\dfrac{(b-a)^2}{12}\) & \(\cfrac{e^{bt} - e^{at}}{t(b-a)}\)\\
+	\hline 
+	\(X\sim \Gamma(\alpha, \beta)\) & \(\dfrac{x^{\alpha-1}e^{-\frac{x}{\beta}}}{\beta^\alpha \Gamma(\alpha)}, \; 0<x<\infty\) & \(\alpha\beta\) & \(\alpha\beta^2\) & \((1-\beta t)^{-\alpha}\) \\
+	\hline
+	\(X\sim \chi^2(r)\) & \(\dfrac{x^{\frac{r}{2}-1}e^{-\frac{x}{2}}}{2^{\frac{r}{2}}\Gamma(\frac{r}{2})}, \; 0<x<\infty\) & \(r\) & \(2r\) & \((1-2t)^{-\frac{r}{2}}\)\\
+	\hline
+	\(X\sim \exp(\lambda)\) & \(\dfrac{1}{\lambda} e^{-\frac{x}{\lambda}}, \; 0<x<\infty\) & \(\lambda\) & \(\lambda^2\) & \((1-\lambda t)^{-1}\)\\
+	\hline
+	\(X\sim \beta(a, b)\) & \(\dfrac{1}{\beta(a, b)} x^{a-1}(1-x)^{b-1}, \; 0<x<1\) & \(\dfrac{a}{a+b}\) & \(\dfrac{ab}{(a+b)^2(a+b+1)}\) & \(\infty\) \\
+	\hline
+	\(X\sim \text{N}(\mu, \sigma^2)\) & \(\dfrac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{1}{2\sigma^2}(x-\mu)^2}, -\infty<x<\infty\) & \(\mu\) & \(\sigma^2\) & \(e^{\mu t + \frac{1}{2} \sigma^2 t^2}\) \\ \hline
+\end{tabular}
+\end{center}
+
+\section*{Discrete Distrubutions}
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		Name & \(f(x)\) & \(\E(X)\) & \(\Var(X)\) & \(M_X(t)\) \\
+		\hline
+		\(X\sim \text{b}(n,p)\) & \(\displaystyle\binom{n}{x}p^x(1-p)^{n-x}, x=0,1,2,\dots,n\) & \(np\) & \(np(1-p)\) & \((1-p + pe^t)^n\)\\
+		\hline
+		\(X\sim \text{ber}(p)\) & \(p^x(1-p)^{1-x}, x=0,1\) & \(p\) & \(p(1-p)\) & \(1-p+pe^t\) \\
+		\hline
+		\(X\sim \text{po}(\lambda)\) & \(\dfrac{\lambda^x e^{-\lambda}}{x !}, x=0,1,2,\dots,\infty\) & \(\lambda\) & \(\lambda\) & \(e^{\lambda(e^t - 1)}\)\\
+		\hline
+		\(X\sim \text{G}(p)\) & \(p(1-p)^{x-1}, x=1,2,\dots,\infty\) & \(\dfrac{q}{p}\) & \(\dfrac{q}{p^2}\) & \(\dfrac{p}{1-(1-p)e^t}\)\\
+		\hline
+	\end{tabular}
+\end{center}
+\textit{By Mr. Sajad Ahmed}
+
+\end{document}
+
+
+
+
+

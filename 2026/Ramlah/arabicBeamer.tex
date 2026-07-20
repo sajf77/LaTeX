@@ -1,0 +1,119 @@
+% compile with XeLaTeX
+% this template was created by salim bou 
+\documentclass[dvipsnames,mathserif, aspectratio=169]{beamer}
+\usepackage{setspace, float}
+\setstretch{1.2}
+\usepackage{tikz}
+\usepackage{subcaption, tasks}
+
+\usepackage{amsmath, amssymb, amsthm, nicematrix, pst-node, nccmath, cancel}
+
+\AtBeginDocument{
+	\allowdisplaybreaks
+	\renewcommand{\jot}{10pt}
+	\abovedisplayskip=5pt
+	\belowdisplayskip=5pt
+	\renewcommand{\theequation}{\arabic{equation}}
+}
+
+\usepackage{polyglossia, quran}
+\setdefaultlanguage[numerals=maghrib]{arabic} % locale=mashriq, libya, algeria, tunisia, morocco, or mauritania  for names of months in \date 
+\setotherlanguage{english}
+\newfontfamily\arabicfont[Script=Arabic]{Amiri}
+\newfontfamily\arabicfontsf[Script=Arabic]{Amiri}
+\newfontfamily{\timesfont}{Times New Roman}
+
+\newcommand{\ar}{\textarabic}
+\newcommand{\en}{\textenglish}
+
+\usepackage[T1]{fontenc}
+\usepackage{times}
+
+\usepackage[lite, zswash]{mtpro2}
+
+\DeclareMathSymbol{0}{\mathalpha}{operators}{`0}
+\DeclareMathSymbol{1}{\mathalpha}{operators}{`1}
+\DeclareMathSymbol{2}{\mathalpha}{operators}{`2}
+\DeclareMathSymbol{3}{\mathalpha}{operators}{`3}
+\DeclareMathSymbol{4}{\mathalpha}{operators}{`4}
+\DeclareMathSymbol{5}{\mathalpha}{operators}{`5}
+\DeclareMathSymbol{6}{\mathalpha}{operators}{`6}
+\DeclareMathSymbol{7}{\mathalpha}{operators}{`7}
+\DeclareMathSymbol{8}{\mathalpha}{operators}{`8}
+\DeclareMathSymbol{9}{\mathalpha}{operators}{`9}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\LL}{\mathcal{L}}
+
+\usetheme{CambridgeUS}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+%\usecolortheme{crane}
+
+% for RTL liste
+\makeatletter
+\newcommand{\RTListe}{\raggedleft\rightskip\leftm}
+\newcommand{\leftm}{\@totalleftmargin}
+\makeatother
+
+
+
+% RTL frame title
+\setbeamertemplate{frametitle}
+{\vspace*{-1mm}
+	\nointerlineskip
+	\begin{beamercolorbox}[sep=0.3cm,ht=2.2em,wd=\paperwidth]{frametitle}
+		\vbox{}\vskip-2ex%
+		\strut\hskip1ex\insertframetitle\strut
+		\vskip-0.8ex%
+	\end{beamercolorbox}
+}
+
+
+% align subsection in toc
+\makeatletter
+\setbeamertemplate{subsection in toc}
+{\leavevmode\rightskip=5ex%
+	\llap{\raise0.1ex\beamer@usesphere{subsection number projected}{bigsphere}\kern1ex}%
+	\inserttocsubsection\par%
+}
+\makeatother
+
+% RTL triangle for itemize
+\setbeamertemplate{itemize item}{\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths$\blacktriangleleft$}} 
+
+%\setbeamertemplate{itemize item}{\rule{4pt}{4pt}}
+
+\defbeamertemplate{enumerate item}{square2}
+{\LR{
+		%
+		\hbox{%
+			\usebeamerfont*{item projected}%
+			\usebeamercolor[bg]{item projected}%
+			\vrule width2.25ex height1.85ex depth.4ex%
+			\hskip-2.25ex%
+			\hbox to2.25ex{%
+				\hfil%
+				{\color{fg}\insertenumlabel}%
+				\hfil}%
+		}%
+}}
+
+\setbeamertemplate{enumerate item}[square2]
+
+\setbeamertemplate{navigation symbols}{}
+
+\let\definition\relax
+\let\enddefinition\relax
+
+\newtheorem{definition}{تعريف}
+
+\let\example\relax
+\let\endexample\relax
+\newtheorem{example}{مثال}
+
+
+

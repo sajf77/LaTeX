@@ -1,0 +1,36 @@
+% !TeX program = xelatex
+
+\input{arabicTemplate}
+
+\begin{document}
+	\renewcommand{\thefootnote}{\ar{(\arabic{footnote})}}
+	\renewcommand{\figurename}{الشكل}
+	\abovedisplayskip=3pt
+	\belowdisplayskip=3pt
+	\renewcommand{\jot}{10pt}
+	\renewcommand{\theequation}{\arabic{equation}.\arabic{chapter}}
+%		\arabicfont
+	%\input{titlepage}
+	%\input{intro}
+	%\tableofcontents
+	\input{chapter1}
+	\input{chapter2}
+	\input{chapter3}
+	
+	\textbf{مثال 2.} العدد $-1 - i$ في المثال 1 له الصيغة الأسية التالية:
+	\begin{equation}
+		-1 - i = \sqrt{2} \exp \left[ i \left( -\frac{3\pi}{4} \right) \right]. \tag{5}
+	\end{equation}
+	
+	مع الاتفاق على أن $e^{-i\theta} = e^{i(-\theta)}$، يمكن أيضاً كتابة هذا التعبير كـ $-1 - i = \sqrt{2} e^{-i3\pi/4}$. التعبير (5) هو بالطبع مجرد واحد من عدد لا نهائي من الاحتمالات للصيغة الأسية للعدد $-1 - i$:
+	\begin{equation}
+		-1 - i = \sqrt{2} \exp \left[ i \left( -\frac{3\pi}{4} + 2n\pi \right) \right] \quad (n = 0, \pm 1, \pm 2, \dots). \tag{6}
+	\end{equation}
+	
+	لاحظ كيف يخبرنا التعبير (4) عندما تكون $r = 1$ أن الأعداد $e^{i\theta}$ تقع على الدائرة التي مركزها نقطة الأصل ونصف قطرها الوحدة، كما هو موضح في الشكل 7. قيم $e^{i\theta}$ تكون حينها مباشرة من ذلك الشكل، دون الرجوع إلى صيغة أويلر. فمن الواضح هندسياً، على سبيل المثال، أن:
+	\[
+	e^{i\pi} = -1, \quad e^{-i\pi/2} = -i, \quad \text{\textit{and}} \quad e^{-i4\pi} = 1.
+	\]
+	
+	\input{references}
+\end{document}

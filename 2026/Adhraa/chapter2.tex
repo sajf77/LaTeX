@@ -1,0 +1,199 @@
+\chapter{تأثير الزمر على المجموعات}
+
+\section*{مقدمة}
+يعد مفهوم تأثير نظام رياضي على نظام رياضي آخر من المفاهيم الهامة والمتكررة في دراسة الرياضيات ، فعندما يؤثر نظام رياضي على آخر نستطيع إستشفاف معلومات هامة جداً عن النظامين. في هذا الفصل ندرس مفهوم تأثير زمرة على مجموعة ونوضح هذا المفهوم ببعض الأمثلة.
+
+
+%\section{تعاريف وأمثلة}
+
+\begin{definition}{تأثير الزمر على المجموعات}{\cite{ref3}}
+	\addcontentsline{toc}{section}{تعاريف وأمثلة}
+	لتكن $G$ زمرة ولتكن $A$ مجموعة غير خالية ، يعرف تأثير الزمرة $G$ على المجموعة $A$
+	\linebreak(\en{action of group on a set})
+	بأنه تطبيق 
+	$* : G \times A \to A$ ( في العادة نكتب $g*a$ بدلاً من $*(g, a)$ ) الذي يحقق ما يلي:
+	\begin{enumerate}
+		\item $e * a = a$ لكل $a\in A$.
+		\item $(g_1g_2)*a = g_1 * (g_2 * a)$ لكل $a\in A$ ولكل $g_1,g_2 \in G$.
+	\end{enumerate} 
+\end{definition}
+
+\begin{note}
+	يسمى التأثير  في التعريف اعلاه بالتأثير الايسر ، ومن الممكن تعريف التأثير الأيمن بصورة مماثلة ، واذا كان لدينا تأثير (ايسر او ايمن) لزمرة $G$ على محجموعة $A$ فأننا نقول ان $G$ تؤثر على $A$.
+\end{note}
+
+\begin{example}
+اذا كان $*:G\times A \to A$ معرفاً بالقاعدة 
+$g*a = a$ لكل $g\in G$ وكل $a\in A$ فيمكن اعتبار ان $G$ تؤثر على $A$ لأن:
+\begin{enumerate}
+	\item $e*a=a$ لكل $a\in A$.
+	\item $(g_1g_2)*a=a=g_2*a=g_1*(g_2*a)$. لكل $g_1g_2\in G$ ولكل $a\in A$.
+\end{enumerate}	
+يسمى هذا التأثير بالتأثير التافه.
+\end{example}
+
+\begin{example}
+	اذا كانت $G$ هي زمرة التبديلات على المجموعة $A$ فأن 
+	$*:G\times A \to A$ بالقاعدة
+	$\sigma * a = \sigma(a)$ لكل $\sigma\in G$ ولكل $a\in A$ تأثيراً للزمرة $G$ على $A$ لأن
+	\begin{enumerate}
+		\item $e * a = e(a) = a$ لكل $a \in A$.
+		\item $(\sigma_1 \circ \sigma_2)*a = (\sigma_1\circ\sigma_2)(a) = \sigma_1(\sigma_2(a)) = \sigma_1*(\sigma_2(a)) = \sigma_1 * (\sigma_2 * a)$. لكل 
+		$\sigma_1, \sigma_2 \in G$ ولكل $a\in A$.
+	\end{enumerate}
+\end{example}
+
+\begin{example}
+	اذا كانت $V$ فضاء متجهات على $\R$ فأن 
+	$* : \R^* \times V \to V$ المعرف بالقاعدة $r * v = rv$ لكل $r\in\R^*$ وكل $v\in V$ تأثيراً للزمرة $(G, *)$ على المجموعة $V$ لأن:
+	\begin{enumerate}
+		\item $1 * v = 1\, v = v$ لكل $v\in V$.
+		\item  $(rs) * v = (rs)v = r(sv) = r(s*v) = r*(s*v)$ لكل $r,s\in\R^*$ وكل $v\in V$.	
+	\end{enumerate}
+\end{example}
+
+%\begin{example}
+%	اذا كانت $G$ زمرة فأنه من الواضح ان 
+%	$*:G\times G\to G$ المعرف بالقاعدة $g_1 * g_2 = g_1\, g_2$ لكل $g_1, g_2\in G$ تأثير للزمرة $G$ على المجموعة $G$. 
+%\end{example}
+%
+%\begin{example}
+%	اذا كانت $H\le G$ فأنه من الواضح ان 
+%	$* : H\times G \to G$ المعرف بالقاعدة $h*g = h\, g$ لكل $h\in H$ وكل $g\in G$ تأثيراً للزمرة $H$ على المجموعة $G$.
+%\end{example}
+
+\begin{example}
+	اذا كانت $H\le G$ وكانت 
+	$A=\{aH : a\in G\}$ فأن $* : G\times A \to A$ المعرف بالقاعدة \linebreak $g * aH = (ga)H$ لكل $g\in G$ وكل $aH\in A$ تأثيراً للزمرة $G$ على المجموعة $A$ لأن:
+	\begin{enumerate}
+		\item $e*aH = (ea)H = aH$ لكل $aH\in A$.
+		\item $(g_1g_2)*aH = (g_1g_2a)H = g_1(g_2a)H=g_1(g_2*aH)=g_1*(g_2*aH)$ \linebreak
+	لكل $g_1,g_2\in G$ وكل $aH\in A$.
+	\end{enumerate}
+\end{example}
+
+\begin{example}
+	اذا كانت $H \le G$ فأن 
+	$* : H\times G \to G$ المعرّف بالقاعدة $h * g = hgh^{-1}$ لكل $h\in H$ ولكل $g \in G$ تأثيراً للزمرة $H$ على المجموعة $G$ لأنه
+	\begin{enumerate}
+		\item $e * g = ege^{-1} = g$ لكل $g \in G$.
+		\item $(h_1h_2)*g=(h_1h_2)g(h_1h_2)^{-1} = h_1(h_2gh_2^{-1})h_1^{-1} = h_1 * (h_2gh_2^{-1}) = h_1 * (h_2 * g)$\linebreak لكل $h_1, h_2\in H$ وكل $g \in G$. 
+	\end{enumerate}
+	ويسمى هذا التأثير بتأثير الترافق.
+\end{example}
+
+\begin{theorem}[\cite{ref3}]\label{thm:actionrelation}
+	\addcontentsline{toc}{section}{مبرهنة (2-1)}
+	لنفرض ان الزمرة $G$ تؤثر على المجموعة $A$ ، اذا كانت $\approx$ علاقة معرفة على $A$ كالتالي:\linebreak
+	$a\approx b \iff \exists g\in G(ga= b)$ لكل $a, b\in A$ فأن $\approx$ علاقة تكافؤ على $A$.
+\end{theorem}
+\begin{proof}
+	\begin{tasks*}
+		\item بما ان $ea=a$ لكل $a\in A$ فأن $a\approx a$ ، ولذا فأن $\approx$ علاقة انعكاسية.
+
+		\item \parbox[t][2cm]{470pt}{لنفرض ان $a\approx b$ حيث $a, b\in A$ ، عندئذٍ يوجد $g\in G$ حيث $ga=b$ الآن:\linebreak
+			$a = ea = (g^{-1} g)a = g^{-1} (ga) = g^{-1} b$ ، اذن $b\approx a$ بالتالي فأن $\approx$ علاقة تناظرية.}
+		
+		\item \parbox[t]{470pt}{لنفرض ان $a\approx b$ وأن $b\approx a$ حيث $a,b,c\in A$ عندئذٍ يوجد $g_1, g_2\in G$ بحيث أن
+			\linebreak$g_1 a = b$ و $g_2 b = c$ ، اذن 
+			$(g_2 g_1)a = g_2(g_1a) = g_2 b = c$ ولذا فأن $a\approx c$ بالتالي فأن $\approx$ علاقة متعدية ، ونتسنتج أن $\approx$ علاقة تكافؤ.}
+	\end{tasks*}
+\end{proof}
+
+%\section{المدارات}
+
+\begin{definition}{المدارات}{\cite{ref3}}
+	لتكن الزمرة $G$ تؤثر على المجموعة غير الخالية $A$.
+	\begin{enumerate}[label=(\alph*)]
+		\item تسمى صفوف تكافؤ العلاقة $\approx$ في المبرهنة \ref{thm:actionrelation} ، مدارات (\textbf{orbits}) $G$ على $A$.
+		\linebreak لاحظ أن صف التكافؤ الذي يحتوي $a\in A$ هو:
+		\[
+		[a] = \{ b\in A : \exists g\in G \,\,( ga = b)\} = \{ga : g\in G\}
+		\]
+		\item يكون تأثير $G$ على $A$ متعدياً (transitive) اذا كان هناك مدار واحد فقط اي انه لكل $a, b\in A$ يوجد $g\in G$ حيث 
+		$ga=b$.
+	\end{enumerate}
+\end{definition}
+
+\begin{example}
+	اذا كان تأثير الزمرلة $G$ على المجموعة $A$ هو التأثير التافه ، فأن مدارات $ِG$ على $A$ هي عناصر $A$. لاحظ ان هذا التأثير يكون متعدياً اذا وفقط اذا كانت $|A|=1 $. 
+	\[
+	\forall a \in A : [a] = \{ga : g\in G\} = \{a\}
+	\]
+	وبالتالي فإن كل مدار هو مجموعة أحادية من الشكل \( \{a\} \). ومن ثم فإن عدد المدارات يساوي \( |A| \)، ويكون فضاء القسمة \( A/G \) مطابقاً لـ \( A \) نفسه. كما أن المثبت لأي عنصر \( a \in A \) هو الزمرة كلها \( G \). الآن نفرض ان التأثير يكون متعدي ، وليكن لدينا مدارين لا على التعيين 
+	$[a], [b]$ فبما ان التأثير متعدي فأن
+	\[
+	[a] = [b] \implies {a} = {b} \implies a=b
+	\]
+	اي ان هناك عنصر واحد فقط ($|A|=1 $).
+\end{example}
+
+\begin{example}
+	لتكن 
+	$A = \{1,2,3\}$ ولتكن $\psi : S_3 \times A \to A$ معرفة بالشكل
+	$\sigma * a = \sigma(a)$ لكل $\sigma \in S_3$ وكل $a\in A$ ، نلاحظ
+	\[
+	\sigma * 1 = \sigma(1) = [1] = \{1,2,3\} 
+	\]
+	\[
+	\sigma * 2 = \sigma(2) = [2] = \{1,2,3\} 
+	\]
+	\[
+	\sigma * 3 = \sigma(3) = [3] = \{1,2,3\} 
+	\]
+	\[
+	\Rightarrow [1] = [2] = [3]
+	\]
+	بالتالي تأثير $S_3 $ على $A$ تأثير متعدي
+\end{example}
+
+\begin{theorem}[\cite{ref3}]
+	\addcontentsline{toc}{section}{مبرهنة (2-2)}
+	اذا كانت الزمرة $G$ تؤثر على المجموعة $A$ وكان $a\in A$ فأن
+	$G_a = \{g\in G : ga=a\} \le G$
+\end{theorem}
+\begin{proof}
+	بما ان $ea=a$ لكل $a\in A$ فأن $e\in G_a$ ، ولذا فأن $G_a\neq\varnothing$ ، لنفرض الآن أن $g,h\in G_a$ ، عندئذٍ $ga=ha=a$ ومنه فأن 
+	$(gh^{-1})a=g(h^{-1})a=ga=a$ اذن $gh^{-1}\in G_a$ بالتالي $G_a \le G$. 
+\end{proof}
+
+\begin{example}
+	لتكن الزمرة $G = S_3$ وهي زمرة جميع التبديلات على المجموعة $A = \{1,2,3\}$، وليكن تأثير $G$ على $A$ هو التأثير الطبيعي المعرف بـ:
+	\[
+	g \cdot a = g(a)
+	\]
+	نأخذ العنصر $a = 1$، ونوجد زمرة التثبيت له:
+	\[
+	G_1 = \{ g \in G : g(1) = 1 \}
+	\]
+	نعلم أن:
+	\[
+	S_3 = \{ e, (12), (13), (23), (123), (132) \}
+	\]
+	نبحث عن التبديلات التي تثبت العنصر $1$:
+	\[
+	e(1)=1, \quad (23)(1)=1
+	\]
+	بينما باقي العناصر لا تثبت $1$.
+	إذن:
+	\[
+	G_1 = \{ e, (23) \}
+	\]
+	ومن الواضح أن $G_1$ زمرة جزئية من $G$، أي:
+	\[
+	G_1 \leq G
+	\]
+\end{example}
+
+
+
+\begin{example}
+	اذا كانت $G=S_n$ فأن تأثير $G$ على $A = \{1, 2, \dots, n\}$ المعرف بالشكل
+	\[
+	\sigma * a = \sigma(a), \forall \sigma\in S_n , \forall a\in A
+	\]
+	يكون متعدياً، لإثبات أن هذا التأثير متعدٍ، نأخذ عنصرين عشوائيين \( a,b \in A \). نريد أن نُبيّن أنه يوجد تبديل \( \sigma \in S_n \) بحيث
+	\[
+	\sigma(a) = b.
+	\]
+\end{example}

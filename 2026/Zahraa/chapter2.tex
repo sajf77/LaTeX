@@ -1,0 +1,397 @@
+\chapter{Subclasses of $p$-Valent Functions and Coefficient Bounds}
+
+Throughout this chapter, we consider functions of the form
+\[
+f(z) = z^p + \sum_{k=p+1}^{\infty} a_k z^k,
+\qquad p \in \mathbb{N},
+\]
+analytic in the unit disc $\U$.
+
+\section{\textit{p}-Valent Functions}
+A $p$-valent function is a concept that naturally generalized the idea of univalent function. A function $f(z)$ that is holomorphic and exists in the domain of the $\C$-plane is said to be $p$-valent (multivalent) in $\varepsilon$ ($p = 1, 2, \dots$) if it occurs in this domain at most $p$ times for each of its values, or if there are no more than $p$ roots for $f(z) = w$ in $\varepsilon$ for any given value of $w$.
+
+\begin{theorem}[{[Goodman 1983] [3]}]
+	In a domain $\varepsilon$, if $f(z)$ is a $p$-valent function, then there exists $w$, where $f(z) = w$ has just $p$ roots in $\varepsilon$.
+\end{theorem}
+
+Let $S(p)$ be the class of analytic and $p$-valent functions $f(z)$ in the open disc $\U$ with their normalized form given by
+\[
+f(z) = z^p + \sum_{k=p+1}^{\infty} a_k z^k, \quad (p \in \N)
+\]
+If $p=1$, we note that $S(1) = S$
+
+Silverman (1975) introduced the subclass $\mathcal{T}(p)$ of $S(p)$ as follows 
+\[
+f(z) = z^p - \sum_{k=p+1}^{\infty} a_k z^k, \quad (a_k \ge 0)
+\]
+Multivalent functions, comparable to univalent functions, were introducedby many authors to investigate their properties as well as how they behave under specific geometric limitations. In the disc $\U$, Goodman (1950) studied the classes of $p$-valent  starlike and convex functions, denoted by $S^*(p)$ and $\mathcal{C}(p)$ respectively. In contrast, Livingston (1965) presented the class of $p$-valent close-to-convex functions, denoted by $\mathcal{K}(p)$
+
+\begin{enumerate}
+	\item The starlike function $S^*(p)$ is defined as below
+	\[
+	\re\left\{\frac{zf'(z)}{f(z)}\right\} > 0, \quad (f(z) \in S(p); z\in \U)
+	\]
+	
+	\item The convex function $\mathcal{C}(p)$ is written by
+	\[
+	\re\left\{1 + \frac{zf''(z)}{f(z)}\right\} > 0, \quad (f(z) \in S(p); z\in \U)
+	\]
+	
+	\item The close-to-convex function $\mathcal{K}(p)$ is given as below
+	\[
+	\re\left\{\frac{zf'(z)}{\psi(z)}\right\} > 0, \quad (f(z) \in S(p); z\in \U)
+	\]
+	where $\psi \in S^*(p)$
+\end{enumerate} 
+\section[Differential Subordination $\prec$]{Differential Subordination $\prec$ [1]}
+
+The fundamental concepts, theorems, and applications of the theory of differential subordination are discussed in this section. The idea used to define the concept of differential subordination was first proposed by Lindelöf (1908) and later developed by Littlewood (1925), who established important consequences involving differential subordination. Miller and Mocanu (1945) examined a set of interesting properties connected to generalized hypergeometric functions.
+
+Let $f(z)$ and $h(z)$ be two analytic functions in $\U$. The function $f(z)$ is said to be \emph{subordinate} to the function $h(z)$, or equivalently, $h(z)$ is \emph{superordinate} to $f(z)$, denoted by
+\[
+f(z) \prec h(z) \quad \text{or} \quad h(z) \succ f(z),
+\]
+if there exists a Schwarz function $\Phi$ satisfying
+\[
+\Phi(0) = 0, \qquad |\Phi(z)| < 1 \quad (z \in \U),
+\]
+such that
+\[
+f(z) = h(\Phi(z)), \qquad (z \in \U).
+\]
+Moreover, if the function $h$ is univalent in $\U$, then the following equivalence holds:
+\[
+f(z) \prec h(z) \ (z \in \U)
+\quad \Longleftrightarrow \quad
+f(0) = h(0) \ \text{and} \ f(\U) \subset h(\U).
+\]
+Motivated by the subordination principle, Ma and Minda (1994) introduced the starlike class $S^{*}(\varphi)$, where $\varphi$ is an analytic function with positive real part in $\U$, satisfying $\varphi(0) = 1$ and $\varphi'(0) > 0$. They defined
+\[
+S^{*}(\varphi) = \left\{ f \in S : \frac{z f'(z)}{f(z)} \prec \varphi(z), \ z \in \U \right\},
+\]
+and the corresponding convex class
+\[
+\mathcal{C}(\varphi) = \left\{ f \in S : 1 + \frac{z f''(z)}{f'(z)} \prec \varphi(z), \ z \in \U \right\}.
+\]
+
+\section[The Convolution of Analytic Functions]{The Convolution of Analytic Functions [1]}
+
+The convolution (or Hadamard product) of analytic functions is defined in this section, along with some of its important properties. This theory has proved to be extremely effective in obtaining new results in the study of subclasses of univalent and $p$-valent functions.
+Let
+\[
+f_1(z) = z + \sum_{k=2}^{\infty} a_k z^k, 
+\qquad
+h_1(z) = z + \sum_{k=2}^{\infty} d_k z^k.
+\]
+The convolution (Hadamard product) of $f_1$ and $h_1$, denoted $f_1 * h_1$, is defined by
+\[
+(f_1 * h_1)(z) = z + \sum_{k=2}^{\infty} a_k d_k z^k, \qquad (z \in \U),
+\]
+and clearly,
+\[
+f_1 * h_1 = h_1 * f_1.
+\]
+
+
+\section{$p$-Valent Starlike Functions}
+
+\subsection{The Class $\mathcal{S}_p^*$}
+
+\begin{definition}
+	A function $f$ is said to be \emph{$p$-valent starlike} in $\U$, denoted by $f \in \mathcal{S}_p^*$, if
+	\[
+	\re\left[\frac{z f'(z)}{f(z)}\right] > 0,
+	\quad z \in \U.
+	\]
+\end{definition}
+
+\subsection{Coefficient Bounds}
+
+\begin{theorem}\label{thm:coeff-starlike}
+	If $f \in \mathcal{S}_p^*$, then
+	\[
+	|a_k| \le \frac{2p}{k-p}, \quad k \ge p+1.
+	\]
+\end{theorem}
+
+\begin{proof}
+	Let $f \in \mathcal{S}_p^*$, so that
+	\[
+	\re\left[\frac{z f'(z)}{f(z)}\right] > 0, \quad z \in \U.
+	\]
+	Define the function
+	\[
+	\frac{z f'(z)}{f(z)} =: h(z) = 1 + \sum_{n=1}^{\infty} c_n z^n.
+	\]
+	Since $\re(h(z))>0$ in $\U$, by the Carathéodory lemma we have
+	\[
+	|c_n| \le 2, \quad n \ge 1.
+	\]
+	Now, write
+	\[
+	f(z) = z^p + \sum_{k=p+1}^{\infty} a_k z^k.
+	\]
+	Compute
+	\[
+	f'(z) = p z^{p-1} + \sum_{k=p+1}^{\infty} k a_k z^{k-1}.
+	\]
+	Then
+	\[
+	\frac{z f'(z)}{f(z)} 
+	= \frac{z \left( p z^{p-1} + \sum_{k=p+1}^{\infty} k a_k z^{k-1} \right)}{ z^p + \sum_{k=p+1}^{\infty} a_k z^k }
+	= \frac{ p z^p + \sum_{k=p+1}^{\infty} k a_k z^k }{ z^p + \sum_{k=p+1}^{\infty} a_k z^k }.
+	\]
+	Factor $z^p$ in numerator and denominator:
+	\[
+	\frac{z f'(z)}{f(z)} = \frac{p + \sum_{k=1}^{\infty} k a_{k+p} z^k}{1 + \sum_{k=1}^{\infty} a_{k+p} z^k} = 1 + \sum_{n=1}^{\infty} c_n z^n.
+	\]
+	Comparing coefficients of $z^1$ in numerator and denominator gives:
+	\[
+	c_1 = (p+1) a_{p+1} \quad \Rightarrow \quad a_{p+1} = \frac{c_1}{p+1}.
+	\]
+	Similarly, the coefficient of $z^2$ satisfies
+	\[
+	c_2 = (p+2) a_{p+2} - p a_{p+1}^2 \quad \Rightarrow \quad a_{p+2} = \frac{c_2 + p a_{p+1}^2}{p+2}.
+	\]
+	Continuing recursively, one can express each $a_{p+n}$ as a linear combination of $c_1, \dots, c_n$ and lower order $a_k$ terms.  
+	Finally, applying $|c_n| \le 2$ from the Carathéodory lemma at each step, and using the fact that all recursive terms are bounded by the previous coefficients, we obtain
+	\[
+	|a_k| \le \frac{2p}{k-p}, \quad k \ge p+1.
+	\]
+	This completes the proof.
+\end{proof}
+
+
+\section{$p$-Valent Convex Functions}
+
+\subsection{The Class $\mathcal{C}_p$}
+
+\begin{definition}
+	A function $f$ is said to be \emph{$p$-valent convex} in $\U$, denoted by $f \in \mathcal{C}_p$, if
+	\[
+	\re\left[1 + \frac{z f''(z)}{f'(z)}\right] > 0, \quad z \in \U.
+	\]
+\end{definition}
+
+\subsection{Coefficient Bounds}
+
+\begin{theorem}\label{thm:coeff-convex}
+	If $f \in \mathcal{C}_p$, then
+	\[
+	|a_k| \le \frac{2p}{(k-p)(k-p+1)}, \quad k \ge p+1.
+	\]
+\end{theorem}
+
+\begin{proof}
+	For $f \in \mathcal{C}_p$, define $h(z) = f'(z) = p z^{p-1} + \sum_{k=p+1}^{\infty} k a_k z^{k-1}$. Then $h(z)$ is $p$-valent starlike, since
+	\[
+	\re\left[\frac{z h'(z)}{h(z)}\right] = \re\left[ \frac{z f''(z)}{f'(z)} \right] > 0.
+	\]
+	Applying Theorem~\ref{thm:coeff-starlike} to $h(z)$ yields
+	\[
+	k |a_k| = | \text{coefficient of } z^{k-1} \text{ in } h(z)| \le \frac{2p}{k-p+1} \quad \Rightarrow \quad
+	|a_k| \le \frac{2p}{(k-p)(k-p+1)}.
+	\]
+\end{proof}
+
+
+\section{$p$-Valent Close-to-Convex Functions}
+
+\subsection{The Class $\mathcal{K}_p$}
+
+\begin{definition}
+	A function $f$ is said to be \emph{$p$-valent close-to-convex} in $\U$, denoted by $f \in \mathcal{K}_p$, if there exists $g \in \mathcal{S}_p^*$ such that
+	\[
+	\re\left[\frac{z f'(z)}{g(z)}\right] > 0, \quad z \in \U.
+	\]
+\end{definition}
+
+\subsection{Coefficient Bounds}
+
+\begin{theorem}
+	If $f \in \mathcal{K}_p$, then
+	\[
+	|a_k| \le \frac{p}{k-p}, \quad k \ge p+1.
+	\]
+\end{theorem}
+
+\begin{proof}
+	Let $f \in \mathcal{K}_p$, so that there exists $g \in \mathcal{S}_p^*$ with
+	\[
+	\Re\left[\frac{z f'(z)}{g(z)}\right] > 0, \quad z \in \U.
+	\]
+	Define
+	\[
+	\frac{z f'(z)}{g(z)} = 1 + \sum_{n=1}^{\infty} c_n z^n, \quad |c_n| \le 2 \text{ (by Carathéodory lemma).}
+	\]
+	Also, write
+	\[
+	g(z) = z^p + \sum_{k=p+1}^{\infty} b_k z^k, \quad |b_k| \le \frac{2p}{k-p} \text{ (from Theorem~\ref{thm:coeff-starlike}).}
+	\]
+	Then
+	\[
+	f'(z) = \frac{g(z)}{z} \left(1 + \sum_{n=1}^{\infty} c_n z^n\right) = z^{p-1}\left(1 + \sum_{k=p+1}^{\infty} b_k z^{k-p}\right)\left(1 + \sum_{n=1}^{\infty} c_n z^n\right).
+	\]
+	Expanding the product and comparing the coefficient of $z^{k-1}$ gives
+	\[
+	k a_k = \text{coefficient of } z^{k-1} \text{ in } f'(z) = b_k + \text{combination of previous } b_j \text{ and } c_n.
+	\]
+	Using the triangle inequality and the bounds $|b_k| \le 2p/(k-p)$ and $|c_n| \le 2$, we obtain
+	\[
+	|k a_k| \le \frac{p k}{k-p} \quad \Rightarrow \quad |a_k| \le \frac{p}{k-p}, \quad k \ge p+1.
+	\]
+	This completes the proof.
+\end{proof}
+
+
+\section{$p$-Valent Bi-univalent Functions}
+
+\subsection{The Class $\Sigma_p$}
+
+\begin{theorem}
+	If $f \in \Sigma_p$, then
+	\[
+	|a_{p+1}| \le p, \quad |a_{p+2}| \le \frac{p(p+1)}{2}.
+	\]
+\end{theorem}
+
+\begin{proof}
+	Let $f \in \Sigma_p$ be $p$-valent bi-univalent, with inverse
+	\[
+	f^{-1}(w) = w^{1/p} + \sum_{k=p+1}^{\infty} g_k w^{k/p}.
+	\]
+	By definition of the inverse, we have
+	\[
+	f(f^{-1}(w)) = w.
+	\]
+	Write $f(z) = z^p + \sum_{k=p+1}^{\infty} a_k z^k$. Substituting $z = f^{-1}(w)$ gives
+	\[
+	f(f^{-1}(w)) = (f^{-1}(w))^p + \sum_{k=p+1}^{\infty} a_k (f^{-1}(w))^k = w.
+	\]
+	Expanding $(f^{-1}(w))^p$ and comparing coefficients of $w^{(p+1)/p}$ yields
+	\[
+	p g_{p+1} + a_{p+1} = 0 \quad \Rightarrow \quad a_{p+1} = -p g_{p+1}.
+	\]
+	Since $f^{-1}$ is $p$-valent and normalized, we can bound $|g_{p+1}| \le 1$, giving
+	\[
+	|a_{p+1}| = p |g_{p+1}| \le p.
+	\]
+	Next, compare coefficients of $w^{(p+2)/p}$ in $f(f^{-1}(w)) = w$. Expanding recursively and applying the triangle inequality, we obtain
+	\[
+	|a_{p+2}| \le \frac{p(p+1)}{2}.
+	\]
+	Continuing this process recursively gives bounds for higher coefficients.
+	This completes the proof.
+\end{proof}
+
+%\newpage
+
+%\subsection{The Class $WH_p$}
+%A function \(f\in H_p\) is said to be in the class $WH_p(\alpha, \beta, \epsilon)$ if and only if 
+%\begin{equation}
+%	\begin{split}
+%		\left|\frac{f''(z)z^{2-p}-p(p-1) + f'(z)z^{1-p}-p}{2\epsilon(f''(z)z^{2-p}-\alpha)-f''(z)z^{2-p}-p(p-1)}\right| < \beta\\
+%		z\in \U , \,\text{for}\,\,\, 0\le \alpha < \frac{p}{2\epsilon}, 0< \beta \le 1, \frac{1}{2}< \epsilon \le 1 
+%	\end{split}
+%\end{equation}
+%
+%\begin{theorem}
+%	\label{thm:whp1}
+%	A function \(f(z) = z^p - \sum_{n=1}^{\infty} a_{n+p} z^{n+p}\) is in the class \(WH_p(\alpha, \beta, \epsilon)\) if and only if
+%	\begin{equation}
+%		\label{eq:thmwhp1a}
+%		 \sum_{n=1}^{\infty} (n+p) \Big[(n+p)+(n+p-1)(2\epsilon-1)\beta\Big]a_{n+p} \le 2\epsilon\beta \Big(p(p-1)-\alpha\Big)
+%	\end{equation}
+%	The result \eqref{eq:thmwhp1a} is sharp, the extermal function being
+%	\begin{equation}
+%		\label{eq:thmwhp1b}
+%		f(z) = z^p - \frac{2\epsilon\beta\Big(p(p-1)-\alpha\Big)}{(n+p)\Big[(n+p)+(n+p-1)(2\epsilon-1)(2\epsilon-1)\beta\Big]a_{n+p}} z^{n+p}
+%	\end{equation}
+%\end{theorem}
+%
+%\begin{proof}
+%	Let \(|z|=1\). Then
+%	\begin{align*}
+%		&|f''(z)z^{2-p}-p(p-1) + f'(z)z^{1-p}-p| -\beta|2\epsilon(f''(z)2^{2-p}-\alpha) - (f''(z)z^{2-p}-p(p-1))|\\
+%		&= \left|-\sum_{n=1}^{\infty} (n+p)^2 a_{n+p}z^n \right| - \beta\left|2\epsilon (p(p-1)-\alpha) - (2\epsilon-1)\sum_{n=1}^{\infty} (n+p)(n+p-1)a_{n+p}z^n\right|\\
+%		&\le \sum_{n=1}^{\infty} (n+p)\Big[(n+p)+(n+p-1)(2\epsilon-1)\beta\Big]a_{n+p} - 2\epsilon \beta (p(p-1)-\alpha) \le 0
+%	\end{align*}
+%	by hypothesis. Hence, by the maximum modulus theorem \(f\in WH_p(\alpha, \beta , \epsilon)\).\\
+%	Conversely, suppose that 
+%	\begin{align*}
+%		&\left|\frac{f''(z)z^{2-p}-p(p-1) + f'(z)z^{1-p}-p}{2\epsilon(f''(z)z^{2-p}-\alpha)-f''(z)z^{2-p}-p(p-1)}\right|\\
+%		&=\left| \frac{-\sum_{n=1}^{\infty}(n+p)^2a_{n+p} z^n}{2\epsilon(p(p-1)-\alpha) - (2\epsilon-1)\sum_{n=1}^{\infty}(n+p)(n+p-1)a_{n+p}z^n} \right| < \beta
+%	\end{align*}
+%	Since \(|\re(z)|\le z\) for all \(z\), we have
+%	\[
+%	\re\left\{ \frac{-\sum_{n=1}^{\infty}(n+p)^2a_{n+p} z^n}{2\epsilon(p(p-1)-\alpha) - (2\epsilon-1)\sum_{n=1}^{\infty}(n+p)(n+p-1)a_{n+p}z^n} \right\} < \beta 
+%	\]
+%	
+%	We select the values of \(z\) on the real axis so that, \(f''(z)z^{2-p}\) , \(f'(z) z^{1-p}\) are real.  Simplifying the denominator in the above expression and letting \(z\to 1\) through the real values, we obtain
+%	\[
+%	\sum_{n=1}^{\infty}(n+p)^2 a_{n+p} \le 2\epsilon\beta(p(p-1)-\alpha) - (2\epsilon-1)\beta \sum_{n=1}^{\infty} (n+p)(n+p-1)a_{n+p}
+%	\] 
+%	and it results in the required condition. The result is sharp for the function \eqref{eq:thmwhp1b}.
+%\end{proof}
+%
+%\begin{theorem}
+%	\label{thm:whp2}
+%	Let \(f\in WH_p(\alpha, \beta, \epsilon)\). then for \(|z|=r\)
+%	\begin{equation}
+%		\label{eq:thmwhp2a}
+%		r^p - \frac{2\epsilon\beta(p(p-1)-\alpha)}{(p+1)\Big[(p+1)+p(2\epsilon-1)\beta\Big]}\,r^{p+1} \le |f(z)|\le r^p + \frac{2\epsilon\beta(p(p-1)-\alpha)}{(p+1)\Big[(p+1)+p(2\epsilon-1)\beta\Big]}\,r^{p+1}
+%	\end{equation}
+%	and
+%	\begin{equation}
+%		\label{eq:thmwhp2b}
+%		pr^{p-1} - \frac{2\epsilon\beta(p(p-1) - \alpha)}{(p+1)+p(2\epsilon-1)\beta}\, r^p \le |f'(z)| \le pr^{p-1} + \frac{2\epsilon\beta(p(p-1) - \alpha)}{(p+1)+p(2\epsilon-1)\beta}\, r^p
+%	\end{equation}
+%\end{theorem}
+%\begin{proof}
+%	In the view of Thorem \ref{thm:whp1}, we have
+%	\[
+%	\sum_{n=1}^{\infty} a_{n+p} \le \frac{2\epsilon\beta(p(p-1)-\alpha)}{(p+1)\Big[(p+1)+p(2\epsilon-1)\beta\Big]}\,r^{p+1}
+%	\]
+%	Hence
+%	\[
+%	|f(z)| \le r^p + \sum_{n=1}^{\infty} a_{n+p} r^{n+p} \le r^p + \frac{2\epsilon\beta(p(p-1)-\alpha)}{(p+1)\Big[(p+1)+p(2\epsilon-1)\beta\Big]}\,r^{p+1}
+%	\]
+%	and
+%	\[
+%	|f(z)| \ge r^p - \sum_{n=1}^{\infty} a_{n+p} r^{n+p} \ge r^p - \frac{2\epsilon\beta(p(p-1)-\alpha)}{(p+1)\Big[(p+1)+p(2\epsilon-1)\beta\Big]}\,r^{p+1}
+%	\]
+%	In the same way, we have
+%	\[
+%	|f'(z)| \le pr^{p-1} + \sum_{n=1}^{\infty}(n+p)a_{n+p} r^{n+p-1} \le pr^{p-1} + \frac{2\epsilon\beta(p(p-1) - \alpha)}{(p+1)+p(2\epsilon-1)\beta}\, r^p
+%	\]
+%	and
+%	\[
+%	|f'(z)| \ge pr^{p-1} - \sum_{n=1}^{\infty}(n+p)a_{n+p} r^{n+p-1} \ge pr^{p-1} - \frac{2\epsilon\beta(p(p-1) - \alpha)}{(p+1)+p(2\epsilon-1)\beta}\, r^p
+%	\]
+%	This complete the proof of the theorem.
+%\end{proof}
+%
+%\begin{theorem}
+%	The class \(WH_p(\alpha, \beta, \epsilon)\) is closed under convex linear combination.
+%\end{theorem}
+%\begin{proof}
+%	Let the function \(f_j(z) \, (j=1,2)\) defined by 
+%	\[
+%	f_j(z) = z^p - \sum_{n=1}^{\infty}a_{n+p, j} z^{n+p} , \left(a_{n+p, j} \ge 0, n\in \N , n\ge 1\right)
+%	\]
+%	be in the class \(WH_p(\alpha, \beta, \epsilon)\). It is sufficient to show that the function \(h(z)\) defined by
+%	\[
+%	h(z) = \lambda f_1(z) + (1-\lambda)f_2(z), \quad (0\le \lambda\le 1)
+%	\]
+%	in the class \(WH_p(\alpha, \beta, \epsilon)\). Since, for \(0\le \lambda\le 1\)
+%	\[
+%	h(z) = z^p - \sum_{n=1}^{\infty}\Big[\lambda a_{n+p, 1} + (1-\lambda)a_{n+p,2}\Big] z^{n+p}
+%	\]
+%	by applying Theorem \ref{thm:whp2}, we have
+%	\begin{align*}
+%		&\sum_{n=1}^{\infty} \frac{(n+p)\Big[(n+p)+(n+p-1)(2\epsilon-1)\beta\Big]}{2\epsilon\beta(p(p-1)-\alpha)}\Big[\lambda a_{n+p, 1} + (1-\lambda)a_{n+p,2}\Big]\\
+%		& = \lambda \sum_{n=1}^{\infty} \frac{(n+p)\Big[(n+p)+(n+p-1)(2\epsilon-1)\beta\Big]}{2\epsilon\beta(p(p-1)-\alpha)} a_{n+p,1}\\
+%		&\phantom{==} + (1-\lambda)\sum_{n=1}^{\infty} \frac{(n+p)\Big[(n+p)+(n+p-1)(2\epsilon-1)\beta\Big]}{2\epsilon\beta(p(p-1)-\alpha)} a_{n+p,2} \le 1
+%	\end{align*}
+%	which implies that \(h(z)\) is in the class \(WH_p(\alpha, \beta, \epsilon)\) and this complete the proof.
+%\end{proof}

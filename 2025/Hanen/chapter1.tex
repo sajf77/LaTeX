@@ -1,0 +1,839 @@
+\chapter{مفاهيم اولية في الزمر والحلقات}
+
+\begin{definition}[\cite{groups1}]
+	\addcontentsline{toc}{section}{مفاهيم اساسية}
+	لتكن $G$ مجموعة غير خالية ، نطلق على التطبيق $*:G\to G\times G$ بأنه عملية ثنائية على $G$.
+\end{definition}
+
+\begin{note}
+	اذا كانت $*$ عملية ثنائية على مجموعة $G$ سنكتب العلاقة بين عناصرها بالشكل $a*b$ بدل من $*(a, b)$ لغرض السهولة.
+\end{note}
+
+\begin{example}
+عملية الجمع الاعتيادية على مجموعة الاعداد الصحيحة والطبيعية والنسبية والحقيقية تمثل عملية ثنائية وكذلك عملية الضرب الاعتيادي. 
+\end{example}
+
+\begin{example}
+	لتكن $X = \{1,2,3\}$ ، العملية $*$ معرفة على المجموعة $X$ بالشكل
+	\begin{table}[H]
+		\renewcommand{\arraystretch}{1.4}
+		\centering
+		\setLR
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$*$ & 1&2&3\\
+			\hline
+			1&1&2&3\\
+			\hline
+			2&2&2&1\\
+			\hline
+			3&3&1&3\\
+			\hline
+		\end{tabular}
+	\end{table}
+	\setRL\noindent
+	نلاحظ ان $*$ تمثل عملية ثنائية.
+\end{example}
+
+\begin{definition}[\cite{groups1}]
+	لتكن $*$ عملية ثنائية على المجموعة $X$ ، المجموعة الجزئية $A$ من $G$ تسمى مغلقة تحت العملية $*$ اذا كان $a*b \in A$ لكل عنصرين $a, b\in A$.
+\end{definition}
+
+\begin{example}
+	نحن نعلم ان $+$ عملية الجمع الاعتيادي على مجموعة الاعداد الحقيقية ، نلاحظ ان $+$ عملية ثنائية مغلقة على مجموعة الاعداد الصحيحة لأن
+	\[
+	a+b \in \Z ,\quad \forall a, b\in \Z
+	\]
+\end{example}
+
+\begin{definition}[\cite{groups1}]
+	هو مجموعة غير خالية $G$ مع عملية ثنائية واحدة او اكثر معرفة عليه. ويرمز له بالرمز المرتب $(G, *, \#)$ او $(G, *)$.
+\end{definition}
+
+\begin{definition}[\cite{groups1}]
+	ليكن $(G, *)$ نظاماً رياضياً مع $*$ عملية ثنائية معرفة عليه ، يقال ان العملية $*$ تجميعية اذا حققت الشرط
+	\[
+	a*(b*c) = (a*b)*c,\quad \forall a,b,c\in G
+	\]
+\end{definition}
+
+
+
+\begin{example}
+	لتكن $*$ عملية معرفة على $\Z$ كما يأتي : $a*b =a+b-1$ لكل عنصرين $a, b\in \Z$ ، فإن $*$ عملية تجميعية.
+\end{example}
+
+\begin{definition}[\cite{groups1}]
+	ليكن $(G, *)$ نظاماً رياضياً ، يقال ان النظام الرياضي $(G, *)$ يمتلك عنصراً محايداً بالنسبة للعملية الثنائية $*$ اذا وجد عنصر $e \in G$ بحيث ان
+	\[
+	a * e = e*a = a,\quad \forall a\in G
+	\]
+\end{definition}
+
+\begin{theorem}[\cite{groups1}]
+	لتكن $(G, *)$ نظاماً رياضياً بعنصر محايد فإن المحايد وحيد.
+\end{theorem}
+\noindent
+\textbf{البرهان}\\
+\noindent
+لتكن $e, e'$ عنصران محايدان بالنسبة للعملية $*$ اذن\\
+$e*e' =e'$ لان $e$ عنصر محايد.\\
+$e*e' =e'$ لان $e'$ عنصر محايد.\\
+اذن $e=e'$. \qed
+
+\begin{definition}[\cite{groups1}]
+	لتكن $(G, *)$ شبه زمرة ، اذا كانت تمتلك عنصر محايد فإنها تسمى (monoid).
+\end{definition}
+\newpage
+\begin{definition}[\cite{groups1}]
+	لتكن $(G, *)$ شبه زمرة بمحايد اذا كان $a\in G$ يحقق الخاصية : $a'*a=a*a'=e$ حيث ان $a'\in G$ ، فإن العنصر $a'$ يسمى معكوس العنصر $a$ بالنسبة للعملية $*$ ويرمز له بالرمز $a^{-1}$.
+\end{definition}
+
+\begin{note}
+	لتكن $(G, *)$ شبه زمرة بعنصر محايد $e$ فأن $e^{-1}=e$
+\end{note}
+
+\begin{theorem}[\cite{groups1}]
+	لتكن $(G, *)$ شبه زمرة بعنصر محايد وليكن $a\in G$ وله معكوس في $G$ فأن المعكوس وحيد.
+\end{theorem}
+
+\begin{definition}[\cite{groups1}]
+	ليكن $(G, *)$ نظاماً رياضياً مع $*$ عملية ثنائية معرفة عليه ، يقال ان العملية $*$ ابدالية اذا حققت الشرط
+	\[
+	a*b = b*a,\quad \forall a,b\in G
+	\]
+\end{definition}
+
+\begin{example}
+	عمليتي الجمع والضرب الاعتياديتين على مجموعة الاعداد الحقيقية والصحيحة والنسبية $\Q, \Z, \R$ تمثل عمليات ثنائية ابدالية. 
+\end{example}
+
+\begin{definition}[\cite{groups2}]
+	\addcontentsline{toc}{section}{تعريف الزمرة}
+	لتكن $(G, *)$ شبه زمرة بعنصر محايد فأن $G$ تسمى زمرة Group اذا كان كل عنصر فيها له معكوس بالنسبة للعملية الثنائية $*$. او نقول ان $(G, *)$ زمرة اذا تحققت الشروط التالية
+	\begin{enumerate}[label=$\boxed{\arabic*}$]
+		\item مغلقة بالنسبة للعملية $*$ اي : $a*b \in G , \forall a, b\in G$.
+		\item العملية $*$ تجميعية : $a*(b*c) = (a*b)*c , \forall a, b,c\in G$.
+		\item $G$ تمتلك عنصر محايد مثل $e$ : $a*e =e*a=a, \forall a\in G$.
+		\item كل عنصر $a\in G$ يمتلك معكوس : $\forall a\in G, \exists a^{-1}\in G : a*a^{-1}=a^{-1}*a=e$.
+	\end{enumerate}    
+\end{definition}
+
+\begin{example}
+	كل الانظمة الرياضية التالية تمثل زمرة
+	\[
+	(\Q-\{0\}, \cdot), \quad(\R-\{0\}, \cdot),\quad (\Q, +) ,\quad (\R, +) ,\quad (\Z, +)
+	\]
+\end{example}
+
+\begin{definition}[\cite{groups2}]
+	الزمرة $(G, *)$ تسمى زمرة ابدالية اذا كانت العملية $*$ عملية ثنائية ابدالية.
+\end{definition}
+
+\begin{example}
+	كل الانظمة الرياضية التالية تمثل زمرة ابدالية
+	\[
+	(\R-\{0\}, \cdot),\quad (\Q, +) ,\quad (\R, +) ,\quad (\Z, +)
+	\]
+\end{example}
+
+\begin{definition}[\cite{groups2}]
+	الزمرة $(G, * )$ تسمى زمرة منتهية اذا كانت المجموعة $G$ منتهية. عدا ذلك تسمى الزمرة $(G, *)$ زمرة غير منتهية. 
+\end{definition}
+
+\begin{definition}[\cite{groups2}]
+	لتكن $(G, *)$ زمرة منتهية ، نطلق على عدد عناصر المجموعة $G$ اسم رتبة الزمرة ويرمز له بالرمز $O(G)$ اما اذا كانت المجموعة غير منتهية فتكون رتبتها غير منتهية ايضاً.
+\end{definition}
+
+\begin{definition}[\cite{groups2}]
+	لتكن $(G, *)$ زمرة وليكن $n$ عدد موجب فأن 
+	$a^n =\underbrace{a*a*\cdots*a}_{\text{$n$ من المرات}}$ 
+\end{definition}
+
+\begin{theorem}[\cite{groups2}]
+	لتكن $(G, *)$ زمرة وليكن $n, m\in \Z$ فإن
+	\setLR
+	\begin{enumerate}[label=$\boxed{\arabic*}$]
+		\item $e^n =e$
+		\item $a^0 =e, \forall a\in G$
+		\item $(a^m)^n = a^{mn}$
+		\item $a^m * a^n = a^{m+n}$
+		\item $a^{-m} = (a^{-1})^m$
+	\end{enumerate}
+\end{theorem}
+
+\begin{definition}[\cite{groups2}]
+	$(G, *)$ تسمى زمرة دوارة اذا وجد عنصر فيها $a\in G$ بحيث ان اي عنصر اخر في الزمرة $b\in G$ يمكن كتابته بالصيغة $b =a^k , k \in \Z$ ، يطلق على العنصر $a$ بالعنصر المولد للزمرة. او يقال ان الزمرة $G$ مولدة بواسطة العنصر $a$ ونكتب $G= \langle a\rangle$ او $G=(a)$
+ \end{definition}
+
+\begin{example}
+	لتكن $G=\{1,-1,i,-i\}$ حيث ان $i = \sqrt{-1}$ ، فإن $(G, \cdot)$ تمثل زمرة دوارة.
+\end{example}
+
+\begin{theorem}[\cite{groups1}]
+	الزمرة $(G, *)$ تكون ابدالية اذا وفقط اذا كان $(a*b)^{-1} = a^{-1} * b^{-1}$.
+\end{theorem}
+
+
+\begin{definition}[\cite{groups2}]
+	لتكن $X$ مجموعة غير خالية ، الدالة $f:X\to X$ تسمى تباديل على $X$ اذا كانت $f$ تقابل
+	bijective	 على $X$ ، مجموعة كل التباديل على $X$ يرمز لها بالرمز $\sym{X}$ حيث ان 
+	\[
+	\sym{X} = \{ f\mid f:X\to X \,\,\text{\LR{bijective}}\}
+	\]
+\end{definition}
+
+\begin{example}
+	لتكن $X=\{1,2,3\}$ و $f \in S_3$ معرفة كالآتي
+	\[
+	f(1)=1, f(2)=3, f(3)=2
+	\]
+	نستطيع كتابة عناصر الدالة $f$ بالشكل التالي
+	\[
+	f = \begin{pmatrix}
+		1&2&3\\
+		1&3&2
+	\end{pmatrix}
+	\]
+	ترتيب الاعمدة هنا ليس مهماً فنستطيع كتابة الدالة كما يأتي
+	\[
+	\begin{pmatrix}
+		2&1&3\\
+		3&1&2
+	\end{pmatrix} \quad \text{او} \quad 
+	\begin{pmatrix}
+		2&3&1\\
+		3&2&1
+	\end{pmatrix}
+	\]
+\end{example}
+
+\begin{note}
+	طريقة تعريف دالة التركيب على عناصر $f, g\in S_n$ 
+	\[
+	f = \begin{pmatrix}
+		1&2&\cdots&n\\
+		f(1)&f(2)&\cdots&f(n)
+	\end{pmatrix}, \quad 
+	g = \begin{pmatrix}
+	1&2&\cdots&n\\
+	g(1)&g(2)&\cdots&g(n)
+\end{pmatrix}, \quad 
+	\]
+	فأن دالة التركيب تكتب بالشكل
+	\[
+		f\circ g = \begin{pmatrix}
+		1&2&\cdots&n\\
+		f(g(1))&f(g(2))&\cdots&f(g(2))
+	\end{pmatrix}, \quad 
+	\]
+	وتكتب الدالة المحايدة بالشكل
+	\[
+		(1)= \begin{pmatrix}
+		1&2&\cdots&n\\
+		1&2&\cdots&n
+	\end{pmatrix}, \quad 
+	\]
+	وتكتب دالة المعكوس بالشكل
+	\[
+	f^{-1}=
+		 \begin{pmatrix}
+		f(1)&f(2)&\cdots&f(n)\\
+				1&2&\cdots&n
+	\end{pmatrix}, \quad 
+	\]
+\end{note}
+
+\begin{definition}[\cite{groups2}]
+	لتكن $f\in S_n$ بحيث ان $x_1, x_2, \dots, x_n$ فإذا كان $f(x_i) = x_{i+1}$ لكل $1\leq i\leq n-1$ وأن $f(x_n)=x_1$ اذن نستطيع كتابة $f$ بشكل دورة $\cycle{x_1, x_2, \cdots, x_n}$ وتسمى دورة ذات طول  $n$ 
+\end{definition}
+
+\begin{example}
+	لنفرض ان $f, g\in S_5$ حيث ان
+	\[
+	f = \begin{pmatrix}
+		1&2&3&4&5\\
+		2&3&4&1&5
+	\end{pmatrix}, \quad
+		g = \begin{pmatrix}
+		1&2&3&4&5\\
+		1&3&2&4&5
+	\end{pmatrix}, 
+	\]
+	اذن $f=\cycle{1,2,3,4}$ وهذا يعني انها دورة ذات طول 4 ، اما $g=\cycle{2,3}$ وهذا يعني انها دورة ذات طول 2.
+\end{example}
+
+\begin{definition}[\cite{groups2}]
+	اي دورة طولها 2 فقط تسمى مناقلة.
+\end{definition}
+
+\begin{note}
+معكوس اي مناقلة هي المناقلة نفسها.
+\end{note}
+\noindent
+\textbf{مثال: }$\cycle{2,3}^{-1} = \cycle{2,3}$
+
+\begin{note}
+	لتكن $\cycle{x_1, x_2, \cdots, x_n}$ دورة ذات طول $n$ فإن
+	\[
+	\cycle{x_1, x_2, \cdots, x_n}^{-1} = = \cycle{x_1, x_{n-1}, x_{n-2}, \cdots, x_2}
+	\]
+\end{note}
+
+\begin{example}
+	معكوس الدورة $\cycle{4,5,6,7}$ الدورة $\cycle{4, 7,6,5}$.
+\end{example}
+
+\begin{note}
+	نكتب العنصر المحايد في الزمرة $S_n$ بشكل دورة ذات طول 1، ويرمز له  بالرمز $(1)$
+\end{note}
+
+\begin{theorem}[\cite{groups2}]
+	كل دورة $\cycle{x_1, x_2, \cdots, x_n}$ ممكن كتابتها على صورة حاصل ضرب مناقلات وهذا التعبير غير وحيد
+	\[
+	\cycle{x_1, x_2, \cdots, x_n} = \cycle{x_1, x_n}\cycle{x_2, x_n}\cdots\cycle{x_{n-1}, x_n}
+	\]
+\end{theorem}
+\begin{example}
+	في الزمرة $S_8$ 
+	\[
+	\cycle{3,4,5,6,7,8} = \cycle{3, 8} \cycle{3, 7} \cycle{3, 6} \cycle{3, 5} \cycle{3, 4}
+	\]
+	\[
+	\cycle{1,3,2}\cycle{5,8,6,7} =  \cycle{1,2 } \cycle{1,3} \cycle{5,7 }  \cycle{5,6 }\cycle{5,8}
+	\]
+\end{example}
+
+\begin{corollary}[\cite{groups2}]
+	كل تبديل نستطيع كتابته على شكل حاصل ضرب مناقلات
+\end{corollary}
+
+\begin{definition}[\cite{groups2}]
+	التبديل $f$ يسمى تبديل زوجي (فردي) اذا كان يكتب على شكل حاصل ضرب عدد زوجي (فردي) من المناقلات
+\end{definition}
+
+\begin{example}
+	$\cycle{1,2}$ تبديل فردي.\\
+	$\cycle{1,2,3} = \cycle{1,3}\cycle{1,2}$ تبديل زوجي.
+\end{example}
+
+\begin{note}
+	الدورة (التباديل) ذات الطول $n$ تكون تبديل فردي اذا كان الطول زوجي والعكس بالعكس.
+\end{note}
+
+\begin{example}
+	$\cycle{1,2}$ دورة ذات طول 2 اذن تبديل فردي\\
+	$\cycle{1,2,3}$ دورة ذات طول 3 اذن تبديل زوجي.
+\end{example}
+
+\begin{theorem}[\cite{groups2}]
+	عند ضرب تبديلين زوجيين او فرديين فالناتج يكون تبديل زوجي ، اما عند ضرب تبديل فردي بتديل زوجي او العكس فالناتج تبديل فردي.
+\end{theorem}
+
+\begin{example}
+	حاصل الضرب $\cycle{1,2,3} \cycle{5,4}\cycle{7,8,9}$ ، التبديل الاول والثالث زوجيان اما التبديل الثاني فردي ، اذن الناتج يكون تبديل زوجي.
+\end{example}
+
+\begin{lemma}[\cite{groups1}]
+	$(S_n, \circ)$ ليست زمرة ابدالية لكل $n\geq 3$.
+\end{lemma}
+\noindent
+\textbf{البرهان}\\
+\noindent
+لنأخذ $\cycle{1,2}, \cycle{2,3} \in S_n$ نلاحظ ان ، 
+$\cycle{1,2}\cycle{2,3} = \cycle{1,2,3}$ بينما
+$\cycle{2,3}\cycle{1,2} = \cycle{1,3,2}$
+لذلك فإن 
+$\cycle{1,2}\cycle{2,3} \neq\cycle{2,3}\cycle{1,2}$
+بالتالي فإن $(S_n , \circ)$ ليست زمرة ابدالية.\qed
+
+\begin{definition}[\cite{groups2}]
+	مجموعة كل التبديلات الزوجية في الزمرة $S_n$ مع عملية التركيب $\circ$ تسمى الزمرة المتناوبة ويرمز لها بالرمز $(A_n, \circ)$ ورتبتها $O(A_n) = \dfrac{n!}{2}$.
+\end{definition}
+
+
+\begin{definition}[\cite{groups2}]
+	\addcontentsline{toc}{section}{زمرة الاعداد الصحيحة}
+	ليكن $n\in \Z_+$ نعرف العلاقة $\equiv_n$ (او قياس $n$) على $\Z$ كما يلي: $a\equiv_n b$ اذا وفقط اذا $a-b$ يقبل القسمة على $n$ او $a-b = kn$ او $a=b+kn$
+\end{definition}
+\noindent\textbf{مثال:} $3\equiv1\Mod 2$ او $3\equiv_2 1$
+
+\begin{theorem}[\cite{groups2}]
+	علاقة القياس $n$ ($\equiv_n$) لمجموعة الاعداد الصحيحة هي علاقة تكافؤ.
+\end{theorem}
+
+\begin{note}
+	بما ان العلاقة $\equiv_n$ هي علاقة تكافؤ على الاعداد الصحيحة (عكسية ، متناظرة ، متعدية) اذن هي تشكل تجزئة على $\Z$ وتوجد صفوف تكافؤ او صفوف التكافؤ، حيث نستخدم اقل عدد موجب لتمثيل صف التكافؤ بشكل عام، اذا كان $a\in \Z$ فإن
+	\begin{align*}
+			[a] &= \{x\in \Z \mid a=x\Mod n\}\\
+			&= \{x\mid a-x = kn, k\in \Z\}\\
+			&= \{x\mid a = x + kn, k\in \Z \}
+	\end{align*}
+\end{note}
+
+\begin{theorem}[\cite{groups2}]
+	الزوج المرتب  $(\Z_n, +_n)$ يشكل زمرة ابدالية التي يطلق عليها زمرة الاعداد الصحيحة مقياس $n$
+\end{theorem}
+
+\begin{note}
+	تكتب عناصر $\Z_n$ بالشكل $a$ بدل من $[a]$ و $-a$ بدل من $[n-a]$
+\end{note}
+
+\begin{theorem}[\cite{groups2}]
+	الزمرة $(\Z_n, +_n)$ تشكل زمرة دوارة مولدة بواسطة العنصر 1.
+\end{theorem}
+
+\begin{note}
+	اي عنصر في $\Z_n$ ممكن ان يكون مولد للزمرة اذا وفقط اذا $\gcd(a,n)=1$
+	حيث $\gcd$ يمثل القاسم المشترك  الاكبر ، مثال على ذلك في الزمرة $\Z_{12}$ العنصر 5 يولد الزمرة لأن $\gcd(5, 12)=1$ بينما 6 لا يولد الزمرة لأن $\gcd(6,12) = 6 $.
+\end{note}
+\begin{note}
+ تعرف عملية الضرب على المجموعة $\Z_n$ كالآتي 
+\[
+[a] \cdot_n [b] = [a\cdot b] , \forall [a],[b] \in \Z_n
+\]
+\end{note}
+
+\begin{example}
+	$5\cdot_6 4 =2,\quad 7\cdot_9 2=5,\quad 3\cdot_4 2=2$
+\end{example}
+
+\begin{note}
+	الزوج المرتب $(\Z_n - \{0\}, \cdot_n)$ ربما يكون زمرة اذا كان $n$ عدد اولي. للتوضيح اكثر $(\Z_4-\{0\}, \cdot_4)$ لا تمثل زمرة لان 2 لا يملك معكوس ضربي بينما $(\Z_5-\{0\},\cdot_5)$ تمثل زمرة.
+\end{note}
+
+\begin{note}
+	العنصر $a$ في $\Z_n$ يمتلك معكوس ضربي اذا وفقط اذا كان $\gcd(a,n)=1$
+\end{note}
+
+%\section{الزمرة الجزئية}
+
+\begin{definition}[\cite{groups2}]
+	\addcontentsline{toc}{section}{الزمرة الجزئية}
+	لتكن $(G, *)$ زمرة و $H$ مجموعة غير خالية جزئية من $G$ فإن $(H, *)$ تسمى زمرة جزئية من الزمرة $(G, *)$ اذا كانت $H$ هي زمرة كذلك ونكتب $(H, *)\leq (G, *)$
+\end{definition}
+\begin{example}
+	كل زمرة على الاقل لها زمرتان جزئيتان هما $(G, *) $ و $(\{e\}, *)$.
+\end{example}
+
+\begin{definition}[\cite{groups1}]
+	الزمرة الجزئية $(H, *)$ تسمى زمرة جزئية فعلية من $(G, *)$ اذا كانت $H$ هي مجموعة جزئية فعلية $H \subset G$.
+\end{definition}
+
+\begin{definition}[\cite{groups1}]
+		الزمرة الجزئية $(H, *)$ تسمى زمرة جزئية غير تافهة اذا كانت $\varnothing\neq H\neq G$.  
+\end{definition}
+
+\begin{example}
+	$(\R, +). (\Z, +). (\Q, +), (\R-\{0\}, \cdot), (\Q-\{0\}, \cdot)$ جميع هذه الانظمة هي زمر جزئية غير تافهة من زمرة الاعداد المركبة $(\C, +), (\C-\{0\}, \cdot)$ على التوالي
+\end{example}
+
+\begin{theorem}[\cite{groups1}]
+	لتكن $(G, *)$ زمرة و $\varnothing\neq H\subseteq G$ اذن $(H, *)$ تكون زمرة جزئية من $(G, *)$ اذا وفقط اذا حققت الشرط 
+	\[
+	a * b^{-1} \in H, \forall a, b\in H
+	\]
+\end{theorem}
+
+\begin{example}
+	$(\Z_e, +) \leq (\Z, +)$
+\end{example}
+\noindent
+\textbf{الحل}\\
+\noindent
+لفترض ان $a, b\in \Z_e$ اذن يوجد $n,m\in Z$ بحيث ان $a=2n, b=2m$ اذن
+\[
+a * b^{-1} = a- b=2n-2m=2\underbrace{(n-m)}_{\in \Z} \in \Z_e
+\]
+اذن 	$(\Z_e, +) \leq (\Z, +)$
+
+   \begin{note}
+   	كل زمرة جزئية من زمرة ابدالية تكون ابدالية.
+   \end{note}
+   
+   \begin{definition}[\cite{groups1}]
+   	لتكن $(G, *)$ زمرة ، مجموعة كل العناصر في $G$ التي تتبادل مع جميع عناصر $G$ تسمى مركز الزمرة $G$ ويرمز لها بالرمز $\cent{G}$.
+   	\[
+   	\cent G = \{c \in G : x*c=c*x , \forall x\in G\}
+   	\]
+   \end{definition}
+   
+   \begin{example}
+   	$\cent\Z_n=\Z_n, \quad \cent S_n = (1)$.
+   \end{example}
+   
+   \begin{note}
+   	$(\cent G, *) \leq (G, *)$.
+   \end{note}
+   
+   \begin{lemma}[\cite{groups1}]
+   	الزمرة $(G, *)$ تكون ابدالية اذا وفقط اذا $\cent G = G$.
+   \end{lemma}
+   
+   \begin{theorem}[\cite{groups1}]
+   	لتكن كل من $(K, *)$ و $(H, *)$ زمرة جزئية من $(G, *)$ فإن $(K \cap H, *) \leq (G, *)$ بمعنى اخر تقاطع اي زمرتين جزئيتين هو زمرة جزئية.
+   \end{theorem}
+   \begin{note}
+   	اذا كان كل من $(K, *)$ و $(H, *)$ زمرة جزئية من $(G, *)$  فليس من الضروري ان يكــــــــــــــون \\
+   	$(K \cup H, *) \leq (G, *)$  ، بمعنى آخر اتحاد اي زمرتين جزئيتين لا يعطي بالضرورة زمرة جزئية.
+   \end{note}
+   
+   \begin{theorem}[\cite{groups1}]
+   	 	لتكن كل من $(K, *)$ و $(H, *)$ زمرة جزئية من $(G, *)$ فإن $(K \cup H, *) \leq (G, *)$ اذا وفقط اذا كان اما $K\subseteq H$ أو $H\subseteq K$.
+   \end{theorem}
+   
+   \begin{definition}[\cite{groups1}]
+   	لتكن $(G, *)$ زمرة و $\varnothing\neq S\subseteq G$ ولتكن
+   	$(S) = \{H : S\subseteq H , (H, *) \leq (G, *)\}$
+   	تسمى $((S), *)$ زمرة جزئية مولدة بواسطة المجموعة $S$.
+   \end{definition}
+   
+   \begin{note}
+   	الزمرة الجزئية $((S), *)$ هي اصغر زمرة تحتوي على المجموعة $S$.
+   \end{note}
+   
+\begin{definition}[\cite{groups1}]
+	لتكن $(G, *)$ زمرة وليكن $a\in G$ فإن الزمرة الجزئية 	$\big((\{a\}) , *\big)$ وتكتب بالصيغة $((a), *) $ وهي الزمرة الجزئية المولدة بواسطة العنصر $a$.
+\end{definition}
+
+\noindent
+\textbf{ملاحظة}
+\begin{enumerate}
+	\item لتكن $(G, *)$ زمرة ، اذا كان $a\in G$ يمتلك رتبة منتهية فإن $O(a) = O\Big((a)\Big)$
+	\item  لتكن $(G, *)$ زمرة ، اذا كان $a\in G$ فإن $(a) = \{a^n : n\in \Z\}$.
+\end{enumerate}
+
+\begin{example}
+	جد $(3)$ في $(\Z, +)$
+\end{example}
+   \noindent
+   \textbf{الحل}\\
+   \noindent
+   $(3) = \{3^n : n\in \Z\} = \{3n : n\in \Z\}$.
+   
+   \begin{example}
+   	اوجد $(2)$ فــــي $(\Z_8, +_8)$.
+   \end{example}
+   \noindent
+   \textbf{الحل}\\
+   \noindent
+   $(2) = \{2^n : n\in \Z\} = \{2n : n\in \Z\} = \{0,2,4,6\}$.
+   
+\begin{definition}[\cite{groups1}]
+	لتكن كل من $(K, *)$ و $(H, *)$ زمرة جزئية من $(G, *)$ فإن حاصل ضرب الزمرتان الجزئيتيان يعرف بالشكل
+	$
+	H * K = \{h * k : h \in H, k \in K\}
+	$.
+\end{definition}
+
+\begin{example}
+	ليكن $H=(2)$ و $K=(3)$ زمرتان جزئيتيان من الزمرة $(\Z_{12}, +_{12})$ اوجد $H_{12}K$
+\end{example}
+\noindent
+\textbf{الحل}\\
+\noindent
+$H=\{0,2,4,6,8,10\}$ ، $K=\{0,3,6,9\}$ اذن\\
+ $H+_{12} K=\{0,1,2,3,4,5,6,7,8,9,10,11\} = \Z_{12}$
+ 
+ \begin{note}
+ 		لتكن كل من $(K, *)$ و $(H, *)$ زمرة جزئية من $(G, *)$ فإن حاصل ضرب الزمرتان الجزئيتيان $H*K$ ربما لا يكون زمرة جزئية من $(G,*)$.
+ \end{note}
+ 
+ \begin{theorem}[\cite{groups1}]
+ 		لتكن كل من $(K, *)$ و $(H, *)$ زمرة جزئية من $(G, *)$ فإن حاصل ضرب الزمرتان الجزئيتيان $(H*K, *)$ يكون زمرة اذا كان $H*K=K*H$.
+ \end{theorem}
+ 
+ \begin{note}
+ 		لتكن كل من $(K, *)$ و $(H, *)$ زمرة جزئية من $(G, *)$ فإن $(H*K, *) = (H\cup K, *)$.
+ \end{note}
+ 
+ \begin{example}
+ 	لتكن $H=\{3\}$  و $K=\{4\}$ زمرتان جزئيتيان من الزمرة $(\Z_{12}, +_{12})$ اوجد 
+ 	$(H\cup K, +_{12})$
+ \end{example}
+ \noindent
+ \textbf{الحل}\\
+ \noindent
+ $H = \{0,3,6,9\}$ ، $K=\{0,4,8\} $ اذن \\
+ $H \cup K = H+_{12} K = \{0,4,8,3,7,11,6,10,2,9,1,5\} = \Z_{12}$
+
+ \begin{theorem}[\cite{groups1}]
+ 	لتكن $(G, *)$ زمرة ابدالية و	لتكن كل من $(K, *)$ و $(H, *)$ زمرة جزئية من $(G, *)$ فإن\\
+ 	 $(H*K, *) \leq (G, *)$.
+ \end{theorem}
+ 
+ \begin{theorem}[\cite{groups1}]
+ 	لتكن $((a), *)$ زمرة دائرية تمتلك رتبة منتهية $n$ فإن 
+ 	$(a) = \{a^0 = e, a, a^2, \dots, a^{n-1}\}$.
+ \end{theorem}
+ 
+ 
+ 
+ \begin{definition}[\cite{groups1}]
+ 	لتكن $(H, *)$ زمرة جزئية من الزمرة $(G, *)$ وأن $a\in G$ ،تسمى  المجموعة المعرفة بالشكل التالي 
+ 	$a* H = \{a * h : h\in G\}$
+ 	بالمجموعة المشاركة (المصاحبة)  اليسارية لــ $H$ في $G$  ، وتسمى $H*a = \{h*a:h\in G\}$ بالمجموعة المشاركة (المصاحبة) اليمينية.  
+ \end{definition}
+ 
+ 
+ \begin{theorem}[\cite{groups1}]
+ 	لتكن $(H, *)$ زمرة جزئية من الزمرة $(G, *)$ فإن
+ 	\begin{enumerate}
+ 		\item $a*H=H \iff a\in H$.
+ 		\item $H*a = H \iff a\in H$
+ 	\end{enumerate}
+ \end{theorem}
+ 
+ \begin{definition}[\cite{groups2}]
+ 	لتكن $(H, *)$ زمرة جزئية من الزمرة $(G, *)$ ، يسمى عدد كل من المجموعات المشتركة اليمنى او  اليسرى بدليل الزمرة الجزئية $H$ في $G$ ويرمز له بالرمز $[G:H]$.
+ \end{definition}
+ \begin{example}
+ 	$[A_n : S_n] = 2$.
+ \end{example}
+ 
+ \begin{theorem}[\cite{groups2}]
+ 	لتكن $(G, *)$ زمرة منتهية ، فإن كل من رتبة ودليل اي زمرة جزئية $H$ منها تقسم رتبتها $O(G)$. 
+ \end{theorem}
+ 
+ \begin{note}
+ 	عكس مبرهنة لاكرانج ربما لا يكون صحيح دائماً لأي زمرة منتهية (لأي قاسم من قواسم رتبة الزمرة المنتهية توجد هنالك زمرة جزئية رتبتها ذلك القاسم).
+ \end{note}
+ 
+ \begin{example}
+ 	الزمرة $A_4$ رتبتها 12 لكن لا توجد زمرة جزئية منها رتبتها 6.
+ \end{example}
+ 
+ \begin{corollary}[\cite{groups2}]
+ 	لتكن $(G, *) $ زمرة منتهية وليكن $a\in G$ فإن رتبة العنصر $O(a)$ عامل من عوامل رتبة الزمرة ، هذا يعني $a^{O(G)} =e$.
+ \end{corollary}
+ \noindent
+ \textbf{البرهان}\\
+ \noindent
+ الزمرة الجزئية $\big((a), *\big)$ رتبتها تساوي رتبة العنصر $a$ اي
+ $O\big((a)\big) = O(a)$
+ هو عامل من عوامل $O(G)$.
+ 
+ \begin{corollary}[\cite{groups2}]
+ 	لتكن $(G, *)$ زمرة منتهية رتبتها مركبة (قابلة للتحليل الى عوامل) فإن $(G, *)$ تمتلك زمرة جزئية غير تافهة.
+ \end{corollary}
+ 
+ \begin{corollary}[\cite{groups2}]
+ 	كل زمرة منتهية ذات رتبة اولية تكون دائرية.
+ \end{corollary}
+ 
+ 
+ \begin{definition}[\cite{groups2}]
+ 	\addcontentsline{toc}{section}{الزمرة الناظمية}
+ 	لتكن $(H, *)$ زمرة جزئية من $(G, *)$ فإن $(H, *)$ تسمى زمرة جزئية ناظمية (سوية) اذا وفقط اذا كان $a*H = H*a$ لكل $a\in G$ ونكتب $ H \trianglelefteq G$.
+ \end{definition}
+ 
+ \begin{example}
+ 	كل زمرة جزئية دليلها 2 تكون زمرة ناظمية.
+ \end{example}
+
+ 
+ \begin{example}
+ 	اثبت ان 
+ 	$(A_n, \circ) \trianglelefteq (S_n, \circ)$ 
+ \end{example}
+ \noindent
+ \textbf{البرهان}\\
+ \noindent
+ بما ان 
+ $[S_n : A_n] = \dfrac{O(S_n)}{O(A_n) } = \dfrac{n!}{\mfrac{n!}{2}} = 2$ ، 
+ اذن  	$(A_n, \circ) \trianglelefteq (S_n, \circ)$ \qed
+ 
+ \begin{theorem}[\cite{groups2}]
+ 	كل زمرة جزئية من زمرة ابدالية تكون زمرة سوية.
+ \end{theorem}
+
+  
+  \begin{definition}[\cite{groups2}]
+  	الزمرة $(G, *)$ تسمى زمرة بسيطة اذا كانت تحوي فقط زمرتين سويتين هما 
+  	$(G, *) , \big(\{e\}, *\big)$.
+  \end{definition}
+  
+  
+  \begin{definition}[\cite{groups2}]
+  	لتكن $(H, *)$ زمرة جزئية من $(G, *)$ نعرف المجموعة
+  $G/H = \{a*H : a\in G\}$  او $ G/H = \{H*a : a\in G\}$ ، بأنها مجموعة القسمة لــ $G$ على $H$ وتمثل مجموعة كل المجموعات المصاحبة اليمنى او اليسرى للزمرة الجزئية $H$ في الزمرة $G$.
+  \end{definition}
+  
+  \begin{definition}[\cite{groups2}]
+  	\addcontentsline{toc}{section}{زمرة القسمة}
+  	لتكن $(H, *)$ زمرة جزئية من $(G , *)$ ، نعرف العملية الثنائية $\circledast$ على $G/H$ بالشكل التالي\\
+  	$
+  	(a*H)\circledast (b*H) = (a*b) *H, \forall a, b\in G
+  	$
+  	ويسمى الزوج المرتب $(G/H, \circledast)$ بزمرة القسمة.
+  \end{definition}
+  
+  \begin{theorem}[\cite{groups2}]
+  	لتكن $(G, *)$ زمرة و $(H, *)$ زمرة جزئية سوية منها فإن الثنائي $(G/H, \circledast)$ يشكل زمرة.
+  \end{theorem}
+  
+  \begin{theorem}[\cite{groups2}]
+  	لتكن $(G, *)$ زمرة ابدالية ، فإن $(G/H, \circledast)$ زمرة ابدالية لأي زمرة جزئية سوية $(H, *)$.
+  \end{theorem}
+  
+  \begin{theorem}[\cite{groups2}]
+  	لتكن $(G, *)$ زمرة دائرية ، فإن $(G/H, \circledast)$ زمرة دائرية لأي زمرة جزئية سوية $(H, *)$.
+  \end{theorem}
+  
+
+ \newpage
+ \begin{definition}[\cite{rings}]
+ 	\addcontentsline{toc}{section}{تعريف الحلقة}
+ 	الحلقة هي ثلاثي مرتب $(R, +, \cdot)$ مكون من مجموعة غير خالية $R$ وعمليتي الجمع والضرب بحيث 
+ 	\begin{enumerate}[label=$\boxed{\arabic*}$]
+ 		\item $(R, +)$ زمرة ابدالية.
+ 		\item  $(R, \cdot) $ شبه زمرة.
+ 		\item العملية $\cdot$ تتوزع على العملية + ، أي أن:
+ 		\begin{gather*}
+ 			a\cdot (b+c) = a\cdot b + a\cdot c \tag{التوزيع من اليسار}\\
+ 			(b + c) \cdot a = b\cdot a + c\cdot a \tag{التوزيع من اليمين}
+ 		\end{gather*}
+ 		لكل $a ,b,c\in R$
+ 	\end{enumerate}
+ \end{definition}
+ 
+ \begin{example}
+ 	الانظمة التالية تمثل حلقات
+ 	$
+ 	(\Z, + ,\cdot), (\Q, + ,\cdot),(\R, + ,\cdot),(\C, + ,\cdot)
+ 	$\\
+ 	بينما الانظمة 
+ 	$
+ 	(\N, +, \cdot), (\R, \cdot, +)
+ 	$
+ 	لا تمثل حلقات
+ \end{example}
+ 
+ \begin{definition}[\cite{rings}]
+ 	يقال ان حلقة $(R, +, \cdot)$ تحتوي على قواسم الصفر ، اذا كان هناك عنصرين $a, b\in R$ بحيث $a\neq 0$ ، $b\neq 0$ مع ذلك فأن $a\cdot b=0$ ، يطلق على العناصر $a,b$ قواسم الصفر
+ \end{definition}
+ 
+ \begin{example}
+ 	الحلقة
+ 	$(\Z_6, +_6, \cdot_6)$ تمتلك قواسم للصفر ، لأن $2\cdot_6 3=0 $ بينما الحلقة 
+ 	$(\Z_7, +_7, \cdot_7)$ لا تمتلك قواسم للصفر.
+ \end{example}
+ 
+ \begin{theorem}[\cite{rings}]
+ 	لتكن $(R, +, \cdot)$ حلقة بحيث $R\neq \{0\}$ ، عندئذٍ تكون العناصر 0 و 1 مختلفة ($0\neq 1$).
+ \end{theorem}
+ 
+ \begin{theorem}[\cite{rings}]
+ 	لتكن $(R, +, \cdot)$ حلقة و $a,b\in R$ فإن 
+ 	$-(a\cdot b) = a\cdot (-b) = (-a)\cdot b$.
+ \end{theorem}
+ 
+ \begin{corollary}[\cite{rings}]
+ 	لكل $a,b\in R$ فإن
+ 	$a\cdot (b-c) = a\cdot b - a\cdot c$\,\,  و \,\,$(b-c) \cdot a = b\cdot a - c\cdot a$\\
+ 	اي ان عملية الضرب تتوزع على الطرح.
+ \end{corollary}
+ 
+ \begin{theorem}[\cite{rings}]
+ 	الحلقة $(R, +, \cdot)$ لا تحتوي على قواسم صفرية اذا وفقط اذا كان قانون الاختصار ينطبق على عملية الضرب.
+ \end{theorem}
+ 
+ \begin{corollary}[\cite{rings}]
+ 	لتكن $(R, +, \cdot)$ حلقة لا تحتوي على قواسم صفرية فإن الحلول الوحيدة للمعادلة $a^2=a$ هي  $a=0, a=1$ 
+ \end{corollary}
+ \noindent
+ \textbf{البرهان}\\
+ \noindent
+ $a^2 =a\Rightarrow a^2-a=0\Rightarrow a\cdot(a-1)=0 $ ، وبما ان $R$ ليس لها قواسم صفرية فإن $a=0$ او $a-1=0$ وبالتالي $a=0 $ أو $a=1$.\qed
+ 
+ \begin{definition}[\cite{rings}]
+ 	\addcontentsline{toc}{section}{الساحة التامة}
+ 	لتكن $(R, +, \cdot)$ حلقة مع عنصر محايد لعملية الضرب ، نقول ان $(R, +, \cdot)$ ساحة تامة اذا لم تحوي على قواسم الصفر وكانت ابدالية بالنسبة لعملية الضرب.
+ \end{definition}
+ 
+ \begin{example}
+ 	الحلقة $(\Z, +, \cdot)$ هي ساحة تامة لتحقيقها الشروط ، ولكن الحلقة 
+ 	$\Z_6, +_6, \cdot_6$ ليست ساحة تامة لأحتوائها على قواسم الصفر.
+ \end{example}
+ 
+ 
+ \begin{definition}[\cite{rings}]
+ 	\addcontentsline{toc}{section}{الحلقة الجزئية}
+ 	لتكن $(R, +, \cdot)$ حلقة و أن $\varnothing\neq S\subseteq R$ ، اذا كانت $(S, +, \cdot)$ حلقة بحد ذاتها نقول بأنها حلقة جزئية من $(R, +, \cdot)$ و اختصاراً نقول $S$ حلقة جزئية من $R$.
+ \end{definition}
+ 
+ \begin{note}
+ 	نقول ان $S$ حلقة جزئية من $R$ اذا تحقق الآتي
+ 	\begin{enumerate}[label=$\boxed{\arabic*}$]
+ 		\item $S\neq \varnothing$.
+ 		\item $\forall a,b\in S \Rightarrow a-b\in S$.
+ 		\item $\forall a,b\in S\Rightarrow a\cdot b\in S$.
+ 	\end{enumerate}
+ \end{note}
+ 
+ \begin{example}
+ 	لتكن $S = \{a+b\sqrt{3} : a, b\in \R \}$ فإن $S$ حلقة جزئية من $\R$.
+ \end{example}
+ 
+ \begin{definition}[\cite{rings}]
+ 	لنفرض ان $R$ حلقة ، اذا كان هناك عدد صحيح موجب $n$ بحيث يكون $na=0$ لكل $a\in R$ ، فإن اقل عدد صحيح موجب يحقق هذه الخاصية يسمى المميز للحلقة $R$ و نكتب $\Char R = n$ ، اذا لم يوجد عدد صحيح موجب يحقق هذه الخاصية لجميع عناصر $R$ ، فإننا نقول $R$ ليست لها مميز او يكون المميز للحلقة يساوي 0 ($\Char R=0$)
+ \end{definition}
+ 
+ \begin{example}
+ 	الحلقة 
+ 	$(\Z_4, +_4, \cdot_4) $ تمتلك المميز 4. اي ان $\Char \Z_4=4$
+ \end{example}
+ 
+ \begin{theorem}[\cite{rings}]
+ 	لتكن $R$ حلقة ذات محايد ، فأن $\Char R=n >0$ اذا وفقط اذا كان $n$ هو اقل عدد صحيح موجب بحيث $n1=0$.
+ \end{theorem}
+ 
+ 
+ \begin{definition}[\cite{rings}]
+ 	\addcontentsline{toc}{section}{تعريف المثالية}
+ 	لتكن $R$ حلقة و $I$ مجموعة جزئية من $R$ ، نقول ان $I$ هي مثالية في $R$ اذا تحققت الشروط
+ 	\begin{enumerate}[label=$\boxed{\arabic*}$]
+ 		\item $a-b\in I, \forall a, b\in I$.
+ 		\item $r\cdot a \in I$ و $a\cdot r\in I$ لكل $r\in R, a\in I$.
+ 	\end{enumerate}
+ \end{definition}
+ 
+ \begin{example}
+ 	المجموعة 
+ 	$I = \{3k : k\in \Z\}$ تمثل مثالية في الحلقة $\Z$.
+ \end{example}
+ \noindent
+ \textbf{الحل}
+ 
+ \setLR
+ \begin{enumerate}[leftmargin=*, label=$\boxed{\arabic*}$]
+ 	\item $\forall n,m\in I \Rightarrow n=3r, m=3s, \exists r,s\in \Z \Rightarrow n-m =3\underbrace{(r-s)}_{\in \Z} \in I$.
+ 	\item $\forall n\in I, \forall r\in \Z \Rightarrow rn = r(3m) = 3\underbrace{(rm)}_{\in \Z} \in I$. 
+ \end{enumerate}
+ 
+ \setRL
+ 
+ \begin{definition}[\cite{rings}]
+ 	لتكن $R$ حلقة و $I$ مثالية فيها ، تسمى $I$ مثالية اعظمية في $R$ ، اذا كانت $I\neq R$ و عندما توجد مثالية $J$ بحيث 
+ 	$I \subseteq J \subseteq R$ فإن $J=R$.
+ \end{definition}
+ 
+ \begin{note}
+ 	لتكن $R$ حلقة و ان $I$ مثالية في $R$ بحيث  $I\neq R$ و $a\in R - I$ فإن
+ 	\begin{enumerate}
+ 		\item $I\subset (I, a) \subseteq R $.
+ 		\item  اذا كانت $I$ مثالية اعظمية فإن $(I, a) = R$.
+ 	\end{enumerate}
+ \end{note}
+ 
+ \begin{theorem}[\cite{rings}]
+ 	في الحلقة $\Z$ و حيث $n>1$ ، فأن $(n)$ مثالية اعظمية اذا وفقط اذا كان $n$ عدد أولي.
+ \end{theorem}
+ 
+ \noindent
+ \textbf{البرهان}\\
+ \noindent
+ ($\Leftarrow$) نفرض $(n)$ مثالية اعظمية في $\Z$ ونفرض ان $n$ ليس عدد اولي ، اي يمكن كتابته بالشكل $n=a\cdot b$ لبعض $a, b\in \Z$ ، من الواضح ان $(n) \subset (a)$ لأن $n=a\cdot b$ و لكن $(a)\neq \Z$ وبالتالي حصلنا على $(n) \subset (a) \subset \Z$ وهذا تناقض مع كون $(n)$ مثالية اعظمية.\\
+ ($\Rightarrow$) اذا كان $n$ عدداً اولياً ، نفترض وجود مثالية $I$ في $\Z$ بحيث $(n )\subset I \subset \Z$ ، لنأخذ $a\in I$ حيث $a\notin (n)$ ، بما أن $n$  عدد أولي فأن $\gcd(a, n) = 1$ ، وبالتالي يوجد $x, y\in \Z$ بحيث $ax + ny=1$ وبما ان $I$ مثالية فأن $ax, ny\in I$ وبالتالي $1\in I$ اذن $I = \Z$ وبالتالي $(n)$ مثالية اعظمية.\qed  
+ 
+ 

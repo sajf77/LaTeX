@@ -1,0 +1,36 @@
+\documentclass[14pt, a4paper]{extreport}
+
+\usepackage[
+margin=20pt
+]{geometry}
+
+\usepackage{listings}
+
+\usepackage{xcolor}
+
+\lstset{
+basicstyle=\ttfamily,
+keywordstyle=\color{blue},
+commentstyle=\color{gray},
+stringstyle=\color{red},
+numbers=left,
+numberstyle=\color{gray},
+frame=single,
+breaklines=true
+}
+
+\begin{document}
+
+\begin{center}
+	\begin{lstlisting}[
+	language=Matlab,
+	]
+	for i=1:N
+		disp(i);
+	end
+	
+	title('DQM')
+\end{lstlisting}
+\end{center}
+	
+\end{document}
