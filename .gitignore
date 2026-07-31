@@ -15,6 +15,7 @@
 *.fls
 *.log
 *.synctex.gz
+*.synctex.gz.pindex.tmp
 *.toc
 
 # Bibliography files (BibTeX / Biber)
