@@ -1,0 +1,201 @@
+\documentclass[14pt, a4paper]{extreport}
+\usepackage{setspaceenhanced}
+\setstretch{1.5}
+\usepackage[margin=0.7in]{geometry}
+
+\usepackage{needspace}
+\usepackage{etoolbox}
+
+\usepackage{enumitem}
+\setlist{nosep}
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{etoc}
+%\usepackage[most]{tcolorbox}
+\usepackage{amsmath, amssymb, amsthm}
+
+\AtBeginDocument{
+	\allowdisplaybreaks
+	\renewcommand{\jot}{10pt}
+	\abovedisplayskip=3pt
+	\belowdisplayskip=3pt
+}
+
+
+
+\usepackage[main=arabic, bidi=basic, provide=*]{babel}
+\babelprovide[]{arabic}
+\babelfont{rm}[Script=Arabic, ItalicFont=*, ItalicFeatures={FakeSlant=0.2}]{Times New Roman}
+\babelfont[english]{rm}{Times New Roman}
+\newcommand{\en}[1]{\foreignlanguage{english}{#1}}
+
+%\newfontfamily{\arabicfont}{Times New Roman}[Script=Arabic] 
+%\newfontfamily{\farsifont}{Noto Nastaliq Urdu}[Script=Arabic]
+%\usepackage[T1]{fontenc}
+%\usepackage{times}
+
+%\usepackage[Minimal=On, Kashida=leaders+hrule, ligatures=default, linebreakpenalty=8,kashidastretch=1.14em plus 5.5em]{texnegar}\textit{}
+
+\usepackage[lite, zswash, subscriptcorrection, straightbraces]{mtpro2}
+\DeclareMathSymbol{0}{\mathalpha}{operators}{`0}
+\DeclareMathSymbol{1}{\mathalpha}{operators}{`1}
+\DeclareMathSymbol{2}{\mathalpha}{operators}{`2}
+\DeclareMathSymbol{3}{\mathalpha}{operators}{`3}
+\DeclareMathSymbol{4}{\mathalpha}{operators}{`4}
+\DeclareMathSymbol{5}{\mathalpha}{operators}{`5}
+\DeclareMathSymbol{6}{\mathalpha}{operators}{`6}
+\DeclareMathSymbol{7}{\mathalpha}{operators}{`7}
+\DeclareMathSymbol{8}{\mathalpha}{operators}{`8}
+\DeclareMathSymbol{9}{\mathalpha}{operators}{`9}
+
+\newcommand{\arabicordinal}[1]{%
+	\ifcase#1
+	\or الأول
+	\or الثاني
+	\or الثالث
+	\or الرابع
+	\or الخامس 
+	\or السادس
+	\or السابع
+	\or الثامن
+	\or التاسع
+	\or العاشر
+	\else \number#1
+	\fi
+}
+
+\renewcommand{\thechapter}{\arabicordinal{\value{chapter}}}
+
+\etocsettocstyle{
+	\vspace*{10pt}\noindent
+	\rule{\textwidth}{2pt}\\
+	{\fontsize{20pt}{20pt}\textbf{المتحويات}}\\[-10pt]
+	\rule{\textwidth}{2pt}\\[10pt]
+}{}
+
+\etocsetlevel{chapter}{-1}
+
+\etocsetstyle{chapter}{}{\par}{
+	\vspace{15pt}\noindent\textbf{الفصل \etocnumber : \etocname}
+}
+
+\etocsetlevel{schapter}{0}
+\etocsetstyle{schapter}{}{\par}{\vspace{15pt}\noindent\textbf{\etocname}\hfill\etocpage}
+
+
+\etocsetlevel{section}{1}
+\etocsetstyle{section}{}{\par}{\noindent\etocnumber~~\etocname\dotfill\etocpage}
+
+
+\etocsetlevel{subsection}{2}
+\etocsetstyle{subsection}{}{\par}{\noindent\etocnumber~~\etocname\dotfill\etocpage}
+
+\usepackage{enumitem}
+
+\newcounter{task}
+\newcommand{\task}{\noindent(\xslalph{task})\hspace*{5pt} \stepcounter{task}}
+
+\newenvironment{tasks}{\noindent\setcounter{task}{1}}{}
+
+\newcommand{\Task}[1]{\noindent\task\parbox[t]{0.8\textwidth}{#1}}
+
+
+\makeatletter
+
+
+\newcommand{\xslalph}[1]{\expandafter\@xslalph\csname c@#1\endcsname}
+\newcommand{\@xslalph}[1]{%
+	\ifcase#1
+	\or أ\or ب\or ج\or د\or هـ\or و\or ز\or ح\or ط\or ي\or ك\or ل\or م\or ن\or س\or ع\or ف\or ص\or ق\or ر\or ش\or ت\or ث\or خ\or ذ\or ض\or ظ\or غ\else\@ctrerr\fi
+}
+\AddEnumerateCounter{\xslalph}{\@xslalph}{m}
+
+
+\renewcommand{\dotfill}{\leavevmode
+	\leaders\hbox to 0.4em{\hss\textbf{.}\hss}\hfill\kern0pt}
+
+
+\def\@makechapterhead#1{%
+	\vspace*{\fill}
+	\begin{center}
+		\fontsize{45pt}{55pt}
+		\textbf{الفصل \thechapter}\\[2em]
+		\textbf{#1}
+	\end{center}
+	\vskip 50pt
+	\vspace*{\fill}
+	\thispagestyle{empty}
+	\newpage
+}
+
+\def\@makeschapterhead#1{%
+	\vspace*{5\p@}%
+	{\parindent 0pt \centering
+		\normalfont
+		\interlinepenalty1000
+		\large \bfseries  #1\par\nobreak
+		\vskip 25\p@
+}}
+
+
+\renewenvironment{proof}[1]{
+	\par\noindent
+	\textbf{البرهان}\\
+	\noindent#1}{$\blacksquare$\par}
+
+\makeatother
+
+\newenvironment{solution}[1]{
+	\par\noindent
+	\textbf{الحل}\\
+	\noindent#1}{$\blacktriangle$\par}
+
+\newenvironment{note}[1]{
+	\par\noindent
+	\textbf{ملاحظة}\\[5pt]
+	\noindent#1}{\par}
+
+\renewcommand{\thesection}{\arabic{chapter} - \arabic{section}}
+
+\renewcommand{\thesubsection}{\arabic{chapter} - \arabic{section} - \arabic{subsection}}
+
+
+
+
+\newtheoremstyle{newline}
+{\topsep}
+{\topsep}
+{\normalfont}
+{0pt}
+{\bfseries}
+{}
+{\newline}
+{#1 #2 #3}
+
+\theoremstyle{newline}
+\newtheorem{theorem}{مبرهنة}[section]
+\newtheorem{example}{مثال}[section]
+\newtheorem{definition}{تعريف}[section]
+\renewcommand{\thedefinition}{\arabic{chapter} - \arabic{section} - \arabic{definition}}
+\renewcommand{\thetheorem}{\arabic{chapter} - \arabic{section} - \arabic{theorem}}
+\renewcommand{\theexample}{\arabic{chapter} - \arabic{section} - \arabic{example}}
+
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\DeclareMathOperator{\re}{Re}
+
+\preto{\section}{\Needspace{4\baselineskip}}
+\preto{\subsection}{\Needspace{4\baselineskip}}
+
+\AtBeginEnvironment{theorem}{\Needspace{4\baselineskip}}
+\AtBeginEnvironment{definition}{\Needspace{4\baselineskip}}
+\AtBeginEnvironment{example}{\Needspace{4\baselineskip}}
+\AtBeginEnvironment{proof}{\Needspace{4\baselineskip}}
+\AtBeginEnvironment{solution}{\Needspace{4\baselineskip}}
+%\AtBeginEnvironment{theorem}{\Needspace{4\baselineskip}}
