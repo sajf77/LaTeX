@@ -1,0 +1,236 @@
+\section{مقدمة}
+
+هذه وثيقة تجريبية مكتوبة باللغة العربية باستخدام نظام لاتك. اللاتك هو نظام إعداد مستندات عالي الجودة، يُستخدم على نطاق واسع في كتابة الأبحاث العلمية والأطروحات.
+
+\section{أمثلة على النصوص}
+
+يمكن كتابة نص عربي بشكل عادي، ويمكن أيضاً تضمين نصوص إنجليزية مثل \foreignlanguage{english}{Hello World} داخل النص العربي.
+
+\begin{itemize}
+  \item صنف الوثائق \texttt{article}.
+  \item حزمة \texttt{babel}.
+  \item محرك \texttt{LuaLaTeX}.
+\end{itemize}
+
+\section{معادلة رياضية}
+
+يُعرف الوسط الحسابي لعدد من القيم $x_1, x_2, \dots, x_n$ كما يلي:
+
+\begin{equation}
+  \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+  \label{eq:mean}
+\end{equation}
+
+توضح المعادلة \ref{eq:mean} الوسط الحسابي.
+
+\section{الأعداد المركبة}
+
+\begin{definition}[العدد المركب]
+العدد المركب هو عدد يُكتب على الصورة
+\begin{equation*}
+  z = a + bi
+\end{equation*}
+حيث $a, b \in \mathbb{R}$، و $i$ هي الوحدة التخيلية بحيث $i^2 = -1$. يسمى $a$ الجزء الحقيقي ($\operatorname{Re}(z)$) ويسمى $b$ الجزء التخيلي ($\operatorname{Im}(z)$).
+\end{definition}
+
+\begin{example}
+العدد $z = 3 + 4i$ عدد مركب فيه $a = 3$ و $b = 4$، أي أن $\operatorname{Re}(z) = 3$ و $\operatorname{Im}(z) = 4$.
+\end{example}
+
+\begin{example}
+بما أن $i^2 = -1$، فإن
+\begin{align*}
+  i^1 &= i, & i^2 &= -1, & i^3 &= -i, & i^4 &= 1.
+\end{align*}
+\end{example}
+
+\subsection{جمع وضرب الأعداد المركبة}
+
+إذا كان $z_1 = a + bi$ و $z_2 = c + di$ عددين مركبين، فإن:
+
+\begin{align*}
+  z_1 + z_2 &= (a + c) + (b + d)i, \\
+  z_1 z_2 &= (ac - bd) + (ad + bc)i.
+\end{align*}
+
+\section{الدوال المركبة}
+
+الدالة المركبة هي دالة يعتبرها مجالها ومجالها المقابل مجموعتين من الأعداد المركبة:
+
+\noindent\hfil
+\begin{tikzpicture}[
+  node distance=3cm,
+  dset/.style={draw, ellipse, minimum width=4cm, minimum height=2.5cm},
+  arrow/.style={-stealth, thick}
+]
+\node[dset] (A) {\text{المجال}\\ $\mathbb{C}$};
+  \node[dset, right of=A, node distance=6cm] (B) {\text{المجال المقابل}\\ $\mathbb{C}$};
+  \draw[arrow] (A) -- node[above] {$f(z)$} (B);
+  \node[above left=-1.2cm and 1cm] at (A.south west) {$z$};
+\node[above left=-1.2cm and 1cm] at (B.south west) {$w = f(z)$};
+\end{tikzpicture}
+\hfil
+\par
+
+\section{مشتقات الدوال المركبة}
+
+تُعرَّف مشتقة الدالة المركبة $f$ عند النقطة $z_0$، تماماً كما هي الحال في الدوال الحقيقية، بالمقدار التالي إذا وُجدت النهاية:
+\begin{equation}
+  f'(z_0) = \lim_{h \to 0} \frac{f(z_0 + h) - f(z_0)}{h}
+  \label{eq:der}
+\end{equation}
+حيث $h$ عدد مركب. ونقول إن الدالة $f$ تحليلية في نطاق ما إذا كانت مشتقتها موجودة في كل نقطة من هذا النطاق.
+
+\begin{example}[مشتقة $f(z) = z^2$]
+نحسب المشتقة باستخدام التعريف \eqref{eq:der} مباشرة:
+\begin{align*}
+  f'(z) &= \lim_{h \to 0} \frac{(z+h)^2 - z^2}{h}
+       = \lim_{h \to 0} \frac{2zh + h^2}{h}
+       = \lim_{h \to 0} (2z + h) = 2z.
+\end{align*}
+إذن $(z^2)' = 2z$، والدالة تحليلية في المستوي المركب كله.
+\end{example}
+
+\begin{example}[مشتقة $f(z) = \dfrac{1}{z}$]
+من أجل $z \neq 0$ يتحقق الآتي:
+\[
+  f'(z) = \lim_{h \to 0} \frac{\frac{1}{z+h} - \frac{1}{z}}{h}
+        = \lim_{h \to 0} \frac{z - (z+h)}{h(z+h)z}
+        = \lim_{h \to 0} \frac{-1}{(z+h)z}
+        = -\frac{1}{z^2}.
+\]
+الدالة $f(z) = 1/z$ تحليلية في المستوي المركب باستثناء النقطة $z = 0$.
+\end{example}
+
+\begin{example}[مشتقة الدالة الأسية]
+من التعريف:
+\[
+  f'(z) = \lim_{h \to 0} \frac{e^{z+h} - e^z}{h}
+        = e^z \lim_{h \to 0} \frac{e^{h} - 1}{h}
+        = e^z.
+\]
+فالدالة الأسية $e^z$ تساوي مشتقتها، وهي تحليلية فوق كامل المستوي المركب.
+\end{example}
+
+\begin{example}[مشتقات الدوال المثلثية واللوغاريتم]
+بالطريقة نفسها يمكن التحقق من القواعد الآتية:
+\begin{align*}
+  (\sin z)' &= \cos z, & (\cos z)' &= -\sin z, & (\operatorname{Log} z)' &= \frac{1}{z}.
+\end{align*}
+حيث $\operatorname{Log} z$ هي اللوغاريتم الرئيسي وتكون صالحة لأجل $z \neq 0$.
+\end{example}
+
+\begin{example}[اشتقاق ناتج الضرب والقسمة]
+بالاستعانة بقاعدة اشتقاق الضرب والقسمة:
+\[
+  (f g)' = f' g + f g', \qquad \left(\frac{f}{g}\right)' = \frac{f' g - f g'}{g^2}.
+\]
+فمثلاً لمشتقة $f(z) = z^2 e^z$ نجد
+\[
+  f'(z) = 2z\, e^z + z^2 e^z = (z^2 + 2z)\, e^z,
+\]
+ولمشتقة $g(z) = \frac{\sin z}{z}$ لأجل $z \neq 0$:
+\[
+  g'(z) = \frac{z\cos z - \sin z}{z^2}.
+\]
+\end{example}
+
+\subsection{شروط كوشي-ريمان}
+
+سنعرض دالة مركبة $f$ بدلالة جزأي الحقيقة والتخيل بكتابتها على الصورة $f(z) = u(x,y) + i v(x,y)$ حيث $z = x + iy$. عندئذ تكون الدالة $f$ تحليلية إذا وإذا فقط تحقق شروط كوشي-ريمان الآتية:
+\begin{align*}
+  \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \qquad
+  \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}.
+\end{align*}
+
+\begin{example}[التحقق من التحليلية عبر كوشي-ريمان]
+لدينا $f(z) = z^2 = (x^2 - y^2) + i(2xy)$، أي أن $u = x^2 - y^2$ و $v = 2xy$. نحسب المشتقات الجزئية:
+\[
+  u_x = 2x, \quad u_y = -2y, \quad v_x = 2y, \quad v_y = 2x.
+\]
+فنجد $u_x = v_y$ و $u_y = -v_x$، وبالتالي $f(z) = z^2$ دالة تحليلية في كل المستوي كما رأينا سابقاً.
+\end{example}
+
+\begin{example}[دالة غير تحليلية]
+للدالة $f(z) = \bar{z} = x - iy$ نجد $u = x$ و $v = -y$، وبالتالي $u_x = 1$ بينما $v_y = -1$ أي أن $u_x \neq v_y$، وبالتالي $f(z) = \bar{z}$ ليست تحليلية في أي نقطة. وهذا يعني أن الدالة المرافقة $\bar{z}$ لا تقبل مشتقة مركبة في أي موضع.
+\end{example}
+
+\section{أمثلة برمجية بلغة بايثون}
+
+يمكن إدراج الأكواد البرمجية داخل الوثيقة باستخدام حزمة \texttt{listings}. فيما يلي أمثلة برمجية تتعلق بالأعداد المركبة والدوال المركبة.
+
+\subsection{مثال: التعامل مع الأعداد المركبة في بايثون}
+
+في بايثون تُمثل الوحدة التخيلية بالحرف \texttt{j}، كما يوضح المثال التالي:
+\begin{otherlanguage}{english}
+\begin{lstlisting}[caption={Adding two complex numbers in Python}]
+z1 = 3 + 4j
+z2 = 1 - 2j
+
+print("z1 + z2 =", z1 + z2)     # (4+2j)
+print("z1 * z2 =", z1 * z2)     # (11-2j)
+
+re = z1.real
+im = z1.imag
+print("Re(z1) =", re, "Im(z1) =", im)
+\end{lstlisting}
+\end{otherlanguage}
+
+\subsection{مثال: حساب المشتقة عددياً}
+
+نطبق تعريف المشتقة \eqref{eq:der} برمجياً بطريقة الاشتقاق المركزي:
+\begin{otherlanguage}{english}
+\begin{lstlisting}[label={lst:derivative}, caption={Numerical derivative of a complex function}]
+import cmath
+
+def fd(f, z, h=1e-8):
+    return (f(z + h) - f(z - h)) / (2 * h)
+
+def square(z):
+    return z * z
+
+z = 2 + 3j
+numerical = fd(square, z)
+analytic  = 2 * z
+print("numerical:", numerical)
+print("analytic :", analytic)
+\end{lstlisting}
+\end{otherlanguage}
+
+\subsection{مثال: تحقق من الدالة الأسية بالرسم}
+
+يرسم البرنامج في القائمة \ref{lst:derivative} بمساعدة حزمة \texttt{matplotlib} منحنى درجة $|e^z|$ فوق المستوي المركب:
+\begin{otherlanguage}{english}
+\begin{lstlisting}[caption={Plot of the modulus of exp(z) using matplotlib}]
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(-2, 2, 200)
+y = np.linspace(-2, 2, 200)
+X, Y = np.meshgrid(x, y)
+
+Z = np.exp(X + 1j * Y)
+plt.contour(X, Y, np.abs(Z), levels=20)
+plt.colorbar(label="|exp(z)|")
+plt.title("|exp(z)|")
+plt.show()
+\end{lstlisting}
+\end{otherlanguage}
+
+\subsection{مثال: دورة عادية في بايثون}
+
+هذا المثال يبرز الاستخدام العام للحلقة والشرط في بايثون:
+\begin{otherlanguage}{english}
+\begin{lstlisting}[caption={Finding prime numbers up to 100}]
+def is_prime(n):
+    if n < 2:
+        return False
+    for d in range(2, int(n ** 0.5) + 1):
+        if n % d == 0:
+            return False
+    return True
+
+primes = [p for p in range(100) if is_prime(p)]
+print(primes)
+\end{lstlisting}
+\end{otherlanguage}

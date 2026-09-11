@@ -1,0 +1,110 @@
+% !TeX program = xelatex
+
+\documentclass[]{article}
+\usepackage{ragged2e}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[a4paper, margin=0.7in]{geometry}
+\usepackage{listings}
+\usepackage{lstautogobble}
+\usepackage{float, graphicx, subcaption}
+\usepackage{xcolor} % 1. Load the color package
+
+\usepackage[fontsize=14pt]{scrextend}
+
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\setmonofont{Iosevka Nerd Font}
+
+\usepackage{amssymb, amsmath}
+\usepackage[lite, zswash]{mtpro2}
+\DeclareMathSymbol{0}{\mathalpha}{operators}{`0}
+\DeclareMathSymbol{1}{\mathalpha}{operators}{`1}
+\DeclareMathSymbol{2}{\mathalpha}{operators}{`2}
+\DeclareMathSymbol{3}{\mathalpha}{operators}{`3}
+\DeclareMathSymbol{4}{\mathalpha}{operators}{`4}
+\DeclareMathSymbol{5}{\mathalpha}{operators}{`5}
+\DeclareMathSymbol{6}{\mathalpha}{operators}{`6}
+\DeclareMathSymbol{7}{\mathalpha}{operators}{`7}
+\DeclareMathSymbol{8}{\mathalpha}{operators}{`8}
+\DeclareMathSymbol{9}{\mathalpha}{operators}{`9}
+
+% 2. Define your custom color palette
+\definecolor{codekeyword}{RGB}{0, 102, 204}    % Deep Blue
+\definecolor{codestring}{RGB}{0, 153, 76}     % Forest Green
+\definecolor{codecomment}{RGB}{128, 128, 128} % Muted Gray
+\definecolor{codebg}{RGB}{245, 245, 245}      % Light Gray Background
+
+% 3. Apply colors to the listings settings
+\lstset{
+	basicstyle=\small\ttfamily,
+	numbers=left,
+	numberstyle=\ttfamily,
+	autogobble=true,
+	backgroundcolor=\color{codebg}, 
+	keywordstyle=\color{codekeyword}\bfseries, 
+	stringstyle=\color{codestring},    
+	commentstyle=\color{codecomment}, 
+	breaklines=true, 
+	showstringspaces=false            
+}
+
+\begin{document}
+	
+	Let's introduce the first inkscape figure
+	\begin{figure}[H]
+		\input{drawing.pdf_tex}
+	\end{figure}
+
+	
+	
+	\begin{figure}
+		\begin{subfigure}{0.45\textwidth}
+			\def\svgwidth{8.5cm}
+			\input{paths.pdf_tex}
+			\caption{Paths in Complex Plane}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}{0.55\textwidth}
+			\def\svgwidth{10.5cm}
+			\input{circle.pdf_tex}
+			\caption{The difference between $|z|=r$ and $|z|=2r$}
+		\end{subfigure}
+	\end{figure}
+	
+	
+	\begin{figure}[H]
+		\def\svgwidth{15cm}
+		\input{area.pdf_tex}
+	\end{figure}
+	
+	\begin{figure}[H]
+%		\def\svgwidth{15cm}
+		\input{grid.pdf_tex}
+	\end{figure}
+	
+%	\newpage
+	Here some text before the TikZ
+	\begin{figure}[H]
+		\centering
+		\includegraphics{ipetest.pdf}
+	\end{figure}
+	And here after the TikZ
+	
+	Let us do this BRO, the equation \(1 + 2 + 3 + \cdots+5\cdot\infty = \dfrac{-1}{12}\)
+	\begin{lstlisting}[language=Octave, gobble=15, title=$\centerdot$\texttt{Matlab/Octave}]
+		f = @(x) x^2 - 5;
+		df = @(x) 2 * x; 
+		
+		x0 = 1;
+		e = 1e-12;
+		i = 0;
+		
+		while abs(f(x0)) > e
+			x0 = x0 - f(x0) / df(x0);
+			i = i + 1;
+		end
+		
+		fprintf("The solution is %f in %d iterations", x0, i)
+	\end{lstlisting}
+	
+\end{document}
