@@ -1,12 +1,6 @@
 # Ignore compiled PDFs
 *.pdf
 
-# Ignore common image formats
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.svg
 
 
 # Core LaTeX auxiliary files

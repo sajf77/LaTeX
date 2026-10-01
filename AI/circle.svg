@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="124.76077mm"
+   height="100.45164mm"
+   viewBox="0 0 124.76077 100.45165"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   sodipodi:docname="circle.svg"
+   inkscape:export-filename="circle.pdf"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.0122726"
+     inkscape:cx="214.36914"
+     inkscape:cy="202.51463"
+     inkscape:window-width="1362"
+     inkscape:window-height="722"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="marker17"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path17" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-32.913348,-56.16601)">
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;opacity:1;fill:none;stroke:#000000;stroke-width:0.499999;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       x="95.293732"
+       y="106.39183"
+       id="text9"><tspan
+         sodipodi:role="line"
+         id="tspan9"
+         style="stroke-width:0.5"
+         x="95.293732"
+         y="106.39183" /></text>
+    <ellipse
+       style="opacity:1;fill:#000000;fill-opacity:0.455513;stroke:#000000;stroke-width:0.226035;stroke-linejoin:round;stroke-dasharray:1.80828, 0.226035;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+       id="path15"
+       cx="95.293694"
+       cy="106.39198"
+       rx="29.887016"
+       ry="29.886887" />
+    <ellipse
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.228005;stroke-linejoin:round;stroke-dasharray:1.82404, 0.228005;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+       id="path16"
+       cx="95.293739"
+       cy="106.39183"
+       rx="14.886025"
+       ry="14.886001" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker17);marker-end:url(#Triangle)"
+       d="m 34.688885,106.39183 c 121.209695,0 121.209695,0 121.209695,0"
+       id="path8" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker17);marker-end:url(#Triangle)"
+       d="m 95.293734,57.941541 c 0,96.900579 0,96.900579 0,96.900579"
+       id="path7" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+       x="132.39664"
+       y="85.270172"
+       id="text17"><tspan
+         sodipodi:role="line"
+         id="tspan17"
+         style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+         x="132.39664"
+         y="85.270172">$|z|=2r$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+       x="115.72794"
+       y="104.0556"
+       id="text18"><tspan
+         sodipodi:role="line"
+         id="tspan18"
+         style="fill:none;fill-opacity:1;stroke-width:0.3;stroke-dasharray:none"
+         x="115.72794"
+         y="104.0556">$|z|=r$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+       x="95.17704"
+       y="110.70531"
+       id="text25"><tspan
+         sodipodi:role="line"
+         id="tspan25"
+         style="stroke-width:0.3"
+         x="95.17704"
+         y="110.70531">$O$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+       x="150.39233"
+       y="112.24416"
+       id="text26"><tspan
+         sodipodi:role="line"
+         id="tspan26"
+         style="stroke-width:0.3"
+         x="150.39233"
+         y="112.24416">$x$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+       x="96.715881"
+       y="60.479492"
+       id="text27"><tspan
+         sodipodi:role="line"
+         id="tspan27"
+         style="stroke-width:0.3"
+         x="96.715881"
+         y="60.479492">$y$</tspan></text>
+  </g>
+</svg>

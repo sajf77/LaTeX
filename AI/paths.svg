@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="190.9478mm"
+   height="158.22273mm"
+   viewBox="0 0 190.9478 158.22273"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   sodipodi:docname="paths.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.66170824"
+     inkscape:cx="410.30168"
+     inkscape:cy="317.36041"
+     inkscape:window-width="1362"
+     inkscape:window-height="722"
+     inkscape:window-x="2"
+     inkscape:window-y="2"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker13"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path13" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker12"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path12" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker3"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path3" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(8.0045543,-56.199303)"
+     style="display:inline">
+    <path
+       style="opacity:0.409214;fill:#4d4d4d;fill-opacity:1;stroke:#000000;stroke-width:1.20189;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       d="m 464.33967,458.16239 v -33.7057 l 3.44106,2.957 c 15.88735,13.6525 31.24671,21.5553 49.99647,25.72452 7.36143,1.63689 10.61855,1.88502 24.28978,1.8504 13.08144,-0.0331 17.17652,-0.34175 23.88495,-1.80009 7.78446,-1.69224 18.52129,-5.0578 24.89703,-7.80419 l 3.03622,-1.30787 v 23.89582 23.89581 h -64.77275 -64.77276 z"
+       id="path16"
+       transform="matrix(0.26458333,0,0,0.26458333,-8.0045543,56.199303)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.918001;stroke-linejoin:round;marker-end:url(#marker3);paint-order:markers fill stroke"
+       d="m 149.34371,172.93604 c 9.40013,-4.51826 16.52748,-13.4355 16.52748,-24.71072"
+       id="path27" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.318;stroke-linejoin:round;stroke-dasharray:2.544, 0.318;stroke-dashoffset:0;paint-order:markers fill stroke"
+       d="m 114.21691,166.83369 c 9.44058,10.62066 23.90361,11.49687 35.1268,6.10235"
+       id="path26" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.918001;stroke-linejoin:round;marker-start:url(#marker13);paint-order:markers fill stroke"
+       d="M 33.687572,88.871024 C 47.790338,85.947953 62.496697,78.28169 77.000165,77.641833 c 86.877395,-3.832826 4.51697,52.404607 37.216745,89.191857"
+       id="path2" />
+    <circle
+       id="path4"
+       style="fill:#000000;stroke:none;stroke-width:0.264583"
+       cx="111.29652"
+       cy="120.50294"
+       r="1.377" />
+    <circle
+       id="path5"
+       style="fill:#000000;stroke:none;stroke-width:0.264583"
+       cx="114.21691"
+       cy="166.83369"
+       r="1.377" />
+    <circle
+       id="path6"
+       style="fill:#000000;stroke:none;stroke-width:0.264583"
+       cx="89.205711"
+       cy="77.519562"
+       r="1.377" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;fill:none;stroke:#000000;stroke-width:0.318;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers fill stroke"
+       x="82.729347"
+       y="88.533516"
+       id="text6"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;fill:none;stroke:#000000;stroke-width:0.318;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers fill stroke"
+         x="82.729347"
+         y="88.533516">$C_1$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;fill:none;stroke:#000000;stroke-width:0.318;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers fill stroke"
+       x="116.19196"
+       y="122.9586"
+       id="text7"><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         style="stroke-width:0.318;stroke-dasharray:none"
+         x="116.19196"
+         y="122.9586">$C_2$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;fill:none;stroke:#000000;stroke-width:0.318;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers fill stroke"
+       x="118.87112"
+       y="164.58784"
+       id="text8"><tspan
+         sodipodi:role="line"
+         id="tspan8"
+         style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;fill:none;stroke:#000000;stroke-width:0.318;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers fill stroke"
+         x="118.87112"
+         y="164.58784">$C_3$</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.918001;stroke-linejoin:round;marker-end:url(#marker13);paint-order:markers fill stroke"
+       d="m -8.0045543,186.8303 c 187.6879043,0 187.6879043,0 187.6879043,0"
+       id="path9" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.918001;stroke-linejoin:round;marker-start:url(#marker12);paint-order:markers fill stroke"
+       d="m 7.7163117,59.459193 c 0,154.962837 0,154.962837 0,154.962837"
+       id="path10" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;fill:none;stroke:#000000;stroke-width:0.318;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers fill stroke"
+       x="30.687832"
+       y="79.230095"
+       id="text10"><tspan
+         sodipodi:role="line"
+         style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;fill:none;stroke:#000000;stroke-width:0.318;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers fill stroke"
+         x="30.687832"
+         y="79.230095"
+         id="tspan11">$\Gamma$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;fill:none;stroke:#000000;stroke-width:0.318;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers fill stroke"
+       x="171.56668"
+       y="195.20537"
+       id="text13"><tspan
+         sodipodi:role="line"
+         id="tspan13"
+         style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;fill:none;stroke:#000000;stroke-width:0.318;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers fill stroke"
+         x="171.56668"
+         y="195.20537">$x$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;fill:none;stroke:#000000;stroke-width:0.318;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers fill stroke"
+       x="11.807996"
+       y="68.121712"
+       id="text14"><tspan
+         sodipodi:role="line"
+         id="tspan14"
+         style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;fill:none;stroke:#000000;stroke-width:0.318;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers fill stroke"
+         x="11.807996"
+         y="68.121712">$y$</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.318;stroke-linejoin:round;stroke-dasharray:1.272, 0.318;stroke-dashoffset:0;paint-order:markers fill stroke"
+       d="m 114.21691,166.83369 c 0,19.88908 0,19.80195 0,19.80195"
+       id="path14" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.318;stroke-linejoin:round;stroke-dasharray:1.272, 0.318;stroke-dashoffset:0;paint-order:markers fill stroke"
+       d="m 149.71544,172.75447 c 0,14.03547 0,14.03547 0,14.03547"
+       id="path15" />
+    <path
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.618;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Triangle);paint-order:markers fill stroke"
+       d="M 81.691213,169.17676 C 123.1356,180.28175 123.1356,180.28175 123.1356,180.28175"
+       id="path28" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.318;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+       x="74.222023"
+       y="166.32491"
+       id="text28"><tspan
+         sodipodi:role="line"
+         id="tspan28"
+         style="font-size:4.9389px;font-family:'Iosevka Nerd Font';-inkscape-font-specification:'Iosevka Nerd Font';writing-mode:lr-tb;direction:ltr;fill:none;stroke:#000000;stroke-width:0.318;stroke-linejoin:round;stroke-dasharray:none;paint-order:markers fill stroke"
+         x="74.222023"
+         y="166.32491">$A$</tspan></text>
+  </g>
+</svg>
