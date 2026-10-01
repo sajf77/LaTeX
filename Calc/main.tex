@@ -1,74 +1,89 @@
-% !TeX program = lualatex
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{thmtools}
 
+% Define color palette matching the image
+\definecolor{thmorange}{HTML}{FFEAD5} % Theorem background
+\definecolor{exred}{HTML}{FFDCDD}     % Example background
+\definecolor{lemblue}{HTML}{E2E0FF}   % Lemma background
+\definecolor{corpink}{HTML}{FFF0F2}   % Corollary background
+\definecolor{defgray}{HTML}{E2E2E2}   % Definition background
 
-\documentclass[11pt, a4paper]{report}
+% Generic style generator for solid background boxes
+\mdfdefinestyle{solidbox}{
+	hidealllines=true,
+	innerleftmargin=12pt,
+	innerrightmargin=12pt,
+	innertopmargin=10pt,
+	innerbottommargin=10pt,
+	skipabove=12pt,
+	skipbelow=12pt
+}
 
-\input{preamble.tex}
+% Define theorem styles using thmtools + mdframed
+\declaretheoremstyle[
+headfont=\bfseries,
+bodyfont=\itshape,
+mdframed={style=solidbox, backgroundcolor=thmorange}
+]{thmstyle}
+
+\declaretheoremstyle[
+headfont=\bfseries,
+bodyfont=\normalfont,
+mdframed={style=solidbox, backgroundcolor=exred}
+]{exstyle}
+
+\declaretheoremstyle[
+headfont=\bfseries,
+bodyfont=\itshape,
+mdframed={style=solidbox, backgroundcolor=lemblue}
+]{lemstyle}
+
+\declaretheoremstyle[
+headfont=\bfseries,
+bodyfont=\itshape,
+mdframed={style=solidbox, backgroundcolor=corpink}
+]{corstyle}
+
+\declaretheoremstyle[
+headfont=\bfseries,
+bodyfont=\normalfont,
+mdframed={style=solidbox, backgroundcolor=defgray}
+]{defstyle}
+
+% Declare theorem environments
+\declaretheorem[style=thmstyle, name=Theorem, numberwithin=section]{theorem}
+\declaretheorem[style=exstyle, name=Example, numberwithin=section]{example}
+\declaretheorem[style=lemstyle, name=Lemma, numberwithin=section]{lemma}
+\declaretheorem[style=corstyle, name=Corollary, numberwithin=section]{corollary}
+\declaretheorem[style=defstyle, name=Definition, numberwithin=section]{definition}
 
 \begin{document}
-
-\begin{titlepage}
-    \begin{tikzpicture}[remember picture, overlay]
-
-        \fill[darkSlate] (current page.north west) rectangle ([xshift=6cm] current page.south west);
-    
-        \fill[secondaryColor] ([xshift=6cm] current page.north west) rectangle ([xshift=6.2cm] current page.south west);
-        
-        \node[opacity=0.1, circle, fill=white, minimum size=15cm] at ([xshift=3cm, yshift=5cm] current page.south west) {};
-        \node[opacity=0.1, circle, fill=white, minimum size=8cm] at ([xshift=3cm, yshift=-5cm] current page.north west) {};
-        
-  
-        \node[anchor=north west, inner sep=0] at ([xshift=8cm, yshift=-6cm] current page.north west) {
-            \begin{minipage}{11cm}          
-                \raggedright                  
-                \color{darkSlate}
-                \sffamily
-                \fontsize{54}{64}\selectfont
-                \textbf{Calculus I}
-                \par\vspace{0.6cm}            
-                \fontsize{20}{25}\selectfont
-                \textcolor{primaryColor}{Course Handouts}
-            \end{minipage}
-        };
-        
-        \node[anchor=south west, inner sep=0] at ([xshift=8cm, yshift=-24cm] current page.north west) {
-            \begin{minipage}{10cm}
-                \color{darkSlate}
-                \sffamily\large
-                \textbf{Author:} \\
-                Ludwig Claude Lelis
-            \end{minipage}
-        };
-
-        \node[rotate=90, anchor=north, text=white] at ([xshift=3cm, yshift=-0.4cm] current page.west) {
-            \sffamily\fontsize{28}{28}\selectfont \textbf{COURSE NOTES \hspace{2cm} CALC I}
-        };
-    \end{tikzpicture}
-\end{titlepage}
-
-\clearpage
-\pagenumbering{roman}         
-\pdfbookmark[0]{Contents}{toc}
-
-\pagestyle{empty}             
-\tableofcontents
-\clearpage
-
-\pagenumbering{arabic}       
-\pagestyle{fancy}             
-\sectionpage{Limits and Continuity}
-
-\input{chapters/ch01/sec1-1.tex}
-\newpage
-\input{chapters/ch01/sec1-2.tex}
-\newpage
-\input{chapters/ch01/sec1-3.tex}
-\newpage
-\input{chapters/ch01/sec1-4.tex}
-\newpage
-\input{chapters/ch01/sec1-5.tex}
-\newpage
-\input{chapters/ch01/sec1-6.tex}
-\newpage
-\input{chapters/ch01/sec1-7.tex}
+	
+	\section{Introduction}
+	
+	\begin{theorem}
+		If $V \subseteq U$, and if $F$ is a set of binary functions defined on $U$, then there exists a unique $\operatorname{clos}_F(V)$ and it is closed under $F$.
+	\end{theorem}
+	
+	\begin{example}
+		Let $V = \{\{1,2\}, \{2,3\}\}$, and $F$ be the set containing the set-union and set-intersection operations, denoted $F = \{\cup, \cap\}$. Then $\operatorname{clos}_F(V) = \{\emptyset, \{1,2\}, \{2\}, \{2,3\}, \{1,2,3\}\}$, because if we take $\alpha, \beta \in \{\emptyset, \{1,2\}, \{2\}, \{2,3\}, \{1,2,3\}\}$ then both $\alpha \cup \beta$ and $\alpha \cap \beta$ are also therein.
+	\end{example}
+	
+	\begin{lemma}
+		If $V \subseteq U$, and $F$ is the set of three primitive set operations union, intersection, and relative complement, ($F = \{\cup, \cap, \setminus\}$) then we denote $\operatorname{clos}_F(V)$ simply by $\sigma(V)$ and call it the Sigma algebra of $V$. Moreover, each element of $\sigma(V)$ is called a Boolean combination of elements of $V$.
+	\end{lemma}
+	
+	\section{Conclusion}
+	
+	\begin{corollary}
+		If $V \subseteq U$, $\sigma(V)$ exists and is unique.
+	\end{corollary}
+	
+	\begin{definition}
+		Let $V = \{\{1,2\}, \{2,3\}\}$ as in Example 1.1. $\sigma(V) = \{\emptyset, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}$. $\sigma(V) = \rho(\{1,2,3\})$.
+	\end{definition}
+	
 \end{document}

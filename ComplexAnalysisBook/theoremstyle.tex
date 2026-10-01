@@ -1,0 +1,79 @@
+\documentclass{report}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{thmtools}
+\usepackage{xcolor}
+
+\definecolor{thmred}{HTML}{e86d70}
+\definecolor{defgreen}{HTML}{14b840}
+\definecolor{exorange}{HTML}{a88c00}
+
+\makeatletter
+
+% ---- per-section total tracking (2-pass, via the .aux file) -------------
+\newcommand{\@setsectiontotal}[3]{\expandafter\gdef\csname sectiontotal@#1@#2\endcsname{#3}}
+\newcommand{\getsectiontotal}[2]{%
+	\ifcsname sectiontotal@#1@#2\endcsname
+	\csname sectiontotal@#1@#2\endcsname
+	\else
+	2 % unknown on the first pass: default to "more than one" so numbers show
+	\fi
+}
+% unique per-chapter-and-section key, plain ASCII digits only
+\newcommand{\sectionkey}{\arabic{chapter}-\arabic{section}}
+
+% #1 = counter/environment name (e.g. example), #2 = the \colorbox etc.
+\newcommand{\thmheadnumber}[1]{%
+	\immediate\write\@auxout{\string\@setsectiontotal{#1}{\sectionkey}{\the\value{#1}}}%
+	\ifnum\getsectiontotal{#1}{\sectionkey}>1 ~\NUMBER\fi
+}
+\makeatother
+
+% Theorem styles
+\declaretheoremstyle[
+headfont=\bfseries,
+headformat={\colorbox{thmred}{\NAME\thmheadnumber{theorem}}\\},
+headpunct={},
+bodyfont=\itshape
+]{thmstyle}
+
+\declaretheoremstyle[
+headfont=\bfseries,
+headformat={\colorbox{exorange}{\NAME\thmheadnumber{example}}\\},
+headpunct={},
+bodyfont=\normalfont
+]{exstyle}
+
+\declaretheoremstyle[
+headfont=\bfseries,
+headformat={\colorbox{defgreen}{\NAME\thmheadnumber{definition}}\\},
+headpunct={},
+bodyfont=\normalfont
+]{defstyle}
+
+\declaretheorem[style=thmstyle, name=Theorem, numberwithin=section]{theorem}
+\declaretheorem[style=exstyle, name=Example, numberwithin=section]{example}
+\declaretheorem[style=defstyle, name=Definition, numberwithin=section]{definition}
+\renewcommand{\thetheorem}{\arabic{theorem}}
+\renewcommand{\theexample}{\arabic{example}}
+\renewcommand{\thedefinition}{\arabic{definition}}
+
+\begin{document}
+	\chapter{First}
+	
+	\section{Only one example here}
+	\begin{example} Should show just "Example", no number. \end{example}
+	
+	\section{Two examples here}
+	\begin{example} Should show "Example 1". \end{example}
+	Some text.
+	\begin{example} Should show "Example 2". \end{example}
+	
+	\section{One theorem, one definition, one example}
+	\begin{theorem} Should show just "Theorem". \end{theorem}
+	\begin{definition} Should show just "Definition". \end{definition}
+	\begin{example} Should show just "Example". \end{example}
+	
+	\chapter{Second}
+	\section{Only one example here}
+	\begin{example} Same section number as chapter 1's section 1 -- must not clash. \end{example}
+\end{document}

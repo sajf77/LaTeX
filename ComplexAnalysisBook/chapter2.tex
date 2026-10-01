@@ -1,0 +1,115 @@
+\documentclass{report}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{thmtools}
+\usepackage{xcolor}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc}
+
+\definecolor{thmred}{HTML}{e86d70}
+\definecolor{defgreen}{HTML}{14b840}
+\definecolor{exorange}{HTML}{a88c00}
+
+\makeatletter
+
+% ---- per-section total tracking (2-pass, via the .aux file) -------------
+\newcommand{\@setsectiontotal}[3]{\expandafter\gdef\csname sectiontotal@#1@#2\endcsname{#3}}
+\newcommand{\getsectiontotal}[2]{%
+	\ifcsname sectiontotal@#1@#2\endcsname
+	\csname sectiontotal@#1@#2\endcsname
+	\else
+	2
+	\fi
+}
+\newcommand{\sectionkey}{\arabic{chapter}-\arabic{section}}
+
+\newcommand{\thmheadnumber}[1]{%
+	\immediate\write\@auxout{\string\@setsectiontotal{#1}{\sectionkey}{\the\value{#1}}}%
+	\ifnum\getsectiontotal{#1}{\sectionkey}>1 ~\NUMBER\fi
+}
+\makeatother
+
+\declaretheoremstyle[
+headfont=\bfseries,
+headformat={\colorbox{thmred}{\NAME\thmheadnumber{theorem}}\\},
+headpunct={},
+bodyfont=\itshape
+]{thmstyle}
+
+\declaretheoremstyle[
+headfont=\bfseries,
+headformat={\colorbox{exorange}{\NAME\thmheadnumber{example}}\\},
+headpunct={},
+bodyfont=\normalfont
+]{exstyle}
+
+\declaretheoremstyle[
+headfont=\bfseries,
+headformat={\colorbox{defgreen}{\NAME\thmheadnumber{definition}}\\},
+headpunct={},
+bodyfont=\normalfont
+]{defstyle}
+
+\declaretheorem[style=thmstyle, name=Theorem, numberwithin=section]{theorem}
+\declaretheorem[style=exstyle, name=Example, numberwithin=section]{example}
+\declaretheorem[style=defstyle, name=Definition, numberwithin=section]{definition}
+\renewcommand{\thetheorem}{\arabic{theorem}}
+\renewcommand{\theexample}{\arabic{example}}
+\renewcommand{\thedefinition}{\arabic{definition}}
+
+% ---- measureline: FIXED VERSION (no \p1/\n1 — macro-safe) ----
+\newcommand{\measureShrink}{0.34}
+
+% \measureline{start}{end}{label}{label pos}{offset}
+\newcommand{\measureline}[5]{%
+	\begin{scope}
+		\coordinate (mlS) at (#1);
+		\coordinate (mlE) at (#2);
+		
+		\pgfpointdiff{\pgfpointanchor{mlS}{center}}{\pgfpointanchor{mlE}{center}}
+		\pgfgetlastxy{\mlDx}{\mlDy}
+		\pgfmathsetmacro{\mlAng}{atan2(\mlDy,\mlDx)}
+		
+		\coordinate (mlSin) at ($(mlS)+(\mlAng+90:#5)+(\mlAng:\measureShrink)$);
+		\coordinate (mlEin) at ($(mlE)+(\mlAng+90:#5)-(\mlAng:\measureShrink)$);
+		
+	
+		
+		\draw[thick, {Bar[width=6pt]}-{Bar[width=6pt]}] (mlSin) -- (mlEin)
+		node[midway, #4] {#3};
+	\end{scope}
+}
+
+\begin{document}
+	
+	\begin{tikzpicture}[x=1.5cm, y=1.5cm]
+		\draw (-3, 0) -- (3, 0) node[below left, xshift=6pt] {$x$};
+		\draw (0, -3) -- (0, 3) node[below left, yshift=3pt] {$y$};
+		\draw[color=black, very thick] (0, 0) -- (2, 0);
+		\draw[color=black, very thick] (2, 0) --++ (0,2);
+		\draw[color=black, very thick] (0, 0) -- (2,2);
+		
+		\measureline{0, 0}{2, 0}{2}{below}{-0.2}
+		\measureline{0, 0}{2,2}{$\sqrt{8}$}{above, sloped}{.2}
+		\measureline{2,0}{2,2}{2}{right}{-0.2}
+	\end{tikzpicture}
+	
+	\chapter{First}
+	
+	\section{Only one example here}
+	\begin{example} Should show just "Example", no number. \end{example}
+	
+	\section{Two examples here}
+	\begin{example} Should show "Example 1". \end{example}
+	Some text.
+	\begin{example} Should show "Example 2". \end{example}
+	
+	\section{One theorem, one definition, one example}
+	\begin{theorem} Should show just "Theorem". \end{theorem}
+	\begin{definition} Should show just "Definition". \end{definition}
+	\begin{example} Should show just "Example". \end{example}
+	
+	\chapter{Second}
+	\section{Only one example here}
+	\begin{example} Same section number as chapter 1's section 1 -- must not clash. \end{example}
+\end{document}

@@ -1,33 +1,96 @@
 % !TeX program = lualatex
 
-\documentclass[14pt, a4paper]{extarticle}
-\usepackage[margin=0.5in]{geometry}
+\documentclass[a4paper,14pt]{extreport} % Using extbook for true 14pt base size
+\usepackage[
+top=0.85in,
+bottom=1in,
+inner=0.775in,
+outer=0.75in,
+]{geometry}
+\usepackage{setspace}
+\setstretch{1.45}
+
+\usepackage{amsmath, amssymb, amsthm}
+
 
 \usepackage{fontspec}
 \setmainfont{Times New Roman}
 \usepackage{fontspec}
-\usepackage[lite]{mtpro2}
+\usepackage[lite, subscriptcorrection, zswash]{mtpro2}
 \usepackage{graphicx}
 
 \usepackage[low-sup]{subdepth}
 
+\usepackage{lipsum}
+
+\newcounter{myfig}
+\newenvironment{myfigure}[1][]{%
+	\par\vspace{\intextsep}\noindent
+	\begin{minipage}{\linewidth}
+		\def\mycaption{#1}%
+	}{%
+		\refstepcounter{myfig}%
+		\quad\noindent
+		\ifx\mycaption\empty
+		\textbf{FIGURE \themyfig}%
+		\else
+		\begin{tabular}[b]{@{}l@{}}
+			\textbf{FIGURE \themyfig} \\
+			\mycaption
+		\end{tabular}%
+		\fi
+	\end{minipage}%
+	\par\vspace{\intextsep}%
+}
+
+\newtheorem{theorem}{Theorem}
+
+
+
 \begin{document}
-	\(\sigma_{\! K}\)
-	
-	\begin{figure}
+\begin{theorem}
+	If $f(z)$ is analytic in a simply connected domain $D$, and $\gamma$ is a closed rectifiable curve in $D$, then:
+	\[
+	\oint_{\gamma} f(z) \, dz = 0
+	\]
+\end{theorem}
+
+\begin{theorem}
+	Let $f(z)$ be analytic inside and on a simple closed contour $C$, oriented counterclockwise. If $z_0$ is any point in the interior of $C$, then:
+	\[
+	f(z_0) = \frac{1}{2\pi i} \oint_{C} \frac{f(z)}{z - z_0} \, dz
+	\]
+\end{theorem}
+
+\begin{theorem}
+	Every bounded entire function $f: \mathbb{C} \to \mathbb{C}$ must be constant. That is, if $f(z)$ is analytic for all $z \in \mathbb{C}$ and there exists a constant $M$ such that $|f(z)| \le M$, then $f(z) = C$ for all $z$.
+\end{theorem}
+
+\begin{theorem}
+	Let $D$ be a simply connected open subset of the complex plane, and $f$ be a function analytic on $D$ except for a finite set of isolated singularities $\{z_1, z_2, \dots, z_n\}$. If $\gamma$ is a simple closed positively oriented curve in $D$ that does not pass through any singularity, then:
+	\[
+	\oint_{\gamma} f(z) \, dz = 2\pi i \sum_{k=1}^{n} \operatorname{Res}(f, z_k)
+	\]
+\end{theorem}
+
+	\begin{myfigure}
 		\includegraphics{circle.pdf}
-		\includegraphics{pattern.pdf}
-	\end{figure}
-	
-	\newpage 
-	\noindent cas12\\
-		\noindent\includegraphics{composefunction.pdf}
-		
+	\end{myfigure}
+	\begin{myfigure}
+				\includegraphics{pattern.pdf}
+	\end{myfigure}
+	\begin{myfigure}[$\epsilon, \delta, \gamma$]
+    \includegraphics{composefunction}
+	\end{myfigure}		
 		\newpage
 		\noindent\includegraphics{complexvars.pdf}
 		
 		\newpage
 		\noindent\includegraphics{boxedlabel}
 	
+	
+	\begin{myfigure}
+		\includegraphics{contour}
+	\end{myfigure}
 \end{document}
 

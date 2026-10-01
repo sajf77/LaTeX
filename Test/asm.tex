@@ -1,0 +1,51 @@
+\documentclass[tikz, border=10pt]{standalone}
+\usetikzlibrary{decorations.markings, arrows.meta, calc, 3d, perspective, angles, quotes}
+
+\tikzset{
+	tri/.tip={Triangle[angle=30:8pt]},
+	dashed/.style={dash pattern=on 5pt off 3pt}
+}
+
+\usepackage{amsmath}
+
+\begin{document}
+	
+	\begin{tikzpicture}[3d view={120}{30}, thick, line cap=round]
+		
+		\draw[-tri, gray!70] (0, 0, 0) -- (5, 0, 0) node[below left, xshift=6pt] {$x$};
+		\draw[-tri, gray!70] (0,0,0) -- (0,5,0) node[right, black] {$y$};
+		\draw[-tri, gray!70] (0,0,0) -- (0,0,4.5) node[above, black] {$z$};
+		
+		\pgfmathsetmacro{\phiAngle}{atan2(2, 1)} 
+		\pgfmathsetmacro{\R}{sqrt(1^2 + 2^2 + 3^2)}       % 3D sphere radius R = sqrt(14)
+		
+		% 1. Arc on XY plane from X-axis to Y-axis with radius R
+		\begin{scope}[canvas is xy plane at z=0]
+			\draw[dashed] (\R, 0) 
+			arc[start angle=0, end angle=90, radius=\R];
+		\end{scope}
+		
+		% 2. Elevation arc from Z-axis to XY plane (0 to 90 degrees)
+		\draw[dashed, domain=0:90, samples=30] 
+		plot (
+		{\R * sin(\x) * cos(\phiAngle)},
+		{\R * sin(\x) * sin(\phiAngle)},
+		{\R * cos(\x)}
+		);
+		
+		\coordinate (O) at (0, 0, 0);
+		\coordinate (z) at (1,2,3);
+		\coordinate (zP) at (1,2,0);
+		\coordinate (zX) at (1,0,0);
+		\coordinate (zZ) at (0,0,3);
+		
+		\draw[-latex,  thick, red] (0,0,0) -- (z);
+		\draw[dashed,  thick, red] (z) -- (zP);
+		\draw[dashed,  thick, red] (O) -- (zP);
+		
+		\pic[draw, "$\phi$", angle eccentricity=1.5]  {angle = zX--O--zP};
+		\pic[draw, "$\theta$", angle eccentricity=1.5]  {angle = z--O--zZ};
+		
+	\end{tikzpicture}
+	
+\end{document}

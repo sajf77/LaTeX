@@ -1,0 +1,291 @@
+\documentclass[a4paper]{report}
+\usepackage[fontsize=14pt]{scrextend}
+\usepackage[
+top=0.85in,
+bottom=1in,
+inner=0.675in,
+outer=0.65in,
+]{geometry}
+\usepackage{setspace}
+\setstretch{1.5}
+
+\usepackage{needspace}
+\usepackage{etoolbox}
+
+\usepackage{enumitem}
+\setlist{nosep}
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{etoc}
+
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{autoparen}
+\usepackage{thmtools}
+
+\definecolor{thmred}{HTML}{e86d70}
+\definecolor{defgreen}{HTML}{14b840}
+\definecolor{exorange}{HTML}{a88c00}
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings, arrows.meta, calc, angles, quotes}
+
+\tikzset{
+	tri/.tip={Triangle[angle=30:8pt]},
+	dashed/.style={dash pattern=on 5pt off 3pt},
+	arrow at/.style n args={3}{
+		postaction={decorate,
+			decoration={markings,
+				mark=at position #1 with {
+					\arrow[xshift=5.25pt]{tri};
+					\node[#3] {#2};
+				}
+			}
+		}
+	},
+	arrow at/.default=0.5,
+}
+% ---- measureline: FIXED VERSION (no \p1/\n1 — macro-safe) ----
+\newcommand{\measureShrink}{0.34}
+
+% \measureline{start}{end}{label}{label pos}{offset}
+\newcommand{\measureline}[5]{%
+	\begin{scope}
+		\coordinate (mlS) at (#1);
+		\coordinate (mlE) at (#2);
+		
+		\pgfpointdiff{\pgfpointanchor{mlS}{center}}{\pgfpointanchor{mlE}{center}}
+		\pgfgetlastxy{\mlDx}{\mlDy}
+		\pgfmathsetmacro{\mlAng}{atan2(\mlDy,\mlDx)}
+		
+		\coordinate (mlSin) at ($(mlS)+(\mlAng+90:#5)+(\mlAng:\measureShrink)$);
+		\coordinate (mlEin) at ($(mlE)+(\mlAng+90:#5)-(\mlAng:\measureShrink)$);
+		
+		
+		
+		\draw[thick, {Bar[width=6pt]}-{Bar[width=6pt]}] (mlSin) -- (mlEin)
+		node[midway, #4] {#3};
+	\end{scope}
+}
+
+\newcounter{myfig}
+\newenvironment{myfigure}[1][]{%
+	\par\vspace{\intextsep}\noindent
+	\begin{minipage}{\linewidth}
+		\def\mycaption{#1}%
+	}{%
+		\refstepcounter{myfig}%
+		\quad\noindent
+		\ifx\mycaption\empty
+		\textbf{الشكل \themyfig}%
+		\else
+		\begin{tabular}[b]{@{}l@{}}
+			\textbf{الشكل \themyfig} \\[-5pt]
+			\mycaption
+		\end{tabular}%
+		\fi
+	\end{minipage}%
+	\par\vspace{\intextsep}%
+}
+
+\usepackage{environ}
+\NewEnviron{exercises}{%
+	\section*{تمارين}%
+	\begin{tasks}[cols=1, label=\textbf{\arabic*.}]
+		\BODY
+	\end{tasks}
+} 
+
+
+\AtBeginDocument{
+	\allowdisplaybreaks
+	\renewcommand{\jot}{10pt}
+	\abovedisplayskip=5pt
+	\belowdisplayskip=10pt
+}
+
+
+
+\usepackage[main=arabic, bidi=basic, provide=*, layout=graphics]{babel}
+\babelprovide[import,justification=kashida, transforms=kashida.base]{arabic}
+\babelfont{rm}[Script=Arabic, ItalicFont=*, ItalicFeatures={FakeSlant=0.2}]{Times New Roman}
+
+\babelfont[english]{rm}{Times New Roman}
+\newcommand{\en}[1]{\foreignlanguage{english}{#1}}
+
+\newfontfamily{\farsi}{Gulzar}[Script=Arabic]
+\newfontfamily{\kufi}{Reem Kufi}[Script=Arabic]
+
+
+
+\usepackage[lite, zswash, subscriptcorrection, straightbraces]{mtpro2}
+\DeclareMathSymbol{0}{\mathalpha}{operators}{`0}
+\DeclareMathSymbol{1}{\mathalpha}{operators}{`1}
+\DeclareMathSymbol{2}{\mathalpha}{operators}{`2}
+\DeclareMathSymbol{3}{\mathalpha}{operators}{`3}
+\DeclareMathSymbol{4}{\mathalpha}{operators}{`4}
+\DeclareMathSymbol{5}{\mathalpha}{operators}{`5}
+\DeclareMathSymbol{6}{\mathalpha}{operators}{`6}
+\DeclareMathSymbol{7}{\mathalpha}{operators}{`7}
+\DeclareMathSymbol{8}{\mathalpha}{operators}{`8}
+\DeclareMathSymbol{9}{\mathalpha}{operators}{`9}
+
+\newcommand{\arabicordinal}[1]{%
+	\ifcase#1
+	\or الأول
+	\or الثاني
+	\or الثالث
+	\or الرابع
+	\or الخامس 
+	\or السادس
+	\or السابع
+	\or الثامن
+	\or التاسع
+	\or العاشر
+	\else \number#1
+	\fi
+}
+
+\renewcommand{\thechapter}{\arabicordinal{\value{chapter}}}
+
+\etocsettocstyle{
+	\vspace*{10pt}\noindent
+	{\farsi\fontsize{25pt}{20pt}\textbf{المحتويات}}
+	\vspace*{10pt}
+}{}
+
+\etocsetlevel{chapter}{-1}
+
+\etocsetstyle{chapter}{}{\par}{
+	\vspace{15pt}\noindent\textbf{الفصل \etocnumber : \etocname}
+}
+
+\etocsetlevel{schapter}{0}
+\etocsetstyle{schapter}{}{\par}{\vspace{15pt}\noindent\textbf{\etocname}\hfill\etocpage}
+
+
+\etocsetlevel{section}{1}
+\etocsetstyle{section}{}{\par}{\noindent\etocnumber~~\etocname\hfill\etocpage}
+
+
+\etocsetlevel{subsection}{2}
+\etocsetstyle{subsection}{}{\par}{\noindent\etocnumber~~\etocname\hfill\etocpage}
+
+\usepackage{enumitem}
+\usepackage[spacing=1.3]{tasksenv}
+\makeatletter
+
+
+
+
+
+\def\@makechapterhead#1{%
+	\vspace*{10pt}
+	{\noindent\farsi\fontsize{35pt}{35pt} \textbf{الفصل \thechapter} \\[25pt]
+	\kufi\textbf{#1}
+	}
+	\vspace*{150pt}
+	\thispagestyle{empty}
+}
+
+\def\@makeschapterhead#1{%
+	\vspace*{5\p@}%
+	{\parindent 0pt \centering
+		\normalfont
+		\interlinepenalty1000
+		\large \bfseries  #1\par\nobreak
+		\vskip 25\p@
+}}
+
+
+\renewenvironment{proof}[1]{
+	\par\noindent
+	\colorbox{gray!15}{\textbf{البرهان}}\par
+	\noindent#1}{$\blacksquare$\par}
+
+\makeatother
+
+\newenvironment{solution}[1]{
+	\par\noindent
+	\colorbox{gray!15}{\textbf{الحل}}\par
+	\noindent#1}{}
+
+\newenvironment{note}[1]{
+	\par\noindent
+	\colorbox{gray!15}{\textbf{ملاحظة}}\par
+	\noindent#1}{\par}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+% ---- per-section total tracking (2-pass, via the .aux file) -------------
+\makeatletter
+\newcommand{\@setsectiontotal}[3]{%
+	\expandafter\gdef\csname sectiontotal@#1@#2\endcsname{#3}}
+\newcommand{\getsectiontotal}[2]{%
+	\ifcsname sectiontotal@#1@#2\endcsname
+		\csname sectiontotal@#1@#2\endcsname
+	\else
+		2 % unknown on the first pass: default to "more than one"
+	\fi
+}
+\newcommand{\sectionkey}{\arabic{chapter}-\arabic{section}}
+\newcommand{\thmheadnumber}[1]{%
+	\immediate\write\@auxout{%
+		\string\@setsectiontotal{#1}{\sectionkey}{\the\value{#1}}}%
+	\ifnum\getsectiontotal{#1}{\sectionkey}>1 ~\NUMBER\fi
+}
+\makeatother
+
+% Theorem styles
+\declaretheoremstyle[
+	headfont=\bfseries,
+	headformat={\colorbox{thmred}{\NAME\thmheadnumber{theorem}}\\},
+	headpunct={},
+	bodyfont=\itshape
+]{thmstyle}
+
+\declaretheoremstyle[
+	headfont=\bfseries,
+	headformat={\colorbox{exorange}{\NAME\thmheadnumber{example}}\\},
+	headpunct={},
+	bodyfont=\normalfont
+]{exstyle}
+
+\declaretheoremstyle[
+	headfont=\bfseries,
+	headformat={\colorbox{defgreen}{\NAME\thmheadnumber{definition}}\\},
+	headpunct={},
+	bodyfont=\normalfont
+]{defstyle}
+
+% Theorem environments
+\declaretheorem[style=thmstyle, name=مبرهنة, numberwithin=section]{theorem}
+\declaretheorem[style=exstyle, name=مثال, numberwithin=section]{example}
+\declaretheorem[style=defstyle, name=تعريف, numberwithin=section]{definition}
+\renewcommand{\thetheorem}{\arabic{theorem}}
+\renewcommand{\theexample}{\arabic{example}}
+\renewcommand{\thedefinition}{\arabic{definition}}
+
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\HW}{\textcolor{red}{\en{H.W.}}}
+
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Arg}{Arg}
+\preto{\section}{\Needspace{4\baselineskip}}
+\preto{\subsection}{\Needspace{4\baselineskip}}
+
+\AtBeginEnvironment{theorem}{\Needspace{4\baselineskip}}
+\AtBeginEnvironment{definition}{\Needspace{4\baselineskip}}
+\AtBeginEnvironment{example}{\Needspace{4\baselineskip}}
+\AtBeginEnvironment{proof}{\Needspace{4\baselineskip}}
+\AtBeginEnvironment{solution}{\Needspace{4\baselineskip}}
+
+\usepackage{mathshorthand}
