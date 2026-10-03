@@ -11,8 +11,9 @@
 \section{تعريف الأعداد العقدية}
 يعّرف العدد العقدي بالشكل 
 \[
-z = x + iy
+z = x + iy \tag{*}
 \]
+
 حيث \(x, y\) أعداد حقيقية و \(i^2 = -1\) ، ويسمى \(x\) بالجزء الحقيقي للعدد العقدي \(z\) ويرمز له بالرمز \(x = \re z\) و \(y\) بالجزء الخيالي أو التخيلي للعدد العقدي \(z\) ويرمز له \(y = \im z\).
 
 \section{تمثيل الأعداد العقدية هندسياً}
@@ -169,6 +170,7 @@ z = x + iy = (x, y)
 	\end{tasks}
 \end{solution}
 
+
 \section{القيمة المطلقة للعدد العقدي}
 ليكن \(z = x + iy\) عدد عقدي، وكما تعلمنا سابقا ان العدد العقدي يتمثل كنقطة على المستوي العقدي (المستوي \(z\) أو المستوي \(xy\)) ، فأن القيمة المطلقة للعدد العقدي \(z\) تتمثل بطول قطعة المستقيم المرسومة من نقطة الأصل الى العدد العقدي نفسه ويرمز لها بالرمز \(|z|\)، كما في الشكل
 \begin{center}
@@ -193,3 +195,103 @@ z = x + iy = (x, y)
 \[
 |z|^2 = x^2 + y^2 => |z| = \sqrt{x^2 + y^2}
 \]
+
+\section{مرافق العدد العقدي}
+ليكن \(z = x+ iy\) عدد عقدي ، فأن مرافق العدد \(z\) هو نفس العدد مع عكس اشارة الجزء التخيلي ويرمز له بالرمز \(\overline{z}\) ، أي  أن 
+\[
+\overline{z} = \overline{(x + iy)} = x - iy
+\]
+أما على المستوي الإحداثي فأن مرافق العدد العقدي يكون مناظر للعدد الأصلي حول المحور \(x\)
+
+\begin{center}
+	\def\xscale{1}
+	\def\yscale{1}
+	\begin{tikzpicture}[x=\xscale cm, y=\yscale cm, thick]
+		\draw (-1, 0) -- (6, 0) node[below left, xshift=6pt] {$x$};
+		\draw (0, -2) -- (0, 3) node[below left, yshift=3pt] {$y$};
+		\node[below left, xshift=2, yshift=2] at (0, 0) {$O$} coordinate (O);
+		
+		\coordinate (z) at (3,1.5);
+		\coordinate (zc) at (3, -1.5);
+		\draw[-tri, shorten >= 2pt, very thick] (O) --node[midway, above]{$z$} (z);
+		\draw[-tri, shorten >= 2pt, very thick] (O) -- node[midway, below]{$\overline{z}$} (zc);
+		\draw[dashed, gray] (z) -- (zc);
+		\foreach \z in {z, zc}{\fill (\z) circle (2.5pt);}
+		
+		\node[right] at (z) {$x + iy$};
+		\node[right] at (zc) {$x - iy$};
+	\end{tikzpicture}
+\end{center}
+
+\subsection*{خصائص مرافق العدد العقدي}
+\begin{tasks}[cols=1]
+	\task 
+	نلاحظ ان طول كل من \(z\) و \(\overline{z}\) متساوي ، أي أن \(|z| = |\overline{z}|\)
+	\task 
+	كما أن 
+	\[
+	\overline{\overline{z}} = \overline{\overline{x + iy}} = \overline{x - iy} = x + iy = z
+	\]
+	\task \(\overline{z_1 + z_2} = \overline{z_1} + \overline{z_2}\)
+	\task \(\overline{z_1 - z_2} = \overline{z_1} - \overline{z_2}\)
+	\task \(\overline{(z_1/z_2)} = (\overline{z_1})/(\overline{z_2})\)
+	\task
+	لو جمعنا العدد العقدي مع مرافقه ينتج
+	\[
+	z + \overline{z} = (x + iy) + (x - iy) = 2x = 2\re z => \re z = (z + \overline{z})/2
+	\]
+	بطريقة مشابهة
+	\[
+	z - \overline{z} = (x + iy) - (x - iy) = i2y = 2i\im z => \im z = (z - \overline{z})/2i
+	\]
+	\task أما اذا ضربنا العدد بمرافقه
+	\[
+	z \overline{z} = (x + iy) (x - iy) = x^2 + y^2 = |z|^2
+	\]
+\end{tasks}
+
+\section{الصيغة القطبية والأسية للعدد العقدي}
+ليكن \(z = x + iy\) عدد عقدي بالصيغة الكارتيزية، من دراستنا السابقة يمكن تمثيل النقطة \((x , y)\) بالصيغة القطبية \((r, \theta)\) حيث 
+\[
+x = r \cos \theta , \qquad y = r \sin \theta
+\]
+لذلك العدد العقدي يمكن كتابته بالشكل 
+\[
+z = r(\cos \theta + i \sin \theta)
+\]
+هنا \(r\) تمثل طول المتجه للعدد العقدي أي أن \(r = |z|\)  ، أما \(\theta\) تمثل الزاوية الذي يصنعها متجه العدد العقدي ، والشكل التالي يوضح المفهومين
+
+\begin{center}
+	\def\xscale{1}
+\def\yscale{1}
+\begin{tikzpicture}[x=\xscale cm, y=\yscale cm, thick]
+	\draw (-1, 0) -- (4, 0) node[below left, xshift=6pt] {$x$};
+	\draw (0, -1) -- (0, 3) node[below left, yshift=3pt] {$y$};
+	\node[below left, xshift=2, yshift=2] at (0, 0) {$O$} coordinate (O);
+	
+	\coordinate (z) at (1.5, 2);
+	\coordinate (zx) at (1.5, 0);
+	\draw[-tri, shorten >= 2pt, very thick] (O) --node[above]{$r$} (z);
+	\fill (z) circle (2.5pt);
+	\node[right] at (z) {$z = x + iy$};
+	\spiralangle[0]{z}{1}{1}{$\theta$}{right, xshift=5pt}
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+	\def\xscale{1}
+	\def\yscale{1}
+	\begin{tikzpicture}[x=\xscale cm, y=\yscale cm, thick]
+		\draw (-2, 0) -- (3, 0) node[below left, xshift=6pt] {$x$};
+		\draw (0, -2) -- (0, 3) node[below left, yshift=3pt] {$y$};
+		\node[below left, xshift=2, yshift=2] at (0, 0) {$O$} coordinate (O);
+		
+		\coordinate (z) at (1.5, 2);
+		\draw[-tri, shorten >= 2pt, very thick] (O) --node[above]{$r$} (z);
+		\fill (z) circle (2.5pt);
+		\node[right] at (z) {$z = x + iy$};
+		
+		\spiralangle[1]{z}{0.4}{1}{$\theta$}{right, xshift=5pt}
+
+	\end{tikzpicture}
+\end{center}

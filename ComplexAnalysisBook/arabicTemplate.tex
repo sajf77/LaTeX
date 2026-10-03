@@ -6,6 +6,8 @@ bottom=1in,
 inner=0.675in,
 outer=0.65in,
 ]{geometry}
+
+
 \usepackage{setspace}
 \setstretch{1.5}
 
@@ -67,6 +69,43 @@ outer=0.65in,
 		\draw[thick, {Bar[width=6pt]}-{Bar[width=6pt]}] (mlSin) -- (mlEin)
 		node[midway, #4] {#3};
 	\end{scope}
+}
+
+\tikzset{
+	spiral arc/.style={thick},
+	spiral arrow/.style={-{Latex[length=3mm]}, thick},
+}
+
+\newcommand{\spiralangle}[6][1]{%
+	\begin{scope}
+		% point: works for both "P" and "1,2.3"
+		\coordinate (spiral@P) at (#2);
+		\coordinate (spiral@U) at (1,0);
+		\pgfpointanchor{spiral@P}{center}\pgfgetlastxy{\spx}{\spy}
+		\pgfpointanchor{spiral@U}{center}\pgfgetlastxy{\sux}{\suy}
+		
+		% angles
+		\pgfmathsetmacro{\sray}{mod(atan2(\spy,\spx)+360,360)}
+		\pgfmathsetmacro{\sang}{\sray+360*#1}
+		
+		% arrowhead length in tikz units (independent of scale)
+		\pgfmathsetmacro{\shl}{3mm/\sux}
+		
+		% spiral geometry
+		\pgfmathsetmacro{\sk}{(#4-#3)/\sang}
+		\pgfmathsetmacro{\sdr}{\sk*180/pi}
+		\pgfmathsetmacro{\stb}{\sang-(\shl/#4)*180/pi}
+		\pgfmathsetmacro{\srb}{#3+\sk*\stb}
+		\pgfmathsetmacro{\stang}{\stb+atan2(\srb,\sdr)}
+		
+		% arc (stopped early) and arrowhead on the tangent
+		\draw[spiral arc] plot[domain=0:\stb, samples=300, variable=\t]
+		({(#3+\sk*\t)*cos(\t)}, {(#3+\sk*\t)*sin(\t)});
+		\draw[-tri] (\stb:\srb) -- ++(\stang:\shl);
+		
+		% label at the arrow tip
+		\node[#6, inner sep=2pt] at (\stb:\srb) {#5};
+	\end{scope}%
 }
 
 \newcounter{myfig}
@@ -216,7 +255,7 @@ outer=0.65in,
 	\colorbox{gray!15}{\textbf{ملاحظة}}\par
 	\noindent#1}{\par}
 
-\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesection}{\arabic{section}.}
 
 % ---- per-section total tracking (2-pass, via the .aux file) -------------
 \makeatletter
